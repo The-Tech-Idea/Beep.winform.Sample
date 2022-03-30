@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".gitattributes" />
+    <None Remove=".gitignore" />
     <None Remove="Addin\HereweAddAllVisualAddin.txt" />
     <None Remove="config\AddinTreeStructure.json" />
     <None Remove="config\Apps.json" />
@@ -294,8 +296,11 @@
     <None Remove="GFX\xlsx.ico" />
     <None Remove="GFX\xml.ico" />
     <None Remove="GFX\zip.ico" />
-    <None Remove="LoadingExtensions\AssemblyLoaderIBranchAINet6.dll" />
+    <None Remove="LoadingExtensions\AIModuleNet6.dll" />
+    <None Remove="LoadingExtensions\AppModuleNet6.dll" />
+    <None Remove="LoadingExtensions\AssemblyLoaderIAIandAppsNet6.dll" />
     <None Remove="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll" />
+    <None Remove="LoadingExtensions\BeepEnterprize.Vis.Module.net6.dll" />
     <None Remove="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="Mapping\HereweAddAllmapping.txt" />
     <None Remove="OtherDLL\Dapper.dll" />
@@ -315,6 +320,7 @@
     <None Remove="ProjectClasses\DataSources\WebApiDataSourceCore.dll" />
     <None Remove="ProjectClasses\HereweputClasses.txt" />
     <None Remove="ProjectClasses\RuleParserandEditor.dll" />
+    <None Remove="ProjectClasses\TreeNodes\BeepEnterprize.Vis.Module.net6.dll" />
     <None Remove="ProjectData\HereweAddAllfiles.txt" />
     <None Remove="ProjectData\OilandGas\IHS\activity-codes_210667110913052332.xls" />
     <None Remove="ProjectData\OilandGas\IHS\Additive-Type.xlsx" />
@@ -1263,10 +1269,19 @@
     <Content Include="GFX\zip.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LoadingExtensions\AssemblyLoaderIBranchAINet6.dll">
+    <Content Include="LoadingExtensions\AIModuleNet6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\AppModuleNet6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\AssemblyLoaderIAIandAppsNet6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\BeepEnterprize.Vis.Module.net6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt">
@@ -1276,6 +1291,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OtherDLL\Dapper.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\TreeNodes\BeepEnterprize.Vis.Module.net6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\TreeNodes\BeepEnterprizeTreeNodes.net6.dll">
