@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+ <ItemGroup>
+   <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.3" />
+ </ItemGroup>
+ <ItemGroup>
+   <ProjectReference Include="..\Modules\AIModuleNet6\AIModuleNet6.csproj" />
+   <ProjectReference Include="..\Modules\AppModuleNet6\AppModuleNet6.csproj" />
+ </ItemGroup>
+	<Target Name="CreateDirectories">
+		<MakeDir Directories=" $(ProjectDir)..\outputdll\$(TargetName)\" />
+	</Target>
+	<Target Name="CopyFiles">
+		<ItemGroup>
+			<!-- Because this ItemGroup is inside the target, this will enumerate
+                 all files just before calling Copy. If the ItemGroup were outside
+                 the target , it would enumerate the files during evaluation, before
+                 the build starts, which may miss files created during the build. -->
+			<MySourceFiles Include="$(ProjectDir)\bin\Debug\net6.0\$(TargetName).dll" />
+		</ItemGroup>
+
+		<Copy SourceFiles="@(MySourceFiles)" DestinationFiles="$(SolutionDir)\%(RecursiveDir)%(Filename)%(Extension)" />
+	</Target>
+</Project>

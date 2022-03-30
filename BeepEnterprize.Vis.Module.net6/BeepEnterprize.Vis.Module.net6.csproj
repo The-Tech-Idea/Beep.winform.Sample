@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+	  <Compile Include="..\BeepEnterprize.Vis.Module\**\*">
+		  <Link>%(RecursiveDir)/%(FileName).cs</Link>
+	  </Compile>
+  </ItemGroup>
+	<ItemGroup>
+		<Compile Remove="..\BeepEnterprize.Vis.Module\bin\Debug\**" />
+		<Compile Remove="..\BeepEnterprize.Vis.Module\obj\**" />
+		<Compile Remove="..\BeepEnterprize.Vis.Module\Properties\**" />
+		<Compile Remove="bin\**" />
+		<EmbeddedResource Remove="bin\**" />
+		<None Remove="bin\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Remove="..\BeepEnterprize.Vis.Module\app.config" />
+		<Compile Remove="..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj" />
+		<Compile Remove="..\BeepEnterprize.Vis.Module\BeepEnterprizeTreeNodes.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.3" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.3" />
+	</ItemGroup>
+
+</Project>
