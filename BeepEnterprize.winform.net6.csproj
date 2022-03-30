@@ -322,6 +322,7 @@
     <None Remove="ProjectClasses\RuleParserandEditor.dll" />
     <None Remove="ProjectClasses\TreeNodes\BeepEnterprize.Vis.Module.net6.dll" />
     <None Remove="ProjectData\HereweAddAllfiles.txt" />
+    <None Remove="ProjectData\nile.csv" />
     <None Remove="ProjectData\OilandGas\IHS\activity-codes_210667110913052332.xls" />
     <None Remove="ProjectData\OilandGas\IHS\Additive-Type.xlsx" />
     <None Remove="ProjectData\OilandGas\IHS\Core-Type.xls" />
@@ -410,6 +411,7 @@
     <None Remove="ProjectData\OilandGas\OilandGasDataTypes\well_status.xls" />
     <None Remove="ProjectData\OilandGas\OilandGasDataTypes\well_types.xls" />
     <None Remove="ProjectData\titanic.csv" />
+    <None Remove="ProjectData\tmp.csv" />
     <None Remove="Scripts\HereweAddAllscripts.txt" />
     <None Remove="Scripts\Logs\HereweAddAllscriptlogs.txt" />
     <None Remove="WorkFlow\DataWorkFlow.json" />
@@ -1609,7 +1611,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectData\titanic.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Scripts\HereweAddAllscripts.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -1636,6 +1638,15 @@
     <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.3" />
     <PackageReference Include="TheTechIdea.Beep.DMLoggerNet6" Version="1.0.0.2" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoaderNet6" Version="1.0.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ProjectData\nile.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectData\tmp.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
