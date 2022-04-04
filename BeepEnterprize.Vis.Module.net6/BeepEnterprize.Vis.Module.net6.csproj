@@ -4,6 +4,16 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>TheTechIdea.Beep.Vis.ModulesNet6</PackageId>
+    <Version>1.0.0.5</Version>
+    <Authors>The Tech Idea</Authors>
+    <Product>TheTechIdea.Beep.Vis.ModulesNet6</Product>
+    <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
+    <Copyright>2022</Copyright>
+    <PackageProjectUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform.net6</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform.net6</RepositoryUrl>
+    <PackageIcon>SimpleODM.png</PackageIcon>
   </PropertyGroup>
   <ItemGroup>
 	  <Compile Include="..\BeepEnterprize.Vis.Module\**\*">
@@ -22,6 +32,12 @@
 		<Compile Remove="..\BeepEnterprize.Vis.Module\app.config" />
 		<Compile Remove="..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj" />
 		<Compile Remove="..\BeepEnterprize.Vis.Module\BeepEnterprizeTreeNodes.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Include="..\..\..\..\..\OneDrive\SimpleInfoapps\LogoGFx\128\SimpleODM.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.3" />

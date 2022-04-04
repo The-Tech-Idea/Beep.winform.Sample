@@ -1633,11 +1633,13 @@
     <PackageReference Include="Serilog" Version="2.10.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-    <PackageReference Include="TheTechIdea.Beep.AssemblyHelper" Version="1.0.0.2" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.3" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.3" />
-    <PackageReference Include="TheTechIdea.Beep.DMLoggerNet6" Version="1.0.0.2" />
-    <PackageReference Include="TheTechIdea.Beep.JsonLoaderNet6" Version="1.0.0.2" />
+    <PackageReference Include="TheTechIdea.Beep.AssemblyHelperNet6" Version="1.0.0.5" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.12" />
+    <PackageReference Include="TheTechIdea.Beep.DMLoggerNet6" Version="1.0.0.5" />
+    <PackageReference Include="TheTechIdea.Beep.JsonLoaderNet6" Version="1.0.0.5" />
+    <PackageReference Include="TheTechIdea.Beep.Workflow.RuleParserNet6" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.Workflow.WorkFlowEditorNet6" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.Workflow.WorkFlowStepEditorNet6" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1650,11 +1652,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
     <ProjectReference Include="..\BeepEnterprize.Winform.Vis.net6\BeepEnterprize.Winform.Vis.net6.csproj" />
-    <ProjectReference Include="..\RuleParserandEditor\RuleParserandEditor.csproj" />
-    <ProjectReference Include="..\WorkFlowEditor\WorkFlowEditor.csproj" />
-    <ProjectReference Include="..\WorkflowStepEditor\WorkflowStepEditor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
