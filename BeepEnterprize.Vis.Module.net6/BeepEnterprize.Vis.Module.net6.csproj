@@ -14,6 +14,7 @@
     <PackageProjectUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform.net6</PackageProjectUrl>
     <RepositoryUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform.net6</RepositoryUrl>
     <PackageIcon>SimpleODM.png</PackageIcon>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 	<Target Name="CopyPackage" AfterTargets="Pack">
 		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\Users\f_ald\source\repos\Nuget.Local" />

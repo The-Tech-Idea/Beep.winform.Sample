@@ -7,6 +7,7 @@
     <BaseOutputPath>bin\</BaseOutputPath>
     <DebugType>full</DebugType>
     <RootNamespace>BeepEnterprizeTreeNodes</RootNamespace>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 	<Target Name="CopyPackage" AfterTargets="Pack">
 		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\Users\f_ald\source\repos\Nuget.Local" />
