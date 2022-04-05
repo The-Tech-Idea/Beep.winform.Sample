@@ -72,6 +72,8 @@ namespace DataManagment_Engine
                 ruleparser = scope.Resolve<IRuleParser>();
                 rulesEditor = scope.Resolve<IRulesEditor>();
                 DMEEditor = scope.Resolve<IDMEEditor>();
+                typesHelper = scope.Resolve<IDataTypesHelper>();
+                DMEEditor.typesHelper = typesHelper;
                 DMEEditor.ETL = eTL;
                 DMEEditor.assemblyHandler = LLoader;
 
@@ -84,8 +86,10 @@ namespace DataManagment_Engine
                 rulesEditor.DMEEditor = DMEEditor;
                 rulesEditor.Parser = ruleparser;
                 DMEEditor.ETL.RulesEditor = rulesEditor;
+
                 vis = scope.Resolve<IVisManager>();
-               
+
+
                 LLoader.LoadAllAssembly();
                 Config_editor.LoadedAssemblies = LLoader.Assemblies.Select(c => c.DllLib).ToList();
 

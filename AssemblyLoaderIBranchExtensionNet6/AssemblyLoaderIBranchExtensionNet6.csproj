@@ -8,12 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.3" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.12" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.5" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.5" />
   </ItemGroup>
 
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">

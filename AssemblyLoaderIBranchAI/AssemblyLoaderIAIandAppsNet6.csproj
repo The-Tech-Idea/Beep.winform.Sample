@@ -6,7 +6,7 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
  <ItemGroup>
-   <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.3" />
+   <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.5" />
  </ItemGroup>
  <ItemGroup>
    <ProjectReference Include="..\Modules\AIModuleNet6\AIModuleNet6.csproj" />

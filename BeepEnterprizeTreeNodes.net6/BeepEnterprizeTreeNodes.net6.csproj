@@ -8,6 +8,10 @@
     <DebugType>full</DebugType>
     <RootNamespace>BeepEnterprizeTreeNodes</RootNamespace>
   </PropertyGroup>
+	<Target Name="CopyPackage" AfterTargets="Pack">
+		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\Users\f_ald\source\repos\Nuget.Local" />
+	</Target>
+
 	<ItemGroup>
     <Compile Include="..\BeepEnterprizeTreeNodes\**\*">
       <Link>%(RecursiveDir)/%(FileName).cs</Link>
@@ -26,11 +30,9 @@
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.3" />
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.3" />
-	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.12" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.5" />
+	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.5" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="App\" />

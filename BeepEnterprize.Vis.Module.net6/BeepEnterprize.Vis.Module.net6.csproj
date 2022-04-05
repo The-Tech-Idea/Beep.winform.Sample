@@ -15,7 +15,11 @@
     <RepositoryUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform.net6</RepositoryUrl>
     <PackageIcon>SimpleODM.png</PackageIcon>
   </PropertyGroup>
-  <ItemGroup>
+	<Target Name="CopyPackage" AfterTargets="Pack">
+		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\Users\f_ald\source\repos\Nuget.Local" />
+	</Target>
+
+	<ItemGroup>
 	  <Compile Include="..\BeepEnterprize.Vis.Module\**\*">
 		  <Link>%(RecursiveDir)/%(FileName).cs</Link>
 	  </Compile>
@@ -40,8 +44,8 @@
 	  </None>
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.3" />
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.3" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.12" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.5" />
 	</ItemGroup>
 
 </Project>
