@@ -304,10 +304,10 @@
     <None Remove="LoadingExtensions\AppModuleNet6.dll" />
     <None Remove="LoadingExtensions\AssemblyLoaderIAIandAppsNet6.dll" />
     <None Remove="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll" />
+    <None Remove="LoadingExtensions\BeepEnterprize.Vis.Module.net6.dll" />
     <None Remove="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="Mapping\HereweAddAllmapping.txt" />
     <None Remove="OtherDLL\Dapper.dll" />
-    <None Remove="ProjectClasses\BeepEnterprizeTreeNodes.net6.dll" />
     <None Remove="ProjectClasses\DataSources\CouchBaseDataSourceCore.dll" />
     <None Remove="ProjectClasses\DataSources\CouchDBDataSourceCore.dll" />
     <None Remove="ProjectClasses\DataSources\CSVDatasourceCore.dll" />
@@ -323,6 +323,7 @@
     <None Remove="ProjectClasses\DataSources\WebApiDataSourceCore.dll" />
     <None Remove="ProjectClasses\HereweputClasses.txt" />
     <None Remove="ProjectClasses\RuleParserandEditor.dll" />
+    <None Remove="ProjectClasses\TreeNodes\BeepEnterprize.Vis.Module.net6.dll" />
     <None Remove="ProjectData\HereweAddAllfiles.txt" />
     <None Remove="ProjectData\nile.csv" />
     <None Remove="ProjectData\OilandGas\IHS\activity-codes_210667110913052332.xls" />
@@ -1285,6 +1286,9 @@
     <Content Include="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LoadingExtensions\BeepEnterprize.Vis.Module.net6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1292,6 +1296,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OtherDLL\Dapper.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\TreeNodes\BeepEnterprize.Vis.Module.net6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\TreeNodes\BeepEnterprizeTreeNodes.net6.dll">
@@ -1626,17 +1633,9 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="Serilog" Version="2.10.0" />
+    <PackageReference Include="Serilog" Version="2.11.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-    <PackageReference Include="TheTechIdea.Beep.AssemblyHelperNet6" Version="1.0.0.6" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.12" />
-    <PackageReference Include="TheTechIdea.Beep.DMLoggerNet6" Version="1.0.0.5" />
-    <PackageReference Include="TheTechIdea.Beep.JsonLoaderNet6" Version="1.0.0.5" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.5" />
-    <PackageReference Include="TheTechIdea.Beep.Workflow.RuleParserNet6" Version="1.0.0" />
-    <PackageReference Include="TheTechIdea.Beep.Workflow.WorkFlowEditorNet6" Version="1.0.0" />
-    <PackageReference Include="TheTechIdea.Beep.Workflow.WorkFlowStepEditorNet6" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1649,6 +1648,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\BeepDM\Assembly_helpersNet6\Assembly_helpersNet6.csproj" />
+    <ProjectReference Include="..\..\BeepDM\DataManagmentEngineNet6\DataManagmentEngineNet6.csproj" />
+    <ProjectReference Include="..\..\BeepDM\DataManagmentModelsNet6\DataManagmentModelsNet6.csproj" />
+    <ProjectReference Include="..\..\BeepDM\DMLoggerNet6\DMLoggerNet6.csproj" />
+    <ProjectReference Include="..\..\BeepDM\JsonFileLoaderNet6\JsonFileLoaderNet6.csproj" />
+    <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
     <ProjectReference Include="..\BeepEnterprize.Winform.Vis.net6\BeepEnterprize.Winform.Vis.net6.csproj" />
   </ItemGroup>
 

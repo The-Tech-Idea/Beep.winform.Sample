@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.5" />
+    <ProjectReference Include="..\..\..\BeepDM\DataManagmentModelsNet6\DataManagmentModelsNet6.csproj" />
   </ItemGroup>
 
 </Project>
