@@ -15,7 +15,8 @@ namespace BeepEnterprize.Vis.Module
     {
             string CategoryIcon { get; set; }
             string SelectIcon { get; set; }
-            IBranch CurrentBranch { get; set; }
+        string TreeType { get; set; }
+        IBranch CurrentBranch { get; set; }
             IDMEEditor DMEEditor { get; set; }
             PassedArgs args { get; set; }
             int SeqID { get; }
@@ -24,13 +25,13 @@ namespace BeepEnterprize.Vis.Module
             int SelectedBranchID { get; set; }
             List<int> SelectedBranchs { get; set; }
             ITreeBranchHandler treeBranchHandler { get; set; }
-        //  IErrorsInfo SendActionFromBranchToBranch(IBranch ParentBranch, IBranch CurrentBranch, string ActionType);
+      
             IErrorsInfo RunMethod(object branch, string MethodName);
             IErrorsInfo CreateRootTree();
             IErrorsInfo CreateFunctionExtensions(MethodsClass item);
-           
-           
 
-        
+        string Filterstring { set; }
+
+
     }
 }

@@ -6,7 +6,7 @@
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>TheTechIdea.Beep.Vis.ModulesNet6</PackageId>
-    <Version>1.0.0.6</Version>
+    <Version>1.0.0.10</Version>
     <Authors>The Tech Idea</Authors>
     <Product>TheTechIdea.Beep.Vis.ModulesNet6</Product>
     <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
