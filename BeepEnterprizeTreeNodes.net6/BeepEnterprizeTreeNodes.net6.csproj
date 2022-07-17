@@ -22,16 +22,16 @@
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\bin\Debug\**" />
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\obj\**" />
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\Properties\**" />
+	  <Compile Remove="App\**" />
 	  <Compile Remove="bin\**" />
+	  <EmbeddedResource Remove="App\**" />
 	  <EmbeddedResource Remove="bin\**" />
+	  <None Remove="App\**" />
 	  <None Remove="bin\**" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\app.config" />
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj" />
-	</ItemGroup>
-	<ItemGroup>
-	  <Folder Include="App\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <ProjectReference Include="..\..\BeepDM\DataManagmentEngineNet6\DataManagmentEngineNet6.csproj" />
