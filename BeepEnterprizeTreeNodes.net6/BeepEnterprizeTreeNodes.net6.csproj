@@ -10,32 +10,32 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 	<Target Name="CopyPackage" AfterTargets="Pack">
-		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="C:\Users\f_ald\source\repos\Nuget.Local" />
+		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="..\..\..\Nuget.Local" />
 	</Target>
 
 	<ItemGroup>
-    <Compile Include="..\BeepEnterprizeTreeNodes\**\*">
+    <Compile Include="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\**\*">
       <Link>%(RecursiveDir)/%(FileName).cs</Link>
     </Compile>
 </ItemGroup>
 	<ItemGroup>
-	  <Compile Remove="..\BeepEnterprizeTreeNodes\bin\Debug\**" />
-	  <Compile Remove="..\BeepEnterprizeTreeNodes\obj\**" />
-	  <Compile Remove="..\BeepEnterprizeTreeNodes\Properties\**" />
-	  <Compile Remove="bin\**" />
-	  <EmbeddedResource Remove="bin\**" />
-	  <None Remove="bin\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\bin\Debug\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\bin\Release\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\obj\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\Properties\**" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\app.config" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\packages.config" />
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\app.config" />
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <Folder Include="App\" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.27" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.14" />
+	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.12" />
 	</ItemGroup>
-	<ItemGroup>
-	  <ProjectReference Include="..\..\BeepDM\DataManagmentEngineNet6\DataManagmentEngineNet6.csproj" />
-	  <ProjectReference Include="..\..\BeepDM\DataManagmentModelsNet6\DataManagmentModelsNet6.csproj" />
-	  <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
-	</ItemGroup>
+	
+
 </Project>

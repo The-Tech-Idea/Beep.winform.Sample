@@ -11,88 +11,46 @@ using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.Vis;
-using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    [AddinAttribute(Caption = "Edit", Name = "EditMenuFunctions", misc = "EditMenuFunctions", addinType = AddinType.Class, iconimage = "edit.ico", order = 2)]
+    [AddinAttribute(Caption = "Edit", Name = "EditMenuFunctions", ObjectType = "Beep", misc = "EditMenuFunctions", menu = "Beep", addinType = AddinType.Class, iconimage = "edit.ico", order = 2)]
     public class EditMenuFunctions : IFunctionExtension
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
-        private VisManager Vismanager { get; set; }
-        private ControlManager Controlmanager { get; set; }
-        private CrudManager Crudmanager { get; set; }
-        private MenuControl Menucontrol { get; set; }
-        private ToolbarControl Toolbarcontrol { get; set; }
-        private TreeControl TreeEditor { get; set; }
-
-        CancellationTokenSource tokenSource;
-        CancellationToken token;
-        IDataSource DataSource;
-        IBranch pbr;
-        IBranch RootBranch;
+        //private VisManager Vismanager { get; set; }
+        //private ControlManager Controlmanager { get; set; }
+        //private CrudManager Crudmanager { get; set; }
+        //private MenuControl Menucontrol { get; set; }
+        //private ToolbarControl Toolbarcontrol { get; set; }
+        //private TreeControl TreeEditor { get; set; }
+        //private FunctionandExtensionsHelpers ExtensionsHelpers;
+        //CancellationTokenSource tokenSource;
+        //CancellationToken token;
+        //IDataSource DataSource;
+        //IBranch pbr;
+        //IBranch RootBranch;
+        //IBranch ParentBranch;
+        private FunctionandExtensionsHelpers ExtensionsHelpers;
         public EditMenuFunctions(IDMEEditor pdMEEditor, VisManager pvisManager, TreeControl ptreeControl)
         {
             DMEEditor = pdMEEditor;
-            Vismanager = pvisManager;
-            TreeEditor = ptreeControl;
+         
+            ExtensionsHelpers = new FunctionandExtensionsHelpers(DMEEditor, pvisManager, ptreeControl);
         }
-        private void GetValues(IPassedArgs Passedarguments)
-        {
-
-            if (Passedarguments.Objects.Where(c => c.Name == "Vismanager").Any())
-            {
-                Vismanager = (VisManager)Passedarguments.Objects.Where(c => c.Name == "Vismanager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "TreeControl").Any())
-            {
-                TreeEditor = (TreeControl)Passedarguments.Objects.Where(c => c.Name == "TreeControl").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "CrudManager").Any())
-            {
-                Crudmanager = (CrudManager)Passedarguments.Objects.Where(c => c.Name == "CrudManager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "ControlManager").Any())
-            {
-                Controlmanager = (ControlManager)Passedarguments.Objects.Where(c => c.Name == "ControlManager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "MenuControl").Any())
-            {
-                Menucontrol = (MenuControl)Passedarguments.Objects.Where(c => c.Name == "MenuControl").FirstOrDefault().obj;
-            }
-
-            if (Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").Any())
-            {
-                Toolbarcontrol = (ToolbarControl)Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").FirstOrDefault().obj;
-            }
-            if (!string.IsNullOrEmpty(Passedarguments.DatasourceName))
-            {
-                DataSource = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
-                if(DataSource!= null)
-                {
-                    DMEEditor.OpenDataSource(Passedarguments.DatasourceName);
-                }
-            }
-            if (Passedarguments.Id>0)
-            {
-                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-                RootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
-            }
-           
-            
-        }
+      
 
 
-        [CommandAttribute(Caption = "Turnon/Off CheckBox's", Name = "Turnon/Off CheckBox", Click = true, iconimage = "checkbox.ico", PointType = EnumPointType.Global)]
+        [CommandAttribute(Caption = "Turnon/Off CheckBox's", Name = "Turnon/Off CheckBox", Click = true, iconimage = "checkbox.ico", ObjectType = "Beep", PointType = EnumPointType.Global)]
         public IErrorsInfo TurnonOffCheckBox(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             try
             {
-                GetValues(Passedarguments);
-                TreeEditor.TurnonOffCheckBox(Passedarguments);
+                ExtensionsHelpers.GetValues(Passedarguments);
+                ExtensionsHelpers.TreeEditor.TurnonOffCheckBox(Passedarguments);
 
                 DMEEditor.AddLogMessage("Success", $"Turn on/off entities", DateTime.Now, 0, null, Errors.Ok);
             }
@@ -103,7 +61,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
 
         }
-        [CommandAttribute(Name = "EditDefaults", Caption = "Edit Default", Click = true, iconimage = "editdefaults.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "EditDefaults", Caption = "Edit Default", Click = true, iconimage = "editdefaults.ico", ObjectType = "Beep", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo EditDefault(IPassedArgs Passedarguments)
         {
 
@@ -111,10 +69,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             //  DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
             try
             {
-                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-                if (pbr.BranchType == EnumPointType.DataPoint)
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
-                    GetValues(Passedarguments);
+                   
                     List<DefaultValue> defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == Passedarguments.DatasourceName)].DatasourceDefaults;
                     if (defaults != null)
                     {
@@ -135,7 +93,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                         //  TreeEditor.args = (PassedArgs)Passedarguments;
                         DMEEditor.Passedarguments = Passedarguments;
                         DMEEditor.AddLogMessage("Success", $"Edit Defaults", DateTime.Now, 0, null, Errors.Ok);
-                        Vismanager.ShowPage("uc_datasourceDefaults", (PassedArgs)Passedarguments);
+                        ExtensionsHelpers.Vismanager.ShowPage("uc_datasourceDefaults", (PassedArgs)Passedarguments);
                     }
                     else
                     {
@@ -154,7 +112,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Name = "CopyDefaults", Caption = "Copy Default", Click = true, iconimage = "copydefaults.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "CopyDefaults", Caption = "Copy Default", Click = true, iconimage = "copydefaults.ico", ObjectType = "Beep", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo CopyDefault(IPassedArgs Passedarguments)
         {
 
@@ -162,10 +120,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             //  DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
             try
             {
-                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-                if (pbr.BranchType == EnumPointType.DataPoint)
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
-                    GetValues(Passedarguments);
+                   
                     List<DefaultValue> defaults = DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == Passedarguments.DatasourceName)].DatasourceDefaults;
                     if (defaults != null)
                     {
@@ -184,7 +142,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                         Passedarguments.EventType = "COPYDEFAULTS";
 
                         DMEEditor.AddLogMessage("Success", $"Copy Defaults", DateTime.Now, 0, null, Errors.Ok);
-                        Vismanager.Controlmanager.MsgBox("Beep", "Defaults Copied Successfully");
+                        ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Defaults Copied Successfully");
                         DMEEditor.Passedarguments = Passedarguments;
                     }
                     else
@@ -204,10 +162,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Name = "PasteDefaults", Caption = "Paste Default", Click = true, iconimage = "pastedefaults.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "PasteDefaults", Caption = "Paste Default", Click = true, iconimage = "pastedefaults.ico", ObjectType = "Beep", PointType = EnumPointType.DataPoint)]
         public IErrorsInfo PasteDefault(IPassedArgs Passedarguments)
         {
-            GetValues(Passedarguments);
+            ExtensionsHelpers.GetValues(Passedarguments);
 
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             //  DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
@@ -220,10 +178,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                         if (Passedarguments.Objects.Where(o => o.Name == "Defaults").Any())
                         {
                             List<DefaultValue> defaults = (List<DefaultValue>)Passedarguments.Objects.Where(o => o.Name == "Defaults").FirstOrDefault().obj;
-                            DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == DataSource.DatasourceName)].DatasourceDefaults = defaults;
+                            DMEEditor.ConfigEditor.DataConnections[DMEEditor.ConfigEditor.DataConnections.FindIndex(i => i.ConnectionName == ExtensionsHelpers.DataSource.DatasourceName)].DatasourceDefaults = defaults;
                             DMEEditor.ConfigEditor.SaveDataconnectionsValues();
                             DMEEditor.AddLogMessage("Success", $"Paste Defaults", DateTime.Now, 0, null, Errors.Ok);
-                            Vismanager.Controlmanager.MsgBox("Beep", "Pasted Defaults Successfully");
+                            ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Pasted Defaults Successfully");
                         }
 
                     }
@@ -238,7 +196,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
 
         }
-        [CommandAttribute(Name = "WorkFlowEditor", Caption = "WorkFlow Editor", Click = true, iconimage = "workflow.ico", PointType = EnumPointType.Global)]
+        [CommandAttribute(Name = "WorkFlowEditor", Caption = "WorkFlow Editor", Click = true, iconimage = "workflow.ico", ObjectType = "Beep", PointType = EnumPointType.Global)]
         public IErrorsInfo WorkFlowEditor(IPassedArgs Passedarguments)
         {
 
@@ -246,12 +204,12 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             //  DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
             try
             {
-             
-                    GetValues(Passedarguments);
+
+                ExtensionsHelpers.GetValues(Passedarguments);
                      //  TreeEditor.args = (PassedArgs)Passedarguments;
                         DMEEditor.Passedarguments = Passedarguments;
-                      //  DMEEditor.AddLogMessage("Success", $"Edit Defaults", DateTime.Now, 0, null, Errors.Ok);
-                        Vismanager.ShowPage("uc_WorkflowEditor", (PassedArgs)Passedarguments);
+                //  DMEEditor.AddLogMessage("Success", $"Edit Defaults", DateTime.Now, 0, null, Errors.Ok);
+                ExtensionsHelpers.Vismanager.ShowPage("uc_WorkflowEditor", (PassedArgs)Passedarguments);
             }
             catch (Exception ex)
             {

@@ -6,7 +6,7 @@
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>TheTechIdea.Beep.Vis.ModulesNet6</PackageId>
-    <Version>1.0.0.10</Version>
+    <Version>1.0.0.12</Version>
     <Authors>The Tech Idea</Authors>
     <Product>TheTechIdea.Beep.Vis.ModulesNet6</Product>
     <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
@@ -37,6 +37,23 @@
 		<Compile Remove="..\BeepEnterprize.Vis.Module\app.config" />
 		<Compile Remove="..\BeepEnterprize.Vis.Module\BeepEnterprize.Vis.Module.csproj" />
 		<Compile Remove="..\BeepEnterprize.Vis.Module\BeepEnterprizeTreeNodes.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\enums.cs" Link="enums.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IBranch.cs" Link="IBranch.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IBranchID.cs" Link="IBranchID.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IBranchRootCategory.cs" Link="IBranchRootCategory.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IControlManager.cs" Link="IControlManager.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\ITree.cs" Link="ITree.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\ITreeBranchHandler.cs" Link="ITreeBranchHandler.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IVisHelper.cs" Link="IVisHelper.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IVisManager.cs" Link="IVisManager.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IWizardButton.cs" Link="IWizardButton.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IWizardComponent.cs" Link="IWizardComponent.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IWizardManager.cs" Link="IWizardManager.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IWizardNode.cs" Link="IWizardNode.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IWizardState.cs" Link="IWizardState.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\WizardState.cs" Link="WizardState.cs" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include="..\..\..\..\..\OneDrive\SimpleInfoapps\LogoGFx\128\SimpleODM.png">

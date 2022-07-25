@@ -2,16 +2,12 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.DataBase;
-using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
@@ -31,11 +27,14 @@ namespace BeepEnterprize.Winform.Vis.Controls
            
 
         }
-        public System.Windows.Forms.TreeView TreeV { get; set; }
+        public TreeView TreeV { get; set; }
+       
+     
         private TreeControl Treecontrol { get; set; }
+      
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; }
-        public string ObjectType { get ; set ; }
+        public string ObjectType { get; set; } 
         public string AddinName { get ; set ; }
         public string Description { get ; set ; }
         public bool DefaultCreate { get ; set ; }
@@ -62,6 +61,23 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
         }
         #region "MEnu and Tool"
+        private bool IsMethodApplicabletoNode(AssemblyClassDefinition cls, IBranch br)
+        {
+            if (cls.classProperties == null)
+            {
+                return true;
+            }
+            if (cls.classProperties.ObjectType != null)
+            {
+                if (!cls.classProperties.ObjectType.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return false;
+                }
+            }
+            return true;
+
+
+        }
         public IErrorsInfo CreateToolbar()
         {
             try
@@ -73,16 +89,15 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
                 toolbarstrip.ImageScalingSize = new Size(20, 20);
                 toolbarstrip.Dock = System.Windows.Forms.DockStyle.Fill;
-                toolbarstrip.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-                toolbarstrip.Location = new System.Drawing.Point(342, 0);
+              //  toolbarstrip.Location = new System.Drawing.Point(342, 0);
                 toolbarstrip.Name = "TreetoolStrip";
-                toolbarstrip.Size = new System.Drawing.Size(32, 580);
+               // toolbarstrip.Size = new System.Drawing.Size(32, 580);
                 toolbarstrip.Text = "toolStrip1";
                 toolbarstrip.Stretch = true;
                 
                 //toolbarstrip.TextDirection = System.Windows.Forms.ToolStripTextDirection.;
                 toolbarstrip.ImageList = vismanager.Images;
-                foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.componentType == "IFunctionExtension"))
+                foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.componentType == "IFunctionExtension" && x.classProperties!=null && x.classProperties.ObjectType  !=null && x.classProperties.ObjectType.Equals(ObjectType,StringComparison.InvariantCultureIgnoreCase)))
                 {
                   
                     foreach (var item in cls.Methods)
@@ -124,15 +139,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         private void RunFunction(object sender, EventArgs e)
         {
-            //IBranch br = null;
-            //ToolStripItem item = (ToolStripItem)sender;
-         
-            //if (TreeV.SelectedNode != null)
-            //{
-            //    TreeNode n = TreeV.SelectedNode;
-
-            //    br = Treecontrol.treeBranchHandler.GetBranch(Convert.ToInt32(n.Tag));
-            //}
+            
             Treecontrol.RunFunction(sender, e);
         }
         #endregion

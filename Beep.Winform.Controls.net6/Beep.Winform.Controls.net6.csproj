@@ -96,9 +96,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BeepDM\DataManagmentEngineNet6\DataManagmentEngineNet6.csproj" />
-    <ProjectReference Include="..\..\BeepDM\DataManagmentModelsNet6\DataManagmentModelsNet6.csproj" />
-    <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.14" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.12" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -120,13 +119,15 @@
 	  <Compile Update="GridControls\LovEditingControl.cs">
 	    <SubType>Component</SubType>
 	  </Compile>
-	  <Compile Update="PopupWindow.cs">
-	    <SubType>Component</SubType>
-	  </Compile>
 	  <Compile Update="Properties\Resources.Designer.cs">
 	    <DesignTime>True</DesignTime>
 	    <AutoGen>True</AutoGen>
 	    <DependentUpon>Resources.resx</DependentUpon>
+	  </Compile>
+	  <Compile Update="Properties\Settings.Designer.cs">
+	    <DesignTimeSharedInput>True</DesignTimeSharedInput>
+	    <AutoGen>True</AutoGen>
+	    <DependentUpon>Settings.settings</DependentUpon>
 	  </Compile>
 	  <Compile Update="uc_BaseControl.cs">
 	    <SubType>UserControl</SubType>
@@ -147,6 +148,13 @@
 	    <Generator>ResXFileCodeGenerator</Generator>
 	    <LastGenOutput>Resources.Designer.cs</LastGenOutput>
 	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="Properties\Settings.settings">
+	    <Generator>SettingsSingleFileGenerator</Generator>
+	    <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+	  </None>
 	</ItemGroup>
 	
 

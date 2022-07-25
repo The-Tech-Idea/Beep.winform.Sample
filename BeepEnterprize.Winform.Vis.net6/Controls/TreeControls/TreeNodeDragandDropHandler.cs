@@ -75,10 +75,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 {
                     return;
                 }
-                IBranch targetBranch = treeControl.treeBranchHandler.GetBranch(Convert.ToInt32(targetNode.Tag));
+                IBranch targetBranch = (IBranch)targetNode.Tag;
                 // Retrieve the node that was dragged.
                 IBranch dragedBranch = (IBranch)e.Data.GetData(e.Data.GetFormats()[0]);
-                TreeNode dragedNode = treeControl.GetTreeNodeByTag(dragedBranch.BranchID.ToString(), TreeV.Nodes);
+                TreeNode dragedNode = treeControl.GetTreeNodeByID(dragedBranch.BranchID, TreeV.Nodes);
                 string targetBranchClass = targetBranch.GetType().Name;
                 string dragedBranchClass = dragedBranch.GetType().Name;
                 Function2FunctionAction functionAction = DMEEditor.ConfigEditor.Function2Functions.Where(x => x.FromClass == dragedBranchClass && x.ToClass == targetBranchClass && x.Event == "DragandDrop").FirstOrDefault();
@@ -247,7 +247,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             TreeNode n = (TreeNode)e.Item;
             if (e.Button == MouseButtons.Left)
             {
-                IBranch branch = treeControl.treeBranchHandler.GetBranch(Convert.ToInt32(n.Tag));
+                IBranch branch = (IBranch)n.Tag;
                 x.SetData(branch);
                 switch (branch.BranchType)
                 {

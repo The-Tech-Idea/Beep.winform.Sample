@@ -28,9 +28,16 @@ namespace BeepEnterprize.Winform.Vis
     {
         
         public IDMEEditor DMEEditor { get; set; }
+        public IDM_Addin MenuStrip { get; set; }
         public IDM_Addin ToolStrip { get; set; }
         public IDM_Addin Tree { get; set; }
-        public IDM_Addin MenuStrip { get; set; }
+        public bool WaitFormShown { get; set;}=false;
+        public IDM_Addin SecondaryTree { get; set; }
+        public IDM_Addin SecondaryToolStrip { get ; set ; }
+        public IDM_Addin SecondaryMenuStrip { get; set ; }
+
+        public List<ObjectItem> objects { get; set; } = new List<ObjectItem>();
+       
         public IVisHelper visHelper { get; set; }
         public IControlManager Controlmanager { get; set; }
         public ControlManager _controlManager { get { return (ControlManager)Controlmanager; } }
@@ -39,11 +46,25 @@ namespace BeepEnterprize.Winform.Vis
         {
             DMEEditor = pdmeeditor;
             visHelper = new VisHelper(DMEEditor,this);
+
             Tree = new TreeControl(DMEEditor, this);
             ToolStrip = new ToolbarControl(DMEEditor, (TreeControl)Tree);
             MenuStrip = new MenuControl(DMEEditor, (TreeControl)Tree);
+
+            SecondaryTree = new TreeControl(DMEEditor, this);
+            SecondaryToolStrip = new ToolbarControl(DMEEditor, (TreeControl)SecondaryTree);
+            SecondaryMenuStrip = new MenuControl(DMEEditor, (TreeControl)SecondaryTree);
+
             Controlmanager = new ControlManager(DMEEditor, this);
             wizardManager = new WizardManager(DMEEditor,this);
+            if (DMEEditor.Passedarguments == null)
+            {
+
+                DMEEditor.Passedarguments = new PassedArgs();
+                DMEEditor.Passedarguments.Objects = new List<ObjectItem>();
+
+            }
+            DMEEditor.Passedarguments.Objects = CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
         }
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
@@ -114,6 +135,7 @@ namespace BeepEnterprize.Winform.Vis
 
             try
             {
+                PassedArgs E=null;
                 ErrorsandMesseges = new ErrorsInfo();
                 ErrorsandMesseges = (ErrorsInfo)CheckSystemEntryDataisSet();
 
@@ -121,11 +143,16 @@ namespace BeepEnterprize.Winform.Vis
                     if (ErrorsandMesseges.Flag == Errors.Ok)
                     {
                         string[] args = { null, null, null };
-
-                        PassedArgs E = CreateDefaultArgsForVisUtil();
-
-                         MainFormView = ShowForm(DMEEditor.ConfigEditor.Config.SystemEntryFormName, DMEEditor, args, E);
-
+                        if (DMEEditor.Passedarguments == null)
+                        {
+                            E = CreateDefaultArgsForVisUtil();
+                        }   
+                        else
+                        {
+                            DMEEditor.Passedarguments.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
+                            E = (PassedArgs)DMEEditor.Passedarguments;
+                        }
+                        MainFormView = ShowForm(DMEEditor.ConfigEditor.Config.SystemEntryFormName, DMEEditor, args, E);
                     }
 
                 
@@ -146,6 +173,7 @@ namespace BeepEnterprize.Winform.Vis
         {
             try
             {
+                ErrorsandMesseges = new ErrorsInfo();
                 AddinAttribute attrib = new AddinAttribute();
                 if (DMEEditor.assemblyHandler.AddIns.Where(c => c.ObjectName.Equals(pagename, StringComparison.OrdinalIgnoreCase)).Any())
                 {
@@ -157,36 +185,40 @@ namespace BeepEnterprize.Winform.Vis
                         {
                             displayType = DisplayType.Popup;
                         }
+                        switch (attrib.addinType)
+                        {
+                            case AddinType.Form:
+                                ShowForm(pagename, DMEEditor, new string[] { }, Passedarguments);
+                                break;
+                            case AddinType.Control:
+                                if (displayType == DisplayType.InControl)
+                                {
+                                    ShowUserControlInContainer(pagename, DMEEditor, new string[] { }, Passedarguments);
+                                }
+                                else
+                                {
+                                    ShowUserControlPopUp(pagename, DMEEditor, new string[] { }, Passedarguments);
+                                }
+                                break;
+                            case AddinType.Class:
+                                RunAddinClass(pagename, DMEEditor, new string[] { }, Passedarguments);
+                                break;
+                            case AddinType.Page:
+                                break;
+                            case AddinType.Link:
+                                break;
+                            default:
+                                break;
+                        }
                     }
+                    else
+                        DMEEditor.AddLogMessage("Beep Vis", $"Could Find Attrib for Addin {pagename}", DateTime.Now, 0, pagename, Errors.Failed);
                 }
-               
-                ErrorsandMesseges = new ErrorsInfo();
-                switch (attrib.addinType)
-                {
-                    case AddinType.Form:
-                        ShowForm(pagename, DMEEditor, new string[] { }, Passedarguments);
-                        break;
-                    case AddinType.Control:
-                        if (displayType == DisplayType.InControl)
-                        {
-                            ShowUserControlInContainer(pagename, DMEEditor, new string[] { }, Passedarguments);
-                        }
-                        else
-                        {
-                            ShowUserControlPopUp(pagename, DMEEditor, new string[] { }, Passedarguments);
-                        }
-                        break;
-                    case AddinType.Class:
-                        RunAddinClass(pagename,DMEEditor, new string[] { }, Passedarguments);
-                        break;
-                    case AddinType.Page:
-                        break;
-                    case AddinType.Link:
-                        break;
-                    default:
-                        break;
-                }
-               
+                else
+                    DMEEditor.AddLogMessage("Beep Vis", $"Could Find  Addin {pagename}", DateTime.Now, 0, pagename, Errors.Failed);
+
+
+
 
                 ErrorsandMesseges.Flag = Errors.Ok;
                 ErrorsandMesseges.Message = $"Function Executed";
@@ -196,22 +228,42 @@ namespace BeepEnterprize.Winform.Vis
                 ErrorsandMesseges.Flag = Errors.Failed;
                 ErrorsandMesseges.Message = ex.Message;
                 ErrorsandMesseges.Ex = ex;
+                DMEEditor.AddLogMessage("Beep Vis", $"Error in Getting Addin {pagename}", DateTime.Now, 0, pagename, Errors.Failed);
 
             }
             return ErrorsandMesseges;
         }
         #region "Misc"
-        private List<ObjectItem> CreateArgsParameterForVisUtil()
+        private List<ObjectItem> CreateArgsParameterForVisUtil(List<ObjectItem> e)
         {
-            List<ObjectItem> objects = new List<ObjectItem>();
-            ObjectItem v = new ObjectItem { Name = "VISUTIL", obj = (IVisManager)this };
-            objects.Add(v);
-            return objects;
+            
+            if (!e.Where(c => c.Name == "VISUTIL").Any())
+            {
+                ObjectItem v = new ObjectItem { Name = "VISUTIL", obj = (IVisManager)this };
+                e.Add(v);
+            }
+          
+            if (objects.Count > 0)
+            {
+                IEnumerable<ObjectItem> diff = objects.Except<ObjectItem>(e);
+                if (diff.Any())
+                {
+                    foreach (ObjectItem item in diff)
+                    {
+                        e.Add(item);
+                    }
+                   
+                }
+            }
+           
+            return e;
         }
         private PassedArgs CreateDefaultArgsForVisUtil()
         {
+            List<ObjectItem> items = new List<ObjectItem>(); ;
+            items=CreateArgsParameterForVisUtil(items);
 
-            PassedArgs E = new PassedArgs { Objects = CreateArgsParameterForVisUtil() };
+            PassedArgs E = new PassedArgs { Objects = items };
             return E;
         }
         #endregion
@@ -267,14 +319,14 @@ namespace BeepEnterprize.Winform.Vis
                     {
                         e.Objects = new List<ObjectItem>();
                     }
-                    e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                    e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
 
 
                     form.Text = addin.AddinName;
                     addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                     form.AddControl(uc,addin.AddinName);
-                    form.Width = uc.Width + 50;
-                    form.Height = uc.Height + 50;
+                    form.Width = uc.Width + 70;
+                    form.Height = uc.Height + 70;
                     uc.Dock = DockStyle.Fill;
                    // form.FormBorderStyle = FormBorderStyle.None;
                     form.Title = addin.AddinName;
@@ -332,10 +384,13 @@ namespace BeepEnterprize.Winform.Vis
                             {
                                 e.Objects = new List<ObjectItem>();
                             }
-                            e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                            e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                             addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
-                            control.Controls.Clear();
-                            control.Controls.Add(uc);
+                            uc_Container container = (uc_Container)control;
+                            container.AddControl(addin.AddinName, uc, ContainerTypeEnum.SinglePanel);
+                          //  control.Controls.Clear();
+                           // control.Controls.Add(uc);
+
                             uc.Dock = DockStyle.Fill;
 
                         }
@@ -352,7 +407,7 @@ namespace BeepEnterprize.Winform.Vis
                         {
                             e.Objects = new List<ObjectItem>();
                         }
-                        e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                        e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                         addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                         addin.Run(e);
                     }
@@ -401,7 +456,7 @@ namespace BeepEnterprize.Winform.Vis
                     {
                         e.Objects = new List<ObjectItem>();
                     }
-                    e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                    e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                     addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                     form.Text = addin.AddinName;
                     form.ShowDialog();
@@ -446,7 +501,7 @@ namespace BeepEnterprize.Winform.Vis
                         {
                             e.Objects = new List<ObjectItem>();
                         }
-                        e.Objects.AddRange(CreateArgsParameterForVisUtil());
+                        e.Objects.AddRange(CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects));
                         addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                         addin.Run(e);
                         addin = null;
@@ -505,14 +560,13 @@ namespace BeepEnterprize.Winform.Vis
                 //form.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, Passedarguments, ErrorsandMesseges);
                 //form.Run(Passedarguments);
                 form.TopMost=true;
-                Form frm = (Form)MainFormView;
-                form.StartPosition = FormStartPosition.CenterParent;
-                form.Parent = frm;
-                form.ShowDialog(frm);
+               // Form frm = (Form)MainFormView;
+                form.StartPosition = FormStartPosition.CenterScreen;
+               // form.Parent = frm;
+                form.ShowDialog();
    
             }).ConfigureAwait(true);
         }
-
         public IErrorsInfo ShowWaitForm(PassedArgs Passedarguments)
         {
             try
@@ -520,6 +574,7 @@ namespace BeepEnterprize.Winform.Vis
                 
                 ErrorsandMesseges = new ErrorsInfo();
                 startwait(Passedarguments);
+                WaitFormShown=true;
                 while ((BeepWait)Application.OpenForms["BeepWait"] == null) Application.DoEvents();
                 form = (BeepWait)Application.OpenForms["BeepWait"];
 
@@ -543,6 +598,7 @@ namespace BeepEnterprize.Winform.Vis
                 if (form != null)
                 {
                     SetText(form, form.messege, Passedarguments.ParameterString1);
+                    WaitFormShown = true;
                 }
 
             }
@@ -565,10 +621,12 @@ namespace BeepEnterprize.Winform.Vis
                     if (form.InvokeRequired)
                     {
                         form.BeginInvoke((MethodInvoker)delegate () { form.CloseForm(); });
+                        WaitFormShown = false;
                     }
                     else
                     {
                         form.Close();//Fault tolerance this code should never be executed
+                        WaitFormShown = false;
                     }
 
                 }
@@ -591,7 +649,7 @@ namespace BeepEnterprize.Winform.Vis
             Stream stream;
             Assembly assembly = Assembly.GetExecutingAssembly();
             // Is this just a single (ie. one-time) image?
-            stream = assembly.GetManifestResourceStream("BeepEnterprize.Winform.Vis.gfx."+fullName);
+            stream = assembly.GetManifestResourceStream(fullName);
             if (stream != null)
             {
                 image = new Bitmap(stream);

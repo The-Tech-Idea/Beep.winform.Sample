@@ -19,19 +19,15 @@
     <None Remove="Addin\HereweAddAllVisualAddin.txt" />
     <None Remove="config\AddinTreeStructure.json" />
     <None Remove="config\Apps.json" />
-    <None Remove="config\CategoryFolders.json" />
     <None Remove="config\CompositeLayers.json" />
     <None Remove="config\ConnectionConfig.json" />
-    <None Remove="config\DataConnections.json" />
     <None Remove="config\DataTypeMapping.json" />
     <None Remove="config\DDLCreateTables.json" />
+    <None Remove="config\default.nds" />
     <None Remove="config\DriversDefinitions.json" />
     <None Remove="config\events.json" />
     <None Remove="config\Function2Function.json" />
     <None Remove="config\HereweAddAllConfguration.txt" />
-    <None Remove="config\Mapping.json" />
-    <None Remove="config\MappingList.json" />
-    <None Remove="config\Maps.json" />
     <None Remove="config\ObjectTypes.json" />
     <None Remove="config\pal.xml" />
     <None Remove="config\QueryList.json" />
@@ -300,11 +296,6 @@
     <None Remove="GFX\xlsx.ico" />
     <None Remove="GFX\xml.ico" />
     <None Remove="GFX\zip.ico" />
-    <None Remove="LoadingExtensions\AIModuleNet6.dll" />
-    <None Remove="LoadingExtensions\AppModuleNet6.dll" />
-    <None Remove="LoadingExtensions\AssemblyLoaderIAIandAppsNet6.dll" />
-    <None Remove="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll" />
-    <None Remove="LoadingExtensions\BeepEnterprize.Vis.Module.net6.dll" />
     <None Remove="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="Mapping\HereweAddAllmapping.txt" />
     <None Remove="OtherDLL\Dapper.dll" />
@@ -323,7 +314,6 @@
     <None Remove="ProjectClasses\DataSources\WebApiDataSourceCore.dll" />
     <None Remove="ProjectClasses\HereweputClasses.txt" />
     <None Remove="ProjectClasses\RuleParserandEditor.dll" />
-    <None Remove="ProjectClasses\TreeNodes\BeepEnterprize.Vis.Module.net6.dll" />
     <None Remove="ProjectData\HereweAddAllfiles.txt" />
     <None Remove="ProjectData\nile.csv" />
     <None Remove="ProjectData\OilandGas\IHS\activity-codes_210667110913052332.xls" />
@@ -417,7 +407,6 @@
     <None Remove="ProjectData\tmp.csv" />
     <None Remove="Scripts\HereweAddAllscripts.txt" />
     <None Remove="Scripts\Logs\HereweAddAllscriptlogs.txt" />
-    <None Remove="WorkFlow\DataWorkFlow.json" />
     <None Remove="WorkFlow\HereweAddAllworkflows.txt" />
   </ItemGroup>
 
@@ -431,22 +420,19 @@
     <Content Include="config\Apps.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="config\CategoryFolders.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="config\CompositeLayers.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\ConnectionConfig.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="config\DataConnections.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="config\DataTypeMapping.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\DDLCreateTables.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="config\default.nds">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\DriversDefinitions.json">
@@ -459,15 +445,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\HereweAddAllConfguration.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config\Mapping.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config\MappingList.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="config\Maps.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="config\ObjectTypes.json">
@@ -1274,21 +1251,6 @@
     <Content Include="GFX\zip.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LoadingExtensions\AIModuleNet6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AppModuleNet6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AssemblyLoaderIAIandAppsNet6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="LoadingExtensions\BeepEnterprize.Vis.Module.net6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1296,12 +1258,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OtherDLL\Dapper.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\TreeNodes\BeepEnterprize.Vis.Module.net6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\TreeNodes\BeepEnterprizeTreeNodes.net6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\DataSources\CouchBaseDataSourceCore.dll">
@@ -1344,9 +1300,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\HereweputClasses.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\RulesEditorsParsers\RuleParserandEditor.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectData\HereweAddAllfiles.txt">
@@ -1622,20 +1575,22 @@
     <Content Include="Scripts\Logs\HereweAddAllscriptlogs.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="WorkFlow\DataWorkFlow.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="WorkFlow\HereweAddAllworkflows.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac" Version="6.4.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Serilog" Version="2.11.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.AssemblyHelperNet6" Version="1.0.0.11" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.27" />
+    <PackageReference Include="TheTechIdea.Beep.DMLoggerNet6" Version="1.0.0.7" />
+    <PackageReference Include="TheTechIdea.Beep.JsonLoaderNet6" Version="1.0.0.8" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.12" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1648,12 +1603,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BeepDM\Assembly_helpersNet6\Assembly_helpersNet6.csproj" />
-    <ProjectReference Include="..\..\BeepDM\DataManagmentEngineNet6\DataManagmentEngineNet6.csproj" />
-    <ProjectReference Include="..\..\BeepDM\DataManagmentModelsNet6\DataManagmentModelsNet6.csproj" />
-    <ProjectReference Include="..\..\BeepDM\DMLoggerNet6\DMLoggerNet6.csproj" />
-    <ProjectReference Include="..\..\BeepDM\JsonFileLoaderNet6\JsonFileLoaderNet6.csproj" />
-    <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
     <ProjectReference Include="..\BeepEnterprize.Winform.Vis.net6\BeepEnterprize.Winform.Vis.net6.csproj" />
   </ItemGroup>
 
@@ -1673,6 +1622,28 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ProjectClasses\TreeNodes\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\BeepEnterprizeTreeNodes.net6\bin\Debug\net6.0\BeepEnterprizeTreeNodes.net6.dll" Link="ProjectClasses\TreeNodes\BeepEnterprizeTreeNodes.net6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\BeepEnterprize.Vis.Module.net6\bin\Debug\net6.0\BeepEnterprize.Vis.Module.net6.dll" Link="LoadingExtensions\BeepEnterprize.Vis.Module.net6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\AssemblyLoaderIBranchExtensionNet6\bin\Debug\net6.0\AssemblyLoaderIBranchExtensionNet6.dll" Link="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 </Project>

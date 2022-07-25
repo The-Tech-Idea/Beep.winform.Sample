@@ -6,10 +6,13 @@
     <Nullable>enable</Nullable>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\BeepWinFormAppNet\Plugin\AssemblyLoader_AIandApps\AssemblyLoaderExtension.cs" Link="AssemblyLoaderExtension.cs" />
+  </ItemGroup>
  <ItemGroup>
    <ProjectReference Include="..\..\BeepDM\DataManagmentModelsNet6\DataManagmentModelsNet6.csproj" />
    <ProjectReference Include="..\Modules\AIModuleNet6\AIModuleNet6.csproj" />
-   <ProjectReference Include="..\Modules\AppModuleNet6\AppModuleNet6.csproj" />
  </ItemGroup>
 	<Target Name="CreateDirectories">
 		<MakeDir Directories=" $(ProjectDir)..\outputdll\$(TargetName)\" />

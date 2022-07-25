@@ -22,80 +22,50 @@ using TheTechIdea.Util;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    [AddinAttribute(Caption = "DataSource", Name = "DataSourceMenuFunctions", misc = "DataSourceMenuFunctions", addinType = AddinType.Class, iconimage = "datasource.ico",order =3)]
+    [AddinAttribute(Caption = "DataSource", Name = "DataSourceMenuFunctions", misc = "DataSourceMenuFunctions",menu ="Beep", ObjectType = "Beep", addinType = AddinType.Class, iconimage = "datasource.ico",order =3)]
     public class DataSourceMenuFunctions : IFunctionExtension
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
-        private VisManager Vismanager { get; set; }
-        private ControlManager Controlmanager { get; set; }
-        private CrudManager Crudmanager { get; set; }
-        private MenuControl Menucontrol { get; set; }
-        private ToolbarControl Toolbarcontrol { get; set; }
-        private TreeControl TreeEditor { get; set; }
+        //private VisManager Vismanager { get; set; }
+        //private ControlManager Controlmanager { get; set; }
+        //private CrudManager Crudmanager { get; set; }
+        //private MenuControl Menucontrol { get; set; }
+        //private ToolbarControl Toolbarcontrol { get; set; }
+        //private TreeControl TreeEditor { get; set; }
 
         CancellationTokenSource tokenSource;
 
         CancellationToken token;
         
-        IDataSource DataSource;
-        IBranch pbr;
-        IBranch RootBranch;
+        //IDataSource DataSource;
+        //IBranch pbr;
+        //IBranch RootBranch;
+        //IBranch ParentBranch;
+
+        private FunctionandExtensionsHelpers ExtensionsHelpers;
         public DataSourceMenuFunctions(IDMEEditor pdMEEditor,VisManager pvisManager,TreeControl ptreeControl)
         {
             DMEEditor = pdMEEditor;
-            Vismanager = pvisManager;
-            TreeEditor = ptreeControl;
+            //Vismanager = pvisManager;
+            //TreeEditor = ptreeControl;
+            ExtensionsHelpers=new FunctionandExtensionsHelpers(DMEEditor, pvisManager, ptreeControl);
         }
-        private void GetValues(IPassedArgs Passedarguments)
-        {
-
-            if (Passedarguments.Objects.Where(c => c.Name == "Vismanager").Any())
-            {
-                Vismanager = (VisManager)Passedarguments.Objects.Where(c => c.Name == "Vismanager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "TreeControl").Any())
-            {
-                TreeEditor = (TreeControl)Passedarguments.Objects.Where(c => c.Name == "TreeControl").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "CrudManager").Any())
-            {
-                Crudmanager = (CrudManager)Passedarguments.Objects.Where(c => c.Name == "CrudManager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "ControlManager").Any())
-            {
-                Controlmanager = (ControlManager)Passedarguments.Objects.Where(c => c.Name == "ControlManager").FirstOrDefault().obj;
-            }
-            if (Passedarguments.Objects.Where(c => c.Name == "MenuControl").Any())
-            {
-                Menucontrol = (MenuControl)Passedarguments.Objects.Where(c => c.Name == "MenuControl").FirstOrDefault().obj;
-            }
-
-            if (Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").Any())
-            {
-                Toolbarcontrol = (ToolbarControl)Passedarguments.Objects.Where(c => c.Name == "ToolbarControl").FirstOrDefault().obj;
-            }
-
-            DataSource = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
-            DMEEditor.OpenDataSource(Passedarguments.DatasourceName);
-            pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-            Passedarguments.DatasourceName = pbr.DataSourceName;
-            Passedarguments.CurrentEntity = pbr.BranchText;
-            RootBranch = TreeEditor.Branches[TreeEditor.Branches.FindIndex(x => x.BranchClass == pbr.BranchClass && x.BranchType == EnumPointType.Root)];
-        }
-        [CommandAttribute(Name = "Copy Entities", Caption = "Copy Entities", Click = true, iconimage = "copyentities.ico", PointType = EnumPointType.DataPoint)]
+     
+        [CommandAttribute(Name = "Copy Entities", Caption = "Copy Entities", Click = true, iconimage = "copyentities.ico", PointType = EnumPointType.DataPoint,ObjectType ="Beep")]
         public IErrorsInfo CopyEntities(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
-            //   DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
+           
             try
             {
                 List<EntityStructure> ents = new List<EntityStructure>();
-                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-                if (pbr.BranchType == EnumPointType.DataPoint)
+                ExtensionsHelpers.GetValues(Passedarguments);
+               
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
-                    GetValues(Passedarguments);
-                    string[] args = new string[] { pbr.BranchText, DataSource.Dataconnection.ConnectionProp.SchemaName, null };
+                 
+                    string[] args = new string[] { ExtensionsHelpers.pbr.BranchText, ExtensionsHelpers.DataSource.Dataconnection.ConnectionProp.SchemaName, null };
 
                     Passedarguments.EventType = "COPYENTITIES";
                     Passedarguments.ParameterString1 = "COPYENTITIES";
@@ -104,7 +74,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                 }
                
                 DMEEditor.AddLogMessage("Success", $"Copy Entites", DateTime.Now, 0, null, Errors.Ok);
-                Vismanager.Controlmanager.MsgBox("Beep", $"Copied  {TreeEditor.SelectedBranchs.Count} Entities Successfully");
+                ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", $"Copied  {ExtensionsHelpers.TreeEditor.SelectedBranchs.Count} Entities Successfully");
             }
             catch (Exception ex)
             {
@@ -114,15 +84,16 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Name = "Paste Entities", Caption = "Paste Entities", Click = true, iconimage = "pasteentities.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "Paste Entities", Caption = "Paste Entities", Click = true, iconimage = "pasteentities.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public void PasteEntities(IPassedArgs Passedarguments)
         {
             try
             {
-                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-                if (pbr.BranchType == EnumPointType.DataPoint)
+                ExtensionsHelpers.GetValues(Passedarguments);
+               
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
-                    GetValues(Passedarguments);
+                   
                    
                     string iconimage = "";
                     int cnt = 0;
@@ -130,13 +101,13 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     if (DMEEditor.Passedarguments != null)
                     {
 
-                        if (TreeEditor.SelectedBranchs.Count > 0 )
+                        if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0 )
                         {
                            
                             
-                            foreach (int item in TreeEditor.SelectedBranchs)
+                            foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
                             {
-                                IBranch br = TreeEditor.treeBranchHandler.GetBranch(item);
+                                IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
                                 IDataSource srcds = DMEEditor.GetDataSource(br.DataSourceName);
 
                                 if (srcds != null)
@@ -144,9 +115,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                     EntityStructure entity = (EntityStructure)srcds.GetEntityStructure(br.BranchText, true).Clone();
                                     bool IsView = false;
                                    
-                                    if (DataSource.CheckEntityExist(entity.EntityName))
+                                    if (ExtensionsHelpers.DataSource.CheckEntityExist(entity.EntityName))
                                     {
-                                        if (pbr.BranchClass == "VIEW")
+                                        if (ExtensionsHelpers.pbr.BranchClass == "VIEW")
                                         {
                                             //int entcnt=srcds.GetEntitesList().Where(p=>p.Equals(entity.DatasourceEntityName,StringComparison.InvariantCultureIgnoreCase)).Count();
 
@@ -178,22 +149,22 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
                                 }
                             }
-                            if (pbr.BranchClass == "VIEW")
+                            if (ExtensionsHelpers.pbr.BranchClass == "VIEW")
                             {
-                                DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(pbr.DataSourceName);
-                                Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
+                                DataViewDataSource ds = (DataViewDataSource)DMEEditor.GetDataSource(ExtensionsHelpers.pbr.DataSourceName);
+                                ExtensionsHelpers.Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
                                 Passedarguments.ParameterString1 = $"Creating {ls.Count()} entities ...";
-                                Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                 foreach (var item in ls)
                                 {
                                     Passedarguments.ParameterString1 = $"Adding {item} and Child if there is ...";
-                                    Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                    ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                     ds.AddEntitytoDataView(item);
                                 }
                                 Passedarguments.ParameterString1 = $"Done ...";
-                                Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                 Passedarguments.ParameterString1 = $"Done ...";
-                                Vismanager.CloseWaitForm();
+                                ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 ds.WriteDataViewFile(ds.DatasourceName);
                             }
                             else
@@ -204,10 +175,10 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                 });
                                 tokenSource = new CancellationTokenSource();
                                 token = tokenSource.Token;
-                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(DataSource, ls, progress, token);
-                                Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
+                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, progress, token);
+                                ExtensionsHelpers.Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
                             }
-                            pbr.CreateChildNodes();
+                            ExtensionsHelpers.pbr.CreateChildNodes();
 
                         }
                     }
@@ -221,7 +192,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             };
 
         }
-        [CommandAttribute(Name = "Refresh", Caption = "Refresh", Click = true, iconimage = "refresh.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Name = "Refresh", Caption = "Refresh", Click = true, iconimage = "refresh.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public void Refresh(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -229,22 +200,22 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             try
             {
                 string iconimage;
-
-                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-                if (pbr.BranchType == EnumPointType.DataPoint)
+                ExtensionsHelpers.GetValues(Passedarguments);
+               
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
                 {
-                    GetValues(Passedarguments);
-                    if (DataSource != null)
+                    
+                    if (ExtensionsHelpers.DataSource != null)
                     {
                         //  DataSource.Dataconnection.OpenConnection();
-                        if (DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
+                        if (ExtensionsHelpers.DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
                         {
-                            if (Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
+                            if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
                             {
-                                pbr.CreateChildNodes();
+                                ExtensionsHelpers.pbr.CreateChildNodes();
                                 //TreeEditor.HideWaiting();
                                 DMEEditor.AddLogMessage("Success", $"Refresh entities", DateTime.Now, 0, null, Errors.Ok);
-                                Vismanager.Controlmanager.MsgBox("Beep", "Refresh Entities Successfully");
+                                ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Refresh Entities Successfully");
                             }
 
                         }
@@ -262,83 +233,99 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
             }
 
         }
-//        [CommandAttribute(Name = "CreateNewEntities", Caption = "Create New Entities", Click = true, iconimage = "createnewentities.ico", PointType = EnumPointType.DataPoint)]
-//        public void CreateNewEntities(IPassedArgs Passedarguments)
-//        {
-//            DMEEditor.ErrorObject.Flag = Errors.Ok;
-//            //     DMEEditor.Logger.WriteLog($"Filling Database Entites ) ");
-//            try
-//            {
-//                string iconimage;
+        [CommandAttribute(Name = "CreateViewFromDataSource", Caption = "Create View From DataSource", Click = true, iconimage = "createnewentities.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
+        public void CreateViewFromDataSource(IPassedArgs Passedarguments)
+        {
+            try
+            {
+                ExtensionsHelpers.GetValues(Passedarguments);
+                if (ExtensionsHelpers.pbr == null)
+                {
+                    return;
+                }
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
+                {
+                    List<EntityStructure> ls = new List<EntityStructure>();
+                    if (DMEEditor.Passedarguments != null)
+                    {
+                        //if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
+                        //{
+                            string viewname = null;
+                            if(ExtensionsHelpers.Vismanager._controlManager.InputBox("Beep","Please Enter New View Name",ref viewname) == BeepEnterprize.Vis.Module.DialogResult.OK)
+                            {
+                                if (!string.IsNullOrEmpty(viewname))
+                                {
+                                    if (DMEEditor.CheckDataSourceExist(viewname + ".json"))
+                                    {
+                                        DMEEditor.AddLogMessage("Beep",$"View Name Exist, please Try another one", DateTime.Now, -1, null, Errors.Failed);
+                                        ExtensionsHelpers.Vismanager._controlManager.MsgBox("Beep", $"View Name Exist, please Try another one");
+                                       return;
+                                    }
+                                }
+                                else
+                                {
+                                    DMEEditor.AddLogMessage("Beep", $"please enter a valid Viewname", DateTime.Now, -1, null, Errors.Failed);
+                                ExtensionsHelpers.Vismanager._controlManager.MsgBox("Beep", $"View Name Exist, please Try another one");
+                                return;
+                                }
+                                if (ExtensionsHelpers.CreateView(viewname) == Errors.Ok)
+                                {
+                                    ls = ExtensionsHelpers.CreateEntitiesListFromDataSource(ExtensionsHelpers.pbr.BranchText);
+                                    if (ExtensionsHelpers.AddEntitiesToView(viewname+".json", ls, Passedarguments) == Errors.Ok)
+                                    {
+                                        ExtensionsHelpers.ViewRootBranch.CreateChildNodes();
+                                    }
+                                }
+                            }
+                        //}
+                    }
+                }
+                DMEEditor.AddLogMessage("Success", $"Paste entities", DateTime.Now, 0, null, Errors.Ok);
+            }
+            catch (Exception ex)
+            {
+                string mes = $" Could not Added Entity {ex.Message} ";
+                DMEEditor.AddLogMessage("Fail", mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
 
-//                pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-//                if (pbr.BranchType == EnumPointType.DataPoint)
-//                {
-//                    GetValues(Passedarguments);
-//                    if (DataSource != null)
-//                    {
-//                        //  DataSource.Dataconnection.OpenConnection();
-//                        if (DataSource.ConnectionStatus == System.Data.ConnectionState.Open)
-//                        {
-//                            if (Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, this might take some time?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
-//                            {
-//                               // pbr.CreateChildNodes();
-//                                //TreeEditor.HideWaiting();
-//                                DMEEditor.Passedarguments = Passedarguments;
-//                                DMEEditor.Passedarguments.DatasourceName = DataSource.DatasourceName;
-//                                Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)DMEEditor.Passedarguments, DisplayType.InControl);
-//                                DMEEditor.AddLogMessage("Success", $"Creatd New Entities in DataSource", DateTime.Now, 0, null, Errors.Ok);
-////                                Vismanager.Controlmanager.MsgBox("Beep", $"Created New Entities in DataSource");
-//                            }
-
-//                        }
-
-//                    }
-//                }
-
-
-//            }
-//            catch (Exception ex)
-//            {
-//                DMEEditor.Logger.WriteLog($"Error in Filling Database Entites ({ex.Message}) ");
-//                DMEEditor.ErrorObject.Flag = Errors.Failed;
-//                DMEEditor.ErrorObject.Ex = ex;
-//            }
-
-//        }
-        [CommandAttribute(Caption = "Drop Entities", Name = "dropentities", Click = true, iconimage = "dropentities.ico", PointType = EnumPointType.DataPoint)]
+        }
+        [CommandAttribute(Caption = "Drop Entities", Name = "dropentities", Click = true, iconimage = "dropentities.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public IErrorsInfo DropEntities(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
-            pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-            if (pbr.BranchType == EnumPointType.DataPoint)
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+            if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
             {
                 try
                 {
-                    GetValues(Passedarguments);
-                    if (Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure you ?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
+                   
+                    if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure you ?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
                     {
-                        if (TreeEditor.SelectedBranchs.Count > 0)
+                        if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
                         {
-                            foreach (int item in TreeEditor.SelectedBranchs)
+                            foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
                             {
-                                IBranch br = TreeEditor.treeBranchHandler.GetBranch(item);
+                                IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
                                 if(br!= null)
                                 {
                                     if (br.DataSourceName == Passedarguments.DatasourceName)
                                     {
                                         IDataSource srcds = DMEEditor.GetDataSource(br.DataSourceName);
-                                        ent = DataSource.GetEntityStructure(br.BranchText, false);
-                                        if (!(br.BranchClass == "VIEW") && (DataSource.Category == DatasourceCategory.RDBMS))
+                                        ent = ExtensionsHelpers.DataSource.GetEntityStructure(br.BranchText, false);
+                                        if (!(br.BranchClass == "VIEW") && (ExtensionsHelpers.DataSource.Category == DatasourceCategory.RDBMS))
                                         {
-                                            DataSource.ExecuteSql($"Drop Table {ent.DatasourceEntityName}");
+                                            ExtensionsHelpers.DataSource.ExecuteSql($"Drop Table {ent.DatasourceEntityName}");
                                         }
 
                                         if (DMEEditor.ErrorObject.Flag == Errors.Ok)
                                         {
-                                            TreeEditor.treeBranchHandler.RemoveBranch(br);
-                                            DataSource.Entities.RemoveAt(DataSource.Entities.FindIndex(p => p.DatasourceEntityName == ent.DatasourceEntityName && p.DataSourceID == ent.DataSourceID));
+                                            ExtensionsHelpers.TreeEditor.treeBranchHandler.RemoveBranch(br);
+                                            ExtensionsHelpers.DataSource.Entities.RemoveAt(ExtensionsHelpers.DataSource.Entities.FindIndex(p => p.DatasourceEntityName == ent.DatasourceEntityName && p.DataSourceID == ent.DataSourceID));
                                             DMEEditor.AddLogMessage("Success", $"Droped Entity {ent.EntityName}", DateTime.Now, -1, null, Errors.Ok);
                                         }
                                         else
@@ -349,9 +336,9 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                                 }
                                 
                             }
-                            DMEEditor.ConfigEditor.SaveDataSourceEntitiesValues(new DatasourceEntities { datasourcename = Passedarguments.DatasourceName, Entities = DataSource.Entities });
+                            DMEEditor.ConfigEditor.SaveDataSourceEntitiesValues(new DatasourceEntities { datasourcename = Passedarguments.DatasourceName, Entities = ExtensionsHelpers.DataSource.Entities });
                             DMEEditor.AddLogMessage("Success", $"Deleted entities", DateTime.Now, 0, null, Errors.Ok);
-                            Vismanager.Controlmanager.MsgBox("Beep", "Deleted Entities Successfully");
+                            ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Deleted Entities Successfully");
                         }
                     }
                 }
@@ -365,19 +352,23 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Import Data", Name = "ImportData", Click = true, iconimage = "importdata.ico", PointType = EnumPointType.Entity)]
+        [CommandAttribute(Caption = "Import Data", Name = "ImportData", Click = true, iconimage = "importdata.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
         public IErrorsInfo ImportData(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
-            pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-            if (pbr.BranchType == EnumPointType.Entity)
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+            if (ExtensionsHelpers.pbr.BranchType == EnumPointType.Entity)
             {
                 try
                 {
-                    GetValues(Passedarguments);
-                   
-                    Vismanager.ShowPage("ImportDataManager", (PassedArgs)Passedarguments);
+                    ExtensionsHelpers.GetValues(Passedarguments);
+
+                    ExtensionsHelpers.Vismanager.ShowPage("ImportDataManager", (PassedArgs)Passedarguments);
 
                 }
                 catch (Exception ex)
@@ -390,23 +381,28 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Create Entity", Name = "CreateEntity", Click = true, iconimage = "createentity.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Caption = "Create Entity", Name = "CreateEntity", Click = true, iconimage = "createentity.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public IErrorsInfo CreateEntity(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
-            pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-            if (pbr.BranchType == EnumPointType.DataPoint )
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+            if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint )
             {
                 try
                 {
-                    GetValues(Passedarguments);
-                    Passedarguments.DatasourceName = pbr.BranchText;
-                    if(!pbr.BranchClass.Equals("View",StringComparison.InvariantCultureIgnoreCase))
+                   
+                    Passedarguments.DatasourceName = ExtensionsHelpers.pbr.BranchText;
+                    Passedarguments.CurrentEntity = null;
+                    if (!ExtensionsHelpers.pbr.BranchClass.Equals("View",StringComparison.InvariantCultureIgnoreCase))
                     {
-                        Vismanager.ShowPage("uc_CreateEntity", (PassedArgs)Passedarguments, DisplayType.InControl);
+                        ExtensionsHelpers.Vismanager.ShowPage("uc_CreateEntity", (PassedArgs)Passedarguments, DisplayType.InControl);
                     }else
-                        Vismanager.ShowPage("CreateEditEntityManager", (PassedArgs)Passedarguments, DisplayType.InControl);
+                        ExtensionsHelpers.Vismanager.ShowPage("CreateEditEntityManager", (PassedArgs)Passedarguments, DisplayType.InControl);
 
 
                 }
@@ -420,18 +416,22 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Create Report", Name = "CreateReportDefinition", Click = true, iconimage = "reportdesigner.ico", PointType = EnumPointType.DataPoint)]
+        [CommandAttribute(Caption = "Create Report", Name = "CreateReportDefinition", Click = true, iconimage = "reportdesigner.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public IErrorsInfo CreateReportDefinition(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
-            pbr = TreeEditor.treeBranchHandler.GetBranch(Passedarguments.Id);
-            if (pbr.BranchType == EnumPointType.DataPoint)
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+            if (ExtensionsHelpers.pbr.BranchType == EnumPointType.DataPoint)
             {
                 try
                 {
-                    GetValues(Passedarguments);
-                    Passedarguments.DatasourceName = pbr.BranchText;
+                    
+                    Passedarguments.DatasourceName = ExtensionsHelpers.pbr.BranchText;
                     IDataSource ds = DMEEditor.GetDataSource(Passedarguments.DatasourceName);
                     AppTemplate app= CreateReportDefinitionFromView(ds);
                     //if (!pbr.BranchClass.Equals("View", StringComparison.InvariantCultureIgnoreCase))
@@ -442,7 +442,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                     //    Vismanager.ShowPage("CreateEditEntityManager", (PassedArgs)Passedarguments, DisplayType.InControl);
                     DMEEditor.ConfigEditor.ReportsDefinition.Add(app);
                     DMEEditor.ConfigEditor.SaveReportDefinitionsValues();
-                    IBranch reports = TreeEditor.Branches.FirstOrDefault(p=>p.BranchClass== "REPORT" && p.BranchType== EnumPointType.Root);
+                    IBranch reports = ExtensionsHelpers.TreeEditor.Branches.FirstOrDefault(p=>p.BranchClass== "REPORT" && p.BranchType== EnumPointType.Root);
                     if(reports != null)
                     {
                         reports.CreateChildNodes();

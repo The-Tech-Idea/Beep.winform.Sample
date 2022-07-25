@@ -9,8 +9,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BeepDM\DataManagmentModelsNet6\DataManagmentModelsNet6.csproj" />
-    <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
+    <Compile Include="..\..\BeepWinFormAppNet\Plugin\AssemblyLoaderExtension\AssemblyLoaderExtension.cs" Link="AssemblyLoaderExtension.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.14" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.12" />
   </ItemGroup>
 
 </Project>

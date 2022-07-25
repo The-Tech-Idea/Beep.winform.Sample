@@ -31,8 +31,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
            // CreateToolbar();
 
         }
-        public System.Windows.Forms.TreeView TreeV { get; set; }
+        public TreeView TreeV { get; set; }
+     
         private TreeControl Treecontrol { get; set; }
+      
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; }
         public string ObjectType { get ; set ; }
@@ -46,6 +48,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public IDMLogger Logger { get ; set ; }
         public IDMEEditor DMEEditor { get ; set ; }
         public EntityStructure EntityStructure { get ; set ; }
+        public bool IsBeepDataOn { get; set; } = true;
+        public bool IsAppOn { get; set; } = true;
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
         public MenuStrip menustrip { get; set; }
@@ -65,13 +69,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             try
             {
-                ToolStripMenuItem Configmenu = new ToolStripMenuItem();
-                Configmenu.Name = "Config";
-                Configmenu.Size = new System.Drawing.Size(37, 20);
-                Configmenu.Text = "Configuration";
-                Configmenu.Tag = "Config";
-                Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico");
-                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.OrderBy(p => p.Order).ToList();
+              
+              
+                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.Where(o=>o.classProperties!=null && o.classProperties.ObjectType!=null && o.classProperties.ObjectType.Equals(ObjectType,StringComparison.CurrentCultureIgnoreCase)).OrderBy(p => p.Order).ToList();
                 foreach (AssemblyClassDefinition cls in extentions)
                 {
                     Type type = cls.type;
@@ -82,9 +82,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         ToolStripMenuItem Extensionsmenu = new ToolStripMenuItem();
 
                         Extensionsmenu.Name = attrib.Name;
-                        Extensionsmenu.Size = new System.Drawing.Size(37, 20);
+                      //  Extensionsmenu.Size = new System.Drawing.Size(37, 20);
                         Extensionsmenu.Text = attrib.Caption;
                         Extensionsmenu.Tag = attrib.TypeId;
+                        Extensionsmenu.ImageScaling = ToolStripItemImageScaling.SizeToFit;
                         Extensionsmenu.ImageIndex = vismanager.visHelper.GetImageIndex(attrib.iconimage);
                         menuitems.Add(Extensionsmenu);
                         menustrip.Items.Add(Extensionsmenu);
@@ -92,7 +93,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                         {
                             ToolStripMenuItem menuItem = new ToolStripMenuItem();
                             menuItem.Name = item.Name;
-                            menuItem.Size = new System.Drawing.Size(37, 20);
+                       //     menuItem.Size = new System.Drawing.Size(24, 24);
                             menuItem.Text = item.Caption;
                             menuItem.Tag = cls;
                             menuItem.Click += RunToolStripFunction;
@@ -107,33 +108,35 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     }
 
                 }
-                for (int i = 0; i < extentions.Count; i++)
+                if (ObjectType == "Beep")
                 {
-              
+                    ToolStripMenuItem Configmenu = new ToolStripMenuItem();
+                    Configmenu.Name = "Config";
+                    // Configmenu.Size = new System.Drawing.Size(37, 20);
+                    Configmenu.Text = "Configuration";
+                    Configmenu.Tag = "Config";
+                    Configmenu.ImageScaling = ToolStripItemImageScaling.SizeToFit;
+                    Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico");
+                    foreach (AddinTreeStructure item in DMEEditor.ConfigEditor.AddinTreeStructure)
+                    {
+                        ToolStripMenuItem menuItem = new ToolStripMenuItem();
+                        menuItem.Name = item.NodeName;
+                        //  menuItem.Size = new System.Drawing.Size(37, 20);
+                        menuItem.Text = item.NodeName;
+                        menuItem.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
+                        menuItem.ImageScaling = ToolStripItemImageScaling.SizeToFit;
+                        menuItem.Tag = item.className;
+                        menuItem.Click += RunConfigFunction;
+                        menuItem.Image = visHelper.GetImage(item.Imagename);
+                        // menuItem.ImageIndex = vismanager.visHelper.GetImageIndex(item.Imagename);
+                        Configmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem });
+                    }
+                    menustrip.Items.Add(Configmenu);
                 }
-                //foreach (AssemblyClassDefinition cls in extentions)
-                //{
-                   
-                //}
-                foreach (AddinTreeStructure item in DMEEditor.ConfigEditor.AddinTreeStructure)
-                {
-                    ToolStripMenuItem menuItem = new ToolStripMenuItem();
-                    menuItem.Name = item.NodeName;
-                    menuItem.Size = new System.Drawing.Size(37, 20);
-                    menuItem.Text = item.NodeName;
-                    menuItem.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
-                    menuItem.ImageScaling = ToolStripItemImageScaling.SizeToFit;
-                    menuItem.Tag = item.className;
-                    menuItem.Click += RunConfigFunction;
-                    menuItem.Image= visHelper.GetImage(item.Imagename);
-                   // menuItem.ImageIndex = vismanager.visHelper.GetImageIndex(item.Imagename);
-                    Configmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem });
-                   
-
-                }
+             
                 ////-------------------------------------------------------------------------------------------
                 
-                menustrip.Items.Add(Configmenu);
+                
                 return DMEEditor.ErrorObject;
             }
             catch (Exception ex)
@@ -142,7 +145,8 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 return DMEEditor.ErrorObject;
             }
         }
-        //   Visutil.ShowUserControlPopUp( AddinTreeStructure.className, DMEEditor, args, Passedarguments);
+     
+        
         private void RunToolStripFunction(object sender, EventArgs e)
         {
             

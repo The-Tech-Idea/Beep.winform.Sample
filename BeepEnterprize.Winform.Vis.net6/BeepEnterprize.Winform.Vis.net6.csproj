@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows7.0</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
      <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
@@ -10,97 +10,36 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="gfx\add.png" />
-    <None Remove="gfx\back.png" />
     <None Remove="gfx\clear.png" />
     <None Remove="gfx\clear64.png" />
-    <None Remove="gfx\edit.png" />
-    <None Remove="gfx\left.png" />
-    <None Remove="gfx\messages.png" />
-    <None Remove="gfx\printer.png" />
-    <None Remove="gfx\remove.png" />
-    <None Remove="gfx\right.png" />
-    <None Remove="gfx\save.png" />
-    <None Remove="gfx\search.png" />
     <None Remove="gfx\stop.png" />
     <None Remove="gfx\stop32.png" />
     <None Remove="gfx\stop64.png" />
     <None Remove="gfx\success.png" />
     <None Remove="gfx\success32.png" />
     <None Remove="gfx\success64.png" />
-    <None Remove="gfx\tick.png" />
-    <None Remove="SqlServerTypes\readme.htm" />
-    <None Remove="SqlServerTypes\x64\msvcr120.dll" />
-    <None Remove="SqlServerTypes\x64\SqlServerSpatial140.dll" />
-    <None Remove="SqlServerTypes\x86\msvcr120.dll" />
-    <None Remove="SqlServerTypes\x86\SqlServerSpatial140.dll" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="SqlServerTypes\readme.htm" />
-    <Content Include="SqlServerTypes\x64\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\msvcr120.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="gfx\add.png" />
-    <EmbeddedResource Include="gfx\back.png" />
-    <EmbeddedResource Include="gfx\clear.png" />
-    <EmbeddedResource Include="gfx\clear64.png" />
-    <EmbeddedResource Include="gfx\edit.png" />
-    <EmbeddedResource Include="gfx\left.png" />
-    <EmbeddedResource Include="gfx\messages.png" />
-    <EmbeddedResource Include="gfx\printer.png" />
-    <EmbeddedResource Include="gfx\remove.png" />
-    <EmbeddedResource Include="gfx\right.png" />
-    <EmbeddedResource Include="gfx\save.png" />
-    <EmbeddedResource Include="gfx\search.png" />
-    <EmbeddedResource Include="gfx\stop.png" />
-    <EmbeddedResource Include="gfx\stop32.png" />
-    <EmbeddedResource Include="gfx\stop64.png" />
-    <EmbeddedResource Include="gfx\success.png" />
-    <EmbeddedResource Include="gfx\success32.png" />
-    <EmbeddedResource Include="gfx\success64.png" />
-    <EmbeddedResource Include="gfx\tick.png" />
-  </ItemGroup>
-
+	
+	
+	
 	<ItemGroup>
-	  <ProjectReference Include="..\..\BeepDM\DataManagmentEngineNet6\DataManagmentEngineNet6.csproj" />
-	  <ProjectReference Include="..\..\BeepDM\DataManagmentModelsNet6\DataManagmentModelsNet6.csproj" />
-	  <ProjectReference Include="..\Beep.Winform.Controls.net6\Beep.Winform.Controls.net6.csproj" />
-	  <ProjectReference Include="..\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.csproj" />
+	  <EmbeddedResource Include="gfx\clear.png" />
+	  <EmbeddedResource Include="gfx\clear64.png" />
+	  <EmbeddedResource Include="gfx\stop.png" />
+	  <EmbeddedResource Include="gfx\stop32.png" />
+	  <EmbeddedResource Include="gfx\stop64.png" />
+	  <EmbeddedResource Include="gfx\success.png" />
+	  <EmbeddedResource Include="gfx\success32.png" />
+	  <EmbeddedResource Include="gfx\success64.png" />
 	</ItemGroup>
-
+	
+	<ItemGroup>
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.27" />
+	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.12" />
+	</ItemGroup>
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Folder Include="Wizards\copyentities\" />
-    <Folder Include="Wizards\createpoco\" />
-    <Folder Include="Wizards\createview\" />
-    <Folder Include="Wizards\dropentities\" />
-    <Folder Include="Wizards\mapping\" />
-    <Folder Include="Wizards\pasteentities\" />
-  </ItemGroup>
-
-
-  <ItemGroup>
-    <Reference Include="PresentationFramework">
-      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\PresentationFramework.dll</HintPath>
-    </Reference>
   </ItemGroup>
 
 
@@ -132,6 +71,9 @@
     <Compile Update="Configuration\uc_events.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="Configuration\uc_fileconnections.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Configuration\uc_function2function.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -147,19 +89,13 @@
     <Compile Update="Configuration\uc_webapiQueryParameters.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Controls\Frm_wait_OpenDB.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="Controls\GridControls\LovEditingControl.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="Controls\MyCheckBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\MyProgressBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Update="Controls\uc_bindingNavigator.cs">
+    <Compile Update="Controls\uc_Container.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="CRUD\Frm_ListEntities.cs">
@@ -197,9 +133,6 @@
     </Compile>
     <Compile Update="ETL\ExportData\uc_ExportData.cs">
       <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="ETL\ImportData\Frm_ImportData.cs">
-      <SubType>Form</SubType>
     </Compile>
     <Compile Update="ETL\ImportData\uc_addeditImportData.cs">
       <SubType>UserControl</SubType>
@@ -280,6 +213,21 @@
     <EmbeddedResource Update="Wizards\Frm_Wizard.resx">
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <Folder Include="Wizards\copyentities\" />
+    <Folder Include="Wizards\createpoco\" />
+    <Folder Include="Wizards\createview\" />
+    <Folder Include="Wizards\dropentities\" />
+    <Folder Include="Wizards\mapping\" />
+    <Folder Include="Wizards\pasteentities\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\Beep.Winform.Controls.net6\Beep.Winform.Controls.net6.csproj" />
   </ItemGroup>
 
 </Project>

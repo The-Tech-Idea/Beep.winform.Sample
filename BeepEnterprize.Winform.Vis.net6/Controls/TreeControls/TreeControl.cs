@@ -6,15 +6,14 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Controls;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
+using BeepEnterprize.Winform.Vis.Controls.TreeControls;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Editor;
-using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
@@ -25,13 +24,14 @@ namespace BeepEnterprize.Winform.Vis.Controls
     [AddinAttribute(Caption = "Beep", Name = "TreeControl", misc = "Control")]
     public class TreeControl : IDM_Addin,ITree
     {
-        public TreeControl(IDMEEditor pDMEEditor,VisManager pVismanager)
+        public TreeControl(IDMEEditor pDMEEditor,IVisManager pVismanager)
         {
             DMEEditor = pDMEEditor;
-            Vismanager = pVismanager;
+            Vismanager = (VisManager)pVismanager;
             VisManager = pVismanager;
-          
-            
+         
+
+
         }
         #region "Addin Properties"
         public string ParentName { get; set; }
@@ -50,14 +50,14 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public string EntityName { get; set; }
         public IPassedArgs Passedarg { get; set; }
         #endregion
-
+        public string TreeType { get; set; }
         public VisManager Vismanager { get; set; }
         public IVisManager VisManager { get; set; }
         public System.Windows.Forms.TreeView TreeV { get; set; }
         public string CategoryIcon { get; set; } = "Category.ico";
         public string SelectIcon { get; set; } = "select.ico";
         public IBranch CurrentBranch { get ; set ; }
-        public List<ContextMenu> menus { get; set; }=new List<ContextMenu>();
+     //   public List<ContextMenuStrip> menus { get; set; }=new List<ContextMenuStrip>();
         public PassedArgs args { get; set; }
         static int pSeqID = 0;
         public int SeqID {
@@ -74,9 +74,13 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public TreeNode SelectedNode { get; set; }
         public int StartselectBranchID { get; set; }
         public Color SelectBackColor { get; set; }
+        public List<MenuList> Menus { get; set; } = new List<MenuList>();
         public List<int> SelectedBranchs { get; set; } = new List<int>();
         public TreeNodeDragandDropHandler treeNodeDragandDropHandler { get ; set ; }
         public ITreeBranchHandler treeBranchHandler { get ; set ; }
+        private Size _iconsize = new Size(20,20);
+        private bool IsNewSizeSet=false;
+        public Size IconSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true;  } }
         public IErrorsInfo CreateFunctionExtensions(MethodsClass item)
         {
             ContextMenuStrip nodemenu = new ContextMenuStrip();
@@ -106,53 +110,47 @@ namespace BeepEnterprize.Winform.Vis.Controls
             return DMEEditor.ErrorObject;
 
         }
-        public IErrorsInfo CreateGlobalMenu(IBranch br, TreeNode n)
+        private bool IsMenuCreated(IBranch br)
         {
-            try
+            if (br.ObjectType != null)
             {
-                ContextMenuStrip nodemenu = n.ContextMenuStrip;
-                if (nodemenu == null)
-                {
-                    nodemenu = new ContextMenuStrip();
-                    nodemenu.ItemClicked += Nodemenu_ItemClicked;
-                }
-                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.OrderBy(p => p.Order).ToList();
-                foreach (AssemblyClassDefinition cls in extentions)
-                {
-                    foreach (var item in cls.Methods)
-                    {
-                        if (item.PointType == br.BranchType)
-                        {
-                            ToolStripItem st = nodemenu.Items.Add(item.Caption);
-                            nodemenu.Name = br.ToString();
-                            if (item.iconimage != null)
-                            {
-                                st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
-                            }
-                            st.Tag = cls;
-                        }
-                    }
-                }
-
-                return DMEEditor.ErrorObject;
-            }
-            catch (Exception ex)
-            {
-                return DMEEditor.ErrorObject;
-            }
+                return Menus.Where(p =>  p.ObjectType!=null && p.BranchClass.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+                && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase) 
+                && p.PointType == br.BranchType).Any();
+            }return
+                false;
+            
+         
+            
+            
         }
+        private MenuList GetMenuList(IBranch br)
+        {
+            return Menus.Where(p => p.ObjectType != null &&  p.BranchClass.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+                && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
+                && p.PointType == br.BranchType).FirstOrDefault();
+        }
+        public T CreateInstance<T>(params object[] paramArray)
+        {
+            return (T)Activator.CreateInstance(typeof(T), args: paramArray);
+        }
+        public TreeNode CurrentNode { get; set; }
+        public TreeNode ParentNode { get; set; }
         public IErrorsInfo CreateRootTree()
         {
-            SetupTreeView();
-            treeNodeDragandDropHandler = new TreeNodeDragandDropHandler(DMEEditor, this);
-            treeBranchHandler = new TreeBranchHandler(DMEEditor, this);
-            Branches = new List<IBranch>();
+           
             try
             {
-                foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.BranchesClasses.OrderBy(x => x.Order))
+                //bool HasConstructor=false;
+                SetupTreeView();
+                treeNodeDragandDropHandler = new TreeNodeDragandDropHandler(DMEEditor, this);
+                treeBranchHandler = new TreeBranchHandler(DMEEditor, this);
+                Branches = new List<IBranch>();
+                foreach (AssemblyClassDefinition cls in DMEEditor.ConfigEditor.BranchesClasses.Where(p=>p.classProperties != null).OrderBy(x => x.Order))
                 {
                     Type adc = DMEEditor.assemblyHandler.GetType(cls.PackageName);
-                    ConstructorInfo ctor = adc.GetConstructors().Where(o => o.GetParameters().Length == 0).FirstOrDefault(); ;
+                    ConstructorInfo ctor = adc.GetConstructors().Where(o => o.GetParameters().Length == 0).FirstOrDefault();
+                  
                     if (ctor != null)
                     {
                         ObjectActivator<IBranch> createdActivator = GetActivator<IBranch>(ctor);
@@ -161,81 +159,170 @@ namespace BeepEnterprize.Winform.Vis.Controls
                             IBranch br = createdActivator();
                             if (br.BranchType == EnumPointType.Root)
                             {
-
                                 int id = SeqID;
                                 br.Name = cls.PackageName;
-                                TreeNode n = TreeV.Nodes.Add(br.BranchText);
-                                n.Tag = id;
-
-                                br.TreeEditor = this;
-                                br.Visutil = VisManager;
-                                br.BranchID = id;
-                                br.ID = id;
-                                if (Vismanager.visHelper.GetImageIndex(br.IconImageName) == -1)
+                                if (TreeType != null)
                                 {
-                                    n.ImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
-                                    n.SelectedImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
+                                    if (cls.classProperties.ObjectType != null)
+                                    {
+                                        if (cls.classProperties.ObjectType.Equals(TreeType, StringComparison.InvariantCultureIgnoreCase))
+                                        {
+                                            CreateNode(id, br, TreeV);
+                                        }
+                                    }
                                 }
-                                else
-                                {
-                                    n.ImageKey = br.IconImageName;
-                                    n.SelectedImageKey = br.IconImageName;
-                                }
-
-                                //   ITreeView treeView = (ITreeView)br;
-                                //  treeView.Visutil = Visutil;
-                                n.ContextMenuStrip = CreateMenuMethods(br);
-                                CreateGlobalMenu(br,n);
-                                br.DMEEditor = DMEEditor;
-                                if (!DMEEditor.ConfigEditor.objectTypes.Any(i => i.ObjectType == br.BranchClass && i.ObjectName == br.BranchType.ToString() + "_" + br.BranchClass))
-                                {
-                                    DMEEditor.ConfigEditor.objectTypes.Add(new TheTechIdea.Beep.Workflow.ObjectTypes { ObjectType = br.BranchClass, ObjectName = br.BranchType.ToString() + "_" + br.BranchClass });
-                                }
-                                Branches.Add(br);
-                                br.CreateChildNodes();
+                                else CreateNode(id, br, TreeV);
                             }
                         }
                         catch (Exception ex)
                         {
                             DMEEditor.AddLogMessage("Error", $"Creating Tree Root Node {cls.PackageName} {ex.Message} ", DateTime.Now, 0, null, Errors.Failed);
-
                         }
-
-                    }
-               
-
+                     }
                 }
-                // DMEEditor.AddLogMessage("Success", "Create Tree", DateTime.Now, 0, null, Errors.Ok);
             }
             catch (Exception ex)
             {
-                string mes = "Could not Create Tree";
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+                DMEEditor.ErrorObject.Ex = ex;
+                DMEEditor.ErrorObject.Flag = Errors.Failed;
+               
             };
             return DMEEditor.ErrorObject;
         }
-        public ContextMenuStrip CreateMenuMethods(IBranch branch)
+        private void CreateNode(int id,IBranch br,TreeView tree)
         {
-
-            ContextMenuStrip nodemenu = new ContextMenuStrip();
+            TreeNode n = TreeV.Nodes.Add(br.BranchText);
+            n.Tag = br;
+         
+            br.TreeEditor = this;
+            br.Visutil = VisManager;
+            br.BranchID = id;
+            br.ID = id;
+            n.Name = br.ID.ToString();
+            ParentNode = null;
+            CurrentNode = n;
+            //br.ParentBranch = n;
+            if (Vismanager.visHelper.GetImageIndex(br.IconImageName) == -1)
+            {
+                n.ImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
+                n.SelectedImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
+            }
+            else
+            {
+                n.ImageKey = br.IconImageName;
+                n.SelectedImageKey = br.IconImageName;
+            }
+            //n.ContextMenuStrip = 
+            CreateMenuMethods(br);
+            if ( br.ObjectType!=null && br.BranchClass != null)
+            {
+                CreateGlobalMenu(br, n);
+            }
+           
+            br.DMEEditor = DMEEditor;
+            if (!DMEEditor.ConfigEditor.objectTypes.Any(i => i.ObjectType == br.BranchClass && i.ObjectName == br.BranchType.ToString() + "_" + br.BranchClass))
+            {
+                DMEEditor.ConfigEditor.objectTypes.Add(new TheTechIdea.Beep.Workflow.ObjectTypes { ObjectType = br.BranchClass, ObjectName = br.BranchType.ToString() + "_" + br.BranchClass });
+            }
+            Branches.Add(br);
+            br.CreateChildNodes();
+        }
+        public IErrorsInfo CreateGlobalMenu(IBranch br, TreeNode n)
+        {
             try
             {
-                nodemenu.ImageList = Vismanager.Images;
-                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == branch.ToString()).FirstOrDefault();
-                foreach (var item in cls.Methods.Where(y => y.Hidden == false))
+                MenuList menuList = new MenuList();
+                if (!IsMenuCreated(br))
                 {
-                    ToolStripItem st = nodemenu.Items.Add(item.Caption);
-                    nodemenu.Name = branch.ToString();
-                    if (item.iconimage != null)
-                    {
-                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
-                    }
-                    st.Tag = cls;
+                    menuList = new MenuList(br.ObjectType, br.BranchClass, br.BranchType);
+                    menuList.branchname = br.BranchText;
+                    Menus.Add(menuList);
+                    ContextMenuStrip nodemenu = new ContextMenuStrip();
+                    menuList.Menu = nodemenu;
+                    menuList.ObjectType = br.ObjectType;
+                    menuList.BranchClass = br.BranchClass;
+                    menuList.Menu.ImageList = Vismanager.Images;
+                    menuList.Menu.ItemClicked -= Nodemenu_ItemClicked;
+                    menuList.Menu.ItemClicked += Nodemenu_ItemClicked;
+                    menuList.Menu.Items.Clear();
 
                 }
-                nodemenu.ItemClicked += Nodemenu_ItemClicked;
-              
-                
+                else
+                    menuList = GetMenuList(br);
+                List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.Where(o => o.classProperties != null && o.classProperties.ObjectType != null && o.classProperties.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)).OrderBy(p => p.Order).ToList(); //&&  o.classProperties.menu.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+                foreach (AssemblyClassDefinition cls in extentions)
+                {
+                    if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.CurrentCultureIgnoreCase)))
+                    {
+                        menuList.classDefinitions.Add(cls);
+                        foreach (var item in cls.Methods)
+                        {
+                            if (item.PointType == br.BranchType)
+                            {
+                                ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
+                                menuList.Menu.Name = br.ToString();
+                                if (item.iconimage != null)
+                                {
+                                    st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                                }
+                                st.Tag = cls;
+                            }
+                        }
+                      
+                    }
+                    
+                }
+
+                return DMEEditor.ErrorObject;
+            }
+            catch (Exception ex)
+            {
+                return DMEEditor.ErrorObject;
+            }
+        }
+        public ContextMenuStrip CreateMenuMethods(IBranch branch)
+        {
+            MenuList menuList = new MenuList();
+            if (!IsMenuCreated(branch))
+            {
+                menuList = new MenuList(branch.ObjectType, branch.BranchClass, branch.BranchType);
+                menuList.branchname = branch.BranchText;
+                Menus.Add(menuList);
+                ContextMenuStrip nodemenu = new ContextMenuStrip();
+                menuList.Menu = nodemenu;
+                menuList.ObjectType = branch.ObjectType;
+                menuList.BranchClass = branch.BranchClass;
+                menuList.Menu.Items.Clear();
+                menuList.Menu.ImageList = Vismanager.Images;
+                menuList.Menu.ItemClicked -= Nodemenu_ItemClicked;
+                menuList.Menu.ItemClicked += Nodemenu_ItemClicked;
+
+            }
+            else
+                menuList = GetMenuList(branch);
+          //  ContextMenuStrip nodemenu = new ContextMenuStrip();
+            try
+            {
+               
+                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == branch.ToString() ).FirstOrDefault();
+                if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.CurrentCultureIgnoreCase)))
+                {
+                    menuList.classDefinitions.Add(cls);
+                    foreach (var item in cls.Methods.Where(y => y.Hidden == false))
+                    {
+
+                        ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
+                        menuList.Menu.Name = branch.ToString();
+                        if (item.iconimage != null)
+                        {
+                            st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                        }
+                        st.Tag = cls;
+
+                    }
+                  
+                }
+               
 
             }
             catch (Exception ex)
@@ -243,7 +330,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 string mes = "Could not add method to menu " + branch.BranchText;
                 DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
             };
-            return nodemenu;
+            return menuList.Menu;
         }
         public void Run(IPassedArgs pPassedarg)
         {
@@ -256,11 +343,15 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if (TreeV.SelectedNode != null)
             {
                 TreeNode n = TreeV.SelectedNode;
-                br =treeBranchHandler.GetBranch(Convert.ToInt32(n.Tag));
+                br =(IBranch)n.Tag;
             }
             if (br != null)
             {
-                DMEEditor.Passedarguments = new PassedArgs();
+                if (DMEEditor.Passedarguments == null)
+                {
+                    DMEEditor.Passedarguments = new PassedArgs();
+                }
+             //  
                 DMEEditor.Passedarguments.ObjectName = br.BranchText;
                 DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
                 DMEEditor.Passedarguments.Id = br.BranchID;
@@ -270,6 +361,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 Type t = ((IFunctionExtension)fc).GetType();
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
                 MethodInfo method = null;
+                if (!IsMethodApplicabletoNode(cls, br)) return;
                 MethodsClass methodsClass;
                 try
                 {
@@ -309,11 +401,14 @@ namespace BeepEnterprize.Winform.Vis.Controls
             if (TreeV.SelectedNode != null)
             {
                 TreeNode n = TreeV.SelectedNode;
-                br = treeBranchHandler.GetBranch(Convert.ToInt32(n.Tag));
+                br = (IBranch)n.Tag;
             }
             if (br != null)
             {
-                DMEEditor.Passedarguments = new PassedArgs();
+                if (DMEEditor.Passedarguments == null)
+                {
+                    DMEEditor.Passedarguments = new PassedArgs();
+                }
                 DMEEditor.Passedarguments.ObjectName = br.BranchText;
                 DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
                 DMEEditor.Passedarguments.Id = br.BranchID;
@@ -325,6 +420,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
                 MethodInfo method = null;
                 MethodsClass methodsClass;
+                if (!IsMethodApplicabletoNode(cls, br)) return;
                 try
                 {
                     if (br.BranchType != EnumPointType.Global)
@@ -376,6 +472,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 }
                 if (methodsClass != null)
                 {
+                    if (!IsMethodApplicabletoNode(cls, (IBranch)branch)) return DMEEditor.ErrorObject;
                     method = methodsClass.Info;
                     if (method.GetParameters().Length > 0)
                     {
@@ -398,21 +495,25 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
-            throw new NotImplementedException();
+            return;
         }
         private void SetupTreeView()
         {
 
             Vismanager.Images = new ImageList();
-            Vismanager.Images.ImageSize = new Size(24, 24);
+           
+                Vismanager.Images.ImageSize = IconSize;
+          
+            
             Vismanager.Images.ColorDepth = ColorDepth.Depth32Bit;
-            foreach (string filename_w_path in Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories))
+            List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
+            foreach (string filename_w_path in paths)
             {
                 try
                 {
                     string filename = Path.GetFileName(filename_w_path);
 
-                    Vismanager.Images.Images.Add(filename, System.Drawing.Image.FromFile(filename_w_path));
+                    Vismanager.Images.Images.Add(filename, Image.FromFile(filename_w_path));
 
 
                 }
@@ -426,7 +527,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             TreeV.CheckBoxes = false;
             TreeV.ImageList = Vismanager.Images;
-            TreeV.ItemHeight = 24;
+           // TreeV.ItemHeight = 24;
             TreeV.SelectedImageKey = SelectIcon;
             //TreeV.Dock = DockStyle.Fill;
             //TreeV.SendToBack();
@@ -451,26 +552,28 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
         }
         #region "TreeNode Handling"
-        public TreeNode GetTreeNodeByTag(string tag, TreeNodeCollection p_Nodes)
+        public TreeNode GetTreeNodeByID(int id, TreeNodeCollection p_Nodes)
         {
             try
             {
-                foreach (TreeNode node in p_Nodes)
-                {
-                    if (node.Tag.ToString() == tag)
-                    {
-                        return node;
-                    }
+            //    foreach (TreeNode node in p_Nodes)
+            //    {
+            //        IBranch br = (IBranch)node.Tag;
+            //        if (br.ID == id)
+            //        {
+            //            return node;
+            //        }
 
-                    if (node.Nodes.Count > 0)
-                    {
-                        var result = GetTreeNodeByTag(tag, node.Nodes);
-                        if (result != null)
-                        {
-                            return result;
-                        }
-                    }
-                }
+            //        if (node.Nodes.Count > 0)
+            //        {
+            //            var result = GetTreeNodeByID(id, node.Nodes);
+            //            if (result != null)
+            //            {
+            //                return result;
+            //            }
+            //        }
+            //    }
+            return p_Nodes.Find(id.ToString(), true).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -504,22 +607,41 @@ namespace BeepEnterprize.Winform.Vis.Controls
         }
         #endregion
         #region "Method Calling"
+        private bool IsMethodApplicabletoNode(AssemblyClassDefinition cls, IBranch br)
+        {
+            if (cls.classProperties == null)
+            {
+                return true;
+            }
+            if (cls.classProperties.ObjectType != null)
+            {
+                if (!cls.classProperties.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    return false ;
+                }
+            }
+            return true;
+
+
+        }
         public void Nodemenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            ContextMenuStrip n = (ContextMenuStrip)sender;
+            ContextMenuStrip menu = (ContextMenuStrip)sender;
             ToolStripItem item = e.ClickedItem;
-            //IBranch br  = (IBranch)n.Tag;
-            n.Hide();
-            IBranch br = treeBranchHandler.GetBranch(SelectedBranchID);
+            TreeNode n = TreeV.SelectedNode;
+            menu.Hide();
+            IBranch br = (IBranch)n.Tag;
             AssemblyClassDefinition cls = (AssemblyClassDefinition)item.Tag;
            
             if (cls != null)
             {
+                if (!IsMethodApplicabletoNode(cls, br)) return;
                 if (cls.RootName != "IFunctionExtension")
                 {
                     RunMethod(br, item.Text);
                 }else
                 {
+                    
                     RunFunction(br, item);
                 };
 
@@ -528,27 +650,99 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public void Nodemenu_MouseClick(TreeNodeMouseClickEventArgs e)
         {
             // ContextMenuStrip n = (ContextMenuStrip)e.;
-            IBranch br =treeBranchHandler.GetBranch(SelectedBranchID);
-            string clicks = "";
-            switch (e.Clicks)
+            TreeNode n = TreeV.SelectedNode;
+            IBranch br =(IBranch)n.Tag;
+            if(br != null)
             {
-                case 1:
-                    clicks = "SingleClick";
-                    break;
-                case 2:
-                    clicks = "DoubleClick";
-                    break;
+                string clicks = "";
+                if(e.Button== MouseButtons.Right)
+                {
+                    if (IsMenuCreated(br))
+                    {
+                        MenuList menuList = GetMenuList(br);
+                        menuList.Menu.Show(Cursor.Position);
+                    }
+                }
+                else
+                {
+                    switch (e.Clicks)
+                    {
+                        case 1:
+                            clicks = "SingleClick";
+                            break;
+                        case 2:
+                            clicks = "DoubleClick";
+                            break;
 
-                default:
-                    break;
+                        default:
+                            break;
+                    }
+                    AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
+                    if (cls != null)
+                    {
+                        if (!IsMethodApplicabletoNode(cls, br)) return;
+                        RunMethod(br, clicks);
+                    }
+                }
+              
             }
-            AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
-            if (cls != null)
-            {
-                RunMethod(br, clicks);
-            }
+            
         }
 
+        #endregion
+        #region "Filter Nodes"
+        public string Filterstring { set { FilterString_TextChanged(value); } }
+        private TreeView TreeCache = new TreeView();
+        private bool IsFiltering=false;
+        public void FilterString_TextChanged(string value)
+        {
+            if (IsFiltering==false)
+            {
+                TreeCache.Nodes.Clear();
+                foreach (TreeNode _node in TreeV.Nodes)
+                {
+                    TreeCache.Nodes.Add((TreeNode)_node.Clone());
+                }
+                IsFiltering = true;
+            }
+          
+            //blocks repainting tree till all objects loaded
+            
+            this.TreeV.BeginUpdate();
+            this.TreeV.Nodes.Clear();
+            if (value != string.Empty)
+            {
+                foreach (TreeNode _parentNode in TreeCache.Nodes)
+                {
+                    ScanNodes(_parentNode, value);
+                }
+            }
+            else
+            {
+                foreach (TreeNode _node in TreeCache.Nodes)
+                {
+                    TreeV.Nodes.Add((TreeNode)_node.Clone());
+                }
+                IsFiltering = false;
+            }
+            //enables redrawing tree after all objects have been added
+            this.TreeV.EndUpdate();
+        }
+        private void ScanNodes(TreeNode _parentNode, string value)
+        {
+            foreach (TreeNode _childNode in _parentNode.Nodes)
+            {
+                if (_childNode.Text.StartsWith(value, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    this.TreeV.Nodes.Add((TreeNode)_childNode.Clone());
+                }
+                if(_childNode.Nodes.Count > 0)
+                {
+                    ScanNodes(_childNode, value);
+                }
+            }
+
+        }
         #endregion
     }
 }

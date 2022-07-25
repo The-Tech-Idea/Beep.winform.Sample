@@ -146,16 +146,16 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
                     update();
                 }
 
-                //if (DMEEditor.ErrorObject.Flag == Errors.Failed)
-                //{
-                if (!string.IsNullOrEmpty(percent.EventType))
+                if (DMEEditor.ErrorObject.Flag == Errors.Failed)
                 {
-                    if (percent.EventType == "Stop")
+                     if (!string.IsNullOrEmpty(percent.EventType))
                     {
+                        if (percent.EventType == "Stop")
+                        {
                         tokenSource.Cancel();
+                        }
                     }
                 }
-                //  }
 
 
             });
@@ -190,7 +190,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.ImportData
             if(DMEEditor.ETL.LoadDataLogs.Count > 0)
             {
                 this.LogtextBox.BeginInvoke(new Action(() => {
-                    this.LogtextBox.AppendText($"{ DMEEditor.ETL.LoadDataLogs.Last().Rowindex} - { DMEEditor.ETL.LoadDataLogs.Last().InputLine}" + Environment.NewLine);
+                    this.LogtextBox.AppendText($"{ DMEEditor.ETL.LoadDataLogs.Last().Rowindex} - { DMEEditor.ErrorObject.Message}" + Environment.NewLine);
                     LogtextBox.SelectionStart = LogtextBox.Text.Length;
                     LogtextBox.ScrollToCaret();
                 }));

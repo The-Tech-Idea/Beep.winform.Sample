@@ -5,17 +5,18 @@ using TheTechIdea.Logger;
 using TheTechIdea.Beep.Workflow;
 using TheTechIdea.Util;
 using TheTechIdea.Tools;
-using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Editor;
-using TheTechIdea.Beep.Tools;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis;
-
+using TheTechIdea.Beep.ConfigUtil;
+using TheTechIdea.Beep.Tools;
+using System.Threading;
+using TheTechIdea;
 using System;
 
-namespace DataManagment_Engine
+namespace BeepEnterprize.Winform
 
-{   
+{
     public class MainApp
     {
         private static IContainer Container { get; set; }
@@ -23,10 +24,10 @@ namespace DataManagment_Engine
         #region "System Components"
         public IDMEEditor DMEEditor { get; set; }
         public IConfigEditor Config_editor { get; set; }
-      
+
         public IDMLogger lg { get; set; }
         public IUtil util { get; set; }
-        public  IVisManager vis { get; set; }
+        public IVisManager vis { get; set; }
         public IErrorsInfo Erinfo { get; set; }
         public IJsonLoader jsonLoader { get; set; }
         public IAssemblyHandler LLoader { get; set; }
@@ -39,6 +40,8 @@ namespace DataManagment_Engine
         public IRulesEditor rulesEditor { get; set; }
 
         #endregion
+        CancellationTokenSource tokenSource;
+        CancellationToken token;
         public static IContainer Configure() //ContainerBuilder builder
         {
             Builder = new ContainerBuilder();
@@ -58,9 +61,11 @@ namespace DataManagment_Engine
             Builder.RegisterType<ClassCreator>().As<IClassCreator>().SingleInstance();
             Builder.RegisterType<ETL>().As<IETL>().SingleInstance();
             return Builder.Build();
+
         }
         public MainApp()
         {
+
             Container = Configure();
             using (var scope = Container.BeginLifetimeScope())
             {
@@ -73,36 +78,56 @@ namespace DataManagment_Engine
                 rulesEditor = scope.Resolve<IRulesEditor>();
                 DMEEditor = scope.Resolve<IDMEEditor>();
                 typesHelper = scope.Resolve<IDataTypesHelper>();
+                classCreator = scope.Resolve<IClassCreator>();
+
+                typesHelper.DMEEditor = DMEEditor;
                 DMEEditor.typesHelper = typesHelper;
                 DMEEditor.ETL = eTL;
+                eTL.DMEEditor = DMEEditor;
                 DMEEditor.assemblyHandler = LLoader;
+                DMEEditor.classCreator = classCreator;
 
                 DMEEditor.WorkFlowEditor = WorkFlowEditor;
                 DMEEditor.WorkFlowEditor.DMEEditor = DMEEditor;
-                DMEEditor.WorkFlowEditor.DMEEditor = DMEEditor;
                 WorkFlowStepEditor.DMEEditor = DMEEditor;
                 DMEEditor.WorkFlowEditor.StepEditor = WorkFlowStepEditor;
+
                 ruleparser.DMEEditor = DMEEditor;
                 rulesEditor.DMEEditor = DMEEditor;
                 rulesEditor.Parser = ruleparser;
+
                 DMEEditor.ETL.RulesEditor = rulesEditor;
-
+                PassedArgs p = new PassedArgs();
                 vis = scope.Resolve<IVisManager>();
+                vis.ShowWaitForm(p);
+                DMEEditor.AddLogMessage("Started Assembly Loader");
+                p.ParameterString1 = "Loading DLL's";
+                vis.PasstoWaitForm(p);
+                tokenSource = new CancellationTokenSource();
+                token = tokenSource.Token;
+                var progress = new Progress<PassedArgs>(percent => {
 
-
-                LLoader.LoadAllAssembly();
+                    p.ParameterString1 = percent.ParameterString1;
+                    vis.PasstoWaitForm(p);
+                });
+                LLoader.LoadAllAssembly(progress, token);
                 Config_editor.LoadedAssemblies = LLoader.Assemblies.Select(c => c.DllLib).ToList();
 
+                DMEEditor.Passedarguments = new PassedArgs();
+                DMEEditor.Passedarguments.Objects = new System.Collections.Generic.List<ObjectItem>();
                 // Setup the Entry Screen 
                 // the screen has to be in one the Addin DLL's loaded by the Assembly loader
-                Config_editor.Config.SystemEntryFormName = @"Frm_main";
+                // Config_editor.Config.SystemEntryFormName = @"MainForm";
+                Config_editor.Config.SystemEntryFormName = @"Frm_Main";
                 //AppDomain.CurrentDomain.FirstChanceException += (sender, eventArgs) =>
                 //{
                 //    DMEEditor.AddLogMessage("Beep",eventArgs.Exception.ToString(),DateTime.Now,0,null,Errors.Failed);
                 //};
+                DMEEditor.Passedarguments.ParameterString1 = "NoApp";
+                DMEEditor.AddLogMessage("Show Main Page");
                 vis.ShowMainPage();
 
-              
+
             }
         }
     }

@@ -63,9 +63,9 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _045_database_81 {
+        internal static System.Drawing.Bitmap _045_database_8 {
             get {
-                object obj = ResourceManager.GetObject("045-database-81", resourceCulture);
+                object obj = ResourceManager.GetObject("045-database-8", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap collapse_26px1 {
+        internal static System.Drawing.Bitmap collapse_26px {
             get {
-                object obj = ResourceManager.GetObject("collapse_26px1", resourceCulture);
+                object obj = ResourceManager.GetObject("collapse_26px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap expand_26px1 {
+        internal static System.Drawing.Bitmap CollapseDown {
             get {
-                object obj = ResourceManager.GetObject("expand_26px1", resourceCulture);
+                object obj = ResourceManager.GetObject("CollapseDown", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap pasteentities_161 {
+        internal static System.Drawing.Bitmap CollapseLeft {
             get {
-                object obj = ResourceManager.GetObject("pasteentities_161", resourceCulture);
+                object obj = ResourceManager.GetObject("CollapseLeft", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap please_wait1 {
+        internal static System.Drawing.Bitmap Collapseright {
             get {
-                object obj = ResourceManager.GetObject("please_wait1", resourceCulture);
+                object obj = ResourceManager.GetObject("Collapseright", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,59 @@ namespace BeepEnterprize.Winform.Vis.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap waiting11 {
+        internal static System.Drawing.Bitmap CollapseUp {
             get {
-                object obj = ResourceManager.GetObject("waiting11", resourceCulture);
+                object obj = ResourceManager.GetObject("CollapseUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap expand_26px {
+            get {
+                object obj = ResourceManager.GetObject("expand_26px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ListBoxSearch {
+            get {
+                object obj = ResourceManager.GetObject("ListBoxSearch", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pasteentities_16 {
+            get {
+                object obj = ResourceManager.GetObject("pasteentities_16", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap please_wait {
+            get {
+                object obj = ResourceManager.GetObject("please_wait", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap waiting1 {
+            get {
+                object obj = ResourceManager.GetObject("waiting1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
