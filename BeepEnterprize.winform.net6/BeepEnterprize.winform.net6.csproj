@@ -58,6 +58,7 @@
     <None Remove="ConnectionDrivers\MongoDB.Driver.dll" />
     <None Remove="ConnectionDrivers\MongoDB.Driver.GridFS.dll" />
     <None Remove="ConnectionDrivers\MongoDB.Libmongocrypt.dll" />
+    <None Remove="ConnectionDrivers\MySql.Data.dll" />
     <None Remove="ConnectionDrivers\native\libzstd.dll" />
     <None Remove="ConnectionDrivers\native\mongocrypt.dll" />
     <None Remove="ConnectionDrivers\native\snappy32.dll" />
@@ -82,6 +83,7 @@
     <None Remove="ConnectionDrivers\Sparrow.dll" />
     <None Remove="ConnectionDrivers\System.Buffers.dll" />
     <None Remove="ConnectionDrivers\System.Data.SQLite.dll" />
+    <None Remove="ConnectionDrivers\Ubiety.Dns.Core.dll" />
     <None Remove="ConnectionDrivers\win-x64\native\libcrypto-1_1-x64.dll" />
     <None Remove="ConnectionDrivers\win-x64\native\librdkafka.dll" />
     <None Remove="ConnectionDrivers\win-x64\native\librdkafkacpp.dll" />
@@ -108,6 +110,7 @@
     <None Remove="ConnectionDrivers\win-x86\native\zstd.dll" />
     <None Remove="ConnectionDrivers\win7-x64\native\LiteCore.dll" />
     <None Remove="ConnectionDrivers\win7-x86\native\LiteCore.dll" />
+    <None Remove="ConnectionDrivers\ZstdNet.dll" />
     <None Remove="DataFiles\Alaska.sdf" />
     <None Remove="DataFiles\etl.s3db" />
     <None Remove="DataFiles\firebirddb.fdb" />
@@ -537,6 +540,9 @@
     <Content Include="ConnectionDrivers\MongoDB.Libmongocrypt.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ConnectionDrivers\MySql.Data.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ConnectionDrivers\native\libzstd.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -607,6 +613,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\System.Data.SQLite.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConnectionDrivers\Ubiety.Dns.Core.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\win-x64\native\libcrypto-1_1-x64.dll">
@@ -685,6 +694,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\win7-x86\native\LiteCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConnectionDrivers\ZstdNet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="DataFiles\Alaska.sdf">
