@@ -6,7 +6,7 @@
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>TheTechIdea.Beep.Vis.ModulesNet6</PackageId>
-    <Version>1.0.0.14</Version>
+    <Version>1.0.0.19</Version>
     <Authors>The Tech Idea</Authors>
     <Product>TheTechIdea.Beep.Vis.ModulesNet6</Product>
     <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
@@ -44,6 +44,8 @@
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IBranchID.cs" Link="IBranchID.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IBranchRootCategory.cs" Link="IBranchRootCategory.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IControlManager.cs" Link="IControlManager.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\ICrud.cs" Link="ICrud.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\ICrudGeneric.cs" Link="ICrudGeneric.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\ITree.cs" Link="ITree.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\ITreeBranchHandler.cs" Link="ITreeBranchHandler.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IVisHelper.cs" Link="IVisHelper.cs" />
