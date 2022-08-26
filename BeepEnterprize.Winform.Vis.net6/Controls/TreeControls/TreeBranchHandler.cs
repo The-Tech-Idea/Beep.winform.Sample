@@ -45,22 +45,12 @@ namespace BeepEnterprize.Winform.Vis.Controls
             try
             {
                 Treecontrol.TreeV.BeginUpdate();
+              
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == Branch.ToString()).FirstOrDefault();
                 Branch.Name = cls.PackageName;
-                if (Treecontrol.ParentNode == null)
-                {
-                    Treecontrol.ParentNode = Treecontrol.CurrentNode;
-                }
-                else
-                {
-                    IBranch v = (IBranch)Treecontrol.ParentNode.Tag;
-                    if (ParentBranch.ID!=v.ID)
-                    {
-                        Treecontrol.ParentNode = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
-                    }
-                   
-                }
-                TreeNode p = Treecontrol.ParentNode; 
+
+                TreeNode p = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
+               
                 TreeNode n = p.Nodes.Add(Branch.BranchText);
                 if (visManager.visHelper.GetImageIndex(Branch.IconImageName) == -1)
                 {
@@ -209,6 +199,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
 
                 TreeNode n = Treecontrol.GetTreeNodeByID(Branch.BranchID, TreeV.Nodes);
+                string foldername = CheckifBranchExistinCategory(Branch.BranchText, Branch.BranchClass);
+                if (foldername!=null)
+                {
+                    RemoveEntityFromCategory(Branch.BranchClass, foldername, Branch.BranchText);
+                }
                 RemoveChildBranchs(Branch);
                 Tree.Branches.Remove(Branch);
                 if (n != null)
@@ -292,7 +287,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
             try
             {
-                TreeNode ParentBranchNode = Treecontrol.GetTreeNodeByID(CurrentBranch.BranchID, TreeV.Nodes);
+                TreeNode ParentBranchNode = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
                 TreeNode CurrentBranchNode = Treecontrol.GetTreeNodeByID(CurrentBranch.BranchID, TreeV.Nodes);
                 string foldername = CheckifBranchExistinCategory(CurrentBranch.BranchText, CurrentBranch.BranchClass);
                 if (foldername != null)
@@ -373,7 +368,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                     DMEEditor.Passedarguments = new PassedArgs();
                 }
                 string foldername = "";
-                // Visutil.controlEditor.InputBox("Enter Category Name", "What Category you want to Add", ref foldername);
+                //Visutil.controlEditor.InputBox("Enter Category Name", "What Category you want to Add", ref foldername);
                 if (foldername != null)
                 {
                     if (foldername.Length > 0)
@@ -803,7 +798,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             {
                 IBranch br = (IBranch)e.Node.Tag;
 
-                if (br.BranchType == EnumPointType.Entity)
+                if (br.BranchType == EnumPointType.Entity || br.BranchType == EnumPointType.Category)
                 {
 
                     if (e.Node.Checked)
@@ -869,12 +864,13 @@ namespace BeepEnterprize.Winform.Vis.Controls
 
                     // int vitem = Convert.ToInt32(item.Tag.ToString().Substring(item.Tag.ToString().IndexOf('-') + 1));
                     item.Checked = checkedState;
-                    //if (item.Checked)
-                    //{
-                    //    Treecontrol.SelectedBranchs.Add(Convert.ToInt32(item.Tag));
-                    //}
-                    //else
-                    //    Treecontrol.SelectedBranchs.Remove(Convert.ToInt32(item.Tag));
+                    IBranch br = (IBranch)item.Tag;
+                if (item.Checked)
+                    {
+                        Treecontrol.SelectedBranchs.Add(Convert.ToInt32(br.ID));
+                    }
+                    else
+                        Treecontrol.SelectedBranchs.Remove(Convert.ToInt32(br.ID));
                 //}
                 SetChildrenChecked(item, item.Checked);
             }
@@ -898,7 +894,69 @@ namespace BeepEnterprize.Winform.Vis.Controls
             Treecontrol.SelectedBranchID =br.ID;
             NodeEvent(e);
         }
+
+        public IErrorsInfo MoveBranchToCategory(IBranch CategoryBranch, IBranch CurrentBranch)
+        {
+            try
+            {
+                TreeNode CategoryBranchNode= Treecontrol.GetTreeNodeByID(CategoryBranch.BranchID, TreeV.Nodes);
+                TreeNode ParentBranchNode = Treecontrol.GetTreeNodeByID(CurrentBranch.ParentBranchID, TreeV.Nodes);
+                TreeNode CurrentBranchNode = Treecontrol.GetTreeNodeByID(CurrentBranch.BranchID, TreeV.Nodes);
+                string currentParentFoelder = CheckifBranchExistinCategory(CurrentBranch.BranchText, CurrentBranch.BranchClass);
+                IBranch ParentBranch = (IBranch)ParentBranchNode.Tag;
+                if (currentParentFoelder != null)
+                {
+
+                    RemoveEntityFromCategory(ParentBranch.BranchClass, currentParentFoelder, CurrentBranch.BranchText);
+                }
+                TreeV.Nodes.Remove(CurrentBranchNode);
+                CategoryFolder CurFodler = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.RootName == CategoryBranch.BranchClass).FirstOrDefault();
+                if (CurFodler != null)
+                {
+                    if (CurFodler.items.Contains(CurrentBranch.BranchText) == false)
+                    {
+                        CurFodler.items.Remove(CurrentBranch.BranchText);
+                    }
+                }
+
+                CategoryFolder NewFolder = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.FolderName == CategoryBranch.BranchText && y.RootName == CategoryBranch.BranchClass).FirstOrDefault();
+                if (NewFolder != null)
+                {
+                    if (NewFolder.items.Contains(CurrentBranch.BranchText) == false)
+                    {
+                        NewFolder.items.Add(CurrentBranch.BranchText);
+                    }
+                }
+                if ((CategoryBranch.BranchType == EnumPointType.Entity) && (CategoryBranch.BranchClass == "VIEW" && CurrentBranch.BranchClass == "VIEW") && (CategoryBranch.DataSourceName == CurrentBranch.DataSourceName))
+                {
+                    DataViewDataSource vds = (DataViewDataSource)DMEEditor.GetDataSource(CurrentBranch.DataSourceName);
+                    if (vds.Entities[vds.EntityListIndex(CategoryBranch.MiscID)].Id == vds.Entities[vds.EntityListIndex(CurrentBranch.MiscID)].ParentId)
+                    {
+
+                    }
+                    else
+                    {
+                        vds.Entities[vds.EntityListIndex(CurrentBranch.MiscID)].ParentId = vds.Entities[vds.EntityListIndex(CategoryBranch.MiscID)].Id;
+                    }
+
+
+                }
+
+                CategoryBranchNode.Nodes.Add(CurrentBranchNode);
+
+                DMEEditor.ConfigEditor.SaveCategoryFoldersValues();
+            
+
+                DMEEditor.AddLogMessage("Success", "Moved Branch successfully", DateTime.Now, 0, null, Errors.Ok);
+            }
+            catch (Exception ex)
+            {
+                string mes = "Could not Moved Branch";
+                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+            };
+            return DMEEditor.ErrorObject;
+        }
         #endregion
-      
+
     }
 }

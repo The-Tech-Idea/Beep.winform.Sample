@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -12,7 +12,10 @@
 	<Target Name="CopyPackage" AfterTargets="Pack">
 		<Copy SourceFiles="$(OutputPath)..\$(PackageId).$(PackageVersion).nupkg" DestinationFolder="..\..\..\Nuget.Local" />
 	</Target>
-
+	<Target Name="CopyDLL" AfterTargets="Build">
+		<Copy SourceFiles="$(OutDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\net6.0\$(PackageId).dll" SkipUnchangedFiles="false" />
+		<Copy SourceFiles="$(OutDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\net6.0\$(PackageId).dll" SkipUnchangedFiles="false" />
+	</Target>
 	<ItemGroup>
     <Compile Include="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\**\*">
       <Link>%(RecursiveDir)/%(FileName).cs</Link>
@@ -32,10 +35,10 @@
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.27" />
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.14" />
-	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.15" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.41" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.21" />
+	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.19" />
 	</ItemGroup>
-	
+		
 
 </Project>

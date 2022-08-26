@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls;
 using BeepEnterprize.Winform.Vis.CRUD;
+using Microsoft.Win32;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -19,10 +20,11 @@ using TheTechIdea.Beep.DataView;
 using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
+using DialogResult = BeepEnterprize.Vis.Module.DialogResult;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
-    [AddinAttribute(Caption = "DataSource", Name = "DataSourceMenuFunctions", misc = "DataSourceMenuFunctions",menu ="Beep", ObjectType = "Beep", addinType = AddinType.Class, iconimage = "datasource.ico",order =3)]
+    [AddinAttribute(Caption = "DataSource", Name = "DataSourceMenuFunctions", misc = "IFunctionExtension",menu ="Beep", ObjectType = "Beep",  addinType = AddinType.Class, iconimage = "datasource.ico",order =3)]
     public class DataSourceMenuFunctions : IFunctionExtension
     {
         public IDMEEditor DMEEditor { get; set; }
@@ -183,6 +185,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                         }
                     }
                 }
+                ExtensionsHelpers.Vismanager.CloseWaitForm();
                 DMEEditor.AddLogMessage("Success", $"Paste entities", DateTime.Now, 0, null, Errors.Ok);
             }
             catch (Exception ex)
@@ -251,7 +254,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
                         //if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
                         //{
                             string viewname = null;
-                            if(ExtensionsHelpers.Vismanager._controlManager.InputBox("Beep","Please Enter New View Name",ref viewname) == BeepEnterprize.Vis.Module.DialogResult.OK)
+                            if(ExtensionsHelpers.Vismanager._controlManager.InputBox("Beep","Please Enter New View Name",ref viewname) == DialogResult.OK)
                             {
                                 if (!string.IsNullOrEmpty(viewname))
                                 {
@@ -352,6 +355,80 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
+        [CommandAttribute(Caption = "Drop Connections", Name = "dropfiles", Click = true, iconimage = "dropentities.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
+        public IErrorsInfo DropConnections(IPassedArgs Passedarguments)
+        {
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
+            EntityStructure ent = new EntityStructure();
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+          
+            try
+            {
+
+            if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep DM", "Are you sure, you want to delete all selected  connections ?") == BeepEnterprize.Vis.Module.DialogResult.Yes)
+                {
+                    if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
+                    {
+                        Passedarguments.ParameterString1 = $"Droping {ExtensionsHelpers.TreeEditor.SelectedBranchs.Count} Connections ...";
+                        ExtensionsHelpers.Vismanager.ShowWaitForm((PassedArgs)Passedarguments);
+                        foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
+                        {
+                           
+                            IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
+                            if (br != null)
+                            {
+                                ExtensionsHelpers.TreeEditor.treeBranchHandler.RemoveBranch(br);
+                                bool retval = DMEEditor.ConfigEditor.DataConnectionExist(br.DataSourceName);
+                                if (retval)
+                                {
+                                    Passedargs.ParameterString1 = $"Droping {br.DataSourceName} Connection ...";
+                                    ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                    DMEEditor.RemoveDataDource(br.DataSourceName);
+                                    DMEEditor.ErrorObject.Flag = Errors.Ok;
+                                    DMEEditor.ConfigEditor.RemoveDataConnection(br.DataSourceName);
+                                    if (DMEEditor.ErrorObject.Flag == Errors.Ok)
+                                    {
+                                        Passedargs.ParameterString1 = $"Droping {br.DataSourceName} Connection Branch...";
+                                        ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                       
+                                        DMEEditor.AddLogMessage("Success", $"Droped Data Connection {br.DataSourceName}", DateTime.Now, -1, null, Errors.Ok);
+                                    }
+                                    else
+                                    {
+                                        Passedargs.ParameterString1 = $"Failed Droping {br.DataSourceName} Connection ...";
+                                        ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                        DMEEditor.AddLogMessage("Fail", $"Error Drpping Connection {br.DataSourceName} - {DMEEditor.ErrorObject.Message}", DateTime.Now, -1, null, Errors.Failed);
+                                    }
+
+                                }
+
+                            }
+                        }
+
+                    }
+                    Passedarguments.ParameterString1 = $"Finished Dropping Connections ";
+                    ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+
+                    ExtensionsHelpers.Vismanager.CloseWaitForm();
+                    DMEEditor.AddLogMessage("Success", $"Deleted Connection", DateTime.Now, 0, null, Errors.Ok);
+                    ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", "Deleted Connection Successfully");
+                }
+            }
+            catch (Exception ex)
+            {
+                ExtensionsHelpers.Vismanager.CloseWaitForm();
+                DMEEditor.ErrorObject.Flag = Errors.Failed;
+                    DMEEditor.ErrorObject.Ex = ex;
+                    DMEEditor.AddLogMessage("Fail", $"Error Drpping Connection {ent.EntityName} - {ex.Message}", DateTime.Now, -1, null, Errors.Failed);
+            }
+          
+
+            return DMEEditor.ErrorObject;
+        }
         [CommandAttribute(Caption = "Import Data", Name = "ImportData", Click = true, iconimage = "importdata.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
         public IErrorsInfo ImportData(IPassedArgs Passedarguments)
         {
@@ -381,6 +458,64 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
+        [CommandAttribute(Caption = "Export Data", Name = "exportdata", Click = true, iconimage = "csv.ico", PointType = EnumPointType.Entity, ObjectType = "Beep")]
+        public IErrorsInfo ExportData(IPassedArgs Passedarguments)
+        {
+            DMEEditor.ErrorObject.Flag = Errors.Ok;
+            EntityStructure ent = new EntityStructure();
+            ExtensionsHelpers.GetValues(Passedarguments);
+            if (ExtensionsHelpers.pbr == null)
+            {
+                return DMEEditor.ErrorObject;
+            }
+            if (ExtensionsHelpers.pbr.BranchType == EnumPointType.Entity)
+            {
+                try
+                {
+                    ExtensionsHelpers.GetValues(Passedarguments);
+                    if (ExtensionsHelpers.pbr != null)
+                    {
+                        if(ExtensionsHelpers.pbr.BranchType == EnumPointType.Entity)
+                        {
+                            if (!string.IsNullOrEmpty(ExtensionsHelpers.pbr.DataSourceName))
+                            {
+                                IDataSource ds = DMEEditor.GetDataSource(ExtensionsHelpers.pbr.DataSourceName);
+                                if (ds != null)
+                                {
+                                    if(ds.Openconnection()== System.Data.ConnectionState.Open)
+                                    {
+                                        EntityStructure entstruc = (EntityStructure)ds.GetEntityStructure(ExtensionsHelpers.pbr.BranchText,true).Clone();
+                                      //  Type enttype = ds.GetEntityType(ExtensionsHelpers.pbr.BranchText);
+                                        object ls = ds.GetEntity(ExtensionsHelpers.pbr.BranchText,null);
+                                        SaveFileDialog fileDialog = new SaveFileDialog();
+                                        fileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+                                        fileDialog.RestoreDirectory = true;
+                                        fileDialog.ShowDialog();
+                                        if (!string.IsNullOrEmpty(fileDialog.FileName))
+                                        {
+                                            DMEEditor.Utilfunction.ToCSVFile((System.Collections.IList)ls,  fileDialog.FileName);
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        
+                    }
+                    
+                  //  ExtensionsHelpers.Vismanager.ShowPage("ImportDataManager", (PassedArgs)Passedarguments);
+
+                }
+                catch (Exception ex)
+                {
+                    DMEEditor.ErrorObject.Flag = Errors.Failed;
+                    DMEEditor.ErrorObject.Ex = ex;
+                    DMEEditor.AddLogMessage("Fail", $"Error running Import {ent.EntityName} - {ex.Message}", DateTime.Now, -1, null, Errors.Failed);
+                }
+            }
+
+            return DMEEditor.ErrorObject;
+        }
+
         [CommandAttribute(Caption = "Create Entity", Name = "CreateEntity", Click = true, iconimage = "createentity.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
         public IErrorsInfo CreateEntity(IPassedArgs Passedarguments)
         {

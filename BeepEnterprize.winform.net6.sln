@@ -49,6 +49,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.Controls", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AIModule", "..\BeepWinFormAppNet\ModuleExtensions\AIModule\AIModule.csproj", "{A81B09ED-C936-4C60-BE8F-223D5D3FCE8D}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AppModuleNet6", "Modules\AppModuleNet6\AppModuleNet6.csproj", "{10758051-10EA-4B71-9D09-D4EC962CE660}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{A81B09ED-C936-4C60-BE8F-223D5D3FCE8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A81B09ED-C936-4C60-BE8F-223D5D3FCE8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A81B09ED-C936-4C60-BE8F-223D5D3FCE8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10758051-10EA-4B71-9D09-D4EC962CE660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10758051-10EA-4B71-9D09-D4EC962CE660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10758051-10EA-4B71-9D09-D4EC962CE660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10758051-10EA-4B71-9D09-D4EC962CE660}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -146,6 +152,7 @@ Global
 		{D185808C-5D43-454A-9468-829E122C2C2A} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
 		{86A01E2B-0B8B-41CB-B747-A571146875A2} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
 		{A81B09ED-C936-4C60-BE8F-223D5D3FCE8D} = {FEB7533C-1BA2-4BA7-B5A0-FE84E3EF9C91}
+		{10758051-10EA-4B71-9D09-D4EC962CE660} = {FEB7533C-1BA2-4BA7-B5A0-FE84E3EF9C91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}

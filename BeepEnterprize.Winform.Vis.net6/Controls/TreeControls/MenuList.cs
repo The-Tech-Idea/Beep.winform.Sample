@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
@@ -22,7 +17,7 @@ namespace BeepEnterprize.Winform.Vis.Controls.TreeControls
             PointType = pointType;
         }
         public ContextMenuStrip Menu { get; set; }
-      //  public List<ToolStripItem> Items { get; set; }
+        public List<ToolStripMenuItem> Items { get; set; }
         public EnumPointType  PointType { get; set; }
         public string ObjectType { get; set; }
         public string BranchClass { get; set; } 
