@@ -1602,7 +1602,7 @@
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.41" />
     <PackageReference Include="TheTechIdea.Beep.DMLoggerNet6" Version="1.0.0.7" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoaderNet6" Version="1.0.0.8" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.19" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.22" />
   </ItemGroup>
 
   <ItemGroup>

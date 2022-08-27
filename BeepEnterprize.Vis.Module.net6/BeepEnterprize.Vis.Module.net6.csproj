@@ -6,7 +6,7 @@
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>TheTechIdea.Beep.Vis.ModulesNet6</PackageId>
-    <Version>1.0.0.19</Version>
+    <Version>1.0.0.22</Version>
     <Authors>The Tech Idea</Authors>
     <Product>TheTechIdea.Beep.Vis.ModulesNet6</Product>
     <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
@@ -42,7 +42,6 @@
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\enums.cs" Link="enums.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IBranch.cs" Link="IBranch.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IBranchID.cs" Link="IBranchID.cs" />
-	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IBranchRootCategory.cs" Link="IBranchRootCategory.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IControlManager.cs" Link="IControlManager.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\ICrud.cs" Link="ICrud.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\ICrudGeneric.cs" Link="ICrudGeneric.cs" />
