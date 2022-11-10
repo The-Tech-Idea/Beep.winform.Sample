@@ -57,7 +57,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public string CategoryIcon { get; set; } = "Category.ico";
         public string SelectIcon { get; set; } = "select.ico";
         public IBranch CurrentBranch { get ; set ; }
-      //  public List<ContextMenu> menus { get; set; }=new List<ContextMenu>();
+        public List<ContextMenuStrip> menus { get; set; }=new List<ContextMenuStrip>();
         public PassedArgs args { get; set; }
         static int pSeqID = 0;
         public int SeqID {
@@ -250,23 +250,43 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 else
                     menuList = GetMenuList(br);
                 List<AssemblyClassDefinition> extentions = DMEEditor.ConfigEditor.GlobalFunctions.Where(o => o.classProperties != null && o.classProperties.ObjectType != null && o.classProperties.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)).OrderBy(p => p.Order).ToList(); //&&  o.classProperties.menu.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+               
                 foreach (AssemblyClassDefinition cls in extentions)
                 {
+                    
                     if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.CurrentCultureIgnoreCase)))
                     {
                         menuList.classDefinitions.Add(cls);
                         foreach (var item in cls.Methods)
                         {
-                            if (item.PointType == br.BranchType)
+                            if(string.IsNullOrEmpty(item.ClassType))
                             {
-                                ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
-                                menuList.Menu.Name = br.ToString();
-                                if (item.iconimage != null)
+                                if (item.PointType == br.BranchType)
                                 {
-                                    st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                                    ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
+                                    menuList.Menu.Name = br.ToString();
+                                    if (item.iconimage != null)
+                                    {
+                                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                                    }
+                                    st.Tag = cls;
                                 }
-                                st.Tag = cls;
                             }
+                            else
+                            {
+                                if ((item.PointType == br.BranchType) && (br.BranchClass.Equals(item.ClassType,StringComparison.InvariantCultureIgnoreCase)))
+                                {
+                                    ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
+                                    menuList.Menu.Name = br.ToString();
+                                    if (item.iconimage != null)
+                                    {
+                                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                                    }
+                                    st.Tag = cls;
+                                }
+
+                            }
+                          
                         }
                       
                     }
