@@ -409,8 +409,7 @@
     <None Remove="ProjectData\titanic.csv" />
     <None Remove="ProjectData\tmp.csv" />
     <None Remove="Scripts\HereweAddAllscripts.txt" />
-    <None Remove="Scripts\Logs\HereweAddAllscriptlogs.txt" />
-    <None Remove="Scripts\Logs\HereweAddAllscripts.txt" />
+    <None Remove="Scripts\Logs\HereweAddlogsforscripts.txt" />
     <None Remove="WorkFlow\HereweAddAllworkflows.txt" />
   </ItemGroup>
 
@@ -1585,7 +1584,7 @@
     <Content Include="Scripts\HereweAddAllscripts.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\Logs\HereweAddAllscripts.txt">
+    <Content Include="Scripts\Logs\HereweAddlogsforscripts.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="WorkFlow\HereweAddAllworkflows.txt">

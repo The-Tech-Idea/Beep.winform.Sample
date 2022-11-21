@@ -36,7 +36,7 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.41" />
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.21" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.22" />
 	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.22" />
 	</ItemGroup>
 		
