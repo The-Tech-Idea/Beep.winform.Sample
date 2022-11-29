@@ -86,7 +86,6 @@ namespace BeepEnterprize.Winform
                 eTL.DMEEditor = DMEEditor;
                 DMEEditor.assemblyHandler = LLoader;
                 DMEEditor.classCreator = classCreator;
-
                 DMEEditor.WorkFlowEditor = WorkFlowEditor;
                 DMEEditor.WorkFlowEditor.DMEEditor = DMEEditor;
                 WorkFlowStepEditor.DMEEditor = DMEEditor;
