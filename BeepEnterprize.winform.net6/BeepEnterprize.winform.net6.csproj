@@ -579,9 +579,6 @@
     <Content Include="ConnectionDrivers\NPOI.OpenXmlFormats.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ConnectionDrivers\Oracle.ManagedDataAccess.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ConnectionDrivers\Pipelines.Sockets.Unofficial.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1595,6 +1592,7 @@
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.80" />
     <PackageReference Include="Serilog" Version="2.12.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
@@ -1654,6 +1652,12 @@
 
   <ItemGroup>
     <Content Include="..\AssemblyLoaderIBranchExtensionNet6\bin\Debug\net6.0\AssemblyLoaderIBranchExtensionNet6.dll" Link="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ConnectionDrivers\Oracle.ManagedDataAccess.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
