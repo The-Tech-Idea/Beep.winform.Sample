@@ -6,7 +6,7 @@
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>TheTechIdea.Beep.Vis.ModulesNet6</PackageId>
-    <Version>1.0.0.22</Version>
+    <Version>1.0.0.23</Version>
     <Authors>The Tech Idea</Authors>
     <Product>TheTechIdea.Beep.Vis.ModulesNet6</Product>
     <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
@@ -55,6 +55,7 @@
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IWizardNode.cs" Link="IWizardNode.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IWizardState.cs" Link="IWizardState.cs" />
 	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\WizardState.cs" Link="WizardState.cs" />
+	  <Compile Include="..\..\BeepWinFormAppNet\TheTechIdea.Beep.Vis.Modules2.0\IWaitForm.cs" Link="IWaitForm.cs" />
 	</ItemGroup>
 	<ItemGroup>
 	  <None Include="..\..\..\..\..\OneDrive\SimpleInfoapps\LogoGFx\128\SimpleODM.png">
