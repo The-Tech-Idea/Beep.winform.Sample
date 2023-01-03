@@ -14,7 +14,7 @@
 	</Target>
 	<Target Name="CopyDLL" AfterTargets="Build">
 		<Copy SourceFiles="$(OutDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\net6.0\$(PackageId).dll" SkipUnchangedFiles="false" />
-		<Copy SourceFiles="$(OutDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\net6.0\$(PackageId).dll" SkipUnchangedFiles="false" />
+
 	</Target>
 	<ItemGroup>
     <Compile Include="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\**\*">
@@ -22,10 +22,23 @@
     </Compile>
 </ItemGroup>
 	<ItemGroup>
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\AI\**" />
 	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\bin\Debug\**" />
 	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\bin\Release\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\Cloud\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\CompositeLayer\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\Config\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\DataBase\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\DataView\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\DDL\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\File\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\Mapping\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\NoSQL\**" />
 	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\obj\**" />
 	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\Properties\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\Reports\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\WebAPI\**" />
+	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\WorkFlow\**" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Compile Remove="..\..\BeepWinFormAppNet\BeepEnterprizeTreeNodes\app.config" />
@@ -35,9 +48,13 @@
 	  <Compile Remove="..\BeepEnterprizeTreeNodes\BeepEnterprizeTreeNodes.csproj" />
 	</ItemGroup>
 	<ItemGroup>
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.41" />
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.22" />
-	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.22" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.45" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.25" />
+	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.29" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="App\" />
+	  <Folder Include="Json\" />
 	</ItemGroup>
 		
 

@@ -60,21 +60,23 @@ namespace BeepEnterprize.Winform.Vis.CRUD
             // 
             // EntityNameLabel
             // 
+            this.EntityNameLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EntityNameLabel.BackColor = System.Drawing.Color.Orange;
             this.EntityNameLabel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.EntityNameLabel.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Bold);
             this.EntityNameLabel.ForeColor = System.Drawing.Color.Black;
-            this.EntityNameLabel.Location = new System.Drawing.Point(14, 23);
+            this.EntityNameLabel.Location = new System.Drawing.Point(185, 9);
             this.EntityNameLabel.Name = "EntityNameLabel";
-            this.EntityNameLabel.Size = new System.Drawing.Size(225, 23);
+            this.EntityNameLabel.Size = new System.Drawing.Size(225, 30);
             this.EntityNameLabel.TabIndex = 18;
             this.EntityNameLabel.Text = "Entity Name";
             this.EntityNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // SaveButton
             // 
-            this.SaveButton.ForeColor = System.Drawing.Color.Gold;
-            this.SaveButton.Location = new System.Drawing.Point(500, 23);
+            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.SaveButton.ForeColor = System.Drawing.Color.White;
+            this.SaveButton.Location = new System.Drawing.Point(250, 42);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(90, 25);
             this.SaveButton.TabIndex = 1;

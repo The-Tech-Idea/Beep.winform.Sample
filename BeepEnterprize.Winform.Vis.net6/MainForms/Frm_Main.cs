@@ -1,5 +1,8 @@
-﻿
+﻿using System;
 using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 using BeepEnterprize.Winform.Vis.Controls;
 using TheTechIdea;
 using TheTechIdea.Beep;
@@ -35,8 +38,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         public EntityStructure EntityStructure { get ; set ; }
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
-        public bool IsBeepDataOn { get; set; } = true;
-        public bool IsAppOn { get; set; } = true;
+     
         public VisManager visManager { get; set; }
         public bool startLoggin { get; set; } = false;
         public void Run(IPassedArgs pPassedarg)
@@ -86,7 +88,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                
             }
             //---------- Init Controls --------------
-           
+            this.ResumeLayout(false);
             BeepTreeControl = (TreeControl)visManager.Tree;
             BeeptoolbarControl = (ToolbarControl)visManager.ToolStrip;
             BeepmenuControl = (MenuControl)visManager.MenuStrip;
@@ -125,23 +127,22 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             
             //------------- Setup Control Container to Display controls and addons
             visManager.Container = ContainerPanel;
+            visManager.MainForm = this;
             //--------------------------------------------------------------------
             
-            if(DMEEditor.Passedarguments.ParameterString1 != null)
-            {
-                if (DMEEditor.Passedarguments.ParameterString1.Equals("NoApp", StringComparison.InvariantCultureIgnoreCase))
-                {
-                    IsAppOn = false;
-                }
-            }
-            if (IsBeepDataOn)
+           
+            if (visManager.IsBeepDataOn)
             {
                 ///------------ Setup Beep Data Management 
 
-                BeepTreeControl.TreeType = "Beep";
-                BeepTreeControl.ObjectType = "Beep";
-                BeeptoolbarControl.ObjectType = "Beep";
-                BeepmenuControl.ObjectType = "Beep";
+                BeepTreeControl.TreeType = visManager.BeepObjectsName;
+                BeepTreeControl.ObjectType = visManager.BeepObjectsName;
+                BeeptoolbarControl.ObjectType = visManager.BeepObjectsName;
+                BeepmenuControl.ObjectType = visManager.BeepObjectsName;
+
+                BeepTreeControl.IconSize = new Size(32, 32);
+                BeepmenuControl.IconSize = new Size(32, 32);
+                BeeptoolbarControl.IconSize = new Size(32, 32); 
 
                 BeepTreeControl.TreeV = BeepTreeView;
                 BeepmenuControl.TreeV = BeepTreeView;
@@ -170,20 +171,24 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 {
                     Beepmenustrip.Visible = false;
                 }
-                BeepmenuControl.IsBeepDataOn = true;
+              
               
             }
             else
-             BeepmenuControl.IsBeepDataOn = false;
+            
               
             ///----------------------------------------
-            if (IsAppOn)
+            if (visManager.IsAppOn)
             {
                 ///------------ Setup App  
-                ApptreeControl.TreeType = "dhub";
-                ApptreeControl.ObjectType = "dhub";
-                ApptoolbarControl.ObjectType = "dhub";
-                AppmenuControl.ObjectType = "dhub";
+                ApptreeControl.TreeType = visManager.AppObjectsName;
+                ApptreeControl.ObjectType = visManager.AppObjectsName;  //"dhub";
+                ApptoolbarControl.ObjectType = visManager.AppObjectsName;
+                AppmenuControl.ObjectType = visManager.AppObjectsName; ;
+
+                ApptreeControl.IconSize=new Size(32,32);
+                AppmenuControl.IconSize = new Size(32, 32);
+                ApptoolbarControl.IconSize = new Size(32, 32);
 
                 ApptreeControl.TreeV = AppTreeView;
                 ApptoolbarControl.TreeV = AppTreeView;
@@ -215,10 +220,9 @@ namespace BeepEnterprize.Winform.Vis.MainForms
                 {
                     AppmenuStrip.Visible = false;
                 }
-                AppmenuControl.IsAppOn = true;
               
-            }else
-                AppmenuControl.IsAppOn = false;
+              
+            }
             ///----------------------------------------
         
 
@@ -237,7 +241,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.LogPanelCollapsebutton.Click += LogPanelCollapsebutton_Click;
             LogPanelHeight = LogPanel.Height;
           
-            MainSplitContainer1.Panel1MinSize = 40;
+            //MainSplitContainer1.Panel1MinSize = 40;
 
             ListSearch = (Bitmap)Properties.Resources.ResourceManager.GetObject("ListBoxSearch");
             CollapseLeft = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseLeft");
@@ -249,8 +253,17 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MinMaxButton.Image= CollapseLeft;
             this.LogPanelCollapsebutton.Image = CollapseDown;
             Filterbutton.Image = ListSearch;
-            if (IsBeepDataOn == false) RemoveBeepGui();
-            if (IsAppOn == false) RemoveAppGui();
+            if (visManager.IsBeepDataOn == false) RemoveBeepGui();
+            if (visManager.IsAppOn == false) RemoveAppGui();
+            
+            this.StartPosition = FormStartPosition.CenterScreen; 
+         
+            this.ShowInTaskbar = true;
+            this.ResumeLayout(true);
+
+            this.TreeFilterTextBox.Focus();
+            //this.WindowState = FormWindowState.Maximized;
+           // this.TopMost = true; 
         }
 
         private void RemoveAppGui()
@@ -363,8 +376,16 @@ namespace BeepEnterprize.Winform.Vis.MainForms
         }
         private void Frm_Main_Shown(object sender, EventArgs e)
         {
-           // this.WindowState = FormWindowState.Maximized;
-            this.Text = "Beep - The Plugable Integrated Platform";
+            // this.WindowState = FormWindowState.Maximized;
+            if (string.IsNullOrEmpty(visManager.Title))
+            {
+                this.Text = "Beep - The Plugable Integrated Platform";
+            }
+            else
+            {
+                this.Text = visManager.Title;
+            }
+            
         }
         private void Logger_Onevent(object sender, string e)
         {

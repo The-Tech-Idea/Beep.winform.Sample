@@ -6,7 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <StartupObject>SampleApp.Program</StartupObject>
+    <StartupObject>BeepEnterprize.winform.net6.Program</StartupObject>
+    <ApplicationIcon>SimpleODM.ico</ApplicationIcon>
+    <Company>The Tech Idea</Company>
+    <Copyright>2023</Copyright>
+    <PackageIcon>SimpleInfoApps.png</PackageIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -273,6 +277,7 @@
     <None Remove="GFX\select.ico" />
     <None Remove="GFX\settings.ico" />
     <None Remove="GFX\sheet.ico" />
+    <None Remove="GFX\SimpleODM.ico" />
     <None Remove="GFX\snapdesigner.ico" />
     <None Remove="GFX\spreadsheet.ico" />
     <None Remove="GFX\sqlicon.ico" />
@@ -299,7 +304,10 @@
     <None Remove="GFX\xlsx.ico" />
     <None Remove="GFX\xml.ico" />
     <None Remove="GFX\zip.ico" />
+    <None Remove="LoadingExtensions\AssemblyLoaderExtension\HereweAddLoadingAssemblyExtensions.txt" />
+    <None Remove="LoadingExtensions\BusinessProcess\HereweAddLoadingAssemblyExtensions - Copy %282%29.txt" />
     <None Remove="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt" />
+    <None Remove="LoadingExtensions\ML.NET\HereweAddLoadingAssemblyExtensions - Copy.txt" />
     <None Remove="Mapping\HereweAddAllmapping.txt" />
     <None Remove="OtherDLL\Dapper.dll" />
     <None Remove="ProjectClasses\DataSources\CouchBaseDataSourceCore.dll" />
@@ -1182,6 +1190,9 @@
     <Content Include="GFX\sheet.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\SimpleODM.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\snapdesigner.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1260,9 +1271,11 @@
     <Content Include="GFX\zip.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LoadingExtensions\BusinessProcess\HereweAddLoadingAssemblyExtensions - Copy (2).txt" />
     <Content Include="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LoadingExtensions\ML.NET\HereweAddLoadingAssemblyExtensions - Copy.txt" />
     <Content Include="Mapping\HereweAddAllmapping.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1584,6 +1597,7 @@
     <Content Include="Scripts\Logs\HereweAddlogsforscripts.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="SimpleODM.ico" />
     <Content Include="WorkFlow\HereweAddAllworkflows.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1591,16 +1605,16 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.5.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.80" />
     <PackageReference Include="Serilog" Version="2.12.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyHelperNet6" Version="1.0.0.15" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.41" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.45" />
     <PackageReference Include="TheTechIdea.Beep.DMLoggerNet6" Version="1.0.0.7" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoaderNet6" Version="1.0.0.8" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.22" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.29" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1610,10 +1624,6 @@
     <Content Include="ProjectData\tmp.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BeepEnterprize.Winform.Vis.net6\BeepEnterprize.Winform.Vis.net6.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1639,27 +1649,59 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\BeepEnterprizeTreeNodes.net6\bin\Debug\net6.0\BeepEnterprizeTreeNodes.net6.dll" Link="ProjectClasses\TreeNodes\BeepEnterprizeTreeNodes.net6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\BeepEnterprize.Vis.Module.net6\bin\Debug\net6.0\BeepEnterprize.Vis.Module.net6.dll" Link="LoadingExtensions\BeepEnterprize.Vis.Module.net6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\AssemblyLoaderIBranchExtensionNet6\bin\Debug\net6.0\AssemblyLoaderIBranchExtensionNet6.dll" Link="LoadingExtensions\AssemblyLoaderIBranchExtensionNet6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="ConnectionDrivers\Oracle.ManagedDataAccess.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\AINodes\AINodes.dll" Link="ProjectClasses\TreeNodes\AINodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\AIExtensionLoader\AIExtensionLoader.dll" Link="LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\AIModule\AIModule.dll" Link="LoadingExtensions\AssemblyLoaderAI\AIModule.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="LoadingExtensions\AssemblyLoaderExtension\HereweAddLoadingAssemblyExtensions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\ML.NETExtensions\ML.NETExtensions.dll" Link="LoadingExtensions\ML.NET\ML.NETExtensions.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\..\..\OneDrive\SimpleInfoapps\LogoGFx\512\SimpleInfoApps.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <Content Include="..\..\outputDLL\CompositeLayerNodes6\CompositeLayerNodes6.dll" Link="ProjectClasses\TreeNodes\CompositeLayerNodes6.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\CompositeLayerDataSource6.dll" Link="ProjectClasses\DataSources\CompositeLayerDataSource6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\BranchAssemblyLoader6\BranchAssemblyLoader6.dll" Link="LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.dll" Link="LoadingExtensions\AssemblyLoaderExtension\BeepEnterprize.Vis.Module.net6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\net6.0\BeepEnterprizeTreeNodes.net6.dll\BeepEnterprizeTreeNodes.net6.dll" Link="ProjectClasses\TreeNodes\BeepEnterprizeTreeNodes.net6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BeepEnterprize.Winform.Vis.net6\BeepEnterprize.Winform.Vis.net6.csproj" />
   </ItemGroup>
 
 </Project>

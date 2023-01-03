@@ -34,7 +34,15 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.scriptDataGridView = new System.Windows.Forms.DataGridView();
+            this.destinationentityname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Failed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsCreated = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.IsModified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.scriptTypeComboBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sourcedatasourcename = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.dataConnectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.destinationdatasourcename = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ddlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scriptBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.LogtextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,21 +53,12 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.progressBar1 = new TextProgressBar();
+            this.progressBar1 = new BeepEnterprize.Winform.Vis.Controls.TextProgressBar();
             this.StopButton = new System.Windows.Forms.Button();
             this.loadDataLogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Failed = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.destinationentityname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IsCreated = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.IsModified = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.sourcedatasourcename = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.destinationdatasourcename = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.scriptTypeComboBox = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ddlDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.errormessageDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.scriptDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).BeginInit();
@@ -94,28 +93,90 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.scriptDataGridView.AutoGenerateColumns = false;
+            this.scriptDataGridView.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.scriptDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.scriptDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Failed,
             this.destinationentityname,
+            this.Failed,
             this.IsCreated,
             this.IsModified,
+            this.scriptTypeComboBox,
             this.sourcedatasourcename,
             this.destinationdatasourcename,
-            this.scriptTypeComboBox,
-            this.ddlDataGridViewTextBoxColumn,
-            this.errormessageDataGridViewTextBoxColumn});
+            this.ddlDataGridViewTextBoxColumn});
             this.scriptDataGridView.DataSource = this.scriptBindingSource;
-            this.scriptDataGridView.Location = new System.Drawing.Point(3, 56);
+            this.scriptDataGridView.Enabled = false;
+            this.scriptDataGridView.Location = new System.Drawing.Point(8, 56);
+            this.scriptDataGridView.MultiSelect = false;
             this.scriptDataGridView.Name = "scriptDataGridView";
-            this.scriptDataGridView.ReadOnly = true;
             this.scriptDataGridView.ShowCellErrors = false;
-            this.scriptDataGridView.Size = new System.Drawing.Size(1254, 264);
+            this.scriptDataGridView.Size = new System.Drawing.Size(1254, 376);
             this.scriptDataGridView.TabIndex = 33;
+            // 
+            // destinationentityname
+            // 
+            this.destinationentityname.DataPropertyName = "destinationentityname";
+            this.destinationentityname.HeaderText = "Entity";
+            this.destinationentityname.Name = "destinationentityname";
+            // 
+            // Failed
+            // 
+            this.Failed.DataPropertyName = "Failed";
+            this.Failed.HeaderText = "Failed";
+            this.Failed.Name = "Failed";
+            // 
+            // IsCreated
+            // 
+            this.IsCreated.DataPropertyName = "IsCreated";
+            this.IsCreated.HeaderText = "Created";
+            this.IsCreated.Name = "IsCreated";
+            // 
+            // IsModified
+            // 
+            this.IsModified.DataPropertyName = "IsModified";
+            this.IsModified.HeaderText = "Modified";
+            this.IsModified.Name = "IsModified";
+            // 
+            // scriptTypeComboBox
+            // 
+            this.scriptTypeComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.scriptTypeComboBox.DataPropertyName = "scriptType";
+            this.scriptTypeComboBox.HeaderText = "Type";
+            this.scriptTypeComboBox.Name = "scriptTypeComboBox";
+            this.scriptTypeComboBox.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.scriptTypeComboBox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.scriptTypeComboBox.Visible = false;
+            // 
+            // sourcedatasourcename
+            // 
+            this.sourcedatasourcename.DataPropertyName = "sourcedatasourcename";
+            this.sourcedatasourcename.DataSource = this.dataConnectionsBindingSource;
+            this.sourcedatasourcename.DisplayMember = "ConnectionName";
+            this.sourcedatasourcename.HeaderText = "Source";
+            this.sourcedatasourcename.Name = "sourcedatasourcename";
+            this.sourcedatasourcename.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sourcedatasourcename.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.sourcedatasourcename.ValueMember = "ConnectionName";
             // 
             // dataConnectionsBindingSource
             // 
             this.dataConnectionsBindingSource.DataSource = typeof(TheTechIdea.Util.ConnectionProperties);
+            // 
+            // destinationdatasourcename
+            // 
+            this.destinationdatasourcename.DataPropertyName = "destinationdatasourcename";
+            this.destinationdatasourcename.DataSource = this.dataConnectionsBindingSource;
+            this.destinationdatasourcename.DisplayMember = "ConnectionName";
+            this.destinationdatasourcename.HeaderText = "Destination";
+            this.destinationdatasourcename.Name = "destinationdatasourcename";
+            this.destinationdatasourcename.ValueMember = "ConnectionName";
+            // 
+            // ddlDataGridViewTextBoxColumn
+            // 
+            this.ddlDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ddlDataGridViewTextBoxColumn.DataPropertyName = "ddl";
+            this.ddlDataGridViewTextBoxColumn.HeaderText = "Script";
+            this.ddlDataGridViewTextBoxColumn.Name = "ddlDataGridViewTextBoxColumn";
             // 
             // scriptBindingSource
             // 
@@ -125,11 +186,11 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             // 
             this.LogtextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.LogtextBox.Location = new System.Drawing.Point(3, 326);
+            this.LogtextBox.Location = new System.Drawing.Point(3, 438);
             this.LogtextBox.Multiline = true;
             this.LogtextBox.Name = "LogtextBox";
             this.LogtextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.LogtextBox.Size = new System.Drawing.Size(1254, 182);
+            this.LogtextBox.Size = new System.Drawing.Size(1254, 70);
             this.LogtextBox.TabIndex = 31;
             // 
             // label2
@@ -185,10 +246,11 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Gold;
-            this.label1.Location = new System.Drawing.Point(29, 17);
+            this.label1.Location = new System.Drawing.Point(518, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(163, 32);
             this.label1.TabIndex = 0;
@@ -229,7 +291,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.progressBar1.TabIndex = 25;
             this.progressBar1.TextColor = System.Drawing.Color.Black;
             this.progressBar1.TextFont = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.progressBar1.VisualMode = ProgressBarDisplayMode.CurrProgress;
+            this.progressBar1.VisualMode = BeepEnterprize.Winform.Vis.Controls.ProgressBarDisplayMode.CurrProgress;
             // 
             // StopButton
             // 
@@ -272,88 +334,6 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
             this.dataGridViewTextBoxColumn3.HeaderText = "Messege";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // Failed
-            // 
-            this.Failed.DataPropertyName = "Failed";
-            this.Failed.HeaderText = "Failed";
-            this.Failed.Name = "Failed";
-            this.Failed.ReadOnly = true;
-            // 
-            // destinationentityname
-            // 
-            this.destinationentityname.DataPropertyName = "destinationentityname";
-            this.destinationentityname.HeaderText = "Entity";
-            this.destinationentityname.Name = "destinationentityname";
-            this.destinationentityname.ReadOnly = true;
-            // 
-            // IsCreated
-            // 
-            this.IsCreated.DataPropertyName = "IsCreated";
-            this.IsCreated.HeaderText = "IsCreated";
-            this.IsCreated.Name = "IsCreated";
-            this.IsCreated.ReadOnly = true;
-            // 
-            // IsModified
-            // 
-            this.IsModified.DataPropertyName = "IsModified";
-            this.IsModified.HeaderText = "IsModified";
-            this.IsModified.Name = "IsModified";
-            this.IsModified.ReadOnly = true;
-            // 
-            // sourcedatasourcename
-            // 
-            this.sourcedatasourcename.DataPropertyName = "sourcedatasourcename";
-            this.sourcedatasourcename.DataSource = this.dataConnectionsBindingSource;
-            this.sourcedatasourcename.DisplayMember = "ConnectionName";
-            this.sourcedatasourcename.HeaderText = "Source";
-            this.sourcedatasourcename.Name = "sourcedatasourcename";
-            this.sourcedatasourcename.ReadOnly = true;
-            this.sourcedatasourcename.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sourcedatasourcename.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.sourcedatasourcename.ValueMember = "ConnectionName";
-            // 
-            // destinationdatasourcename
-            // 
-            this.destinationdatasourcename.DataPropertyName = "destinationdatasourcename";
-            this.destinationdatasourcename.DataSource = this.dataConnectionsBindingSource;
-            this.destinationdatasourcename.DisplayMember = "ConnectionName";
-            this.destinationdatasourcename.HeaderText = "Destination";
-            this.destinationdatasourcename.Name = "destinationdatasourcename";
-            this.destinationdatasourcename.ReadOnly = true;
-            this.destinationdatasourcename.ValueMember = "ConnectionName";
-            // 
-            // scriptTypeComboBox
-            // 
-            this.scriptTypeComboBox.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.scriptTypeComboBox.DataPropertyName = "scriptType";
-            this.scriptTypeComboBox.HeaderText = "scriptType";
-            this.scriptTypeComboBox.Name = "scriptTypeComboBox";
-            this.scriptTypeComboBox.ReadOnly = true;
-            this.scriptTypeComboBox.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.scriptTypeComboBox.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.scriptTypeComboBox.Visible = false;
-            this.scriptTypeComboBox.Width = 62;
-            // 
-            // ddlDataGridViewTextBoxColumn
-            // 
-            this.ddlDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ddlDataGridViewTextBoxColumn.DataPropertyName = "ddl";
-            this.ddlDataGridViewTextBoxColumn.HeaderText = "Script";
-            this.ddlDataGridViewTextBoxColumn.Name = "ddlDataGridViewTextBoxColumn";
-            this.ddlDataGridViewTextBoxColumn.ReadOnly = true;
-            this.ddlDataGridViewTextBoxColumn.Visible = false;
-            this.ddlDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // errormessageDataGridViewTextBoxColumn
-            // 
-            this.errormessageDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.errormessageDataGridViewTextBoxColumn.DataPropertyName = "errormessage";
-            this.errormessageDataGridViewTextBoxColumn.HeaderText = "Messege";
-            this.errormessageDataGridViewTextBoxColumn.Name = "errormessageDataGridViewTextBoxColumn";
-            this.errormessageDataGridViewTextBoxColumn.ReadOnly = true;
-            this.errormessageDataGridViewTextBoxColumn.Visible = false;
-            this.errormessageDataGridViewTextBoxColumn.Width = 75;
             // 
             // uc_CopyEntities
             // 
@@ -400,14 +380,13 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
         private System.Windows.Forms.DataGridView scriptDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Failed;
         private System.Windows.Forms.DataGridViewTextBoxColumn destinationentityname;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Failed;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsCreated;
         private System.Windows.Forms.DataGridViewCheckBoxColumn IsModified;
+        private System.Windows.Forms.DataGridViewTextBoxColumn scriptTypeComboBox;
         private System.Windows.Forms.DataGridViewComboBoxColumn sourcedatasourcename;
         private System.Windows.Forms.DataGridViewComboBoxColumn destinationdatasourcename;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scriptTypeComboBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn ddlDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn errormessageDataGridViewTextBoxColumn;
     }
 }

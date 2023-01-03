@@ -34,8 +34,8 @@
 	</ItemGroup>
 	
 	<ItemGroup>
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.41" />
-	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.22" />
+	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.45" />
+	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.29" />
 	</ItemGroup>
 
   <ItemGroup>
@@ -102,6 +102,9 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="CRUD\Frm_NewUpdateEntity.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="CRUD\uc_EntityfilterPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="DataViewManagement\uc_CreateComposedLayerFromView.cs">

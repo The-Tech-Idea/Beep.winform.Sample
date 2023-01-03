@@ -5,7 +5,7 @@
     <Nullable>enable</Nullable>
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageId>TheTechIdea.Beep.Vis.ModulesNet6</PackageId>
+    <PackageId>BeepEnterprize.Vis.Module.net6</PackageId>
     <Version>1.0.0.29</Version>
     <Authors>The Tech Idea</Authors>
     <Product>TheTechIdea.Beep.Vis.ModulesNet6</Product>
@@ -68,5 +68,7 @@
 	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.45" />
 	  <PackageReference Include="TheTechIdea.Beep.DataManagementModelsNet6" Version="1.0.0.25" />
 	</ItemGroup>
-
+	<Target Name="CopyDLL" AfterTargets="Build">
+		<Copy SourceFiles="$(OutDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\..\outputDLL\$(PackageId)" SkipUnchangedFiles="false" />
+	</Target>
 </Project>

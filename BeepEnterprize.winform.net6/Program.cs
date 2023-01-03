@@ -1,8 +1,4 @@
-﻿
-
-using BeepEnterprize.Winform;
-
-namespace SampleApp
+﻿namespace BeepEnterprize.winform.net6
 {
     static class Program
     {
@@ -17,9 +13,9 @@ namespace SampleApp
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //  Application.Run(new Form1());
-           
+
             MainApp m = new MainApp();
-            
+
 
         }
     }

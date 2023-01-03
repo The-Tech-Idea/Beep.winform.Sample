@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -26,7 +27,10 @@ namespace BeepEnterprize.Winform.Vis
 {
     public class VisManager : IVisManager
     {
-        
+
+        public string LogoUrl { get; set; }
+        public string Title { get; set; }
+        public string IconUrl { get; set; }
         public IDMEEditor DMEEditor { get; set; }
         public IDM_Addin MenuStrip { get; set; }
         public IDM_Addin ToolStrip { get; set; }
@@ -37,7 +41,12 @@ namespace BeepEnterprize.Winform.Vis
         public IDM_Addin SecondaryMenuStrip { get; set ; }
 
         public List<ObjectItem> objects { get; set; } = new List<ObjectItem>();
-       
+        public bool IsBeepDataOn { get; set; } = true;
+        public bool IsAppOn { get; set; } = true;
+      
+        public bool IsDevModeOn { get; set; } = false;
+        public string AppObjectsName { get; set; }
+        public string BeepObjectsName { get; set; }="Beep";
         public IVisHelper visHelper { get; set; }
         public IControlManager Controlmanager { get; set; }
         public ControlManager _controlManager { get { return (ControlManager)Controlmanager; } }
@@ -69,13 +78,110 @@ namespace BeepEnterprize.Winform.Vis
 
             }
             DMEEditor.Passedarguments.Objects = CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
+
+            Images16 = new ImageList();
+            Images16.ColorDepth = ColorDepth.Depth32Bit;
+
+            Images16 = new ImageList();
+            Images16.ImageSize = new Size(16, 16);
+            Images16.ColorDepth = ColorDepth.Depth32Bit;
+            Images32 = new ImageList();
+            Images32.ImageSize = new Size(16, 16);
+            Images32.ColorDepth = ColorDepth.Depth32Bit;
+            Images64 = new ImageList();
+            Images64.ImageSize = new Size(16, 16);
+            Images64.ColorDepth = ColorDepth.Depth32Bit;
+            Images128 = new ImageList();
+            Images128.ImageSize = new Size(16, 16);
+            Images128.ColorDepth = ColorDepth.Depth32Bit;
+            Images256 = new ImageList();
+            Images256.ImageSize = new Size(16, 16);
+            Images256.ColorDepth = ColorDepth.Depth32Bit;
+            List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
+            foreach (string filename_w_path in paths)
+            {
+                try
+                {
+                    string filename = Path.GetFileName(filename_w_path);
+                    ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
+                    Image im = Image.FromFile(filename_w_path);
+                    if (im != null)
+                    {
+                        Images16.Images.Add(filename, im);
+                        Images32.Images.Add(filename, im);
+                        Images64.Images.Add(filename, im);
+                        Images128.Images.Add(filename, im);
+                        Images256.Images.Add(filename, im);
+                        Images.Images.Add(filename, im);
+
+                        //switch (im.Size.Height)
+                        //{
+                        //    case 16:
+                        //        Images16.Images.Add(filename,im );
+                        //        break;
+                        //    case 32:
+                        //        Images32.Images.Add(filename, im);
+                        //        break;
+                        //    case 64:
+                        //        Images64.Images.Add(filename, im);
+                        //        break;
+                        //    case 128:
+                        //        Images128.Images.Add(filename, im);
+                        //        break;
+                        //    case 256:
+                        //        Images256.Images.Add(filename, im);
+                        //        break;
+                        //    default:
+                        //        Images.Images.Add(filename, im);
+                        //        break;
+                        //}
+                        ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
+                    }
+                   
+                }
+                catch (FileLoadException ex)
+                {
+                    DMEEditor.ErrorObject.Flag = Errors.Failed;
+                    DMEEditor.ErrorObject.Ex = ex;
+                    DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
+                }
+            }
+            paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.png", SearchOption.AllDirectories).ToList();
+            foreach (string filename_w_path in paths)
+            {
+                try
+                {
+                    string filename = Path.GetFileName(filename_w_path);
+                    Images.Images.Add(filename, Image.FromFile(filename_w_path));
+                    ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
+
+                }
+                catch (FileLoadException ex)
+                {
+                    DMEEditor.ErrorObject.Flag = Errors.Failed;
+                    DMEEditor.ErrorObject.Ex = ex;
+                    DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
+                }
+            }
         }
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
+        public ImageList Images16 { get; set; } = new ImageList();
+        public ImageList Images32 { get; set; } = new ImageList();
+        public ImageList Images64 { get; set; } = new ImageList();
+        public ImageList Images128 { get; set; } = new ImageList();
+        public ImageList Images256 { get; set; } = new ImageList();
+        public List<IFileStorage> ImagesUrls { get; set; } = new List<IFileStorage>();
+        BeepWait BeepWaitForm { get; set; }
+        public IWaitForm WaitForm { get; set; }
         private Control _container;
+        public Form MainForm { get; set; }
         public Control Container { get { return _container; } set { _container =value; _controlManager.DisplayPanel = value; } }
         #endregion
         public WizardManager wizardManager { get; set; }
+
+        public bool IsShowingMainForm { get; set; } = false;
+
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
         {
@@ -364,7 +470,7 @@ namespace BeepEnterprize.Winform.Vis
 
             }
             return addin;
-            //form.GetType().GetField("")
+            //BeepWaitForm.GetType().GetField("")
         }
         public event EventHandler<FormClosingEventArgs> PreClose;
         private void Form_PreClose(object sender, FormClosingEventArgs e)
@@ -376,7 +482,7 @@ namespace BeepEnterprize.Winform.Vis
         {
             control.Controls.Clear();
             ErrorsandMesseges.Flag = Errors.Ok;
-            //Form form = new Form();
+            //Form BeepWaitForm = new Form();
             // var path = Path.Combine(dllpath, dllname);
             UserControl uc = new UserControl();
             IDM_Addin addin = null;
@@ -494,8 +600,21 @@ namespace BeepEnterprize.Winform.Vis
                     form.Text = addin.AddinName;
                     IsDataModified = false;
                     CurrentDisplayedAddin = addin;
+                    form.ShowInTaskbar=true;
+                    if (IsShowingMainForm)
+                    {
+                        if (!string.IsNullOrEmpty(Title))
+                        {
+                            form.Text = Title;
+                        }
+                    }
+                    if (!string.IsNullOrEmpty(IconUrl))
+                    {
+                        string Iconp = ImagesUrls.Where(p => p.FileName.Equals(IconUrl)).FirstOrDefault().Url;
+                        form.Icon =new Icon(Iconp);
+                    }
+                   
                     form.ShowDialog();
-
                 }
                 else
                 {
@@ -510,7 +629,7 @@ namespace BeepEnterprize.Winform.Vis
             }
           
             return addin;
-            //form.GetType().GetField("")
+            //BeepWaitForm.GetType().GetField("")
         }
         //---------------- Run Class Addin -----------------
         private IDM_Addin RunAddinClass(string classname, IDMEEditor pDMEEditor, string[] args, IPassedArgs e)
@@ -559,19 +678,17 @@ namespace BeepEnterprize.Winform.Vis
             }
 
             return addin;
-            //form.GetType().GetField("")
+            //BeepWaitForm.GetType().GetField("")
         }
         //--------------------------------------------------
 
         #endregion
         #region "Wait Forms"
-        BeepWait form;
-        
         delegate void SetTextCallback(Form f, TextBox ctrl, string text);
         /// <summary>
         /// Set text property of various controls
         /// </summary>
-        /// <param name="form">The calling form</param>
+        /// <param name="form">The calling BeepWaitForm</param>
         /// <param name="ctrl"></param>
         /// <param name="text"></param>
         public static void SetText(Form form, TextBox ctrl, string text)
@@ -583,7 +700,7 @@ namespace BeepEnterprize.Winform.Vis
             //if (ctrl.InvokeRequired)
             //{
             //    SetTextCallback d = new SetTextCallback(SetText);
-            //    form.Invoke(d, new object[] { form, ctrl, text });
+            //    BeepWaitForm.Invoke(d, new object[] { BeepWaitForm, ctrl, text });
             //}
             //else
             //{
@@ -598,20 +715,31 @@ namespace BeepEnterprize.Winform.Vis
         private async void startwait(PassedArgs Passedarguments)
         {
             string[] args = null;
-            form = (BeepWait)Application.OpenForms["BeepWait"];
-            if (form != null)
+            BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+            if (BeepWaitForm != null)
             {
                 CloseWaitForm();
             }
             await Task.Run(() => {
-                form = new BeepWait();
-                //form.SetConfig(DMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, Passedarguments, ErrorsandMesseges);
-                //form.Run(Passedarguments);
-                form.TopMost=true;
+                BeepWaitForm = new BeepWait();
+                if (!string.IsNullOrEmpty(Title))
+                {
+                    BeepWaitForm.Title.Text = Title;
+                }
+                Debug.WriteLine($"Getting Logourl {LogoUrl}");
+                if (!string.IsNullOrEmpty(LogoUrl))
+                {
+                    string logurl = ImagesUrls.Where(p => p.FileName.Equals(LogoUrl)).FirstOrDefault().Url;
+                    Debug.WriteLine($"found or not = {logurl}");
+
+                    BeepWaitForm.SetImage(logurl);
+                }
+                Debug.WriteLine($"not found logurl");
+                BeepWaitForm.TopMost=true;
                // Form frm = (Form)MainFormView;
-                form.StartPosition = FormStartPosition.CenterScreen;
-               // form.Parent = frm;
-                form.ShowDialog();
+                BeepWaitForm.StartPosition = FormStartPosition.CenterScreen;
+               // BeepWaitForm.Parent = frm;
+                BeepWaitForm.ShowDialog();
    
             });
         }
@@ -619,18 +747,19 @@ namespace BeepEnterprize.Winform.Vis
         {
             try
             {
-                form = (BeepWait)Application.OpenForms["BeepWait"];
-                if (form != null)
+                BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+                if (BeepWaitForm != null)
                 {
                     CloseWaitForm();
                 }
 
                 ErrorsandMesseges = new ErrorsInfo();
+
                 startwait(Passedarguments);
                 WaitFormShown=true;
                 while ((BeepWait)Application.OpenForms["BeepWait"] == null) Application.DoEvents();
-                form = (BeepWait)Application.OpenForms["BeepWait"];
-
+                BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+              
             }
             catch (Exception ex)
             {
@@ -647,10 +776,10 @@ namespace BeepEnterprize.Winform.Vis
             {
 
                 ErrorsandMesseges = new ErrorsInfo();
-                form = (BeepWait)Application.OpenForms["BeepWait"];
-                if (form != null)
+                BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+                if (BeepWaitForm != null)
                 {
-                    SetText(form, form.messege, Passedarguments.ParameterString1);
+                    SetText(BeepWaitForm, BeepWaitForm.messege, Passedarguments.ParameterString1);
                     WaitFormShown = true;
                 }
 
@@ -667,17 +796,17 @@ namespace BeepEnterprize.Winform.Vis
         {
             try
             {
-                form = (BeepWait)Application.OpenForms["BeepWait"];
-                if (form != null)
+                BeepWaitForm = (BeepWait)Application.OpenForms["BeepWait"];
+                if (BeepWaitForm != null)
                 {
-                    if (form.InvokeRequired)
+                    if (BeepWaitForm.InvokeRequired)
                     {
-                        form.BeginInvoke((MethodInvoker)delegate () { form.CloseForm(); });
+                        BeepWaitForm.BeginInvoke((MethodInvoker)delegate () { BeepWaitForm.CloseForm(); });
                         WaitFormShown = false;
                     }
                     else
                     {
-                        form.Close();//Fault tolerance this code should never be executed
+                        BeepWaitForm.BeginInvoke((MethodInvoker)delegate () { BeepWaitForm.CloseForm(); });
                         WaitFormShown = false;
                     }
 
@@ -692,7 +821,6 @@ namespace BeepEnterprize.Winform.Vis
             }
             return ErrorsandMesseges;
         }
-
         #endregion
         #region "Resource Loaders"
         public Image GetImage(string fullName)
