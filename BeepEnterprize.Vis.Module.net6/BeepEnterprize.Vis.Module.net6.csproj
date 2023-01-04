@@ -6,7 +6,7 @@
     <RootNamespace>BeepEnterprize.Vis.Module</RootNamespace>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageId>BeepEnterprize.Vis.Module.net6</PackageId>
-    <Version>1.0.0.29</Version>
+    <Version>1.0.0.30</Version>
     <Authors>The Tech Idea</Authors>
     <Product>TheTechIdea.Beep.Vis.ModulesNet6</Product>
     <Description>Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
@@ -30,8 +30,11 @@
 		<Compile Remove="..\BeepEnterprize.Vis.Module\obj\**" />
 		<Compile Remove="..\BeepEnterprize.Vis.Module\Properties\**" />
 		<Compile Remove="bin\**" />
+		<Compile Remove="Nuget.Local\**" />
 		<EmbeddedResource Remove="bin\**" />
+		<EmbeddedResource Remove="Nuget.Local\**" />
 		<None Remove="bin\**" />
+		<None Remove="Nuget.Local\**" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Remove="..\BeepEnterprize.Vis.Module\app.config" />
