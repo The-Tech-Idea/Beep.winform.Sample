@@ -310,19 +310,6 @@
     <None Remove="LoadingExtensions\ML.NET\HereweAddLoadingAssemblyExtensions - Copy.txt" />
     <None Remove="Mapping\HereweAddAllmapping.txt" />
     <None Remove="OtherDLL\Dapper.dll" />
-    <None Remove="ProjectClasses\DataSources\CouchBaseDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\CouchDBDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\CSVDatasourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\FireBaseDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\FirebirdDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\HadoopDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\MongoDBDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\MySqlDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\OracleDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\RavenDBDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\SqliteDatasourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\SqlServerDataSourceCore.dll" />
-    <None Remove="ProjectClasses\DataSources\WebApiDataSourceCore.dll" />
     <None Remove="ProjectClasses\HereweputClasses.txt" />
     <None Remove="ProjectClasses\RuleParserandEditor.dll" />
     <None Remove="ProjectData\HereweAddAllfiles.txt" />
@@ -1282,45 +1269,6 @@
     <Content Include="OtherDLL\Dapper.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\DataSources\CouchBaseDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\CouchDBDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\CSVDatasourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\FireBaseDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\FirebirdDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\HadoopDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\MongoDBDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\MySqlDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\OracleDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\RavenDBDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\SqliteDatasourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\SqlServerDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\WebApiDataSourceCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ProjectClasses\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1610,11 +1558,12 @@
     <PackageReference Include="Serilog" Version="2.12.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
-    <PackageReference Include="TheTechIdea.Beep.AssemblyHelperNet6" Version="1.0.0.15" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.45" />
-    <PackageReference Include="TheTechIdea.Beep.DMLoggerNet6" Version="1.0.0.7" />
-    <PackageReference Include="TheTechIdea.Beep.JsonLoaderNet6" Version="1.0.0.8" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.29" />
+    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -1683,19 +1632,52 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
-    <Content Include="..\..\outputDLL\CompositeLayerNodes6\CompositeLayerNodes6.dll" Link="ProjectClasses\TreeNodes\CompositeLayerNodes6.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\CouchBaseDataSourceCore.dll" Link="ProjectClasses\DataSources\CouchBaseDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\CouchDBDataSourceCore.dll" Link="ProjectClasses\DataSources\CouchDBDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\CSVDatasourceCore.dll" Link="ProjectClasses\DataSources\CSVDatasourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\FireBaseDataSourceCore.dll" Link="ProjectClasses\DataSources\FireBaseDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\FirebirdDataSourceCore.dll" Link="ProjectClasses\DataSources\FirebirdDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\HadoopDataSourceCore.dll" Link="ProjectClasses\DataSources\HadoopDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\MongoDBDataSourceCore.dll" Link="ProjectClasses\DataSources\MongoDBDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\MySqlDataSourceCore.dll" Link="ProjectClasses\DataSources\MySqlDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\OracleDataSourceCore.dll" Link="ProjectClasses\DataSources\OracleDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\RavenDBDataSourceCore.dll" Link="ProjectClasses\DataSources\RavenDBDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\SqliteDatasourceCore.dll" Link="ProjectClasses\DataSources\SqliteDatasourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\SqlServerDataSourceCore.dll" Link="ProjectClasses\DataSources\SqlServerDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\BranchAssemblyLoader\BranchAssemblyLoader.dll" Link="LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\CompositeLayerNodes\CompositeLayerNodes.dll" Link="ProjectClasses\TreeNodes\CompositeLayerNodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\TheTechIdea.Beep.TreeNodes.dll" Link="ProjectClasses\TreeNodes\TheTechIdea.Beep.TreeNodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\CompositeLayerDataSource6.dll" Link="ProjectClasses\DataSources\CompositeLayerDataSource6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\BranchAssemblyLoader6\BranchAssemblyLoader6.dll" Link="LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\BeepEnterprize.Vis.Module.net6\BeepEnterprize.Vis.Module.net6.dll" Link="LoadingExtensions\AssemblyLoaderExtension\BeepEnterprize.Vis.Module.net6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\net6.0\BeepEnterprizeTreeNodes.net6.dll\BeepEnterprizeTreeNodes.net6.dll" Link="ProjectClasses\TreeNodes\BeepEnterprizeTreeNodes.net6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

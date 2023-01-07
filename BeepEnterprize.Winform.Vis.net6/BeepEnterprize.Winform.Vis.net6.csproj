@@ -32,11 +32,6 @@
 	  <EmbeddedResource Include="gfx\success32.png" />
 	  <EmbeddedResource Include="gfx\success64.png" />
 	</ItemGroup>
-	
-	<ItemGroup>
-	  <PackageReference Include="TheTechIdea.Beep.DataManagementEngineNet6" Version="1.0.0.45" />
-	  <PackageReference Include="TheTechIdea.Beep.Vis.ModulesNet6" Version="1.0.0.29" />
-	</ItemGroup>
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
@@ -226,6 +221,13 @@
     <Folder Include="Wizards\dropentities\" />
     <Folder Include="Wizards\mapping\" />
     <Folder Include="Wizards\pasteentities\" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.0" />
   </ItemGroup>
 
 
