@@ -14,6 +14,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ProjectClasses\AI\**" />
+    <EmbeddedResource Remove="ProjectClasses\AI\**" />
+    <None Remove="ProjectClasses\AI\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="C:\Users\f_ald\.nuget\packages\thetechidea.beep.datamanagementenginenet6\1.0.0.12\contentFiles\any\net6.0\dummy.txt" />
   </ItemGroup>
 
@@ -4078,18 +4084,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ProjectClasses\AI\ML.NET\" />
     <Folder Include="ProjectClasses\TreeNodes\" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="ConnectionDrivers\Oracle.ManagedDataAccess.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\outputDLL\AINodes\AINodes.dll" Link="ProjectClasses\TreeNodes\AINodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
