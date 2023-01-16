@@ -17,10 +17,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Visualization", "Visualizat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Beep", "Beep", "{26FB4439-77FC-48C1-8D18-0982E8A28C36}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataManagmentModelsShared", "..\BeepDM\DataManagementModelsShared\DataManagmentModelsShared.shproj", "{2F745B0A-B2F4-4EB8-9A8E-5A87B2988F99}"
-EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "DataManagmentEngineShared", "..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.shproj", "{B5D91583-1EB4-4B3C-8288-88FD13E35556}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepEnterprize.Winform.Vis", "..\BeepWinFormAppNet\BeepEnterprize.Winform.Vis\BeepEnterprize.Winform.Vis.csproj", "{D185808C-5D43-454A-9468-829E122C2C2A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.Controls", "..\BeepWinFormAppNet\Beep.Winform.Controls\Beep.Winform.Controls.csproj", "{86A01E2B-0B8B-41CB-B747-A571146875A2}"
@@ -144,8 +140,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{E8DCEECA-E35B-4893-8AAE-D2A715158286} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
 		{1B5CA42B-B236-4291-AF58-95A8C0496925} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
-		{2F745B0A-B2F4-4EB8-9A8E-5A87B2988F99} = {26FB4439-77FC-48C1-8D18-0982E8A28C36}
-		{B5D91583-1EB4-4B3C-8288-88FD13E35556} = {26FB4439-77FC-48C1-8D18-0982E8A28C36}
 		{D185808C-5D43-454A-9468-829E122C2C2A} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
 		{86A01E2B-0B8B-41CB-B747-A571146875A2} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
 		{23B729B9-0493-40EE-AD1A-471BE3169865} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
@@ -165,9 +159,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
-	EndGlobalSection
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{2f745b0a-b2f4-4eb8-9a8e-5a87b2988f99}*SharedItemsImports = 13
-		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{b5d91583-1eb4-4b3c-8288-88fd13e35556}*SharedItemsImports = 13
 	EndGlobalSection
 EndGlobal
