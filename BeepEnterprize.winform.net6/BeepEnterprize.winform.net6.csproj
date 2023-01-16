@@ -3038,11 +3038,11 @@
     <PackageReference Include="System.DirectoryServices.Protocols" Version="7.0.0" />
     <PackageReference Include="System.Text.Json" Version="7.0.1" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.0" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.1" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.1" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.2" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.2" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.0" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.0" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.0" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -3077,6 +3077,9 @@
 
   <ItemGroup>
     <Folder Include="ProjectClasses\DataSources\" />
+    <Folder Include="ProjectClasses\DevelperAssistant\" />
+    <Folder Include="ProjectClasses\ML.NET\lib\" />
+    <Folder Include="ProjectClasses\BusinessProcess\" />
     <Folder Include="ProjectClasses\TreeNodes\" />
   </ItemGroup>
 
@@ -3087,19 +3090,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\AIExtensionLoader\AIExtensionLoader.dll" Link="LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\AIModule\AIModule.dll" Link="LoadingExtensions\AssemblyLoaderAI\AIModule.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="LoadingExtensions\AssemblyLoaderExtension\HereweAddLoadingAssemblyExtensions.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\outputDLL\ML.NETExtensions\ML.NETExtensions.dll" Link="LoadingExtensions\ML.NET\ML.NETExtensions.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -3109,6 +3100,90 @@
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
+    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.logic\net6.0\Beep.DeveloperAssistant.logic.dll" Link="ProjectClasses\DevelperAssistant\Beep.DeveloperAssistant.logic.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.Winform6\net6.0-windows\Beep.DeveloperAssistant.Winform6.dll" Link="ProjectClasses\DevelperAssistant\Beep.DeveloperAssistant.Winform6.dll" />
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Extensions\net6.0\Beep.BusinessProcess.Extensions.dll" Link="ProjectClasses\BusinessProcess\Beep.BusinessProcess.Extensions.dll" />
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Logic\net6.0\Beep.BusinessProcess.Logic.dll" Link="ProjectClasses\BusinessProcess\Beep.BusinessProcess.Logic.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Nodes\net6.0\Beep.BusinessProcess.Nodes.dll" Link="ProjectClasses\BusinessProcess\Beep.BusinessProcess.Nodes.dll" />
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.AssemblyLoaderExtension\net6.0\Beep.BusinessProcess.AssemblyLoaderExtension.dll" Link="LoadingExtensions\BusinessProcess\Beep.BusinessProcess.AssemblyLoaderExtension.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Module\net6.0\Beep.BusinessProcess.Module.dll" Link="LoadingExtensions\BusinessProcess\Beep.BusinessProcess.Module.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\BranchAssemblyLoader\net6.0\BranchAssemblyLoader.dll" Link="LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET.Modules\net6.0\ML.NET.Modules.dll" Link="LoadingExtensions\AssemblyLoaderAI\ML.NET.Modules.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.AutoML.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.AutoML.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CodeGenerator.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.CodeGenerator.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Core.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Core.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Data.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Data.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.DataView.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.DataView.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.FastTree.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.FastTree.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.KMeansClustering.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.KMeansClustering.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Parquet.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Parquet.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.PCA.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.PCA.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Scoring.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Scoring.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.SearchSpace.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.SearchSpace.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.StandardTrainers.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.StandardTrainers.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TimeSeries.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.TimeSeries.dll" />
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TorchSharp.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.TorchSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Transforms.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Transforms.dll" />
+    <Content Include="..\..\outputDLL\ML.NET.Winform6\ML.NET.Winform6.dll" Link="ProjectClasses\ML.NET\ML.NET.Winform6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NETExtensions\net6.0\ML.NETExtensions.dll" Link="ProjectClasses\ML.NET\ML.NETExtensions.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\ML.NET\net6.0\ML.NET.dll" Link="ProjectClasses\ML.NET\ML.NET.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Extensions\net6.0\Beep.Python.Extensions.dll" Link="ProjectClasses\Python\Beep.Python.Extensions.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Logic\net6.0\Beep.Python.Logic.dll" Link="ProjectClasses\Python\Beep.Python.Logic.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Nodes\net6.0\Beep.Python.Nodes.dll" Link="ProjectClasses\Python\Beep.Python.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Winform6\Beep.Python.Winform6.dll" Link="ProjectClasses\Python\Beep.Python.Winform6.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\CompositeLayerNodes\net6.0\CompositeLayerNodes.dll" Link="ProjectClasses\TreeNodes\CompositeLayerNodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\net6.0\TheTechIdea.Beep.TreeNodes.dll" Link="ProjectClasses\TreeNodes\TheTechIdea.Beep.TreeNodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.ExtensionsLoader\net6.0\Beep.App.ExtensionsLoader.dll" Link="LoadingExtensions\AppBuilderExtensions\Beep.App.ExtensionsLoader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\AIExtensionLoader\net6.0\AIExtensionLoader.dll" Link="LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\AIModule\net6.0\AIModule.dll" Link="LoadingExtensions\AssemblyLoaderAI\AIModule.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Extensions\net6.0\Beep.App.Extensions.dll" Link="ProjectClasses\AppBuilder\Beep.App.Extensions.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Module\net6.0\Beep.App.Module.dll" Link="LoadingExtensions\AppBuilderExtensions\Beep.App.Module.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Nodes\net6.0\Beep.App.Nodes.dll" Link="ProjectClasses\AppBuilder\Beep.App.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\net6.0\CompositeLayerDataSource6.dll" Link="ProjectClasses\DataSources\CompositeLayerDataSource6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -3151,37 +3226,10 @@
     <Content Include="..\..\BeepDataSources\DataSourcesPluginsCore\OutputDLL\net6.0\WebApiDataSourceCore.dll" Link="ProjectClasses\DataSources\WebApiDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Logic\Beep.Python.Logic.dll" Link="ProjectClasses\Python\Beep.Python.Logic.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Nodes\Beep.Python.Nodes.dll" Link="ProjectClasses\Python\Beep.Python.Nodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Winform6\Beep.Python.Winform6.dll" Link="ProjectClasses\Python\Beep.Python.Winform6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.App.Controls.Winform6\Beep.App.Controls.Winform6.dll" Link="ProjectClasses\AppBuilder\Beep.App.Controls.Winform6.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.App.Winform.Builder6\Beep.App.Winform.Builder6.dll" Link="ProjectClasses\AppBuilder\Beep.App.Winform.Builder6.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.App.ExtensionsLoader\Beep.App.ExtensionsLoader.dll" Link="LoadingExtensions\AppBuilderExtensions\Beep.App.ExtensionsLoader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.App.Module\Beep.App.Module.dll" Link="LoadingExtensions\AppBuilderExtensions\Beep.App.Module.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.App.Nodes\Beep.App.Nodes.dll" Link="ProjectClasses\AppBuilder\Beep.App.Nodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\BranchAssemblyLoader\BranchAssemblyLoader.dll" Link="LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\CompositeLayerNodes\CompositeLayerNodes.dll" Link="ProjectClasses\TreeNodes\CompositeLayerNodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\TheTechIdea.Beep.TreeNodes.dll" Link="ProjectClasses\TreeNodes\TheTechIdea.Beep.TreeNodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

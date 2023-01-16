@@ -167,9 +167,7 @@ Global
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
 	EndGlobalSection
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{241fc595-bb95-4c4b-92d7-60d5ea8f9203}*SharedItemsImports = 5
 		..\BeepDM\DataManagementModelsShared\DataManagementModelsShared.projitems*{2f745b0a-b2f4-4eb8-9a8e-5a87b2988f99}*SharedItemsImports = 13
 		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{b5d91583-1eb4-4b3c-8288-88fd13e35556}*SharedItemsImports = 13
-		..\BeepDM\DataManagmentEngineShared\DataManagmentEngineShared.projitems*{be4e058f-cf2f-4565-8f50-cb09c5475001}*SharedItemsImports = 5
 	EndGlobalSection
 EndGlobal
