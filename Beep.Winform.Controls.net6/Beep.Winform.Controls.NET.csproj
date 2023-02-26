@@ -2,14 +2,33 @@
 
   <PropertyGroup>
     <OutputType>Library</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+	  <TargetFrameworks>net48;net481;net6.0-windows;net7.0-windows</TargetFrameworks>
+	  <LangVersion>Latest</LangVersion>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Beep.Winform.Controls</RootNamespace>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageId>TheTechIdea.Beep.Winform.Controls</PackageId>
+    <Title>TheTechIdea.Beep.Winform.Controls</Title>
+    <Authors>The Tech Idea</Authors>
+    <Company>The Tech Idea</Company>
+    <Product>TheTechIdea.Beep.Winform.Controls</Product>
+    <Description>Controls and  Visualization Interfaces used to standarized GUI/UI for Beep Apps</Description>
+    <Copyright>2023</Copyright>
+    <PackageProjectUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform</PackageProjectUrl>
+    <PackageIcon>SimpleODM.png</PackageIcon>
+    <RepositoryUrl>https://github.com/The-Tech-Idea/BeepEnterprize.winform</RepositoryUrl>
+    <AssemblyName>TheTechIdea.Beep.Winform.Controls</AssemblyName>
+	  
   </PropertyGroup>
-
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Copy SourceFiles="$(TargetDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\$(PackageId)\$(TargetFramework)" SkipUnchangedFiles="false" />
+	</Target>
+	<Target Name="CopyPackage" AfterTargets="Pack">
+		<Copy SourceFiles="$(OutputPath)$(PackageId).$(PackageVersion).nupkg" DestinationFolder="..\..\..\Nuget.Local" />
+	</Target>
   <ItemGroup>
     <None Remove="gfx\add.png" />
     <None Remove="gfx\cancel.png" />
@@ -96,8 +115,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.2" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.4" />
+    <None Include="..\..\..\..\..\OneDrive\SimpleInfoapps\LogoGFx\128\SimpleODM.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.3" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.8" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -116,8 +142,26 @@
 	  <Compile Update="BeepWait.cs">
 	    <SubType>Form</SubType>
 	  </Compile>
+	  <Compile Update="CTreeView\CTreeView\CTreeView.DragDrop.cs">
+	    <SubType>Component</SubType>
+	  </Compile>
+	  <Compile Update="CTreeView\CTreeView\CTreeView.Internal.cs">
+	    <SubType>Component</SubType>
+	  </Compile>
+	  <Compile Update="CTreeView\CTreeView\CTreeView.Protected.cs">
+	    <SubType>Component</SubType>
+	  </Compile>
+	  <Compile Update="CTreeView\CTreeView\CTreeView.Public.cs">
+	    <SubType>Component</SubType>
+	  </Compile>
+	  <Compile Update="CTreeView\NodeControl.cs">
+	    <SubType>UserControl</SubType>
+	  </Compile>
 	  <Compile Update="GridControls\LovEditingControl.cs">
 	    <SubType>Component</SubType>
+	  </Compile>
+	  <Compile Update="NodeControl.cs">
+	    <SubType>UserControl</SubType>
 	  </Compile>
 	  <Compile Update="Properties\Resources.Designer.cs">
 	    <DesignTime>True</DesignTime>

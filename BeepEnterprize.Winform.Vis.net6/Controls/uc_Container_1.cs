@@ -1,29 +1,25 @@
 ﻿using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Helpers;
+using ReaLTaiizor.Controls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+
 using System.Drawing;
-using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace BeepEnterprize.Winform.Vis.Controls
 {
-    public partial class uc_Container : UserControl,IDisplayContainer
+    public partial class uc_Container_1 : UserControl,IDisplayContainer
     {
         public ContainerTypeEnum ContainerType { get; set; }
-        private Panel ContainerPanel=new Panel();
-        private TabControl TabContainerPanel = new TabControl();
+        private ReaLTaiizor.Controls.Panel ContainerPanel = new ReaLTaiizor.Controls.Panel();
+        private PoisonTabControl TabContainerPanel = new PoisonTabControl();
         Image CloseImage;
-        Point _imageLocation = new Point(20, 4);
-        Point _imgHitArea = new Point(20, 4);
+        Point _imageLocation = new Point(30, 4);
+        Point _imgHitArea = new Point(30, 4);
 
 
-        public uc_Container()
+        public uc_Container_1()
         {
             InitializeComponent();
           
@@ -51,6 +47,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         {
             try
             {
+                
                 Image img = new Bitmap(CloseImage);
                 Rectangle r = e.Bounds;
                 r = this.TabContainerPanel.GetTabRect(e.Index);
@@ -59,7 +56,6 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 Font f = this.Font;
                 string title = this.TabContainerPanel.TabPages[e.Index].Text;
                 SizeF titlesize=e.Graphics.MeasureString(title, f);
-                
                 e.Graphics.DrawString(title, f, TitleBrush, new PointF(r.X, r.Y));
                 
                 e.Graphics.DrawImage(img, new Point(r.X + (this.TabContainerPanel.GetTabRect(e.Index).Width - _imageLocation.X), _imageLocation.Y));
@@ -68,10 +64,11 @@ namespace BeepEnterprize.Winform.Vis.Controls
             catch (Exception ex) { }
         }
 
-        public bool AddControl(string TitleText, object pcontrol, ContainerTypeEnum pcontainerType)
+        public bool AddControl(string TitleText,object pcontrol, ContainerTypeEnum pcontainerType)
         {
-            Control control = (Control)pcontrol;
-            ContainerType = pcontainerType;
+            Control control=(Control)pcontrol;
+
+            ContainerType= pcontainerType;
             if (control == null || control != null && control.Controls.Contains(control)) { return false; }
             switch (pcontainerType)
             {
@@ -98,19 +95,20 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             if (!Controls.Contains(TabContainerPanel))
             {
-                TabContainerPanel = new TabControl();
+                TabContainerPanel = new PoisonTabControl();
                 TabContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
            | System.Windows.Forms.AnchorStyles.Left)
            | System.Windows.Forms.AnchorStyles.Right)));
-                TabContainerPanel.Location = new System.Drawing.Point(17,0);
+                TabContainerPanel.Location = new System.Drawing.Point(16,0);
                 TabContainerPanel.Name = "ControlPanel";
-                TabContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height-17);
+                TabContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height-16);
                 TabContainerPanel.TabPages.Clear();
                 Controls.Add(TabContainerPanel);
                 CloseImage = Properties.Resources.close;
                 this.TabContainerPanel.Multiline = true;
                 TabContainerPanel.DrawMode = TabDrawMode.OwnerDrawFixed;
                 TabContainerPanel.DrawItem += TabContainerPanel_DrawItem;
+               // TabContainerPanel.CustomPaint += TabContainerPanel_CustomPaint;
                 TabContainerPanel.MouseClick += TabContainerPanel_MouseClick;
                 TabContainerPanel.Padding = new Point(30, 4);
               
@@ -118,12 +116,16 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             TabContainerPanel.TabPages.Add(TitleText, TitleText);
             TabContainerPanel.TabPages[TabContainerPanel.TabPages.Count-1].Controls.Add(control);
-            TabContainerPanel.SelectedTab = TabContainerPanel.TabPages[TabContainerPanel.TabPages.Count - 1];
-
             control.Dock = DockStyle.Fill;
         //    this.TitleLabel.Text = TitleText;
             return true;
         }
+
+        private void TabContainerPanel_CustomPaint(object sender, ReaLTaiizor.Drawing.Poison.PoisonPaintEventArgs e)
+        {
+           
+        }
+
         private bool AddToSingle(string TitleText, Control control)
         {
             if (ContainerType == ContainerTypeEnum.TabbedPanel)
@@ -136,7 +138,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
             if (!Controls.Contains(ContainerPanel))
             {
-                ContainerPanel = new Panel();
+                ContainerPanel = new ReaLTaiizor.Controls.Panel();
                 ContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
          | System.Windows.Forms.AnchorStyles.Left)
          | System.Windows.Forms.AnchorStyles.Right)));

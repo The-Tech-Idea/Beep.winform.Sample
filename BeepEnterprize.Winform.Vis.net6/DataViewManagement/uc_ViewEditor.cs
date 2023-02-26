@@ -13,7 +13,6 @@ using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.DataView;
 using TheTechIdea.Beep.Vis;
-using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
  
@@ -92,6 +91,7 @@ namespace TheTechIdea.ETL
 
             }
             EntityNameLabel.Text = e.CurrentEntity;
+
             this.dataConnectionsBindingSource.DataSource = DMEEditor.ConfigEditor.DataConnections;
             ds = (DataViewDataSource)DMEEditor.GetDataSource(e.CurrentEntity);
             ds.Openconnection();

@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
+﻿
 using System.Reflection;
 
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Controls.TreeControls;
 using BeepEnterprize.Winform.Vis.Helpers;
@@ -59,7 +52,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public string CategoryIcon { get; set; } = "Category.ico";
         public string SelectIcon { get; set; } = "select.ico";
         public IBranch CurrentBranch { get ; set ; }
-        public List<ContextMenuStrip> menus { get; set; }=new List<ContextMenuStrip>();
+        public List<ContextMenuStrip> menus { get; set; }=new List<ContextMenuStrip>(); //ContextMenuStrip
         public PassedArgs args { get; set; }
         static int pSeqID = 0;
         public int SeqID {
@@ -87,7 +80,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public Size IconsSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true;  } }
         private ImageList GetImageList() {
 
-            return Vismanager.Images;
+            return  Vismanager.Images;
             //switch (IconsSize.Height)
             //{
             //    case 16:
@@ -744,37 +737,44 @@ namespace BeepEnterprize.Winform.Vis.Controls
         private bool IsFiltering=false;
         public void FilterString_TextChanged(string value)
         {
-            if (IsFiltering==false)
+            if (TreeV != null)
             {
-                TreeCache.Nodes.Clear();
-                foreach (TreeNode _node in TreeV.Nodes)
+                if (TreeV.Nodes.Count > 0)
                 {
-                    TreeCache.Nodes.Add((TreeNode)_node.Clone());
+                    if (IsFiltering == false)
+                    {
+                        TreeCache.Nodes.Clear();
+                        foreach (TreeNode _node in TreeV.Nodes)
+                        {
+                            TreeCache.Nodes.Add((TreeNode)_node.Clone());
+                        }
+                        IsFiltering = true;
+                    }
+
+                    //blocks repainting tree till all objects loaded
+
+                    this.TreeV.BeginUpdate();
+                    this.TreeV.Nodes.Clear();
+                    if (value != string.Empty)
+                    {
+                        foreach (TreeNode _parentNode in TreeCache.Nodes)
+                        {
+                            ScanNodes(_parentNode, value);
+                        }
+                    }
+                    else
+                    {
+                        foreach (TreeNode _node in TreeCache.Nodes)
+                        {
+                            TreeV.Nodes.Add((TreeNode)_node.Clone());
+                        }
+                        IsFiltering = false;
+                    }
+                    //enables redrawing tree after all objects have been added
+                    this.TreeV.EndUpdate();
                 }
-                IsFiltering = true;
             }
           
-            //blocks repainting tree till all objects loaded
-            
-            this.TreeV.BeginUpdate();
-            this.TreeV.Nodes.Clear();
-            if (value != string.Empty)
-            {
-                foreach (TreeNode _parentNode in TreeCache.Nodes)
-                {
-                    ScanNodes(_parentNode, value);
-                }
-            }
-            else
-            {
-                foreach (TreeNode _node in TreeCache.Nodes)
-                {
-                    TreeV.Nodes.Add((TreeNode)_node.Clone());
-                }
-                IsFiltering = false;
-            }
-            //enables redrawing tree after all objects have been added
-            this.TreeV.EndUpdate();
         }
         private void ScanNodes(TreeNode _parentNode, string value)
         {

@@ -1,6 +1,6 @@
 ﻿namespace BeepEnterprize.Winform.Vis.Controls
 {
-    partial class uc_Container
+    partial class uc_Container_1
     {
         /// <summary> 
         /// Required designer variable.
@@ -30,12 +30,12 @@
         {
             this.SuspendLayout();
             // 
-            // uc_Container
+            // uc_Container_1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.Name = "uc_Container";
+            this.Name = "uc_Container_1";
             this.Size = new System.Drawing.Size(650, 515);
             this.ResumeLayout(false);
 
