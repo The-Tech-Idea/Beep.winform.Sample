@@ -11,6 +11,7 @@
     <Company>The Tech Idea</Company>
     <Copyright>2023</Copyright>
     <PackageIcon>SimpleInfoApps.png</PackageIcon>
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>
