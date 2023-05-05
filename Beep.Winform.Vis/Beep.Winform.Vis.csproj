@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-	  <TargetFrameworks>net6.0-windows;net7.0-windows</TargetFrameworks>
+	  <TargetFrameworks>net4.8;net6.0-windows;net7.0-windows</TargetFrameworks>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -136,6 +136,9 @@
     </Compile>
     <Compile Update="Controls\BeepForm.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Controls\BeepTabControl.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Update="Controls\BeepWait.cs">
       <SubType>Form</SubType>
