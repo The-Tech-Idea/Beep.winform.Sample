@@ -143,7 +143,7 @@ def encode(s, binary=True, maxlinelen=76, eol=NL):
     max_unencoded = maxlinelen * 3 // 4
     for i in range(0, len(s), max_unencoded):
         # BAW: should encode() inherit b2a_base64()'s dubious behavior in
-        # adding a newline to the encoded string?
+        # adding a newline to the encoded string
         enc = b2a_base64(s[i:i + max_unencoded])
         if enc.endswith(NL) and eol != NL:
             enc = enc[:-1] + eol
