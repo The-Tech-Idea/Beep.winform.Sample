@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	  <LangVersion>latest</LangVersion>
 	  <Platforms>AnyCPU;x64</Platforms>
+	  <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -66,25 +67,6 @@
     <None Remove="ConnectionDrivers\Oracle.ManagedDataAccess.dll" />
     <None Remove="ConnectionDrivers\Raven.Client.dll" />
     <None Remove="ConnectionDrivers\Sparrow.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\Microsoft.VC90.CRT\msvcr90.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\Microsoft.VC90.CRT\README_ENU.txt" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\sqlceca40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\sqlcecompact40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\sqlceer40EN.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\sqlceme40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\sqlceqp40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\amd64\sqlcese40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\System.Data.SqlServerCe.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\Microsoft.VC90.CRT\msvcr90.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\Microsoft.VC90.CRT\README_ENU.txt" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\sqlceca40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\sqlcecompact40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\sqlceer40EN.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\sqlceme40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\sqlceqp40.dll" />
-    <None Remove="ConnectionDrivers\SqlCompact\x86\sqlcese40.dll" />
     <None Remove="ConnectionDrivers\SqlLite\System.Data.SQLite.dll" />
     <None Remove="ConnectionDrivers\SqlLite\System.Data.SQLite.EF6.dll" />
     <None Remove="ConnectionDrivers\SqlLite\System.Data.SQLite.Linq.dll" />
@@ -163,6 +145,7 @@
     <None Remove="GFX\cloud.ico" />
     <None Remove="GFX\cloudant.ico" />
     <None Remove="GFX\cockroachdb.ico" />
+    <None Remove="GFX\codegen.ico" />
     <None Remove="GFX\codeicon.ico" />
     <None Remove="GFX\com.ico" />
     <None Remove="GFX\configuration.ico" />
@@ -176,8 +159,10 @@
     <None Remove="GFX\createentity.ico" />
     <None Remove="GFX\createnewentities.ico" />
     <None Remove="GFX\createpoco.ico" />
+    <None Remove="GFX\csharpfile.ico" />
     <None Remove="GFX\css.ico" />
     <None Remove="GFX\csv.ico" />
+    <None Remove="GFX\csvmanager.ico" />
     <None Remove="GFX\cursor.ico" />
     <None Remove="GFX\cursor2.ico" />
     <None Remove="GFX\database.ico" />
@@ -229,6 +214,9 @@
     <None Remove="GFX\HereweAddAllgfx.txt" />
     <None Remove="GFX\htm.ico" />
     <None Remove="GFX\ico.ico" />
+    <None Remove="GFX\ide1.ico" />
+    <None Remove="GFX\ide2.ico" />
+    <None Remove="GFX\ideopen.ico" />
     <None Remove="GFX\importdata.ico" />
     <None Remove="GFX\info.ico" />
     <None Remove="GFX\ini.ico" />
@@ -264,6 +252,7 @@
     <None Remove="GFX\objectdetection.ico" />
     <None Remove="GFX\oracle.ico" />
     <None Remove="GFX\otf.ico" />
+    <None Remove="GFX\packages.ico" />
     <None Remove="GFX\paste.ico" />
     <None Remove="GFX\pastedefaults.ico" />
     <None Remove="GFX\pasteentities.ico" />
@@ -278,6 +267,7 @@
     <None Remove="GFX\properties.ico" />
     <None Remove="GFX\psd.ico" />
     <None Remove="GFX\python.ico" />
+    <None Remove="GFX\pythonfile.ico" />
     <None Remove="GFX\query.ico" />
     <None Remove="GFX\ravendb.ico" />
     <None Remove="GFX\refresh.ico" />
@@ -291,6 +281,7 @@
     <None Remove="GFX\reports.ico" />
     <None Remove="GFX\rlogo.ico" />
     <None Remove="GFX\rtf.ico" />
+    <None Remove="GFX\run.ico" />
     <None Remove="GFX\salesforce.ico" />
     <None Remove="GFX\save.ico" />
     <None Remove="GFX\saveproject.ico" />
@@ -469,601 +460,25 @@
     <None Remove="ProjectClasses\PrintManager\PrintManager.dll" />
     <None Remove="ProjectClasses\Py\beep.py" />
     <None Remove="ProjectClasses\Py\HereweputClasses.txt" />
-    <None Remove="ProjectClasses\Py\lib\abc.py" />
-    <None Remove="ProjectClasses\Py\lib\aifc.py" />
-    <None Remove="ProjectClasses\Py\lib\antigravity.py" />
-    <None Remove="ProjectClasses\Py\lib\anydbm.py" />
-    <None Remove="ProjectClasses\Py\lib\argparse.py" />
-    <None Remove="ProjectClasses\Py\lib\ast.py" />
-    <None Remove="ProjectClasses\Py\lib\asynchat.py" />
-    <None Remove="ProjectClasses\Py\lib\asyncore.py" />
-    <None Remove="ProjectClasses\Py\lib\atexit.py" />
-    <None Remove="ProjectClasses\Py\lib\audiodev.py" />
-    <None Remove="ProjectClasses\Py\lib\base64.py" />
-    <None Remove="ProjectClasses\Py\lib\BaseHTTPServer.py" />
-    <None Remove="ProjectClasses\Py\lib\Bastion.py" />
-    <None Remove="ProjectClasses\Py\lib\bdb.py" />
-    <None Remove="ProjectClasses\Py\lib\binhex.py" />
-    <None Remove="ProjectClasses\Py\lib\bisect.py" />
-    <None Remove="ProjectClasses\Py\lib\calendar.py" />
-    <None Remove="ProjectClasses\Py\lib\cgi.py" />
-    <None Remove="ProjectClasses\Py\lib\CGIHTTPServer.py" />
-    <None Remove="ProjectClasses\Py\lib\cgitb.py" />
-    <None Remove="ProjectClasses\Py\lib\chunk.py" />
-    <None Remove="ProjectClasses\Py\lib\clrtype.py" />
-    <None Remove="ProjectClasses\Py\lib\cmd.py" />
-    <None Remove="ProjectClasses\Py\lib\code.py" />
-    <None Remove="ProjectClasses\Py\lib\codecs.py" />
-    <None Remove="ProjectClasses\Py\lib\codeop.py" />
-    <None Remove="ProjectClasses\Py\lib\collections.py" />
-    <None Remove="ProjectClasses\Py\lib\colorsys.py" />
-    <None Remove="ProjectClasses\Py\lib\commands.py" />
-    <None Remove="ProjectClasses\Py\lib\compileall.py" />
-    <None Remove="ProjectClasses\Py\lib\ConfigParser.py" />
-    <None Remove="ProjectClasses\Py\lib\contextlib.py" />
-    <None Remove="ProjectClasses\Py\lib\Cookie.py" />
-    <None Remove="ProjectClasses\Py\lib\cookielib.py" />
-    <None Remove="ProjectClasses\Py\lib\copy.py" />
-    <None Remove="ProjectClasses\Py\lib\csv.py" />
-    <None Remove="ProjectClasses\Py\lib\ctypes\macholib\dyld.py" />
-    <None Remove="ProjectClasses\Py\lib\ctypes\macholib\dylib.py" />
-    <None Remove="ProjectClasses\Py\lib\ctypes\macholib\framework.py" />
-    <None Remove="ProjectClasses\Py\lib\ctypes\macholib\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\ctypes\util.py" />
-    <None Remove="ProjectClasses\Py\lib\ctypes\wintypes.py" />
-    <None Remove="ProjectClasses\Py\lib\ctypes\_endian.py" />
-    <None Remove="ProjectClasses\Py\lib\ctypes\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\decimal.py" />
-    <None Remove="ProjectClasses\Py\lib\difflib.py" />
-    <None Remove="ProjectClasses\Py\lib\dircache.py" />
-    <None Remove="ProjectClasses\Py\lib\dis.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\archive_util.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\bcppcompiler.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\ccompiler.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\cmd.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\bdist.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\bdist_dumb.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\bdist_rpm.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\bdist_wininst.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\build.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\build_clib.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\build_ext.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\build_py.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\build_scripts.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\check.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\clean.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\config.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\install.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\install_data.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\install_egg_info.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\install_headers.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\install_lib.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\install_scripts.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\register.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\sdist.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\upload.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\command\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\config.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\core.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\cygwinccompiler.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\debug.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\dep_util.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\dir_util.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\dist.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\emxccompiler.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\errors.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\extension.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\fancy_getopt.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\filelist.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\file_util.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\log.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\msvccompiler.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\spawn.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\sysconfig.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\text_file.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\unixccompiler.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\util.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\version.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\versionpredicate.py" />
-    <None Remove="ProjectClasses\Py\lib\distutils\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\doctest.py" />
-    <None Remove="ProjectClasses\Py\lib\DocXMLRPCServer.py" />
-    <None Remove="ProjectClasses\Py\lib\dumbdbm.py" />
-    <None Remove="ProjectClasses\Py\lib\dummy_thread.py" />
-    <None Remove="ProjectClasses\Py\lib\dummy_threading.py" />
-    <None Remove="ProjectClasses\Py\lib\email\base64mime.py" />
-    <None Remove="ProjectClasses\Py\lib\email\charset.py" />
-    <None Remove="ProjectClasses\Py\lib\email\encoders.py" />
-    <None Remove="ProjectClasses\Py\lib\email\errors.py" />
-    <None Remove="ProjectClasses\Py\lib\email\feedparser.py" />
-    <None Remove="ProjectClasses\Py\lib\email\generator.py" />
-    <None Remove="ProjectClasses\Py\lib\email\header.py" />
-    <None Remove="ProjectClasses\Py\lib\email\iterators.py" />
-    <None Remove="ProjectClasses\Py\lib\email\message.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\application.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\audio.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\base.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\image.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\message.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\multipart.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\nonmultipart.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\text.py" />
-    <None Remove="ProjectClasses\Py\lib\email\mime\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\email\parser.py" />
-    <None Remove="ProjectClasses\Py\lib\email\quoprimime.py" />
-    <None Remove="ProjectClasses\Py\lib\email\utils.py" />
-    <None Remove="ProjectClasses\Py\lib\email\_parseaddr.py" />
-    <None Remove="ProjectClasses\Py\lib\email\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\aliases.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\ascii.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\base64_codec.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\bz2_codec.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\charmap.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp037.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1006.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1026.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1140.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1250.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1251.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1252.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1253.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1254.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1255.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1256.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1257.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp1258.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp424.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp437.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp500.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp720.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp737.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp775.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp850.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp852.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp855.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp856.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp857.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp858.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp860.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp861.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp862.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp863.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp864.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp865.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp866.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp869.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp874.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\cp875.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\hex_codec.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\hp_roman8.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\idna.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_1.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_10.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_11.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_13.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_14.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_15.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_16.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_2.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_3.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_4.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_5.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_6.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_7.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_8.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\iso8859_9.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\koi8_r.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\koi8_u.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\latin_1.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_arabic.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_centeuro.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_croatian.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_cyrillic.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_farsi.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_greek.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_iceland.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_latin2.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_roman.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_romanian.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mac_turkish.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\mbcs.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\palmos.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\ptcp154.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\punycode.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\quopri_codec.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\raw_unicode_escape.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\rot_13.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\string_escape.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\tis_620.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\undefined.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\unicode_escape.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\unicode_internal.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_16.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_16_be.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_16_le.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_32.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_32_be.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_32_le.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_7.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_8.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\utf_8_sig.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\uu_codec.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\zlib_codec.py" />
-    <None Remove="ProjectClasses\Py\lib\encodings\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\ensurepip\_bundled\pip-19.2.3-py2.py3-none-any.whl" />
-    <None Remove="ProjectClasses\Py\lib\ensurepip\_bundled\setuptools-41.2.0-py2.py3-none-any.whl" />
-    <None Remove="ProjectClasses\Py\lib\ensurepip\_uninstall.py" />
-    <None Remove="ProjectClasses\Py\lib\ensurepip\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\ensurepip\__main__.py" />
-    <None Remove="ProjectClasses\Py\lib\filecmp.py" />
-    <None Remove="ProjectClasses\Py\lib\fileinput.py" />
-    <None Remove="ProjectClasses\Py\lib\fnmatch.py" />
-    <None Remove="ProjectClasses\Py\lib\formatter.py" />
-    <None Remove="ProjectClasses\Py\lib\fpformat.py" />
-    <None Remove="ProjectClasses\Py\lib\fractions.py" />
-    <None Remove="ProjectClasses\Py\lib\ftplib.py" />
-    <None Remove="ProjectClasses\Py\lib\functools.py" />
-    <None Remove="ProjectClasses\Py\lib\genericpath.py" />
-    <None Remove="ProjectClasses\Py\lib\getopt.py" />
-    <None Remove="ProjectClasses\Py\lib\getpass.py" />
-    <None Remove="ProjectClasses\Py\lib\gettext.py" />
-    <None Remove="ProjectClasses\Py\lib\glob.py" />
-    <None Remove="ProjectClasses\Py\lib\gzip.py" />
-    <None Remove="ProjectClasses\Py\lib\hashlib.py" />
-    <None Remove="ProjectClasses\Py\lib\heapq.py" />
-    <None Remove="ProjectClasses\Py\lib\hmac.py" />
-    <None Remove="ProjectClasses\Py\lib\htmlentitydefs.py" />
-    <None Remove="ProjectClasses\Py\lib\htmllib.py" />
-    <None Remove="ProjectClasses\Py\lib\HTMLParser.py" />
-    <None Remove="ProjectClasses\Py\lib\httplib.py" />
-    <None Remove="ProjectClasses\Py\lib\ihooks.py" />
-    <None Remove="ProjectClasses\Py\lib\imaplib.py" />
-    <None Remove="ProjectClasses\Py\lib\imghdr.py" />
-    <None Remove="ProjectClasses\Py\lib\importlib\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\imputil.py" />
-    <None Remove="ProjectClasses\Py\lib\inspect.py" />
-    <None Remove="ProjectClasses\Py\lib\io.py" />
-    <None Remove="ProjectClasses\Py\lib\json\decoder.py" />
-    <None Remove="ProjectClasses\Py\lib\json\encoder.py" />
-    <None Remove="ProjectClasses\Py\lib\json\scanner.py" />
-    <None Remove="ProjectClasses\Py\lib\json\tool.py" />
-    <None Remove="ProjectClasses\Py\lib\json\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\keyword.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\btm_matcher.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\btm_utils.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixer_base.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixer_util.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_apply.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_asserts.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_basestring.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_buffer.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_dict.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_except.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_exec.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_execfile.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_exitfunc.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_filter.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_funcattrs.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_future.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_getcwdu.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_has_key.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_idioms.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_import.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_imports.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_imports2.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_input.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_intern.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_isinstance.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_itertools.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_itertools_imports.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_long.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_map.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_metaclass.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_methodattrs.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_ne.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_next.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_nonzero.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_numliterals.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_operator.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_paren.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_print.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_raise.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_raw_input.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_reduce.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_renames.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_repr.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_set_literal.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_standarderror.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_sys_exc.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_throw.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_tuple_params.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_types.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_unicode.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_urllib.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_ws_comma.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_xrange.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_xreadlines.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\fix_zip.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\fixes\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\main.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\patcomp.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\conv.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\driver.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\grammar.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\literals.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\parse.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\pgen.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\token.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\tokenize.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pgen2\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pygram.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\pytree.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\refactor.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\lib2to3\__main__.py" />
-    <None Remove="ProjectClasses\Py\lib\linecache.py" />
-    <None Remove="ProjectClasses\Py\lib\locale.py" />
-    <None Remove="ProjectClasses\Py\lib\logging\config.py" />
-    <None Remove="ProjectClasses\Py\lib\logging\handlers.py" />
-    <None Remove="ProjectClasses\Py\lib\logging\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\macpath.py" />
-    <None Remove="ProjectClasses\Py\lib\macurl2path.py" />
-    <None Remove="ProjectClasses\Py\lib\mailbox.py" />
-    <None Remove="ProjectClasses\Py\lib\mailcap.py" />
-    <None Remove="ProjectClasses\Py\lib\markupbase.py" />
-    <None Remove="ProjectClasses\Py\lib\md5.py" />
-    <None Remove="ProjectClasses\Py\lib\mhlib.py" />
-    <None Remove="ProjectClasses\Py\lib\mimetools.py" />
-    <None Remove="ProjectClasses\Py\lib\mimetypes.py" />
-    <None Remove="ProjectClasses\Py\lib\MimeWriter.py" />
-    <None Remove="ProjectClasses\Py\lib\mimify.py" />
-    <None Remove="ProjectClasses\Py\lib\modulefinder.py" />
-    <None Remove="ProjectClasses\Py\lib\multifile.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\connection.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\dummy\connection.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\dummy\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\forking.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\heap.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\managers.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\pool.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\process.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\queues.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\reduction.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\sharedctypes.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\synchronize.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\util.py" />
-    <None Remove="ProjectClasses\Py\lib\multiprocessing\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\mutex.py" />
-    <None Remove="ProjectClasses\Py\lib\netrc.py" />
-    <None Remove="ProjectClasses\Py\lib\new.py" />
-    <None Remove="ProjectClasses\Py\lib\nntplib.py" />
-    <None Remove="ProjectClasses\Py\lib\ntpath.py" />
-    <None Remove="ProjectClasses\Py\lib\nturl2path.py" />
-    <None Remove="ProjectClasses\Py\lib\numbers.py" />
-    <None Remove="ProjectClasses\Py\lib\opcode.py" />
-    <None Remove="ProjectClasses\Py\lib\optparse.py" />
-    <None Remove="ProjectClasses\Py\lib\os.py" />
-    <None Remove="ProjectClasses\Py\lib\os2emxpath.py" />
-    <None Remove="ProjectClasses\Py\lib\pdb.py" />
-    <None Remove="ProjectClasses\Py\lib\pickle.py" />
-    <None Remove="ProjectClasses\Py\lib\pickletools.py" />
-    <None Remove="ProjectClasses\Py\lib\pipes.py" />
-    <None Remove="ProjectClasses\Py\lib\pkgutil.py" />
-    <None Remove="ProjectClasses\Py\lib\platform.py" />
-    <None Remove="ProjectClasses\Py\lib\plistlib.py" />
-    <None Remove="ProjectClasses\Py\lib\popen2.py" />
-    <None Remove="ProjectClasses\Py\lib\poplib.py" />
-    <None Remove="ProjectClasses\Py\lib\posixfile.py" />
-    <None Remove="ProjectClasses\Py\lib\posixpath.py" />
-    <None Remove="ProjectClasses\Py\lib\pprint.py" />
-    <None Remove="ProjectClasses\Py\lib\profile.py" />
-    <None Remove="ProjectClasses\Py\lib\pstats.py" />
-    <None Remove="ProjectClasses\Py\lib\pyclbr.py" />
-    <None Remove="ProjectClasses\Py\lib\pydoc.py" />
-    <None Remove="ProjectClasses\Py\lib\pydoc_data\topics.py" />
-    <None Remove="ProjectClasses\Py\lib\pydoc_data\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\py_compile.py" />
-    <None Remove="ProjectClasses\Py\lib\Queue.py" />
-    <None Remove="ProjectClasses\Py\lib\quopri.py" />
-    <None Remove="ProjectClasses\Py\lib\random.py" />
-    <None Remove="ProjectClasses\Py\lib\repr.py" />
-    <None Remove="ProjectClasses\Py\lib\rexec.py" />
-    <None Remove="ProjectClasses\Py\lib\rfc822.py" />
-    <None Remove="ProjectClasses\Py\lib\rlcompleter.py" />
-    <None Remove="ProjectClasses\Py\lib\robotparser.py" />
-    <None Remove="ProjectClasses\Py\lib\runpy.py" />
-    <None Remove="ProjectClasses\Py\lib\sched.py" />
-    <None Remove="ProjectClasses\Py\lib\sets.py" />
-    <None Remove="ProjectClasses\Py\lib\sgmllib.py" />
-    <None Remove="ProjectClasses\Py\lib\sha.py" />
-    <None Remove="ProjectClasses\Py\lib\shelve.py" />
-    <None Remove="ProjectClasses\Py\lib\shlex.py" />
-    <None Remove="ProjectClasses\Py\lib\shutil.py" />
-    <None Remove="ProjectClasses\Py\lib\SimpleHTTPServer.py" />
-    <None Remove="ProjectClasses\Py\lib\SimpleXMLRPCServer.py" />
-    <None Remove="ProjectClasses\Py\lib\site-packages\README.txt" />
-    <None Remove="ProjectClasses\Py\lib\site.py" />
-    <None Remove="ProjectClasses\Py\lib\smtpd.py" />
-    <None Remove="ProjectClasses\Py\lib\smtplib.py" />
-    <None Remove="ProjectClasses\Py\lib\sndhdr.py" />
-    <None Remove="ProjectClasses\Py\lib\socket.py" />
-    <None Remove="ProjectClasses\Py\lib\SocketServer.py" />
-    <None Remove="ProjectClasses\Py\lib\sqlite3\dbapi2.py" />
-    <None Remove="ProjectClasses\Py\lib\sqlite3\dump.py" />
-    <None Remove="ProjectClasses\Py\lib\sqlite3\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\sre_constants.py" />
-    <None Remove="ProjectClasses\Py\lib\sre_parse.py" />
-    <None Remove="ProjectClasses\Py\lib\ssl.py" />
-    <None Remove="ProjectClasses\Py\lib\stat.py" />
-    <None Remove="ProjectClasses\Py\lib\statvfs.py" />
-    <None Remove="ProjectClasses\Py\lib\string.py" />
-    <None Remove="ProjectClasses\Py\lib\StringIO.py" />
-    <None Remove="ProjectClasses\Py\lib\stringold.py" />
-    <None Remove="ProjectClasses\Py\lib\stringprep.py" />
-    <None Remove="ProjectClasses\Py\lib\struct.py" />
-    <None Remove="ProjectClasses\Py\lib\subprocess.py" />
-    <None Remove="ProjectClasses\Py\lib\sunau.py" />
-    <None Remove="ProjectClasses\Py\lib\sunaudio.py" />
-    <None Remove="ProjectClasses\Py\lib\symbol.py" />
-    <None Remove="ProjectClasses\Py\lib\sysconfig.py" />
-    <None Remove="ProjectClasses\Py\lib\tabnanny.py" />
-    <None Remove="ProjectClasses\Py\lib\tarfile.py" />
-    <None Remove="ProjectClasses\Py\lib\telnetlib.py" />
-    <None Remove="ProjectClasses\Py\lib\tempfile.py" />
-    <None Remove="ProjectClasses\Py\lib\textwrap.py" />
-    <None Remove="ProjectClasses\Py\lib\this.py" />
-    <None Remove="ProjectClasses\Py\lib\threading.py" />
-    <None Remove="ProjectClasses\Py\lib\timeit.py" />
-    <None Remove="ProjectClasses\Py\lib\toaiff.py" />
-    <None Remove="ProjectClasses\Py\lib\token.py" />
-    <None Remove="ProjectClasses\Py\lib\tokenize.py" />
-    <None Remove="ProjectClasses\Py\lib\trace.py" />
-    <None Remove="ProjectClasses\Py\lib\traceback.py" />
-    <None Remove="ProjectClasses\Py\lib\types.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\case.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\loader.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\main.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\result.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\runner.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\signals.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\suite.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\util.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\unittest\__main__.py" />
-    <None Remove="ProjectClasses\Py\lib\urllib.py" />
-    <None Remove="ProjectClasses\Py\lib\urllib2.py" />
-    <None Remove="ProjectClasses\Py\lib\urlparse.py" />
-    <None Remove="ProjectClasses\Py\lib\user.py" />
-    <None Remove="ProjectClasses\Py\lib\UserDict.py" />
-    <None Remove="ProjectClasses\Py\lib\UserList.py" />
-    <None Remove="ProjectClasses\Py\lib\UserString.py" />
-    <None Remove="ProjectClasses\Py\lib\uu.py" />
-    <None Remove="ProjectClasses\Py\lib\uuid.py" />
-    <None Remove="ProjectClasses\Py\lib\warnings.py" />
-    <None Remove="ProjectClasses\Py\lib\wave.py" />
-    <None Remove="ProjectClasses\Py\lib\weakref.py" />
-    <None Remove="ProjectClasses\Py\lib\webbrowser.py" />
-    <None Remove="ProjectClasses\Py\lib\whichdb.py" />
-    <None Remove="ProjectClasses\Py\lib\wpf.py" />
-    <None Remove="ProjectClasses\Py\lib\wsgiref\handlers.py" />
-    <None Remove="ProjectClasses\Py\lib\wsgiref\headers.py" />
-    <None Remove="ProjectClasses\Py\lib\wsgiref\simple_server.py" />
-    <None Remove="ProjectClasses\Py\lib\wsgiref\util.py" />
-    <None Remove="ProjectClasses\Py\lib\wsgiref\validate.py" />
-    <None Remove="ProjectClasses\Py\lib\wsgiref\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\xdrlib.py" />
-    <None Remove="ProjectClasses\Py\lib\xmllib.py" />
-    <None Remove="ProjectClasses\Py\lib\xmlrpclib.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\dom\domreg.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\dom\expatbuilder.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\dom\minicompat.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\dom\minidom.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\dom\NodeFilter.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\dom\pulldom.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\dom\xmlbuilder.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\dom\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\etree\cElementTree.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\etree\ElementInclude.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\etree\ElementPath.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\etree\ElementTree.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\etree\SimpleXMLTreeBuilder.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\etree\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\parsers\expat.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\parsers\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\sax\expatreader.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\sax\handler.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\sax\saxutils.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\sax\xmlreader.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\sax\_exceptions.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\sax\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\xml\__init__.py" />
-    <None Remove="ProjectClasses\Py\lib\zipfile.py" />
-    <None Remove="ProjectClasses\Py\lib\_abcoll.py" />
-    <None Remove="ProjectClasses\Py\lib\_LWPCookieJar.py" />
-    <None Remove="ProjectClasses\Py\lib\_MozillaCookieJar.py" />
-    <None Remove="ProjectClasses\Py\lib\_osx_support.py" />
-    <None Remove="ProjectClasses\Py\lib\_pyio.py" />
-    <None Remove="ProjectClasses\Py\lib\_strptime.py" />
-    <None Remove="ProjectClasses\Py\lib\_threading_local.py" />
-    <None Remove="ProjectClasses\Py\lib\_weakrefset.py" />
-    <None Remove="ProjectClasses\Py\lib\__future__.py" />
-    <None Remove="ProjectClasses\Py\lib\__phello__.foo.py" />
-    <None Remove="ProjectClasses\Py\Microsoft.Dynamic.dll" />
-    <None Remove="ProjectClasses\Py\Microsoft.Scripting.dll" />
-    <None Remove="ProjectClasses\Py\Microsoft.Scripting.Metadata.dll" />
-    <None Remove="ProjectClasses\Py\p395x32\libcrypto-1_1.dll" />
-    <None Remove="ProjectClasses\Py\p395x32\libffi-7.dll" />
-    <None Remove="ProjectClasses\Py\p395x32\libssl-1_1.dll" />
-    <None Remove="ProjectClasses\Py\p395x32\Lib\site-packages\packages.txt" />
-    <None Remove="ProjectClasses\Py\p395x32\LICENSE.txt" />
-    <None Remove="ProjectClasses\Py\p395x32\pyexpat.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\python.cat" />
-    <None Remove="ProjectClasses\Py\p395x32\python.exe" />
-    <None Remove="ProjectClasses\Py\p395x32\python3.dll" />
-    <None Remove="ProjectClasses\Py\p395x32\python39.dll" />
-    <None Remove="ProjectClasses\Py\p395x32\python39.zip" />
-    <None Remove="ProjectClasses\Py\p395x32\python39._pth" />
-    <None Remove="ProjectClasses\Py\p395x32\pythonw.exe" />
-    <None Remove="ProjectClasses\Py\p395x32\scripts\get-pip.py" />
-    <None Remove="ProjectClasses\Py\p395x32\select.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\sqlite3.dll" />
-    <None Remove="ProjectClasses\Py\p395x32\unicodedata.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\vcruntime140.dll" />
-    <None Remove="ProjectClasses\Py\p395x32\winsound.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_asyncio.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_bz2.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_ctypes.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_decimal.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_elementtree.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_hashlib.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_lzma.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_msi.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_multiprocessing.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_overlapped.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_queue.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_socket.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_sqlite3.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_ssl.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_uuid.pyd" />
-    <None Remove="ProjectClasses\Py\p395x32\_zoneinfo.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\libcrypto-1_1.dll" />
-    <None Remove="ProjectClasses\Py\p395x64\libffi-7.dll" />
-    <None Remove="ProjectClasses\Py\p395x64\libssl-1_1.dll" />
-    <None Remove="ProjectClasses\Py\p395x64\Lib\site-packages\packages.txt" />
-    <None Remove="ProjectClasses\Py\p395x64\LICENSE.txt" />
-    <None Remove="ProjectClasses\Py\p395x64\pyexpat.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\python.cat" />
-    <None Remove="ProjectClasses\Py\p395x64\python.exe" />
-    <None Remove="ProjectClasses\Py\p395x64\python3.dll" />
-    <None Remove="ProjectClasses\Py\p395x64\python39.dll" />
-    <None Remove="ProjectClasses\Py\p395x64\python39.zip" />
-    <None Remove="ProjectClasses\Py\p395x64\python39._pth" />
-    <None Remove="ProjectClasses\Py\p395x64\pythonw.exe" />
-    <None Remove="ProjectClasses\Py\p395x64\scripts\get-pip.py" />
-    <None Remove="ProjectClasses\Py\p395x64\select.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\sqlite3.dll" />
-    <None Remove="ProjectClasses\Py\p395x64\unicodedata.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\vcruntime140.dll" />
-    <None Remove="ProjectClasses\Py\p395x64\vcruntime140_1.dll" />
-    <None Remove="ProjectClasses\Py\p395x64\winsound.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_asyncio.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_bz2.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_ctypes.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_decimal.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_elementtree.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_hashlib.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_lzma.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_msi.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_multiprocessing.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_overlapped.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_queue.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_socket.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_sqlite3.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_ssl.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_uuid.pyd" />
-    <None Remove="ProjectClasses\Py\p395x64\_zoneinfo.pyd" />
     <None Remove="ProjectClasses\Py\Scintilla.NET.dll" />
-    <None Remove="ProjectClasses\Py\System.CodeDom.dll" />
+    <None Remove="ProjectClasses\Skia\arm64\libSkiaSharp.dll" />
+    <None Remove="ProjectClasses\Skia\Beep.Skia.dll" />
+    <None Remove="ProjectClasses\Skia\libSkiaSharp.dylib" />
+    <None Remove="ProjectClasses\Skia\OpenTK.dll" />
+    <None Remove="ProjectClasses\Skia\OpenTK.GLControl.dll" />
+    <None Remove="ProjectClasses\Skia\SkiaSharp.dll" />
+    <None Remove="ProjectClasses\Skia\SkiaSharp.Extended.dll" />
+    <None Remove="ProjectClasses\Skia\SkiaSharp.Extended.Svg.dll" />
+    <None Remove="ProjectClasses\Skia\SkiaSharp.Views.Desktop.Common.dll" />
+    <None Remove="ProjectClasses\Skia\SkiaSharp.Views.WindowsForms.dll" />
+    <None Remove="ProjectClasses\Skia\System.Buffers.dll" />
+    <None Remove="ProjectClasses\Skia\System.Drawing.Common.dll" />
+    <None Remove="ProjectClasses\Skia\System.Memory.dll" />
+    <None Remove="ProjectClasses\Skia\System.Numerics.Vectors.dll" />
+    <None Remove="ProjectClasses\Skia\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Remove="ProjectClasses\Skia\System.Text.Encoding.CodePages.dll" />
+    <None Remove="ProjectClasses\Skia\x64\libSkiaSharp.dll" />
+    <None Remove="ProjectClasses\Skia\x86\libSkiaSharp.dll" />
     <None Remove="ProjectData\AI_Datasets\iris.csv" />
     <None Remove="ProjectData\AI_Datasets\Oilwell.csv" />
     <None Remove="ProjectData\AI_Datasets\smoking_test_dataset.csv" />
@@ -1165,6 +580,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="..\..\..\..\..\.nuget\packages\scintilla.net\5.3.2.3\lib\net45\Scintilla.NET.dll" Link="ProjectClasses\IDE\Scintilla.NET.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\..\..\..\.nuget\packages\scintilla.net\5.3.2.7\build\x86\Lexilla.dll" Link="ProjectClasses\IDE\Lexilla.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\AIExtensionLoader\netstandard2.0\AIExtensionLoader.dll" Link="LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1216,7 +637,25 @@
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.Winform\Beep.BusinessProcess.Winform.dll" Link="ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Winform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.CSharp\netstandard2.0\Beep.Compilers.CSharp.dll" Link="ProjectClasses\IDE\Beep.Compilers.CSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.ExtensionLoader\netstandard2.0\Beep.Compilers.ExtensionLoader.dll" Link="LoadingExtensions\Compilers\Beep.Compilers.ExtensionLoader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.Module\netstandard2.0\Beep.Compilers.Module.dll" Link="LoadingExtensions\Compilers\Beep.Compilers.Module.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.Python\netstandard2.0\Beep.Compilers.Python.dll" Link="ProjectClasses\IDE\Beep.Compilers.Python.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.R\netstandard2.0\Beep.Compilers.R.dll" Link="ProjectClasses\IDE\Beep.Compilers.R.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.CSV.Extensions\netstandard2.0\Beep.CSV.Extensions.dll" Link="ProjectClasses\CSVManager\Beep.CSV.Extensions.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.CSV.Nodes\netstandard2.0\Beep.CSV.Nodes.dll" Link="ProjectClasses\CSVManager\Beep.CSV.Nodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.CSVManager.Winform\Beep.CSVManager.Winform.dll" Link="ProjectClasses\CSVManager\Beep.CSVManager.Winform.dll">
@@ -1228,9 +667,19 @@
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.logic\netstandard2.0\Beep.DeveloperAssistant.logic.dll" Link="ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.logic.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.Nodes\netstandard2.0\Beep.DeveloperAssistant.Nodes.dll" Link="ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.Winform\Beep.DeveloperAssistant.Winform.dll" Link="ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.Winform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="..\..\outputDLL\Beep.IDE.Nodes\netstandard2.0\Beep.IDE.Nodes.dll" Link="ProjectClasses\IDE\Beep.IDE.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.IDE.Winform\Beep.IDE.Winform.dll" Link="ProjectClasses\IDE\Beep.IDE.Winform.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Julia.Interop\netstandard2.0\Beep.Julia.Interop.dll" Link="ProjectClasses\LangInterop\Beep.Julia.Interop.dll" />
     <Content Include="..\..\outputDLL\Beep.Python.ExtensionLoader\netstandard2.0\Beep.Python.ExtensionLoader.dll" Link="LoadingExtensions\PythonExtentionLoader\Beep.Python.ExtensionLoader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1241,6 +690,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Nodes\netstandard2.0\Beep.Python.Nodes.dll" Link="ProjectClasses\Py\Beep.Python.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.RunTime.CMD\netstandard2.0\Beep.Python.RunTime.CMD.dll" Link="ProjectClasses\Py\Beep.Python.RunTime.CMD.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Runtime.PythonNet\netstandard2.0\Beep.Python.Runtime.PythonNet.dll" Link="ProjectClasses\Py\Beep.Python.Runtime.PythonNet.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Python.Runtime.Winform\Beep.Python.Runtime.Winform.dll" Link="ProjectClasses\Py\Beep.Python.Runtime.Winform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Winform\Beep.Python.Winform.dll" Link="ProjectClasses\Py\Beep.Python.Winform.dll">
@@ -1256,6 +714,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.R.Winform\Beep.R.Winform.dll" Link="ProjectClasses\AI\R\Beep.R.Winform.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Rust.Interop\netstandard2.0\Beep.Rust.Interop.dll" Link="ProjectClasses\LangInterop\Beep.Rust.Interop.dll" />
+    <Content Include="..\..\outputDLL\Beep.Skia.Loader\netstandard2.0\Beep.Skia.Loader.dll" Link="LoadingExtensions\Beep.Skia.Loader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Skia.WinformNet\Beep.Skia.WinformNet.dll" Link="ProjectClasses\Skia\Beep.Skia.WinformNet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\netstandard2.0\CompositeLayerNodes.dll" Link="ProjectClasses\CompositeLayer\CompositeLayerNodes.dll">
@@ -1337,6 +802,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\netstandard2.0\ML.NET.dll" Link="ProjectClasses\ML.NET\ML.NET.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\pythonnet\runtime\netstandard2.0\Python.Runtime.dll" Link="ProjectClasses\Py\Python.Runtime.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\netstandard2.0\TheTechIdea.Beep.TreeNodes.dll" Link="ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll">
@@ -1511,63 +979,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\Sparrow.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\Microsoft.VC90.CRT\msvcr90.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\Microsoft.VC90.CRT\README_ENU.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\sqlceca40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\sqlcecompact40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\sqlceer40EN.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\sqlceme40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\sqlceqp40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\amd64\sqlcese40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\System.Data.SqlServerCe.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\Microsoft.VC90.CRT\Microsoft.VC90.CRT.manifest">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\Microsoft.VC90.CRT\msvcr90.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\Microsoft.VC90.CRT\README_ENU.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\sqlceca40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\sqlcecompact40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\sqlceer40EN.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\sqlceme40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\sqlceqp40.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\SqlCompact\x86\sqlcese40.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\SqlLite\System.Data.SQLite.dll">
@@ -1804,6 +1215,9 @@
     <Content Include="GFX\cockroachdb.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\codegen.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\codeicon.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1843,10 +1257,16 @@
     <Content Include="GFX\createpoco.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\csharpfile.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\css.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\csv.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\csvmanager.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\cursor.ico">
@@ -2002,6 +1422,15 @@
     <Content Include="GFX\ico.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\ide1.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\ide2.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\ideopen.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\importdata.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2107,6 +1536,9 @@
     <Content Include="GFX\otf.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\packages.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\paste.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2149,6 +1581,9 @@
     <Content Include="GFX\python.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\pythonfile.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\query.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2186,6 +1621,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\rtf.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\run.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\salesforce.ico">
@@ -2722,1789 +2160,61 @@
     <Content Include="ProjectClasses\Py\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Py\lib\abc.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\aifc.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\antigravity.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\anydbm.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\argparse.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ast.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\asynchat.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\asyncore.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\atexit.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\audiodev.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\base64.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\BaseHTTPServer.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\Bastion.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\bdb.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\binhex.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\bisect.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\calendar.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\cgi.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\CGIHTTPServer.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\cgitb.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\chunk.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\clrtype.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\cmd.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\code.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\codecs.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\codeop.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\collections.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\colorsys.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\commands.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\compileall.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ConfigParser.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\contextlib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\Cookie.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\cookielib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\copy.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\csv.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ctypes\macholib\dyld.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ctypes\macholib\dylib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ctypes\macholib\framework.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ctypes\macholib\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ctypes\util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ctypes\wintypes.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ctypes\_endian.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ctypes\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\decimal.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\difflib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\dircache.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\dis.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\archive_util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\bcppcompiler.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\ccompiler.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\cmd.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\bdist.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\bdist_dumb.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\bdist_rpm.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\bdist_wininst.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\build.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\build_clib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\build_ext.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\build_py.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\build_scripts.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\check.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\clean.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\config.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\install.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\install_data.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\install_egg_info.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\install_headers.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\install_lib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\install_scripts.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\register.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\sdist.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\upload.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\command\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\config.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\core.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\cygwinccompiler.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\debug.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\dep_util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\dir_util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\dist.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\emxccompiler.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\errors.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\extension.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\fancy_getopt.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\filelist.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\file_util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\log.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\msvccompiler.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\spawn.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\sysconfig.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\text_file.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\unixccompiler.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\version.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\versionpredicate.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\distutils\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\doctest.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\DocXMLRPCServer.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\dumbdbm.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\dummy_thread.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\dummy_threading.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\base64mime.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\charset.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\encoders.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\errors.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\feedparser.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\generator.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\header.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\iterators.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\message.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\application.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\audio.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\base.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\image.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\message.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\multipart.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\nonmultipart.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\text.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\mime\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\parser.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\quoprimime.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\utils.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\_parseaddr.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\email\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\aliases.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\ascii.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\base64_codec.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\bz2_codec.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\charmap.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp037.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1006.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1026.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1140.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1250.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1251.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1252.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1253.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1254.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1255.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1256.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1257.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp1258.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp424.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp437.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp500.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp720.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp737.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp775.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp850.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp852.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp855.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp856.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp857.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp858.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp860.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp861.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp862.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp863.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp864.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp865.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp866.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp869.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp874.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\cp875.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\hex_codec.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\hp_roman8.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\idna.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_1.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_10.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_11.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_13.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_14.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_15.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_16.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_2.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_3.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_4.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_5.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_6.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_7.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_8.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\iso8859_9.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\koi8_r.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\koi8_u.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\latin_1.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_arabic.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_centeuro.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_croatian.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_cyrillic.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_farsi.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_greek.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_iceland.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_latin2.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_roman.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_romanian.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mac_turkish.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\mbcs.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\palmos.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\ptcp154.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\punycode.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\quopri_codec.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\raw_unicode_escape.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\rot_13.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\string_escape.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\tis_620.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\undefined.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\unicode_escape.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\unicode_internal.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_16.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_16_be.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_16_le.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_32.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_32_be.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_32_le.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_7.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_8.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\utf_8_sig.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\uu_codec.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\zlib_codec.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\encodings\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ensurepip\_bundled\pip-19.2.3-py2.py3-none-any.whl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ensurepip\_bundled\setuptools-41.2.0-py2.py3-none-any.whl">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ensurepip\_uninstall.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ensurepip\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ensurepip\__main__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\filecmp.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\fileinput.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\fnmatch.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\formatter.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\fpformat.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\fractions.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ftplib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\functools.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\genericpath.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\getopt.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\getpass.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\gettext.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\glob.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\gzip.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\hashlib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\heapq.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\hmac.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\htmlentitydefs.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\htmllib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\HTMLParser.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\httplib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ihooks.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\imaplib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\imghdr.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\importlib\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\imputil.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\inspect.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\io.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\json\decoder.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\json\encoder.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\json\scanner.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\json\tool.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\json\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\keyword.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\btm_matcher.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\btm_utils.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixer_base.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixer_util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_apply.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_asserts.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_basestring.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_buffer.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_dict.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_except.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_exec.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_execfile.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_exitfunc.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_filter.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_funcattrs.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_future.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_getcwdu.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_has_key.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_idioms.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_import.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_imports.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_imports2.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_input.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_intern.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_isinstance.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_itertools.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_itertools_imports.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_long.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_map.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_metaclass.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_methodattrs.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_ne.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_next.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_nonzero.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_numliterals.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_operator.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_paren.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_print.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_raise.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_raw_input.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_reduce.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_renames.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_repr.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_set_literal.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_standarderror.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_sys_exc.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_throw.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_tuple_params.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_types.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_unicode.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_urllib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_ws_comma.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_xrange.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_xreadlines.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\fix_zip.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\fixes\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\main.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\patcomp.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\conv.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\driver.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\grammar.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\literals.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\parse.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\pgen.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\token.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\tokenize.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pgen2\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pygram.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\pytree.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\refactor.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\lib2to3\__main__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\linecache.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\locale.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\logging\config.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\logging\handlers.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\logging\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\macpath.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\macurl2path.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\mailbox.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\mailcap.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\markupbase.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\md5.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\mhlib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\mimetools.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\mimetypes.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\MimeWriter.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\mimify.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\modulefinder.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multifile.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\connection.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\dummy\connection.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\dummy\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\forking.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\heap.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\managers.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\pool.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\process.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\queues.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\reduction.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\sharedctypes.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\synchronize.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\multiprocessing\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\mutex.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\netrc.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\new.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\nntplib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ntpath.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\nturl2path.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\numbers.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\opcode.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\optparse.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\os.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\os2emxpath.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pdb.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pickle.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pickletools.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pipes.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pkgutil.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\platform.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\plistlib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\popen2.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\poplib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\posixfile.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\posixpath.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pprint.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\profile.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pstats.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pyclbr.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pydoc.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pydoc_data\topics.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\pydoc_data\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\py_compile.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\Queue.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\quopri.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\random.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\repr.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\rexec.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\rfc822.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\rlcompleter.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\robotparser.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\runpy.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sched.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sets.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sgmllib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sha.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\shelve.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\shlex.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\shutil.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\SimpleHTTPServer.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\SimpleXMLRPCServer.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\site-packages\README.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\site.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\smtpd.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\smtplib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sndhdr.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\socket.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\SocketServer.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sqlite3\dbapi2.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sqlite3\dump.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sqlite3\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sre_constants.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sre_parse.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\ssl.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\stat.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\statvfs.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\string.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\StringIO.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\stringold.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\stringprep.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\struct.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\subprocess.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sunau.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sunaudio.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\symbol.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\sysconfig.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\tabnanny.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\tarfile.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\telnetlib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\tempfile.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\textwrap.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\this.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\threading.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\timeit.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\toaiff.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\token.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\tokenize.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\trace.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\traceback.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\types.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\case.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\loader.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\main.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\result.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\runner.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\signals.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\suite.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\unittest\__main__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\urllib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\urllib2.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\urlparse.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\user.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\UserDict.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\UserList.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\UserString.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\uu.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\uuid.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\warnings.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\wave.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\weakref.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\webbrowser.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\whichdb.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\wpf.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\wsgiref\handlers.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\wsgiref\headers.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\wsgiref\simple_server.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\wsgiref\util.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\wsgiref\validate.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\wsgiref\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xdrlib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xmllib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xmlrpclib.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\dom\domreg.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\dom\expatbuilder.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\dom\minicompat.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\dom\minidom.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\dom\NodeFilter.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\dom\pulldom.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\dom\xmlbuilder.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\dom\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\etree\cElementTree.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\etree\ElementInclude.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\etree\ElementPath.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\etree\ElementTree.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\etree\SimpleXMLTreeBuilder.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\etree\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\parsers\expat.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\parsers\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\sax\expatreader.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\sax\handler.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\sax\saxutils.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\sax\xmlreader.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\sax\_exceptions.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\sax\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\xml\__init__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\zipfile.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\_abcoll.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\_LWPCookieJar.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\_MozillaCookieJar.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\_osx_support.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\_pyio.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\_strptime.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\_threading_local.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\_weakrefset.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\__future__.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\lib\__phello__.foo.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\Microsoft.Dynamic.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\Microsoft.Scripting.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\Microsoft.Scripting.Metadata.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\libcrypto-1_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\libffi-7.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\libssl-1_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\Lib\site-packages\packages.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\LICENSE.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\pyexpat.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\python.cat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\python.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\python3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\python39.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\python39.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\python39._pth">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\pythonw.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\scripts\get-pip.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\select.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\sqlite3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\unicodedata.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\vcruntime140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\winsound.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_asyncio.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_bz2.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_ctypes.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_decimal.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_elementtree.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_hashlib.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_lzma.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_msi.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_multiprocessing.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_overlapped.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_queue.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_socket.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_sqlite3.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_ssl.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_uuid.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x32\_zoneinfo.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\libcrypto-1_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\libffi-7.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\libssl-1_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\Lib\site-packages\packages.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\LICENSE.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\pyexpat.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\python.cat">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\python.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\python3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\python39.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\python39.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\python39._pth">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\pythonw.exe">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\scripts\get-pip.py">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\select.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\sqlite3.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\unicodedata.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\vcruntime140.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\vcruntime140_1.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\winsound.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_asyncio.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_bz2.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_ctypes.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_decimal.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_elementtree.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_hashlib.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_lzma.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_msi.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_multiprocessing.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_overlapped.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_queue.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_socket.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_sqlite3.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_ssl.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_uuid.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Py\p395x64\_zoneinfo.pyd">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="ProjectClasses\Py\Scintilla.NET.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Py\System.CodeDom.dll">
+    <Content Include="ProjectClasses\Skia\arm64\libSkiaSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\Beep.Skia.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\libSkiaSharp.dylib">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\OpenTK.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\OpenTK.GLControl.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\SkiaSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\SkiaSharp.Extended.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\SkiaSharp.Extended.Svg.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\SkiaSharp.Views.Desktop.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\SkiaSharp.Views.WindowsForms.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\System.Buffers.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\System.Drawing.Common.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\System.Memory.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\System.Numerics.Vectors.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\System.Runtime.CompilerServices.Unsafe.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\System.Text.Encoding.CodePages.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\x64\libSkiaSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\Skia\x86\libSkiaSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectData\AI_Datasets\iris.csv">
@@ -4804,10 +2514,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="LoadingExtensions\Compilers\" />
     <Folder Include="ProjectClasses\AppBuilder\" />
     <Folder Include="ProjectClasses\BeepDeveloperAssistant\" />
     <Folder Include="ProjectClasses\BusinessProcessBuilder\" />
     <Folder Include="ProjectClasses\CSVManager\" />
+    <Folder Include="ProjectClasses\IDE\" />
+    <Folder Include="ProjectClasses\LangInterop\" />
     <Folder Include="ProjectClasses\ML.NET\lib\" />
   </ItemGroup>
 
