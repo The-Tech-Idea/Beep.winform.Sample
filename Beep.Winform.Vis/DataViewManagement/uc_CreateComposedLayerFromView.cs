@@ -265,7 +265,7 @@ namespace Beep.Winform.Vis.DataViewManagement
                 });
                 CancellationTokenSource tokenSource = new CancellationTokenSource();
                 CancellationToken token = tokenSource.Token;
-                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token);
+                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(vds, ls, progress, token, DDLScriptType.CreateEntity);
                 visManager.ShowPage("uc_CopyEntities", (PassedArgs)DMEEditor.Passedarguments, DisplayType.Popup);
             }
 

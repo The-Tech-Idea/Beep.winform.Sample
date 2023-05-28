@@ -177,7 +177,7 @@ namespace Beep.Winform.Vis.ETL.CopyEntityandData
                 });
                 tokenSource = new CancellationTokenSource();
                 token = tokenSource.Token;
-                SyncEntities = DMEEditor.ETL.GetCreateEntityScript(ds, Entities, progress, token);
+                SyncEntities = DMEEditor.ETL.GetCreateEntityScript(ds, Entities, progress, token, DDLScriptType.CreateEntity);
                
                 
             }
