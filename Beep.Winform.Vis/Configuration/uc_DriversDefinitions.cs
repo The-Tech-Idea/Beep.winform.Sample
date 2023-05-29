@@ -16,7 +16,7 @@ using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
 
-namespace Beep.Winform.Vis
+namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Drivers Definitions", Name = "uc_DriversDefinitions", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     [AddinVisSchema(BranchID = 3, RootNodeName = "Configuration", Order = 6, ID = 6, BranchText = "Non ADO Drivers Definitions", BranchType = EnumPointType.Function, IconImageName = "driversdefinition.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]

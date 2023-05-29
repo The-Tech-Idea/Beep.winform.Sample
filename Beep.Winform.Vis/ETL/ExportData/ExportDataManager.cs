@@ -13,7 +13,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.ETL.ExportData
+namespace BeepEnterprize.Winform.Vis.ETL.ExportData
 {
     [AddinAttribute(Caption = "Export Manager", Name = "ExportDataManager", misc = "ExportDataManager", addinType = AddinType.Class)]
     public class ExportDataManager : IDM_Addin

@@ -14,7 +14,7 @@ using TheTechIdea.Beep.Workflow.Mapping;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.ETL.ImportData
+namespace BeepEnterprize.Winform.Vis.ETL.ImportData
 {
     public partial class uc_addeditImportData : UserControl,IDM_Addin
     {

@@ -13,19 +13,18 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Beep.Winform.Controls;
 using BeepEnterprize.Vis.Module;
-using Beep.Winform.Vis.Controls;
-using Beep.Winform.Vis.Helpers;
-using Beep.Winform.Vis.Wizards;
+using BeepEnterprize.Winform.Vis.Controls;
+using BeepEnterprize.Winform.Vis.FunctionsandExtensions;
+using BeepEnterprize.Winform.Vis.Helpers;
+using BeepEnterprize.Winform.Vis.Wizards;
 
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.PrintManagers;
 using TheTechIdea.Util;
-using BeepEnterprize.Winform.Vis.Helpers;
-using BeepEnterprize.Winform.Vis;
 
-namespace Beep.Winform.Vis
+namespace BeepEnterprize.Winform.Vis
 {
     public class VisManager : IVisManager
     {
@@ -51,10 +50,12 @@ namespace Beep.Winform.Vis
         public string AppObjectsName { get; set; }
         public string BeepObjectsName { get; set; }="Beep";
         public IVisHelper visHelper { get; set; }
+        
         public IControlManager Controlmanager { get; set; }
         public ControlManager _controlManager { get { return (ControlManager)Controlmanager; } }
         public ErrorsInfo ErrorsandMesseges { get; set; }
         public IDM_Addin CurrentDisplayedAddin { get; set; }
+        public IFunctionandExtensionsHelpers Helpers { get; set; }
         public bool IsDataModified { get; set; }
         bool _showLogWindow = true;
         bool _showTreeWindow = true;
@@ -96,6 +97,7 @@ namespace Beep.Winform.Vis
                 DMEEditor.Passedarguments.Objects = new List<ObjectItem>();
 
             }
+            Helpers = new FunctionandExtensionsHelpers(DMEEditor, this,(TreeControl)Tree);
             DMEEditor.Passedarguments.Objects = CreateArgsParameterForVisUtil(DMEEditor.Passedarguments.Objects);
 
             Images = new ImageList();
@@ -200,6 +202,8 @@ namespace Beep.Winform.Vis
         #endregion
         public WizardManager wizardManager { get; set; }
         public bool IsShowingMainForm { get; set; } = false;
+        public bool TurnonOffCheckBox { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
         {
@@ -619,9 +623,11 @@ namespace Beep.Winform.Vis
                     {
                         if (!string.IsNullOrEmpty(Title))
                         {
-                            form.Width = Width; form.Height=Height;
+                            form.Width = Width; 
+                            form.Height=Height;
                             form.Text = Title;
                         }
+                        IsShowingMainForm = false;
                     }
                     if (!string.IsNullOrEmpty(IconUrl))
                     {
@@ -972,5 +978,6 @@ namespace Beep.Winform.Vis
 
             return DMEEditor.ErrorObject;
         }
+
     }
 }

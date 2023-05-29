@@ -15,7 +15,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.ETL.CreateEntity
+namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
 {
     [AddinAttribute(Caption = "Entity Editor Relation", Name = "uc_createeditentityrelations", misc = "ETL", addinType = AddinType.Control)]
     public partial class uc_createeditentityrelations : uc_BaseControl

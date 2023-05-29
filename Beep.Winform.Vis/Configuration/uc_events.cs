@@ -16,7 +16,7 @@ using TheTechIdea.Util;
 
 
 
-namespace Beep.Winform.Vis
+namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Events Definitions", Name = "uc_events", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     [AddinVisSchema(BranchID = 1, RootNodeName = "Configuration", Order = 9, ID = 9, BranchText = "Events", BranchType = EnumPointType.Function, IconImageName = "events.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]

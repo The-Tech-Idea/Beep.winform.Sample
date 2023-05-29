@@ -5,15 +5,15 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using BeepEnterprize.Vis.Module;
-using Beep.Winform.Vis.Controls;
-using Beep.Winform.Vis.CRUD;
+using BeepEnterprize.Winform.Vis.Controls;
+using BeepEnterprize.Winform.Vis.CRUD;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.FunctionsandExtensions
+namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
     [AddinAttribute(Caption = "File", Name = "FileMenuFunctions", ObjectType = "Beep", menu = "Beep", misc = "IFunctionExtension", addinType = AddinType.Class,iconimage ="File.ico",order =1)]
     public class FileMenuFunctions : IFunctionExtension

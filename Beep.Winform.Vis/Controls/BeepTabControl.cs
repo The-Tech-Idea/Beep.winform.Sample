@@ -27,9 +27,9 @@ namespace BeepEnterprize.Winform.Vis.Controls
             //this.ControlRemoved += (s, e) => RecalculateTabSizes();
             //this.FontChanged += (s, e) => RecalculateTabSizes();
 
-            closeButtonImage = global::Beep.Winform.Vis.Properties.Resources.close;
-            nextButtonImage = global::Beep.Winform.Vis.Properties.Resources.Collapseright;
-            prevButtonImage = global::Beep.Winform.Vis.Properties.Resources.CollapseLeft;
+            closeButtonImage = global::BeepEnterprize.Winform.Vis.Properties.Resources.close;
+            nextButtonImage = global::BeepEnterprize.Winform.Vis.Properties.Resources.Collapseright;
+            prevButtonImage = global::BeepEnterprize.Winform.Vis.Properties.Resources.CollapseLeft;
         }
        
         private void RecalculateTabSizes()

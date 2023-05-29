@@ -1,7 +1,7 @@
 ﻿
 using BeepEnterprize.Vis.Module;
 
-namespace Beep.Winform.Vis.MainForms
+namespace BeepEnterprize.Winform.Vis.MainForms
 {
     partial class Frm_Main
     {
@@ -49,7 +49,7 @@ namespace Beep.Winform.Vis.MainForms
             this.MainViewsplitContainer = new System.Windows.Forms.SplitContainer();
             this.LogPanelCollapsebutton = new System.Windows.Forms.Button();
             this.MinMaxButton = new System.Windows.Forms.Button();
-            this.ContainerPanel = new Beep.Winform.Vis.Controls.uc_Container();
+            this.ContainerPanel = new BeepEnterprize.Winform.Vis.Controls.uc_Container();
             this.LogPanel = new System.Windows.Forms.TextBox();
             this.MainWinfowPanle = new System.Windows.Forms.Panel();
             this.TopMenuPanel = new System.Windows.Forms.Panel();
@@ -136,7 +136,7 @@ namespace Beep.Winform.Vis.MainForms
             // 
             this.SidePanelContainer.Panel2.Controls.Add(this.BeepTreeView);
             this.SidePanelContainer.Size = new System.Drawing.Size(300, 1006);
-            this.SidePanelContainer.SplitterDistance = 661;
+            this.SidePanelContainer.SplitterDistance = 488;
             this.SidePanelContainer.SplitterWidth = 5;
             this.SidePanelContainer.TabIndex = 0;
             // 
@@ -144,7 +144,7 @@ namespace Beep.Winform.Vis.MainForms
             // 
             this.SidePanelCollapsebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.SidePanelCollapsebutton.BackColor = System.Drawing.Color.Transparent;
-            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(329, 641);
+            this.SidePanelCollapsebutton.Location = new System.Drawing.Point(329, 468);
             this.SidePanelCollapsebutton.Name = "SidePanelCollapsebutton";
             this.SidePanelCollapsebutton.Size = new System.Drawing.Size(20, 17);
             this.SidePanelCollapsebutton.TabIndex = 15;
@@ -160,7 +160,7 @@ namespace Beep.Winform.Vis.MainForms
             this.AppTreeView.Location = new System.Drawing.Point(0, 0);
             this.AppTreeView.Name = "AppTreeView";
             this.AppTreeView.ShowNodeToolTips = true;
-            this.AppTreeView.Size = new System.Drawing.Size(300, 661);
+            this.AppTreeView.Size = new System.Drawing.Size(300, 488);
             this.AppTreeView.TabIndex = 14;
             // 
             // BeepTreeView
@@ -171,7 +171,7 @@ namespace Beep.Winform.Vis.MainForms
             this.BeepTreeView.ItemHeight = 32;
             this.BeepTreeView.Location = new System.Drawing.Point(0, 0);
             this.BeepTreeView.Name = "BeepTreeView";
-            this.BeepTreeView.Size = new System.Drawing.Size(300, 333);
+            this.BeepTreeView.Size = new System.Drawing.Size(300, 505);
             this.BeepTreeView.TabIndex = 2;
             // 
             // TreeFilterTextBox

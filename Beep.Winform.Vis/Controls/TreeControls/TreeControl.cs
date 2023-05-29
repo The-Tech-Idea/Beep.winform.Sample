@@ -4,13 +4,13 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-//using System.Runtime.InteropServices.WindowsRuntime;
+using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
-using Beep.Winform.Vis.Controls.TreeControls;
-using Beep.Winform.Vis.Helpers;
+using BeepEnterprize.Winform.Vis.Controls.TreeControls;
+using BeepEnterprize.Winform.Vis.Helpers;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -20,9 +20,8 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 using static TheTechIdea.Beep.Util;
-using BeepEnterprize.Winform.Vis.Controls;
 
-namespace Beep.Winform.Vis.Controls
+namespace BeepEnterprize.Winform.Vis.Controls
 {
     [AddinAttribute(Caption = "Beep", Name = "TreeControl", misc = "Control")]
     public class TreeControl : IDM_Addin,ITree
@@ -60,7 +59,7 @@ namespace Beep.Winform.Vis.Controls
         public string CategoryIcon { get; set; } = "Category.ico";
         public string SelectIcon { get; set; } = "select.ico";
         public IBranch CurrentBranch { get ; set ; }
-        public List<ContextMenuStrip> menus { get; set; }=new List<ContextMenuStrip>(); //ContextMenuStrip
+        public List<ContextMenu> menus { get; set; }=new List<ContextMenu>(); //ContextMenuStrip
         public PassedArgs args { get; set; }
         static int pSeqID = 0;
         public int SeqID {
@@ -181,7 +180,7 @@ namespace Beep.Winform.Vis.Controls
                 {
                     Type adc = DMEEditor.assemblyHandler.GetType(cls.PackageName);
                     ConstructorInfo ctor = adc.GetConstructors().Where(o => o.GetParameters().Length == 0).FirstOrDefault();
-                  
+                
                     if (ctor != null)
                     {
                         ObjectActivator<IBranch> createdActivator = GetActivator<IBranch>(ctor);
@@ -246,6 +245,7 @@ namespace Beep.Winform.Vis.Controls
                 n.SelectedImageKey = br.IconImageName;
             }
             //n.ContextMenuStrip = 
+            Console.WriteLine(br.BranchText);
             CreateMenuMethods(br);
             if ( br.ObjectType!=null && br.BranchClass != null)
             {
@@ -358,7 +358,7 @@ namespace Beep.Winform.Vis.Controls
             {
                
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == branch.ToString() ).FirstOrDefault();
-                if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.CurrentCultureIgnoreCase)))
+                if (!menuList.classDefinitions.Any(p => p.PackageName.Equals(cls.PackageName, StringComparison.InvariantCultureIgnoreCase)))
                 {
                     menuList.classDefinitions.Add(cls);
                     foreach (var item in cls.Methods.Where(y => y.Hidden == false))
@@ -556,25 +556,6 @@ namespace Beep.Winform.Vis.Controls
         }
         private void SetupTreeView()
         {
-            //Vismanager.Images = new ImageList();
-            //Vismanager.Images.ImageSize = IconsSize;
-            //Vismanager.Images.ColorDepth = ColorDepth.Depth32Bit;
-            //List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
-            //foreach (string filename_w_path in paths)
-            //{
-            //    try
-            //    {
-            //        string filename = Path.GetFileName(filename_w_path);
-            //        Vismanager.ImagesUrls.Add(new FileStorage() { FileName=filename, Url= filename_w_path });
-            //        Vismanager.Images.Images.Add(filename, Image.FromFile(filename_w_path));
-            //    }
-            //    catch (FileLoadException ex)
-            //    {
-            //        DMEEditor.ErrorObject.Flag = Errors.Failed;
-            //        DMEEditor.ErrorObject.Ex = ex;
-            //        DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
-            //    }
-            //}
             TreeV.CheckBoxes = false;
             TreeV.ImageList=new ImageList();
             TreeV.ImageList.ImageSize = IconsSize;
@@ -684,13 +665,14 @@ namespace Beep.Winform.Vis.Controls
             if (cls != null)
             {
                 if (!IsMethodApplicabletoNode(cls, br)) return;
-                if (cls.RootName != "IFunctionExtension")
+                if (cls.componentType == "IFunctionExtension")
                 {
-                    RunMethod(br, item.Text);
+                    RunFunction(br, item);
+                   
                 }else
                 {
-                    
-                    RunFunction(br, item);
+
+                    RunMethod(br, item.Text);
                 };
 
             }
@@ -741,6 +723,9 @@ namespace Beep.Winform.Vis.Controls
         #endregion
         #region "Filter Nodes"
         public string Filterstring { set { FilterString_TextChanged(value); } }
+
+       
+
         private TreeView TreeCache = new TreeView();
         private bool IsFiltering=false;
         public void FilterString_TextChanged(string value)
@@ -798,6 +783,23 @@ namespace Beep.Winform.Vis.Controls
                 }
             }
 
+        }
+
+      
+
+        public object GetTreeNodeByID(int id)
+        {
+            return GetTreeNodeByID(id, TreeV.Nodes);
+        }
+
+        public void RemoveNode(int id)
+        {
+            TreeNode tr = (TreeNode)GetTreeNodeByID(id, TreeV.Nodes);
+            if (tr != null)
+            {
+                TreeV.Nodes.Remove(tr);
+            }
+           
         }
         #endregion
     }

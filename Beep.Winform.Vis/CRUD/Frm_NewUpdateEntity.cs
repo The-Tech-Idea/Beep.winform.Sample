@@ -12,7 +12,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.CRUD
+namespace BeepEnterprize.Winform.Vis.CRUD
 {
     [AddinAttribute(Caption = "New/Update Entity", Name = "Frm_NewUpdateEntity", misc = "CRUD", addinType = AddinType.Control)]
     public partial class Frm_NewUpdateEntity : UserControl, IDM_Addin

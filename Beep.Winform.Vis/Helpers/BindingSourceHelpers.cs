@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Beep.Winform.Vis.Helpers
+namespace BeepEnterprize.Winform.Vis.Helpers
 {
    
     public static class BindingSourceExtensions

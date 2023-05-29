@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Beep.Winform.Vis.Controls
+namespace BeepEnterprize.Winform.Vis.Controls
 {
     
 

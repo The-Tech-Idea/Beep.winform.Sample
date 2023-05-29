@@ -1,4 +1,4 @@
-﻿namespace Beep.Winform.Vis.Controls
+﻿namespace BeepEnterprize.Winform.Vis.Controls
 {
     partial class uc_Container
     {

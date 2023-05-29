@@ -1,5 +1,5 @@
 ﻿
-namespace Beep.Winform.Vis.CRUD
+namespace BeepEnterprize.Winform.Vis.CRUD
 {
     partial class Frm_ListEntities
     {

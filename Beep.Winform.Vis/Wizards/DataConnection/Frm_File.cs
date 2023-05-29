@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
-using Beep.Winform.Vis.Controls;
+using BeepEnterprize.Winform.Vis.Controls;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -17,7 +17,7 @@ using TheTechIdea.Logger;
 using TheTechIdea.Util;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace Beep.Winform.Vis.Wizards.DataConnection
+namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
 {
     [AddinAttribute(Caption = "File Connection", Name = "Frm_File", misc = "Wizard", addinType = AddinType.Form)]
     public partial class Frm_File : Form, IDM_Addin, IWizardComponent

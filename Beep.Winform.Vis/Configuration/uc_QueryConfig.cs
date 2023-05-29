@@ -10,7 +10,7 @@ using TheTechIdea;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Addin;
 
-namespace Beep.Winform.Vis
+namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Query Configuration", Name = "uc_QueryConfig", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     [AddinVisSchema(BranchID = 5, RootNodeName = "Configuration", Order = 5, ID = 5, BranchText = "Query Setup", BranchType = EnumPointType.Function, IconImageName = "query.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]

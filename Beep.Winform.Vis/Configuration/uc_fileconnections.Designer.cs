@@ -1,4 +1,4 @@
-﻿namespace Beep.Winform.Vis.Configuration
+﻿namespace BeepEnterprize.Winform.Vis.Configuration
 {
     partial class uc_fileconnections
     {

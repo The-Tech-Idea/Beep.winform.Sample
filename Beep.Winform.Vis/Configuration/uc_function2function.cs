@@ -16,7 +16,7 @@ using TheTechIdea.Util;
 
 
 
-namespace Beep.Winform.Vis
+namespace BeepEnterprize.Winform.Vis
 {
     [AddinAttribute(Caption = "Function 2 Function", Name = "uc_function2function", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     [AddinVisSchema(BranchID = 1, RootNodeName = "Configuration", Order = 8, ID = 8, BranchText = "Function to Function Mapping", BranchType = EnumPointType.Function, IconImageName = "function2function.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]

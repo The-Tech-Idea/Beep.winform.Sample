@@ -1,7 +1,7 @@
 ﻿
-using Beep.Winform.Vis.Controls;
+using BeepEnterprize.Winform.Vis.Controls;
 
-namespace Beep.Winform.Vis.ETL.CopyEntityandData
+namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
 {
     partial class uc_CopyEntities
     {
@@ -53,7 +53,7 @@ namespace Beep.Winform.Vis.ETL.CopyEntityandData
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.progressBar1 = new Beep.Winform.Vis.Controls.TextProgressBar();
+            this.progressBar1 = new BeepEnterprize.Winform.Vis.Controls.TextProgressBar();
             this.StopButton = new System.Windows.Forms.Button();
             this.loadDataLogsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -291,7 +291,7 @@ namespace Beep.Winform.Vis.ETL.CopyEntityandData
             this.progressBar1.TabIndex = 25;
             this.progressBar1.TextColor = System.Drawing.Color.Black;
             this.progressBar1.TextFont = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.progressBar1.VisualMode = ProgressBarDisplayMode.TextAndPercentage;
+            this.progressBar1.VisualMode = BeepEnterprize.Winform.Vis.Controls.ProgressBarDisplayMode.CurrProgress;
             // 
             // StopButton
             // 

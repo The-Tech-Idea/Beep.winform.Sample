@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Beep.Winform.Vis.Configuration
+namespace BeepEnterprize.Winform.Vis.Configuration
 {
     public partial class uc_fileconnections : UserControl
     {

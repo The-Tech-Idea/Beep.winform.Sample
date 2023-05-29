@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
-using Beep.Winform.Vis.Controls;
+using BeepEnterprize.Winform.Vis.Controls;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Report;
 
 using TheTechIdea.Util;
-using BeepEnterprize.Winform.Vis;
 
-namespace Beep.Winform.Vis
+namespace BeepEnterprize.Winform.Vis
 {
     public class ControlManager : IControlManager
     {
@@ -205,7 +205,6 @@ namespace Beep.Winform.Vis
 
             return combo.SelectedValue.ToString();
         }
-
         public List<string> LoadFilesDialog(string exts, string dir, string filter)
         {
             OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog()
@@ -229,7 +228,22 @@ namespace Beep.Winform.Vis
 
             return openFileDialog1.FileNames.ToList();
         }
-        
+        public string SelectFolderDialog()
+        {
+            string folderPath = string.Empty;
+            FolderBrowserDialog folderBrowser = new FolderBrowserDialog();
+            folderBrowser.SelectedPath = DMEEditor.ConfigEditor.Config.ProjectDataPath;
+            // Set validate names and check file exists to false otherwise windows will
+            // not let you select "Folder Selection."
+            folderBrowser.ShowNewFolderButton = true;
+            System.Windows.Forms.DialogResult result = folderBrowser.ShowDialog();
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                folderPath = folderBrowser.SelectedPath;
+                // ...
+            }
+            return folderPath;
+        }
         public string LoadFileDialog(string exts, string dir,string filter)
         {
             OpenFileDialog openFileDialog1 = new System.Windows.Forms.OpenFileDialog()
@@ -1414,6 +1428,16 @@ namespace Beep.Winform.Vis
 
                 return null;
             }
+        }
+
+        public bool ShowAlert()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ShowMessege()
+        {
+            throw new NotImplementedException();
         }
         #endregion
     }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beep.Winform.Vis.Wizards
+namespace BeepEnterprize.Winform.Vis.Wizards
 {
     public class ColorTemplate
     {

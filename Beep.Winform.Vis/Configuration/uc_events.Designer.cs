@@ -1,7 +1,7 @@
 ﻿
 using Beep.Winform.Controls;
 
-namespace Beep.Winform.Vis
+namespace BeepEnterprize.Winform.Vis
 {
     partial class uc_events
     {

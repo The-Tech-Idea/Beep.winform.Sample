@@ -1,4 +1,4 @@
-﻿namespace Beep.Winform.Vis.ETL.CreateEntity
+﻿namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
 {
     partial class uc_createeditentityfields
     {

@@ -16,7 +16,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.CRUD
+namespace BeepEnterprize.Winform.Vis.CRUD
 {
     [AddinAttribute(Caption = "List Entities", Name = "Frm_ListEntities", misc = "CRUD",displayType = DisplayType.InControl,addinType = AddinType.Control)]
     public partial class Frm_ListEntities : UserControl, IDM_Addin

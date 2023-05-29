@@ -1,5 +1,5 @@
 ﻿using BeepEnterprize.Vis.Module;
-using Beep.Winform.Vis.Controls;
+using BeepEnterprize.Winform.Vis.Controls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -7,6 +7,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading;
+using System.Windows.Media;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -18,17 +19,14 @@ using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.FunctionsandExtensions
+namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {
     [AddinAttribute(Caption = "DataSource", Name = "DataSourceMenuFunctions", misc = "IFunctionExtension",menu ="Beep", ObjectType = "Beep",  addinType = AddinType.Class, iconimage = "datasource.ico",order =3)]
     public class DataSourceMenuFunctions : IFunctionExtension
     {
         public IDMEEditor DMEEditor { get; set; }
         public IPassedArgs Passedargs { get; set; }
-       
-        CancellationTokenSource tokenSource;
-
-        CancellationToken token;
+    
         
       
         private FunctionandExtensionsHelpers ExtensionsHelpers;
@@ -39,7 +37,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
             ExtensionsHelpers=new FunctionandExtensionsHelpers(DMEEditor, pvisManager, ptreeControl);
         }
      
-        [CommandAttribute(Name = "Copy Entities", Caption = "Copy Entities", Click = true, iconimage = "copyentities.ico", PointType = EnumPointType.DataPoint,ObjectType ="Beep")]
+        [CommandAttribute(Name = "Select Entities", Caption = "Select Entities", Click = true, iconimage = "copyentities.ico", PointType = EnumPointType.DataPoint,ObjectType ="Beep")]
         public IErrorsInfo CopyEntities(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
@@ -61,7 +59,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
                 }
                
                 DMEEditor.AddLogMessage("Success", $"Copy Entites", DateTime.Now, 0, null, Errors.Ok);
-                ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", $"Copied  {ExtensionsHelpers.TreeEditor.SelectedBranchs.Count} Entities Successfully");
+                ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", $"Selected  {ExtensionsHelpers.TreeEditor.SelectedBranchs.Count} Entities Successfully");
             }
             catch (Exception ex)
             {
@@ -148,21 +146,31 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
                                     ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                     ds.AddEntitytoDataView(item);
                                 }
-                                Passedarguments.ParameterString1 = $"Done ...";
+                                Passedarguments.Messege = $"Done ...";
                                 ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
                                 Passedarguments.ParameterString1 = $"Done ...";
                                 ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 ds.WriteDataViewFile(ds.DatasourceName);
                             }
                             else
-                            {
+                            {  bool getdata=false; 
+                                if (ExtensionsHelpers.Vismanager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == DialogResult.OK)
+                                {
+                                   getdata = true ;
+                                }
                                 DMEEditor.ETL.Script = new ETLScriptHDR();
                                 DMEEditor.ETL.Script.id = 1;
-                                var progress = new Progress<PassedArgs>(percent => {
-                                });
-                                tokenSource = new CancellationTokenSource();
-                                token = tokenSource.Token;
-                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, progress, token);
+                                Passedarguments.Messege = $"Get Create Entity Scripts  ...";
+                                ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token, DDLScriptType.CreateEntity);
+                                if (getdata)
+                                {
+                                    Passedarguments.Messege = $"Get Copy Data Entity Scripts  ...";
+                                    ExtensionsHelpers.Vismanager.PasstoWaitForm((PassedArgs)Passedarguments);
+                                    DMEEditor.ETL.Script.ScriptDTL.AddRange(DMEEditor.ETL.GetCreateEntityScript(ExtensionsHelpers.DataSource, ls, ExtensionsHelpers.progress, ExtensionsHelpers.token, DDLScriptType.CopyData));
+                                }
+                                Passedarguments.ParameterString1 = $"Done ...";
+                                ExtensionsHelpers.Vismanager.CloseWaitForm();
                                 ExtensionsHelpers.Vismanager.ShowPage("uc_CopyEntities", (PassedArgs)Passedargs, DisplayType.InControl);
                             }
                             ExtensionsHelpers.pbr.CreateChildNodes();
@@ -239,21 +247,21 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
                         //if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
                         //{
                             string viewname = null;
-                            if(ExtensionsHelpers.Vismanager._controlManager.InputBox("Beep","Please Enter New View Name",ref viewname) == BeepEnterprize.Vis.Module.DialogResult.OK)
+                            if(ExtensionsHelpers.Vismanager.Controlmanager.InputBox("Beep","Please Enter New View Name",ref viewname) == DialogResult.OK)
                             {
                                 if (!string.IsNullOrEmpty(viewname))
                                 {
                                     if (DMEEditor.CheckDataSourceExist(viewname + ".json"))
                                     {
                                         DMEEditor.AddLogMessage("Beep",$"View Name Exist, please Try another one", DateTime.Now, -1, null, Errors.Failed);
-                                        ExtensionsHelpers.Vismanager._controlManager.MsgBox("Beep", $"View Name Exist, please Try another one");
+                                        ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", $"View Name Exist, please Try another one");
                                        return;
                                     }
                                 }
                                 else
                                 {
                                     DMEEditor.AddLogMessage("Beep", $"please enter a valid Viewname", DateTime.Now, -1, null, Errors.Failed);
-                                ExtensionsHelpers.Vismanager._controlManager.MsgBox("Beep", $"View Name Exist, please Try another one");
+                                ExtensionsHelpers.Vismanager.Controlmanager.MsgBox("Beep", $"View Name Exist, please Try another one");
                                 return;
                                 }
                                 if (ExtensionsHelpers.CreateView(viewname) == Errors.Ok)
@@ -415,7 +423,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
             return DMEEditor.ErrorObject;
         }
         [CommandAttribute(Caption = "Delete Connection", Name = "DeleteConnection", Click = true, iconimage = "remove.ico", PointType = EnumPointType.DataPoint, ObjectType = "Beep")]
-        public IErrorsInfo DdeleteConnection(IPassedArgs Passedarguments)
+        public IErrorsInfo deleteConnection(IPassedArgs Passedarguments)
         {
             DMEEditor.ErrorObject.Flag = Errors.Ok;
             EntityStructure ent = new EntityStructure();
@@ -640,67 +648,86 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
 
             return DMEEditor.ErrorObject;
         }
-        [CommandAttribute(Caption = "Add File(s)", Hidden = false, iconimage = "add.ico" ,Click = true, PointType = EnumPointType.Root, ObjectType = "Beep" ,ClassType ="FILE")]
-        public IErrorsInfo AddFile(IPassedArgs Passedarguments)
-        {
+        //[CommandAttribute(Caption = "Add File(s)", Hidden = false, iconimage = "add.ico" ,Click = true, PointType = EnumPointType.Root, ObjectType = "Beep" ,ClassType ="FILE")]
+        //public IErrorsInfo AddFile(IPassedArgs Passedarguments)
+        //{
 
-            try
-            {
-                DMEEditor.ErrorObject.Flag = Errors.Ok;
+        //    try
+        //    {
+        //        DMEEditor.ErrorObject.Flag = Errors.Ok;
                
-                ExtensionsHelpers.GetValues(Passedarguments);
-                if (ExtensionsHelpers.pbr == null)
-                {
-                    return DMEEditor.ErrorObject;
-                }
-                List<ConnectionProperties> files = new List<ConnectionProperties>();
-                files = ExtensionsHelpers.LoadFiles();
-                foreach (ConnectionProperties f in files)
-                {
-                    DMEEditor.ConfigEditor.AddDataConnection(f);
-                    DMEEditor.GetDataSource(f.FileName);
-                    ExtensionsHelpers.pbr.CreateChildNodes();
-                }
-                DMEEditor.ConfigEditor.SaveDataconnectionsValues();
-                DMEEditor.AddLogMessage("Success", "Added Database Connection", DateTime.Now, 0, null, Errors.Ok);
-            }
-            catch (Exception ex)
-            {
-                string mes = "Could not Add Database Connection";
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
-            };
-            return DMEEditor.ErrorObject;
-        }
-        [CommandAttribute(Caption = "Scan Beep Folders for File(s)", Hidden = false, iconimage = "add.ico", Click = true, PointType = EnumPointType.Root, ObjectType = "Beep", ClassType = "FILE")]
-        public IErrorsInfo ScanFolderFile(IPassedArgs Passedarguments)
+        //        ExtensionsHelpers.GetValues(Passedarguments);
+        //        if (ExtensionsHelpers.pbr == null)
+        //        {
+        //            return DMEEditor.ErrorObject;
+        //        }
+        //        List<ConnectionProperties> files = new List<ConnectionProperties>();
+        //        files = ExtensionsHelpers.LoadFiles();
+        //        foreach (ConnectionProperties f in files)
+        //        {
+        //            DMEEditor.ConfigEditor.AddDataConnection(f);
+        //            DMEEditor.GetDataSource(f.FileName);
+        //            ExtensionsHelpers.pbr.CreateChildNodes();
+        //        }
+        //        DMEEditor.ConfigEditor.SaveDataconnectionsValues();
+        //        DMEEditor.AddLogMessage("Success", "Added Database Connection", DateTime.Now, 0, null, Errors.Ok);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        string mes = "Could not Add Database Connection";
+        //        DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
+        //    };
+        //    return DMEEditor.ErrorObject;
+        //}
+        [CommandAttribute(Caption = "Delete Selected files connections", Hidden = false, iconimage = "remove.ico", Click = true, PointType = EnumPointType.Root, ObjectType = "Beep", ClassType = "FILE")]
+        public IErrorsInfo RemoveFiles(IPassedArgs Passedarguments)
         {
             try
             {
-                DMEEditor.ErrorObject.Flag = Errors.Ok; 
                 ExtensionsHelpers.GetValues(Passedarguments);
-                if (ExtensionsHelpers.pbr == null)
+                if (ExtensionsHelpers.pbr.BranchType == EnumPointType.Root)
                 {
-                    return DMEEditor.ErrorObject;
-                }
-                List<ConnectionProperties> files = new List<ConnectionProperties>();
-                files = ExtensionsHelpers.LoadFiles();
-                foreach (ConnectionProperties f in files)
-                {
-                    DMEEditor.ConfigEditor.AddDataConnection(f);
-                    DMEEditor.GetDataSource(f.FileName);
-                    ExtensionsHelpers.pbr.CreateChildNodes();
+                    List<EntityStructure> ls = new List<EntityStructure>();
+                    if (DMEEditor.Passedarguments != null)
+                    {
+                        if (ExtensionsHelpers.TreeEditor.SelectedBranchs.Count > 0)
+                        {
+                            foreach (int item in ExtensionsHelpers.TreeEditor.SelectedBranchs)
+                            {
+                                IBranch br = ExtensionsHelpers.TreeEditor.treeBranchHandler.GetBranch(item);
+                              
+                                 if(br.BranchType!= EnumPointType.Category)
+                                 {
+                                    if(br.BranchClass== "FILE")
+                                    {
+                                        IDataSource fds = DMEEditor.GetDataSource(br.DataSourceName);
+                                        if (fds != null)
+                                        {
+                                            if (fds.Category == DatasourceCategory.FILE)
+                                            {
+                                                DMEEditor.ConfigEditor.RemoveConnByName(fds.DatasourceName);
+                                                ExtensionsHelpers.TreeEditor.treeBranchHandler.RemoveBranch(br);
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
                 }
                 DMEEditor.ConfigEditor.SaveDataconnectionsValues();
-                DMEEditor.AddLogMessage("Success", "Added Database Connection", DateTime.Now, 0, null, Errors.Ok);
+                ExtensionsHelpers.Vismanager.CloseWaitForm();
+                DMEEditor.AddLogMessage("Success", $"Removed Files connections", DateTime.Now, 0, null, Errors.Ok);
             }
             catch (Exception ex)
             {
-                string mes = "Could not Add Database Connection";
+                string mes = "Could not Remove Files Connection";
                 DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
             };
             return DMEEditor.ErrorObject;
         }
       
-
+      
     }
 }

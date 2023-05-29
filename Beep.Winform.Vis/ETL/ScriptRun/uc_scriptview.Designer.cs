@@ -1,4 +1,4 @@
-﻿namespace Beep.Winform.Vis.ETL.ScriptRun
+﻿namespace BeepEnterprize.Winform.Vis.ETL.ScriptRun
 {
     partial class uc_scriptview
     {

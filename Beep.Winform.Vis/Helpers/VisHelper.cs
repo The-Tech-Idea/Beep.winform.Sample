@@ -6,11 +6,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Helpers;
 using TheTechIdea.Beep;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.Helpers
+namespace BeepEnterprize.Winform.Vis.Helpers
 {
     public class VisHelper : IVisHelper
     {

@@ -14,7 +14,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.ETL.ExportData
+namespace BeepEnterprize.Winform.Vis.ETL.ExportData
 {
     [AddinAttribute(Caption = "Export Entities", Name = "uc_ExportData", misc = "ExportDataManager", addinType = AddinType.Control)]
     public partial class uc_ExportData : UserControl,IDM_Addin

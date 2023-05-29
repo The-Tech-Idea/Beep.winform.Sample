@@ -16,7 +16,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.Wizards.DataConnection
+namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
 {
     [AddinAttribute(Caption = "Select DataSource", Name = "DataConnection", misc = "FirstNode",key =0,addinType = AddinType.Form)]
     public partial class Frm_SelectDataSource : Form,IDM_Addin, IWizardComponent

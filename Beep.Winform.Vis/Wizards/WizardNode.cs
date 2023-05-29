@@ -1,5 +1,4 @@
-﻿using BeepEnterprize.Winform.Vis.Wizards;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -7,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheTechIdea;
 
-namespace Beep.Winform.Vis.Wizards
+namespace BeepEnterprize.Winform.Vis.Wizards
 {
     public class WizardNode : IWizardNode, IEquatable<WizardNode>
     {

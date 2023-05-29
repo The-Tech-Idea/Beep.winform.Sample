@@ -1,13 +1,13 @@
-﻿using Beep.Winform.Controls;
-using BeepEnterprize.Vis.Module;
+﻿using BeepEnterprize.Vis.Module;
+using BeepEnterprize.Winform.Vis.Helpers;
 using ReaLTaiizor.Controls;
 using System;
 
 using System.Drawing;
-using System.Resources;
+
 using System.Windows.Forms;
 
-namespace Beep.Winform.Vis.Controls
+namespace BeepEnterprize.Winform.Vis.Controls
 {
     public partial class uc_Container_1 : UserControl,IDisplayContainer
     {
@@ -18,13 +18,11 @@ namespace Beep.Winform.Vis.Controls
         Point _imageLocation = new Point(30, 4);
         Point _imgHitArea = new Point(30, 4);
 
-      
+
         public uc_Container_1()
         {
             InitializeComponent();
-          //  rm = new ResourceManager("Images", typeof(uc_Container_1).Assembly);
-            
-
+          
         }
 
         private void TabContainerPanel_MouseClick(object sender, MouseEventArgs e)
@@ -106,7 +104,7 @@ namespace Beep.Winform.Vis.Controls
                 TabContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height-16);
                 TabContainerPanel.TabPages.Clear();
                 Controls.Add(TabContainerPanel);
-                CloseImage = Vis.Properties.Resources.close;
+                CloseImage = Properties.Resources.close;
                 this.TabContainerPanel.Multiline = true;
                 TabContainerPanel.DrawMode = TabDrawMode.OwnerDrawFixed;
                 TabContainerPanel.DrawItem += TabContainerPanel_DrawItem;

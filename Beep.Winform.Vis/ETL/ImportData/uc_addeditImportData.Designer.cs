@@ -1,4 +1,4 @@
-﻿namespace Beep.Winform.Vis.ETL.ImportData
+﻿namespace BeepEnterprize.Winform.Vis.ETL.ImportData
 {
     partial class uc_addeditImportData
     {

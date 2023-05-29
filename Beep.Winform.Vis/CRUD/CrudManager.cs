@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Beep.Winform.Vis.ETL.ImportData;
+using BeepEnterprize.Winform.Vis.ETL.ImportData;
 
 using TheTechIdea;
 using TheTechIdea.Beep;
@@ -15,7 +15,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.CRUD
+namespace BeepEnterprize.Winform.Vis.CRUD
 {
     [AddinAttribute(Caption = "Crud Manager", Name = "CRUDMANAGER", misc = "CRUD",addinType =AddinType.Class)]
     public class CrudManager : IDM_Addin

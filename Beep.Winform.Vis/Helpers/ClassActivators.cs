@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection.Emit;
-namespace Beep.Winform.Vis.Helpers
+namespace BeepEnterprize.Winform.Vis.Helpers
 {
     public static class FastActivator
     {

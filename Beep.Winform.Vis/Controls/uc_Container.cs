@@ -1,5 +1,5 @@
 ﻿using BeepEnterprize.Vis.Module;
-using Beep.Winform.Vis.Helpers;
+using BeepEnterprize.Winform.Vis.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Beep.Winform.Vis.Controls
+namespace BeepEnterprize.Winform.Vis.Controls
 {
     public partial class uc_Container : UserControl,IDisplayContainer
     {
@@ -107,7 +107,7 @@ namespace Beep.Winform.Vis.Controls
                 TabContainerPanel.Size = new System.Drawing.Size(this.Width-20, this.Height-20);
                 TabContainerPanel.TabPages.Clear();
                 Controls.Add(TabContainerPanel);
-                CloseImage = Vis.Properties.Resources.close;
+                CloseImage = Properties.Resources.close;
                 this.TabContainerPanel.Multiline = true;
                 TabContainerPanel.DrawMode = TabDrawMode.OwnerDrawFixed;
                 TabContainerPanel.DrawItem += TabContainerPanel_DrawItem;

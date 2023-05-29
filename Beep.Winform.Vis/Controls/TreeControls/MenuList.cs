@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.Controls.TreeControls
+namespace BeepEnterprize.Winform.Vis.Controls.TreeControls
 {
     public class MenuList
     {
@@ -22,7 +22,7 @@ namespace Beep.Winform.Vis.Controls.TreeControls
             PointType = pointType;
         }
         public ContextMenuStrip Menu { get; set; }
-        public List<ToolStripMenuItem> Items { get; set; } //ToolStripMenuItem
+        public List<MenuItem> Items { get; set; } //ToolStripMenuItem
         public EnumPointType  PointType { get; set; }
         public string ObjectType { get; set; }
         public string BranchClass { get; set; } 

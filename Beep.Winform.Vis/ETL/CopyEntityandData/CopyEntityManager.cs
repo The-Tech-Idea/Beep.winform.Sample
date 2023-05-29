@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Beep.Winform.Vis.ETL.ImportData;
+using BeepEnterprize.Winform.Vis.ETL.ImportData;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -15,8 +15,9 @@ using TheTechIdea.Beep.Vis;
 
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
+using BeepEnterprize.Vis.Module;
 
-namespace Beep.Winform.Vis.ETL.CopyEntityandData
+namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
 {
     [AddinAttribute(Caption = "Copy Entity Manager", Name = "CopyEntityManager", misc = "ImportDataManager", addinType = AddinType.Class)]
     public class CopyEntityManager : IDM_Addin
@@ -171,15 +172,33 @@ namespace Beep.Winform.Vis.ETL.CopyEntityandData
         {
             try
             {
+                PassedArgs Passedarguments = new PassedArgs();
                 var progress = new Progress<PassedArgs>(percent => {
 
 
                 });
                 tokenSource = new CancellationTokenSource();
                 token = tokenSource.Token;
-                SyncEntities = DMEEditor.ETL.GetCreateEntityScript(ds, Entities, progress, token);
-               
-                
+                bool getdata = false;
+                if (visManager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == DialogResult.OK)
+                {
+                    getdata = true;
+                }
+                DMEEditor.ETL.Script = new ETLScriptHDR();
+                DMEEditor.ETL.Script.id = 1;
+                Passedarguments.Messege = $"Get Create Entity Scripts  ...";
+                visManager.PasstoWaitForm((PassedArgs)Passedarguments);
+                DMEEditor.ETL.Script.ScriptDTL = DMEEditor.ETL.GetCreateEntityScript(ds, Entities, progress, token, DDLScriptType.CreateEntity);
+                if (getdata)
+                {
+                    Passedarguments.Messege = $"Get Copy Data Entity Scripts  ...";
+                    visManager.PasstoWaitForm((PassedArgs)Passedarguments);
+                    DMEEditor.ETL.Script.ScriptDTL.AddRange(DMEEditor.ETL.GetCreateEntityScript(ds, Entities, progress, token, DDLScriptType.CopyData));
+                }
+                Passedarguments.ParameterString1 = $"Done ...";
+                visManager.CloseWaitForm();
+
+
             }
             catch (Exception ex)
             {

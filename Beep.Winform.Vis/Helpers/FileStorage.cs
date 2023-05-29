@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Beep.Winform.Vis.Helpers
+namespace BeepEnterprize.Winform.Vis.Helpers
 {
     public class FileStorage : IFileStorage
     {

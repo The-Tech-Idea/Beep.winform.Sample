@@ -242,6 +242,9 @@
     <Compile Update="MainForms\Frm_Main.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="MainForms\Frm_Main_1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

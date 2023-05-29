@@ -1,6 +1,6 @@
-﻿using Beep.Winform.Vis.Controls;
+﻿using BeepEnterprize.Winform.Vis.Controls;
 
-namespace Beep.Winform.Vis.ETL.ImportData
+namespace BeepEnterprize.Winform.Vis.ETL.ImportData
 {
     partial class uc_RunImport
     {
@@ -46,7 +46,7 @@ namespace Beep.Winform.Vis.ETL.ImportData
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.progressBar1 = new Beep.Winform.Vis.Controls.TextProgressBar();
+            this.progressBar1 = new BeepEnterprize.Winform.Vis.Controls.TextProgressBar();
             this.LogtextBox = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.loadDataLogsBindingSource)).BeginInit();
@@ -186,7 +186,7 @@ namespace Beep.Winform.Vis.ETL.ImportData
             this.progressBar1.TabIndex = 14;
             this.progressBar1.TextColor = System.Drawing.Color.Black;
             this.progressBar1.TextFont = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.progressBar1.VisualMode = ProgressBarDisplayMode.TextAndPercentage;
+            this.progressBar1.VisualMode = BeepEnterprize.Winform.Vis.Controls.ProgressBarDisplayMode.CurrProgress;
             // 
             // LogtextBox
             // 

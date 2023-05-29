@@ -17,7 +17,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.DataViewManagement
+namespace BeepEnterprize.Winform.Vis.DataViewManagement
 {
     [AddinAttribute(Caption = "Entity in View Editor ", Name = "uc_CreateViewQueryEntity", misc = "VIEW", addinType = AddinType.Control)]
     public partial class uc_CreateViewQueryEntity : uc_BaseControl

@@ -1,4 +1,4 @@
-﻿namespace Beep.Winform.Vis.CRUD
+﻿namespace BeepEnterprize.Winform.Vis.CRUD
 {
     partial class uc_EntityfilterPanel
     {

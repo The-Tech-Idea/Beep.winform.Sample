@@ -16,7 +16,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace Beep.Winform.Vis.Wizards.DataConnection
+namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
 {
     [AddinAttribute(Caption = "RDMS Connection", Name = "Frm_RDBMS", misc = "Wizard", addinType = AddinType.Form)]
     public partial class Frm_RDBMS : Form, IDM_Addin, IWizardComponent
