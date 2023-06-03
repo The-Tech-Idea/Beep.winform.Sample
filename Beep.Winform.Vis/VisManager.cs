@@ -203,6 +203,7 @@ namespace BeepEnterprize.Winform.Vis
         public WizardManager wizardManager { get; set; }
         public bool IsShowingMainForm { get; set; } = false;
         public bool TurnonOffCheckBox { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public List<IDM_Addin> Addins { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
@@ -979,5 +980,9 @@ namespace BeepEnterprize.Winform.Vis
             return DMEEditor.ErrorObject;
         }
 
+        public IErrorsInfo ShowPage(string pagename, PassedArgs Passedarguments, DisplayType displayType = DisplayType.InControl, bool Singleton = false)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

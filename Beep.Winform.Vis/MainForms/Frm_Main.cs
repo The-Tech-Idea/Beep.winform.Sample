@@ -11,7 +11,7 @@ using TheTechIdea.Beep.Vis;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
-using System.Runtime.InteropServices.WindowsRuntime;
+
 
 namespace BeepEnterprize.Winform.Vis.MainForms
 {
@@ -218,11 +218,11 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MinMaxButton.Click += MinMaxButton_Click;
             this.LogPanelCollapsebutton.Click += LogPanelCollapsebutton_Click;
             LogPanelHeight = LogPanel.Height;
-            ListSearch = (Bitmap)Properties.Resources.ResourceManager.GetObject("ListBoxSearch");
-            CollapseLeft = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseLeft");
-            Collapseright = (Bitmap)Properties.Resources.ResourceManager.GetObject("Collapseright");
-            CollapseUp = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseUp");
-            CollapseDown = (Bitmap)Properties.Resources.ResourceManager.GetObject("CollapseDown");
+            ListSearch = (Bitmap)Beep.Winform.Vis.Properties.Resources.ResourceManager.GetObject("ListBoxSearch");
+            CollapseLeft = (Bitmap)Beep.Winform.Vis.Properties.Resources.ResourceManager.GetObject("CollapseLeft");
+            Collapseright = (Bitmap)Beep.Winform.Vis.Properties.Resources.ResourceManager.GetObject("Collapseright");
+            CollapseUp = (Bitmap)Beep.Winform.Vis.Properties.Resources.ResourceManager.GetObject("CollapseUp");
+            CollapseDown = (Bitmap)Beep.Winform.Vis.Properties.Resources.ResourceManager.GetObject("CollapseDown");
             this.SidePanelCollapsebutton.Image = CollapseDown;
             this.MinMaxButton.Image= CollapseLeft;
             this.LogPanelCollapsebutton.Image = CollapseDown;
