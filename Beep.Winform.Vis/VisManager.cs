@@ -50,7 +50,8 @@ namespace BeepEnterprize.Winform.Vis
         public string AppObjectsName { get; set; }
         public string BeepObjectsName { get; set; }="Beep";
         public IVisHelper visHelper { get; set; }
-        
+        public List<AddinsShownData> addinsShowns { get; set; }=new List<AddinsShownData>();
+        public List<IDM_Addin> Addins { get; set; } = new List<IDM_Addin>();
         public IControlManager Controlmanager { get; set; }
         public ControlManager _controlManager { get { return (ControlManager)Controlmanager; } }
         public ErrorsInfo ErrorsandMesseges { get; set; }
@@ -75,6 +76,7 @@ namespace BeepEnterprize.Winform.Vis
         public int Height { get; set; } = 1000;
         public VisManager(IDMEEditor pdmeeditor)
         {
+            
             IsDataModified = false;
             CurrentDisplayedAddin = null;
             DMEEditor = pdmeeditor;
@@ -185,6 +187,20 @@ namespace BeepEnterprize.Winform.Vis
                 }
             }
         }
+
+        private void Container_AddinChanged(object sender, ContainerEvents e)
+        {
+            
+        }
+
+        private void Container_AddinRemoved(object sender, ContainerEvents e)
+        {
+            if (addinsShowns.Any(o=>o.Name==e.TitleText))
+            {
+                AddinsShownData t = addinsShowns.FirstOrDefault(o => o.Name == e.TitleText);
+                addinsShowns.Remove(t);
+            }
+        }
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
         public ImageList Images16 { get; set; } = new ImageList();
@@ -198,13 +214,13 @@ namespace BeepEnterprize.Winform.Vis
         private Control _container;
         public Form MainForm { get; set; }
         IDisplayContainer container;
-        public IDisplayContainer Container { get { return (IDisplayContainer)_container; } set { _container = (Control)value; _controlManager.DisplayPanel = (Control)value; } }
+        public IDisplayContainer Container { get { return (IDisplayContainer)_container; } set { _container = (Control)value; Container.AddinRemoved += Container_AddinRemoved;
+                Container.AddinChanged += Container_AddinChanged; _controlManager.DisplayPanel = (Control)value; } }
         #endregion
         public WizardManager wizardManager { get; set; }
         public bool IsShowingMainForm { get; set; } = false;
         public bool TurnonOffCheckBox { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public List<IDM_Addin> Addins { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+      //  bool _isSingleton=false;
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
         {
@@ -289,13 +305,14 @@ namespace BeepEnterprize.Winform.Vis
             }
             return ErrorsandMesseges;
         }
-        public IErrorsInfo ShowPage(string pagename, PassedArgs Passedarguments,DisplayType displayType= DisplayType.InControl)
+        public IErrorsInfo ShowPage(string pagename, PassedArgs Passedarguments,DisplayType displayType= DisplayType.InControl, bool Singleton = false)
         {
             try
             {
+           
                 ErrorsandMesseges = new ErrorsInfo();
                 AddinAttribute attrib = new AddinAttribute();
-               
+                
                 if (IsDataModified)
                 {
                     if(Controlmanager.InputBoxYesNo("Beep","Module/Data not Saved, Do you want to continue?")== BeepEnterprize.Vis.Module.DialogResult.No)
@@ -316,6 +333,15 @@ namespace BeepEnterprize.Winform.Vis
                         {
                             displayType = DisplayType.Popup;
                         }
+                        AddinsShownData shownData = null;
+                        if (addinsShowns.Count > 0)
+                        {
+                            shownData = addinsShowns.FirstOrDefault(p => p.Name.Equals(pagename, StringComparison.InvariantCultureIgnoreCase));
+                        }
+                        if (shownData == null)
+                        {
+                            addinsShowns.Add(new AddinsShownData() { IsSingleton = Singleton, Name = pagename, Type = type.FullName });
+                        }
                         switch (attrib.addinType)
                         {
                             case AddinType.Form:
@@ -324,6 +350,7 @@ namespace BeepEnterprize.Winform.Vis
                             case AddinType.Control:
                                 if (displayType == DisplayType.InControl)
                                 {
+                                   
                                     ShowUserControlInContainer(pagename, DMEEditor, new string[] { }, Passedarguments);
                                 }
                                 else
@@ -502,6 +529,35 @@ namespace BeepEnterprize.Winform.Vis
             }
             try
             {
+                bool AddinExist = false;
+                AddinsShownData shownData = null;
+                if (addinsShowns.Count > 0)
+                {
+                    shownData = addinsShowns.FirstOrDefault(p => p.Name.Equals(formname, StringComparison.InvariantCultureIgnoreCase));
+                }
+                if (shownData != null)
+                {
+                    AddinExist = true;
+                }
+                if (AddinExist  )
+                {
+                    if (shownData.IsSingleton && shownData.IsShown)
+                    {
+                        uc = (UserControl)shownData.Addin;
+                        try
+                        {
+                            shownData.Addin.Run(e);
+                        }
+                        catch (Exception ex)
+                        {
+
+
+                        }
+                        container.ShowControl(shownData.Name,shownData.Addin);
+                        return addin;
+                    }
+
+                }
                 //Assembly assembly = Assembly.LoadFile(path);
                 //Type type = assembly.GetType(dllname + ".UserControls." + formname);
                 Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(formname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().type; //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
@@ -537,8 +593,24 @@ namespace BeepEnterprize.Winform.Vis
                             }
                             else
                                 title = addin.AddinName;
-                            container.AddControl(title, uc, ContainerTypeEnum.TabbedPanel);
+                            container.AddControl(title, addin, ContainerTypeEnum.TabbedPanel);
+                            if (addinsShowns.Count > 0)
+                            {
+                                shownData = addinsShowns[addinsShowns.FindIndex(p => p.Name.Equals(formname, StringComparison.InvariantCultureIgnoreCase))];
+                            }
+                            shownData.Addin = addin;
+                            shownData.IsShown = true;
                             uc.Dock = DockStyle.Fill;
+                            try
+                            {
+                                addin.Run(e);
+                            }
+                            catch (Exception ex)
+                            {
+
+                                
+                            }
+                            
 
                         }
                         else
@@ -563,6 +635,7 @@ namespace BeepEnterprize.Winform.Vis
                         addin.SetConfig(pDMEEditor, DMEEditor.Logger, DMEEditor.Utilfunction, args, e, ErrorsandMesseges);
                         CurrentDisplayedAddin = addin;
                         IsDataModified = false;
+                        
                         addin.Run(e);
                     }
                 }
@@ -592,7 +665,8 @@ namespace BeepEnterprize.Winform.Vis
         {
             Form form = null;
             IDM_Addin addin = null;
-            // var path = Path.Combine(dllpath, dllname);
+           
+           
             ErrorsandMesseges.Flag = Errors.Ok;
             if (e == null)
             {
@@ -600,6 +674,26 @@ namespace BeepEnterprize.Winform.Vis
             }
             try
             {
+                bool AddinExist = false;
+                AddinsShownData shownData = null;
+                if (addinsShowns.Count > 0)
+                {
+                    shownData = addinsShowns.FirstOrDefault(p => p.Name.Equals(formname, StringComparison.InvariantCultureIgnoreCase));
+                }
+                if (shownData != null)
+                {
+                    AddinExist = true;
+                }
+                if (AddinExist)
+                {
+                    if (shownData.IsSingleton)
+                    {
+                        form = (Form)shownData.Addin;
+                        form.ShowDialog();
+                        return addin;
+                    }
+                    
+                }
                 // Assembly assembly = Assembly.LoadFile(path);
                 Type type = DMEEditor.ConfigEditor.Addins.Where(c => c.className.Equals(formname, StringComparison.OrdinalIgnoreCase)).FirstOrDefault().type; //dllname.Remove(dllname.IndexOf(".")) + ".Forms." + formname
                 form = (Form)Activator.CreateInstance(type);
@@ -637,6 +731,7 @@ namespace BeepEnterprize.Winform.Vis
                     }
                    
                     form.ShowDialog();
+
                 }
                 else
                 {
@@ -980,9 +1075,5 @@ namespace BeepEnterprize.Winform.Vis
             return DMEEditor.ErrorObject;
         }
 
-        public IErrorsInfo ShowPage(string pagename, PassedArgs Passedarguments, DisplayType displayType = DisplayType.InControl, bool Singleton = false)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

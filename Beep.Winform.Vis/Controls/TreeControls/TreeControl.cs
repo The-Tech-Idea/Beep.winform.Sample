@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -58,7 +59,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
         public string CategoryIcon { get; set; } = "Category.ico";
         public string SelectIcon { get; set; } = "select.ico";
         public IBranch CurrentBranch { get ; set ; }
-        public List<ContextMenu> menus { get; set; }=new List<ContextMenu>(); //ContextMenuStrip
+        public List<ContextMenuStrip> menus { get; set; }=new List<ContextMenuStrip>(); //ContextMenuStrip
         public PassedArgs args { get; set; }
         static int pSeqID = 0;
         public int SeqID {

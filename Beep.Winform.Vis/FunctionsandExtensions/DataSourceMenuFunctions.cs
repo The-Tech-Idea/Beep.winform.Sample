@@ -7,7 +7,6 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Threading;
-using System.Windows.Media;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -18,6 +17,7 @@ using TheTechIdea.Beep.DataView;
 using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
+using DialogResult = BeepEnterprize.Vis.Module.DialogResult;
 
 namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 {

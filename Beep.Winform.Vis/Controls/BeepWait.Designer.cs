@@ -44,7 +44,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = Vis.Properties.Resources.please_wait;
+            this.pictureBox1.Image = Beep.Winform.Vis.Properties.Resources.please_wait;
             this.pictureBox1.Location = new System.Drawing.Point(-1, 56);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(593, 149);
