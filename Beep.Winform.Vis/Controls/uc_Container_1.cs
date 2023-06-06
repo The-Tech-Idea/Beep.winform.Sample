@@ -111,7 +111,7 @@ namespace BeepEnterprize.Winform.Vis.Controls
                 TabContainerPanel.Size = new System.Drawing.Size(this.Width, this.Height-16);
                 TabContainerPanel.TabPages.Clear();
                 Controls.Add(TabContainerPanel);
-                CloseImage = Properties.Resources.close;
+                CloseImage = Beep.Winform.Vis.Properties.Resources.close;
                 this.TabContainerPanel.Multiline = true;
                 TabContainerPanel.DrawMode = TabDrawMode.OwnerDrawFixed;
                 TabContainerPanel.DrawItem += TabContainerPanel_DrawItem;

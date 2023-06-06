@@ -114,7 +114,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             // 
             // Filterbutton
             // 
-            this.Filterbutton.Image = global::BeepEnterprize.Winform.Vis.Properties.Resources.Search;
+            this.Filterbutton.Image = global::Beep.Winform.Vis.Properties.Resources.Search;
             this.Filterbutton.Location = new System.Drawing.Point(1032, 3);
             this.Filterbutton.Name = "Filterbutton";
             this.Filterbutton.Padding = new System.Windows.Forms.Padding(5);

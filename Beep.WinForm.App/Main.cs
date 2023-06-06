@@ -14,6 +14,7 @@ using TheTechIdea;
 
 
 using Beep.Winform.Vis;
+using BeepEnterprize.Winform.Vis;
 
 namespace BeepEnterprize.Winform
 

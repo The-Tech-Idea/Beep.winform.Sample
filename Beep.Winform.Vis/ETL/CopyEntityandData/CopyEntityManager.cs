@@ -180,7 +180,7 @@ namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
                 tokenSource = new CancellationTokenSource();
                 token = tokenSource.Token;
                 bool getdata = false;
-                if (visManager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == DialogResult.OK)
+                if (visManager.Controlmanager.InputBoxYesNo("Beep", "Do you want to Copy Data Also?") == BeepEnterprize.Vis.Module.DialogResult.OK)
                 {
                     getdata = true;
                 }

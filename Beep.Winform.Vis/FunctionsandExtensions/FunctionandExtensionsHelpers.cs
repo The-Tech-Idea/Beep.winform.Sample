@@ -657,7 +657,7 @@ namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
 
             try
             {
-                if (Vismanager.Controlmanager.InputBoxYesNo("Beep AI", $"Would you Like to Copy File {filename} to Local Folders?") == DialogResult.OK)
+                if (Vismanager.Controlmanager.InputBoxYesNo("Beep AI", $"Would you Like to Copy File {filename} to Local Folders?") == BeepEnterprize.Vis.Module.DialogResult.OK)
                 {
                     CopyFileToLocal(sourcPath, DMEEditor.ConfigEditor.Config.ProjectDataPath, filename);
                 }

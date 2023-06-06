@@ -411,6 +411,10 @@ namespace BeepEnterprize.Winform.Vis.Controls
             }
           
             dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
+            if (fc == null)
+            {
+                return;
+            }
             Type t = ((IFunctionExtension)fc).GetType();
             AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
             if (cls != null)
