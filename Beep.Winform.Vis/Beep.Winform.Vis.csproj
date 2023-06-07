@@ -200,7 +200,9 @@
     <Compile Update="ETL\CreateEntity\uc_createeditentityfields.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="ETL\CreateEntity\uc_createeditEntitymain.cs" />
+    <Compile Update="ETL\CreateEntity\uc_createeditEntitymain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="ETL\CreateEntity\uc_createeditentityrelations.cs">
       <SubType>UserControl</SubType>
     </Compile>
