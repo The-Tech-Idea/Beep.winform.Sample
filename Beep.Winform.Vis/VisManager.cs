@@ -13,18 +13,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Beep.Winform.Controls;
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
-using BeepEnterprize.Winform.Vis.FunctionsandExtensions;
-using BeepEnterprize.Winform.Vis.Helpers;
-using BeepEnterprize.Winform.Vis.Wizards;
+using Beep.Winform.Vis.Controls;
+using Beep.Winform.Vis.FunctionsandExtensions;
+using Beep.Winform.Vis.Helpers;
+using Beep.Winform.Vis.Wizards;
 
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.PrintManagers;
 using TheTechIdea.Util;
+using BeepEnterprize.Winform.Vis.Helpers;
+using BeepEnterprize.Winform.Vis;
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     public class VisManager : IVisManager
     {

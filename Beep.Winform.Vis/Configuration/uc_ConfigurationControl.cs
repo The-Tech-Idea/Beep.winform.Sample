@@ -15,7 +15,7 @@ using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Addin;
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     [AddinAttribute(Caption = "Folder Configuration Manager", Name = "uc_ConfigurationControl", misc = "Config",menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     [AddinVisSchema(BranchID  = 2 ,RootNodeName = "Configuration", Order=7,ID =1,BranchText = "Folders", BranchType= EnumPointType.Function, IconImageName = "folder.ico", BranchClass = "ADDIN")]

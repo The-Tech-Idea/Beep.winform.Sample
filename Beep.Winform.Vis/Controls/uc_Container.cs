@@ -2,7 +2,7 @@
 
 using TheTechIdea;
 
-namespace BeepEnterprize.Winform.Vis.Controls
+namespace Beep.Winform.Vis.Controls
 {
     public partial class uc_Container : UserControl,IDisplayContainer
     {

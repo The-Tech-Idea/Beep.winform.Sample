@@ -1,7 +1,7 @@
 ﻿
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis;
-using BeepEnterprize.Winform.Vis.Controls;
+using Beep.Winform.Vis;
+using Beep.Winform.Vis.Controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,7 +19,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.MainForms
+namespace Beep.Winform.Vis.MainForms
 {
     [AddinAttribute(Caption = "Beep", Name = "Frm_Main_1", misc = "MainForm")]
     public partial class Frm_Main_1 : Form, IDM_Addin, IMainForm

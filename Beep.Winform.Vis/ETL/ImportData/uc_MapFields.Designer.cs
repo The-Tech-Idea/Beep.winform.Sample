@@ -1,5 +1,5 @@
 ﻿
-namespace BeepEnterprize.Winform.Vis.ETL.ImportData
+namespace Beep.Winform.Vis.ETL.ImportData
 {
     partial class uc_MapFields
     {

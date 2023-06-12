@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TheTechIdea;
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     public class AddinsShownData
     {

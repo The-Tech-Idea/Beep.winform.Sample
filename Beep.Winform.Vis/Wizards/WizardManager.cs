@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Beep.Winform.Controls;
 using BeepEnterprize.Vis.Module;
+using BeepEnterprize.Winform.Vis.Wizards;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Vis;
 
-namespace BeepEnterprize.Winform.Vis.Wizards
+namespace Beep.Winform.Vis.Wizards
 {
     public class WizardManager : IWizardManager
     {

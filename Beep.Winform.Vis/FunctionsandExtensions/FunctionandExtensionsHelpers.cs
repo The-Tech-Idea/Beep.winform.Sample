@@ -1,6 +1,6 @@
 ﻿using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
-using BeepEnterprize.Winform.Vis.CRUD;
+using Beep.Winform.Vis.Controls;
+using Beep.Winform.Vis.CRUD;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,8 +16,9 @@ using TheTechIdea.Beep.DataView;
 using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
+using BeepEnterprize.Winform.Vis;
 
-namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
+namespace Beep.Winform.Vis.FunctionsandExtensions
 {
     public class FunctionandExtensionsHelpers : IFunctionandExtensionsHelpers
     {

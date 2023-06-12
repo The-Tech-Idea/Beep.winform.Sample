@@ -1,6 +1,6 @@
 ﻿
 using System.Windows.Forms;
-using BeepEnterprize.Winform.Vis.Controls;
+using Beep.Winform.Vis.Controls;
 
 namespace TheTechIdea.ETL
 {
@@ -70,7 +70,7 @@ namespace TheTechIdea.ETL
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dMEEditorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.progressBar1 = new BeepEnterprize.Winform.Vis.Controls.TextProgressBar();
+            this.progressBar1 = new TextProgressBar();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.scriptBindingSource)).BeginInit();
@@ -440,7 +440,7 @@ namespace TheTechIdea.ETL
             this.progressBar1.TabIndex = 11;
             this.progressBar1.TextColor = System.Drawing.Color.Black;
             this.progressBar1.TextFont = new System.Drawing.Font("Times New Roman", 11F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.progressBar1.VisualMode = BeepEnterprize.Winform.Vis.Controls.ProgressBarDisplayMode.CurrProgress;
+            this.progressBar1.VisualMode = ProgressBarDisplayMode.CurrProgress;
             // 
             // label1
             // 

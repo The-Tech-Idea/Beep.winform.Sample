@@ -12,7 +12,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.Controls
+namespace Beep.Winform.Vis.Controls
 {
     [AddinAttribute(Caption = "Beep", Name = "ToolbarControl", misc = "Control")]
     public class ToolbarControl : IDM_Addin

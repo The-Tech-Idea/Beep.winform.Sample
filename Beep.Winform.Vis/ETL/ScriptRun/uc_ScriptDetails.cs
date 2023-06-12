@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BeepEnterprize.Winform.Vis.ETL.ScriptRun
+namespace Beep.Winform.Vis.ETL.ScriptRun
 {
     public partial class uc_ScriptDetails : UserControl
     {

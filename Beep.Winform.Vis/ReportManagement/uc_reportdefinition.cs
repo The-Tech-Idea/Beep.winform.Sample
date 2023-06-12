@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis;
+using Beep.Winform.Vis;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.AppManager;
@@ -20,7 +20,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.ReportBuilder
+namespace Beep.Winform.Vis.ReportBuilder
 {
     [AddinAttribute(Caption = "Report Definition", Name = "uc_reportdefinition", misc = "Reporting", menu = "Reporting",iconimage = "reportdesigner.ico",displayType = DisplayType.InControl,addinType = AddinType.Control)]
     public partial class uc_reportdefinition : UserControl, IDM_Addin

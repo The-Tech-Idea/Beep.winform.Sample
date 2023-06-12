@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace BeepEnterprize.Winform.Vis.Controls
+namespace Beep.Winform.Vis.Controls
 {
    public enum ProgressBarDisplayMode
         {

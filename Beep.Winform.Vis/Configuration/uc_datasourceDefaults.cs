@@ -15,7 +15,7 @@ using TheTechIdea.Beep.Vis;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     [AddinAttribute(Caption = "DataConnection Defaults", Name = "uc_datasourceDefaults", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     public partial class uc_datasourceDefaults : UserControl, IDM_Addin

@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.Controls.TreeControls
+namespace Beep.Winform.Vis.Controls.TreeControls
 {
     public class MenuList
     {

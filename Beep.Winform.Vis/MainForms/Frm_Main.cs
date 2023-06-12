@@ -3,7 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using BeepEnterprize.Winform.Vis.Controls;
+using Beep.Winform.Vis.Controls;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -13,7 +13,7 @@ using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
 
-namespace BeepEnterprize.Winform.Vis.MainForms
+namespace Beep.Winform.Vis.MainForms
 {
     [AddinAttribute(Caption ="Beep", Name ="MainForm", misc ="MainForm")]
     public partial class Frm_Main :  Form, IDM_Addin,IMainForm

@@ -16,7 +16,7 @@ using BeepEnterprize.Vis.Module;
 
 using TheTechIdea;
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     [AddinAttribute(Caption = "WebApi Configuration", Name = "uc_webapiHeaders", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     public partial class uc_webapiHeaders : UserControl,IDM_Addin

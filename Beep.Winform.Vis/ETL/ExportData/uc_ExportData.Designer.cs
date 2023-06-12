@@ -1,4 +1,4 @@
-﻿namespace BeepEnterprize.Winform.Vis.ETL.ExportData
+﻿namespace Beep.Winform.Vis.ETL.ExportData
 {
     partial class uc_ExportData
     {

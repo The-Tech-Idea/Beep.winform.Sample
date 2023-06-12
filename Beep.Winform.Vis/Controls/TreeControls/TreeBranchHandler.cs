@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
+using BeepEnterprize.Winform.Vis.Controls;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -11,7 +12,7 @@ using TheTechIdea.Beep.DataView;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.Controls
+namespace Beep.Winform.Vis.Controls
 {
     public class TreeBranchHandler : ITreeBranchHandler
     {

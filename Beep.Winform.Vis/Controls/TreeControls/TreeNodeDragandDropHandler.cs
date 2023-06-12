@@ -14,7 +14,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 using Point = System.Drawing.Point;
 
-namespace BeepEnterprize.Winform.Vis.Controls
+namespace Beep.Winform.Vis.Controls
 {
     public class TreeNodeDragandDropHandler 
     {

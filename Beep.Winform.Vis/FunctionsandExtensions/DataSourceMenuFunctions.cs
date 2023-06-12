@@ -1,5 +1,5 @@
 ﻿using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
+using Beep.Winform.Vis.Controls;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
@@ -18,7 +18,7 @@ using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
+namespace Beep.Winform.Vis.FunctionsandExtensions
 {
     [AddinAttribute(Caption = "DataSource", Name = "DataSourceMenuFunctions", misc = "IFunctionExtension",menu ="Beep", ObjectType = "Beep",  addinType = AddinType.Class, iconimage = "datasource.ico",order =3)]
     public class DataSourceMenuFunctions : IFunctionExtension

@@ -16,9 +16,9 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 using System.Windows.Forms;
-using static BeepEnterprize.Winform.Vis.Wizards.WizardManager;
+using static Beep.Winform.Vis.Wizards.WizardManager;
 
-namespace BeepEnterprize.Winform.Vis.ETL.ImportData
+namespace Beep.Winform.Vis.ETL.ImportData
 {
     [AddinAttribute(Caption = "Import Manager", Name = "ImportDataManager", misc = "ImportDataManager", addinType = AddinType.Class)]
     public class ImportDataManager : IDM_Addin

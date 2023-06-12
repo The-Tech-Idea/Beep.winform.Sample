@@ -1,5 +1,5 @@
 ﻿
-namespace BeepEnterprize.Winform.Vis.CRUD
+namespace Beep.Winform.Vis.CRUD
 {
     partial class Frm_NewUpdateEntity
     {

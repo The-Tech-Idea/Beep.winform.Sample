@@ -12,7 +12,7 @@ using TheTechIdea.Beep.Workflow.Mapping;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.ETL.ImportData
+namespace Beep.Winform.Vis.ETL.ImportData
 {
     public partial class uc_SelectField : UserControl,IDM_Addin
     {

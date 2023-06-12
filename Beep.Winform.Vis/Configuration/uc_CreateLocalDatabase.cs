@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
+using Beep.Winform.Vis.Controls;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -18,7 +18,7 @@ using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     [AddinAttribute(Caption = "Create Local Database", Name = "uc_CreateLocalDatabase", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     public partial class uc_CreateLocalDatabase : UserControl,IDM_Addin

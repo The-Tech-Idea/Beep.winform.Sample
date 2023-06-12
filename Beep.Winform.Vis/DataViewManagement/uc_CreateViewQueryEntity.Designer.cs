@@ -1,4 +1,4 @@
-﻿namespace BeepEnterprize.Winform.Vis.DataViewManagement
+﻿namespace Beep.Winform.Vis.DataViewManagement
 {
     partial class uc_CreateViewQueryEntity
     {

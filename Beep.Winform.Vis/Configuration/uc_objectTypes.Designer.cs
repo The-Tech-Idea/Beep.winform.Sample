@@ -1,7 +1,7 @@
 ﻿
 using Beep.Winform.Controls;
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     partial class uc_objectTypes
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace BeepEnterprize.Winform.Vis.Wizards
+namespace Beep.Winform.Vis.Wizards
 {
     partial class Frm_Wizard
     {

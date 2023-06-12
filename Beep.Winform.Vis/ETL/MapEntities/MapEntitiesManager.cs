@@ -13,7 +13,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.ETL.MapEntities
+namespace Beep.Winform.Vis.ETL.MapEntities
 {
     public class MapEntitiesManager : IDM_Addin
     {

@@ -13,7 +13,7 @@ using TheTechIdea.Beep.DataBase;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.Wizards
+namespace Beep.Winform.Vis.Wizards
 {
     public partial class Frm_Wizard : Form,IDM_Addin
     {

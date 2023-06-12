@@ -15,9 +15,9 @@ using TheTechIdea.Beep.DataView;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
-using static BeepEnterprize.Winform.Vis.Wizards.WizardManager;
+using static Beep.Winform.Vis.Wizards.WizardManager;
 
-namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
+namespace Beep.Winform.Vis.ETL.CreateEntity
 {
     [AddinAttribute(Caption = "Create/Edit Manager", Name = "CreateEditEntityManager", misc = "CreateEditEntityManager", addinType = AddinType.Class)]
     public class CreateEditEntityManager : IDM_Addin

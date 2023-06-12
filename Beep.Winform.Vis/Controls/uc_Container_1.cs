@@ -1,5 +1,5 @@
 ﻿using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Helpers;
+using Beep.Winform.Vis.Helpers;
 using ReaLTaiizor.Controls;
 using System;
 
@@ -8,7 +8,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using TheTechIdea;
 
-namespace BeepEnterprize.Winform.Vis.Controls
+namespace Beep.Winform.Vis.Controls
 {
     public partial class uc_Container_1 : UserControl,IDisplayContainer
     {

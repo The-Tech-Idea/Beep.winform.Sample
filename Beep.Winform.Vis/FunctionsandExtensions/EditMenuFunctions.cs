@@ -6,15 +6,15 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
-using BeepEnterprize.Winform.Vis.CRUD;
+using Beep.Winform.Vis.Controls;
+using Beep.Winform.Vis.CRUD;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.FunctionsandExtensions
+namespace Beep.Winform.Vis.FunctionsandExtensions
 {
     [AddinAttribute(Caption = "Edit", Name = "EditMenuFunctions", ObjectType = "Beep", misc = "IFunctionExtension", menu = "Beep", addinType = AddinType.Class, iconimage = "edit.ico", order = 2)]
     public class EditMenuFunctions : IFunctionExtension

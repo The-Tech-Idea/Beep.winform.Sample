@@ -1,6 +1,6 @@
 ﻿using Beep.Winform.Controls;
 
-namespace BeepEnterprize.Winform.Vis.Configuration
+namespace Beep.Winform.Vis.Configuration
 {
     partial class uc_DBFieldType
     {  /// <summary> 

@@ -1,5 +1,5 @@
 ﻿
-namespace BeepEnterprize.Winform.Vis.ReportBuilder
+namespace Beep.Winform.Vis.ReportBuilder
 {
     partial class uc_reportdefinition
     {

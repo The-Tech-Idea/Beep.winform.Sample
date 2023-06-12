@@ -1,7 +1,7 @@
 ﻿using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
+using Beep.Winform.Vis.Controls;
 
-namespace BeepEnterprize.Winform.Vis.MainForms
+namespace Beep.Winform.Vis.MainForms
 {
     partial class Frm_Main_1
     {
@@ -53,7 +53,7 @@ namespace BeepEnterprize.Winform.Vis.MainForms
             this.MainViewsplitContainer = new System.Windows.Forms.SplitContainer();
             this.MinMaxButton = new ReaLTaiizor.Controls.CrownButton();
             this.LogPanelCollapsebutton = new ReaLTaiizor.Controls.CrownButton();
-            this.uc_Container1 = new BeepEnterprize.Winform.Vis.Controls.uc_Container_1();
+            this.uc_Container1 = new Beep.Winform.Vis.Controls.uc_Container_1();
             this.ClearLogPanelButton = new ReaLTaiizor.Controls.CrownButton();
             this.LogPanel = new ReaLTaiizor.Controls.CrownTextBox();
             this.airForm1.SuspendLayout();

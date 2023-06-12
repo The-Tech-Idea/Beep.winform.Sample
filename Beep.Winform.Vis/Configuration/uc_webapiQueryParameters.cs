@@ -14,10 +14,10 @@ using TheTechIdea.Logger;
 using TheTechIdea.Util;
 using TheTechIdea.Beep.Vis;
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
+using Beep.Winform.Vis.Controls;
 using TheTechIdea;
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     [AddinAttribute(Caption = "WebApi Parameters", Name = "uc_webapiQueryParameters", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     public partial class uc_webapiQueryParameters : UserControl,IDM_Addin

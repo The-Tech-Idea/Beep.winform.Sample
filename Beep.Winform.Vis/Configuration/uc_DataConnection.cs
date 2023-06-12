@@ -14,11 +14,11 @@ using TheTechIdea;
 
 using TheTechIdea.Beep.Vis;
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls;
+using Beep.Winform.Vis.Controls;
 using TheTechIdea.Beep.Addin;
 //using TheTechIdea.Beep.ViewModels;
 
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     [AddinAttribute(Caption = "DataConnection Configuration", Name = "uc_DataConnection", misc = "Config", menu = "Configuration", displayType = DisplayType.Popup, addinType = AddinType.Control)]
     [AddinVisSchema(BranchID = 1, RootNodeName = "Configuration", Order = 1, ID = 1, BranchText = "Connection Manager", BranchType = EnumPointType.Function, IconImageName = "createentity.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]

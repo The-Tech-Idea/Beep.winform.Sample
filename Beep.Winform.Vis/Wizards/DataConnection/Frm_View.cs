@@ -16,7 +16,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
+namespace Beep.Winform.Vis.Wizards.DataConnection
 {
     [AddinAttribute(Caption = "View Connection", Name = "Frm_View", misc = "Wizard", addinType = AddinType.Form)]
     public partial class Frm_View : Form, IDM_Addin, IWizardComponent

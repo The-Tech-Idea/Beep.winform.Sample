@@ -1,5 +1,5 @@
 ﻿
-namespace BeepEnterprize.Winform.Vis.Wizards.DataConnection
+namespace Beep.Winform.Vis.Wizards.DataConnection
 {
     partial class Frm_WebApi
     {

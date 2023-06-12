@@ -1,5 +1,5 @@
 ﻿
-namespace BeepEnterprize.Winform.Vis
+namespace Beep.Winform.Vis
 {
     partial class uc_CreateLocalDatabase
     {

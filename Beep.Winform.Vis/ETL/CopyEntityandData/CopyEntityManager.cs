@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using BeepEnterprize.Winform.Vis.ETL.ImportData;
+using Beep.Winform.Vis.ETL.ImportData;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -17,7 +17,7 @@ using TheTechIdea.Logger;
 using TheTechIdea.Util;
 using BeepEnterprize.Vis.Module;
 
-namespace BeepEnterprize.Winform.Vis.ETL.CopyEntityandData
+namespace Beep.Winform.Vis.ETL.CopyEntityandData
 {
     [AddinAttribute(Caption = "Copy Entity Manager", Name = "CopyEntityManager", misc = "ImportDataManager", addinType = AddinType.Class)]
     public class CopyEntityManager : IDM_Addin

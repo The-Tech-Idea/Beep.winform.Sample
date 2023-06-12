@@ -1,4 +1,4 @@
-﻿namespace BeepEnterprize.Winform.Vis.ETL.CreateEntity
+﻿namespace Beep.Winform.Vis.ETL.CreateEntity
 {
     partial class uc_createeditEntitymain
     {
@@ -44,7 +44,7 @@
             this.entityNameTextBox = new System.Windows.Forms.TextBox();
             this.originalEntityNameTextBox = new System.Windows.Forms.TextBox();
             this.datasourceEntityNameTextBox = new System.Windows.Forms.TextBox();
-            this.createdMyCheckBox = new BeepEnterprize.Winform.Vis.Controls.MyCheckBox();
+            this.createdMyCheckBox = new Beep.Winform.Vis.Controls.MyCheckBox();
             this.customBuildQueryTextBox = new System.Windows.Forms.TextBox();
             this.categoryTextBox = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();

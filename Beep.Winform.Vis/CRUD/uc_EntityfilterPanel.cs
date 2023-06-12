@@ -16,7 +16,7 @@ using TheTechIdea.Logger;
 using TheTechIdea.Util;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 
-namespace BeepEnterprize.Winform.Vis.CRUD
+namespace Beep.Winform.Vis.CRUD
 {
     [AddinAttribute(Caption = "Filter Entities", Name = "uc_EntityfilterPanel", misc = "CRUD", addinType = AddinType.Control)]
     public partial class uc_EntityfilterPanel : UserControl,IDM_Addin

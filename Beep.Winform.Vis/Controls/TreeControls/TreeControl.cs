@@ -9,8 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform.Vis.Controls.TreeControls;
-using BeepEnterprize.Winform.Vis.Helpers;
+using Beep.Winform.Vis.Controls.TreeControls;
+using Beep.Winform.Vis.Helpers;
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.Addin;
@@ -20,8 +20,9 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 using static TheTechIdea.Beep.Util;
+using BeepEnterprize.Winform.Vis.Controls;
 
-namespace BeepEnterprize.Winform.Vis.Controls
+namespace Beep.Winform.Vis.Controls
 {
     [AddinAttribute(Caption = "Beep", Name = "TreeControl", misc = "Control")]
     public class TreeControl : IDM_Addin,ITree

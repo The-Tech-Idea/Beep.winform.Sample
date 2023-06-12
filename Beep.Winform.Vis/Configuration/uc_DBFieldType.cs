@@ -18,7 +18,7 @@ using TheTechIdea.Beep.Vis;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea.Beep.Addin;
 
-namespace BeepEnterprize.Winform.Vis.Configuration
+namespace Beep.Winform.Vis.Configuration
 {
     [AddinAttribute(Caption = "Field Mapping", Name = "uc_DBFieldType", misc = "Config", menu = "Configuration", addinType = AddinType.Control, displayType = DisplayType.Popup)]
     [AddinVisSchema(BranchID = 2, RootNodeName = "Configuration", Order = 2, ID = 2, BranchText = "Field Types", BranchType = EnumPointType.Function, IconImageName = "fieldtype.ico", BranchClass = "ADDIN", BranchDescription = "Data Sources Connection Drivers Setup Screen")]

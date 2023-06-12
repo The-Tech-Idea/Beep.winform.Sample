@@ -35,8 +35,6 @@
     <None Remove="config\reportsDefinition.json" />
     <None Remove="ConnectionDrivers\Cassandra.dll" />
     <None Remove="ConnectionDrivers\Couchbase.Lite.dll" />
-    <None Remove="ConnectionDrivers\Devart.Data.dll" />
-    <None Remove="ConnectionDrivers\Devart.Data.Oracle.dll" />
     <None Remove="ConnectionDrivers\DnsClient.dll" />
     <None Remove="ConnectionDrivers\Elasticsearch.Net.dll" />
     <None Remove="ConnectionDrivers\EntityFramework.dll" />
@@ -157,6 +155,7 @@
     <None Remove="GFX\createentity.ico" />
     <None Remove="GFX\createnewentities.ico" />
     <None Remove="GFX\createpoco.ico" />
+    <None Remove="GFX\cs.ico" />
     <None Remove="GFX\csharpfile.ico" />
     <None Remove="GFX\css.ico" />
     <None Remove="GFX\csv.ico" />
@@ -233,6 +232,7 @@
     <None Remove="GFX\mapping.ico" />
     <None Remove="GFX\mariadb.ico" />
     <None Remove="GFX\matrixfactorization.ico" />
+    <None Remove="GFX\memory1.ico" />
     <None Remove="GFX\microsoft-azure.ico" />
     <None Remove="GFX\mkv.ico" />
     <None Remove="GFX\mldotnet.ico" />
@@ -264,6 +264,7 @@
     <None Remove="GFX\projects.ico" />
     <None Remove="GFX\properties.ico" />
     <None Remove="GFX\psd.ico" />
+    <None Remove="GFX\py.ico" />
     <None Remove="GFX\python.ico" />
     <None Remove="GFX\pythonfile.ico" />
     <None Remove="GFX\query.ico" />
@@ -321,7 +322,7 @@
     <None Remove="GFX\zip.ico" />
     <None Remove="LoadingExtensions\AppBuilderExtensions\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="LoadingExtensions\AssemblyLoaderAI\HereweAddLoadingAssemblyExtensions.txt" />
-    <None Remove="LoadingExtensions\AssemblyLoaderExtension\HereweAddLoadingAssemblyExtensions.txt" />
+    <None Remove="LoadingExtensions\IBranchLoaderExtension\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="LoadingExtensions\BusinessProcess\HereweAddLoadingAssemblyExtensions - Copy (2).txt" />
     <None Remove="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="LoadingExtensions\ML.NET\HereweAddLoadingAssemblyExtensions - Copy.txt" />
@@ -419,41 +420,6 @@
     <None Remove="ProjectClasses\AI\R\System.Security.Principal.Windows.dll" />
     <None Remove="ProjectClasses\BeepEnterprizeTreeNodes\HereweputClasses.txt" />
     <None Remove="ProjectClasses\CompositeLayer\HereweputClasses.txt" />
-    <None Remove="ProjectClasses\DataSources\AmazonCloudDatasource.dll" />
-    <None Remove="ProjectClasses\DataSources\AzureCloudDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\CockroachDBDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\CompositeLayerDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\CouchBaseDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\CouchBaseLiteDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\CouchDBDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\CountriesRestWebApiDatasource.dll" />
-    <None Remove="ProjectClasses\DataSources\EIAWebApiDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\ExcelDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\FDAWebApiDatasource.dll" />
-    <None Remove="ProjectClasses\DataSources\FileHelperDataDource.dll" />
-    <None Remove="ProjectClasses\DataSources\FireBaseDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\FireBirdDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\GeoDBCitiesWebAPIDatasource.dll" />
-    <None Remove="ProjectClasses\DataSources\GoogleCloudDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\GraphQLClient.dll" />
-    <None Remove="ProjectClasses\DataSources\HadoopDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\JsonDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\KafkaDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\LiteDB.dll" />
-    <None Remove="ProjectClasses\DataSources\MongoDBDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\MySqlDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\OracleDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\PostgreDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\PublicApisWebApiDatasource.dll" />
-    <None Remove="ProjectClasses\DataSources\RavenDBDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\RedisDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\SpannerDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\SqlCompactDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\SqliteDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\SQLServerDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\TxtXlsCSVFileSource.dll" />
-    <None Remove="ProjectClasses\DataSources\WebApiDataSource.dll" />
-    <None Remove="ProjectClasses\DataSources\YamlDataSource.dll" />
     <None Remove="ProjectClasses\HereweputClasses.txt" />
     <None Remove="ProjectClasses\PrintManager\PrintManager.dll" />
     <None Remove="ProjectClasses\Py\beep.py" />
@@ -690,9 +656,6 @@
     <Content Include="..\..\outputDLL\Beep.Python.Logic\netstandard2.0\Beep.Python.Logic.dll" Link="ProjectClasses\Py\Beep.Python.Logic.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Nodes\netstandard2.0\Beep.Python.Nodes.dll" Link="ProjectClasses\Py\Beep.Python.Nodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.Python.RunTime.CMD\netstandard2.0\Beep.Python.RunTime.CMD.dll" Link="ProjectClasses\Py\Beep.Python.RunTime.CMD.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -700,9 +663,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Runtime.Winform\Beep.Python.Runtime.Winform.dll" Link="ProjectClasses\Py\Beep.Python.Runtime.Winform.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Winform\Beep.Python.Winform.dll" Link="ProjectClasses\Py\Beep.Python.Winform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.R.Extensions\netstandard2.0\Beep.R.Extensions.dll" Link="ProjectClasses\AI\R\Beep.R.Extensions.dll">
@@ -811,9 +771,6 @@
     <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\netstandard2.0\TheTechIdea.Beep.TreeNodes.dll" Link="ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\BranchAssemblyLoader\netstandard2.0\BranchAssemblyLoader.dll" Link="LoadingExtensions\AssemblyLoaderExtension\BranchAssemblyLoader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Addin\HereweAddAllVisualAddin.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -890,12 +847,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\Couchbase.Lite.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\Devart.Data.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ConnectionDrivers\Devart.Data.Oracle.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ConnectionDrivers\DnsClient.dll">
@@ -1258,6 +1209,9 @@
     <Content Include="GFX\createpoco.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\cs.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\csharpfile.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1486,6 +1440,9 @@
     <Content Include="GFX\matrixfactorization.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="GFX\memory1.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="GFX\microsoft-azure.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1577,6 +1534,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\psd.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\py.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\python.ico">
@@ -1750,7 +1710,7 @@
     <Content Include="LoadingExtensions\AssemblyLoaderAI\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="LoadingExtensions\AssemblyLoaderExtension\HereweAddLoadingAssemblyExtensions.txt">
+    <Content Include="LoadingExtensions\IBranchLoaderExtension\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="LoadingExtensions\BusinessProcess\HereweAddLoadingAssemblyExtensions - Copy (2).txt">
@@ -2042,111 +2002,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\CompositeLayer\HereweputClasses.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\AmazonCloudDatasource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\AzureCloudDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\CockroachDBDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\CompositeLayerDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\CouchBaseDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\CouchBaseLiteDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\CouchDBDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\CountriesRestWebApiDatasource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\EIAWebApiDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\ExcelDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\FDAWebApiDatasource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\FileHelperDataDource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\FireBaseDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\FireBirdDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\GeoDBCitiesWebAPIDatasource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\GoogleCloudDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\GraphQLClient.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\HadoopDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\JsonDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\KafkaDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\LiteDB.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\MongoDBDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\MySqlDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\OracleDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\PostgreDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\PublicApisWebApiDatasource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\RavenDBDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\RedisDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\SpannerDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\SqlCompactDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\SqliteDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\SQLServerDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\TxtXlsCSVFileSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\WebApiDataSource.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\DataSources\YamlDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\HereweputClasses.txt">
@@ -2520,6 +2375,7 @@
     <Folder Include="ProjectClasses\BeepDeveloperAssistant\" />
     <Folder Include="ProjectClasses\BusinessProcessBuilder\" />
     <Folder Include="ProjectClasses\CSVManager\" />
+    <Folder Include="ProjectClasses\DataSources\" />
     <Folder Include="ProjectClasses\InMemoryDB\" />
     <Folder Include="ProjectClasses\LangInterop\" />
     <Folder Include="ProjectClasses\ML.NET\lib\" />
@@ -2527,6 +2383,42 @@
 
   <ItemGroup>
     <Content Include="..\..\outputDLL\Beep.IDE.WinformCore\net6.0-windows\Beep.IDE.WinformCore.dll" Link="ProjectClasses\IDE\Beep.IDE.WinformCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\DataSources\CompositeLayerDataSourceCore\netstandard2.0\CompositeLayerDataSourceCore.dll" Link="ProjectClasses\DataSources\CompositeLayerDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\DataSources\MySqlDataSourceCore\netstandard2.0\MySqlDataSourceCore.dll" Link="ProjectClasses\DataSources\MySqlDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\DataSources\OracleDataSourceCore\netstandard2.1\OracleDataSourceCore.dll" Link="ProjectClasses\DataSources\OracleDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\DataSources\RedisDataSourceCore\netstandard2.1\RedisDataSourceCore.dll" Link="ProjectClasses\DataSources\RedisDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\DataSources\SqliteDatasourceCore\netstandard2.0\SqliteDatasourceCore.dll" Link="ProjectClasses\DataSources\SqliteDatasourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\DataSources\SqlServerDataSourceCore\netstandard2.1\SqlServerDataSourceCore.dll" Link="ProjectClasses\DataSources\SqlServerDataSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\DataSources\TxtXlsCSVFileSourceCore\netstandard2.0\TxtXlsCSVFileSourceCore.dll" Link="ProjectClasses\DataSources\TxtXlsCSVFileSourceCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\TheTechIdea.Beep.Vis.Loader\netstandard2.0\TheTechIdea.Beep.Vis.Loader.dll" Link="LoadingExtensions\IBranchLoaderExtension\TheTechIdea.Beep.Vis.Loader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.Python.Model\netstandard2.0\Beep.Python.Model.dll" Link="LoadingExtensions\PythonExtentionLoader\Beep.Python.Model.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

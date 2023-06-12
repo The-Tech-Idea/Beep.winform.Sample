@@ -16,7 +16,7 @@ using TheTechIdea.Util;
 using Beep.Winform.Controls;
 using System.Threading;
 
-namespace BeepEnterprize.Winform.Vis.ETL.ImportData
+namespace Beep.Winform.Vis.ETL.ImportData
 {
     public partial class uc_RunImport : UserControl, IDM_Addin
     {

@@ -19,7 +19,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.DataViewManagement
+namespace Beep.Winform.Vis.DataViewManagement
 {
     [AddinAttribute(Caption = "Create Composed Layer for Data View", Name = "uc_CreateComposedLayerFromView", misc = "VIEW", addinType = AddinType.Control)]
     public partial class uc_CreateComposedLayerFromView : UserControl,IDM_Addin
@@ -102,9 +102,9 @@ namespace BeepEnterprize.Winform.Vis.DataViewManagement
                 this.CreateEntitiesbutton.Click += CreateEntitiesbutton_Click;
                 this.Okbutton.Click += Okbutton_Click;
                 this.Cancelbutton.Click += Cancelbutton_Click;
-                this.CreateLayerButton.Image = visManager.GetImage("BeepEnterprize.Winform.Vis.gfx.clear64.png");
-                this.Okbutton.Image= visManager.GetImage("BeepEnterprize.Winform.Vis.gfx.success32.png");
-                this.Cancelbutton.Image = visManager.GetImage("BeepEnterprize.Winform.Vis.gfx.stop32.png");
+                this.CreateLayerButton.Image = visManager.GetImage("Beep.Winform.Vis.gfx.clear64.png");
+                this.Okbutton.Image= visManager.GetImage("Beep.Winform.Vis.gfx.success32.png");
+                this.Cancelbutton.Image = visManager.GetImage("Beep.Winform.Vis.gfx.stop32.png");
             }
         }
         #region"Button Events"

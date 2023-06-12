@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BeepEnterprize.Winform.Vis.Wizards;
+using System;
 using System.Drawing;
 
 
 
-namespace BeepEnterprize.Winform.Vis.Wizards
+namespace Beep.Winform.Vis.Wizards
 {
     public class WizardButton : IWizardButton
     {

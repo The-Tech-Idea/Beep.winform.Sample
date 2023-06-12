@@ -11,7 +11,7 @@ using TheTechIdea.Beep;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 
-namespace BeepEnterprize.Winform.Vis.Controls
+namespace Beep.Winform.Vis.Controls
 {
     public class TreeNodeEvents
     {
