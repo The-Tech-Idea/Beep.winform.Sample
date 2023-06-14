@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net7.0-windows</TargetFramework>
+    <TargetFrameworks>net7.0-windows;net6.0-windows</TargetFrameworks>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <LangVersion>latest</LangVersion>
@@ -385,6 +385,7 @@
     <None Remove="OtherDLL\System.Threading.Channels.dll" />
     <None Remove="OtherDLL\System.Threading.Tasks.Extensions.dll" />
     <None Remove="OtherDLL\System.ValueTuple.dll" />
+    <None Remove="OtherDLL\System.Windows.Forms.DataVisualization.dll" />
     <None Remove="OtherDLL\Ubiety.Dns.Core.dll" />
     <None Remove="OtherDLL\UI\ReaLTaiizor.dll" />
     <None Remove="OtherDLL\WebView2Loader.dll" />
@@ -538,6 +539,7 @@
     <None Remove="ProjectData\OilandGas\OilandGasDataTypes\well_class.xls" />
     <None Remove="ProjectData\OilandGas\OilandGasDataTypes\well_status.xls" />
     <None Remove="ProjectData\OilandGas\OilandGasDataTypes\well_types.xls" />
+    <None Remove="Scripts\DeveloperAssistantScripts.json" />
     <None Remove="Scripts\HereweAddAllscripts.txt" />
     <None Remove="Scripts\Logs\HereweAddAllscriptlogs.txt" />
     <None Remove="WorkFlow\HereweAddAllworkflows.txt" />
@@ -565,9 +567,6 @@
     <Content Include="..\..\outputDLL\Beep.Accord.Winform\Beep.Accord.Winform.dll" Link="ProjectClasses\AI\Accord\Beep.Accord.Winform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.App.Controls.Winform\Beep.App.Controls.Winform.dll" Link="ProjectClasses\AppBuilder\Beep.App.Controls.Winform.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.App.ExtensionsLoader\netstandard2.0\Beep.App.ExtensionsLoader.dll" Link="LoadingExtensions\AppBuilderExtensions\Beep.App.ExtensionsLoader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -578,9 +577,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.App.Nodes\netstandard2.0\Beep.App.Nodes.dll" Link="ProjectClasses\AppBuilder\Beep.App.Nodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.App.Winform.Builder\Beep.App.Winform.Builder.dll" Link="ProjectClasses\AppBuilder\Beep.App.Winform.Builder.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.AssemblyLoaderExtension\netstandard2.0\Beep.BusinessProcess.AssemblyLoaderExtension.dll" Link="LoadingExtensions\BusinessProcess\Beep.BusinessProcess.AssemblyLoaderExtension.dll">
@@ -596,9 +592,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.Nodes\netstandard2.0\Beep.BusinessProcess.Nodes.dll" Link="ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Nodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Winform\Beep.BusinessProcess.Winform.dll" Link="ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Winform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Compilers.CSharp\netstandard2.0\Beep.Compilers.CSharp.dll" Link="ProjectClasses\IDE\Beep.Compilers.CSharp.dll">
@@ -1899,6 +1892,9 @@
     <Content Include="OtherDLL\System.ValueTuple.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\AppBuilder\System.Windows.Forms.DataVisualization.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="OtherDLL\Ubiety.Dns.Core.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2358,6 +2354,9 @@
     <Content Include="ProjectData\OilandGas\OilandGasDataTypes\well_types.xls">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\DeveloperAssistantScripts.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="Scripts\HereweAddAllscripts.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2371,7 +2370,6 @@
 
   <ItemGroup>
     <Folder Include="LoadingExtensions\Compilers\" />
-    <Folder Include="ProjectClasses\AppBuilder\" />
     <Folder Include="ProjectClasses\BeepDeveloperAssistant\" />
     <Folder Include="ProjectClasses\BusinessProcessBuilder\" />
     <Folder Include="ProjectClasses\CSVManager\" />
@@ -2419,6 +2417,21 @@
 
   <ItemGroup>
     <Content Include="..\..\outputDLL\Beep.Python.Model\netstandard2.0\Beep.Python.Model.dll" Link="LoadingExtensions\PythonExtentionLoader\Beep.Python.Model.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.BusinessProcess.WinformCore\net7.0-windows\Beep.BusinessProcess.WinformCore.dll" Link="ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.WinformCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.App.Controls.WinformCore\net6.0-windows\Beep.App.Controls.WinformCore.dll" Link="ProjectClasses\AppBuilder\Beep.App.Controls.WinformCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Winform.BuilderCore\net6.0-windows\Beep.App.Winform.BuilderCore.dll" Link="ProjectClasses\AppBuilder\Beep.App.Winform.BuilderCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
