@@ -189,12 +189,10 @@ namespace Beep.Winform.Vis
                 }
             }
         }
-
         private void Container_AddinChanged(object sender, ContainerEvents e)
         {
             
         }
-
         private void Container_AddinRemoved(object sender, ContainerEvents e)
         {
             if (addinsShowns.Any(o=>o.Name==e.TitleText))
@@ -222,7 +220,7 @@ namespace Beep.Winform.Vis
         public WizardManager wizardManager { get; set; }
         public bool IsShowingMainForm { get; set; } = false;
         public bool TurnonOffCheckBox { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-      //  bool _isSingleton=false;
+   
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
         {
@@ -1076,6 +1074,33 @@ namespace Beep.Winform.Vis
 
             return DMEEditor.ErrorObject;
         }
+        public IErrorsInfo ShowHome()
+        {
+            try
+            {
+                if (DefaultProfile != null)
+                {
+                    if(!string.IsNullOrEmpty(DefaultProfile.HomePageUrl))
+                    {
+                        ShowPage(DefaultProfile.HomePageUrl, (PassedArgs)DMEEditor.Passedarguments, DisplayType.InControl, true);
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                DMEEditor.ErrorObject.Ex = ex;
+                DMEEditor.ErrorObject.Message = ex.Message;
+                DMEEditor.ErrorObject.Flag = Errors.Failed;
+            }
 
+            return DMEEditor.ErrorObject;
+        }
+
+        public string HomePageTitle { get; set; }
+        public string HomePageDescription { get; set; }
+        public IProfile DefaultProfile { get; set; }
+        public List<IPrivilege> Privileges { get; set; } = new List<IPrivilege>();
+        public List<IUser> Users { get; set; }=new List<IUser>();
     }
 }
