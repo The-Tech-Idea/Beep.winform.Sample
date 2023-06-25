@@ -410,8 +410,8 @@ namespace Beep.Winform.Vis.Controls
                  assemblydef = (AssemblyClassDefinition)item.Tag;
                 MethodName = item.Text;
             }
-          
-            dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
+            dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.dllname, assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
+          //  dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
             if (fc == null)
             {
                 return;

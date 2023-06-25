@@ -127,7 +127,7 @@ namespace Beep.Winform.Vis.ETL.ImportData
                 ObjectItem ob;
                 if (Passedarg.Objects.Where(c => c.Name == "EntityDataMap").Any())
                 {
-                     ob = (ObjectItem)Passedarg.Objects.Where(c => c.Name == "EntityDataMap");
+                     ob = (ObjectItem)Passedarg.Objects.Where(c => c.Name == "EntityDataMap").FirstOrDefault();
                     
                 }else
                 {
@@ -242,7 +242,7 @@ namespace Beep.Winform.Vis.ETL.ImportData
                 Mapping.MappingName = $"{DestEntityName}_{DestDataSourceName}";
                 if (Mapping.MappedEntities.Count > 0)
                 {
-                    if(!Mapping.MappedEntities.Where(p=>p.EntityName.Equals(SourceEntityName,StringComparison.OrdinalIgnoreCase) && p.EntityDataSource.Equals(SourceDataSourceName, StringComparison.OrdinalIgnoreCase)).Any())
+                    if(!Mapping.MappedEntities.Where(p=> p.EntityName!=null && p.EntityName.Equals(SourceEntityName,StringComparison.OrdinalIgnoreCase) && p.EntityDataSource !=null  && p.EntityDataSource.Equals(SourceDataSourceName, StringComparison.OrdinalIgnoreCase)).Any())
                     {
                         Mapping.MappedEntities.Add(AddEntitytoMappedEntities(SourceDataSourceName, SourceEntityName, destent));
                     }

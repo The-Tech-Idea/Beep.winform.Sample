@@ -491,6 +491,7 @@ namespace Beep.Winform.Controls
         #region "Resource Loaders"
         private void Loadimages()
         {
+            //Beep.Winform.Vis
             this.NewButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.CRUDSmall.", "new.png");
             //this.Newbutton.Image = visManager.GetImage("add.png");
             this.SaveButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.CRUDSmall.", "save.png");

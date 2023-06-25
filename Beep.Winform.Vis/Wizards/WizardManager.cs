@@ -1,16 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using Beep.Winform.Controls;
+﻿using Beep.Winform.Controls;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Wizards;
 using TheTechIdea;
 using TheTechIdea.Beep;
-using TheTechIdea.Beep.Vis;
+using Label = System.Windows.Forms.Label;
 
 namespace Beep.Winform.Vis.Wizards
 {
@@ -30,6 +23,7 @@ namespace Beep.Winform.Vis.Wizards
             ColorsTemplate=new ColorTemplate();
             ColorsTemplate.ForColor = Color.White;
             ColorsTemplate.BackColor = Color.SteelBlue;
+            Isloaded = false;
             //Title = ptitle;
             //Description = pDescription;
         }
@@ -73,12 +67,47 @@ namespace Beep.Winform.Vis.Wizards
             }
         }
         public ControlManager controlManager { get;set; }
-      
+        public bool Isloaded { get  ; set  ; }
+        public bool IsSaved { get  ; set  ; }
+        public bool IsEdited { get  ; set  ; }
+        public bool IsEditing { get  ; set  ; }
+        public bool IsHidden { get  ; set  ; }
+        public bool IsVisible { get  ; set  ; }
+
         private void ShowWizardNode(int idx)
         {
+           
+            ShowControl(idx);
+            
+         }
+        private bool ShowControl(int idx)
+        {
+            bool retval = true;
+            if (_SelectedIndex <= 0)
+            {
+                _SelectedIndex = 1;
+            }
+            if (_SelectedIndex != idx)
+            {
+                if (_SelectedIndex > -1)
+                {
+                    WizardNode curnode = (WizardNode)GetNode(_SelectedIndex);
+                    if (curnode != null)
+                    {
+                        Control currentctl = (Control)curnode.Addin;
+                        currentctl.SendToBack();
+                        currentctl.Visible = false;
+                        curnode.IsVisible = false;
+                        curnode.IsHidden = true;
+                    }
+                    
+                }
+                
+            }
+          
             WizardNode node = (WizardNode)GetNode(idx);
             node.IsActive = true;
-          //  IWizardNode curnode = GetNode(idx);
+
             var e = new NodeChangeEventHandler() { CurrentNode = node, ToNode = null };
             WizardNodeChangeEvent?.Invoke(this, e);
             if (!e.Cancel)
@@ -86,21 +115,24 @@ namespace Beep.Winform.Vis.Wizards
                 IDM_Addin addin = (IDM_Addin)node.Addin;
                 Control ctl = (Control)node.Addin;
                 DMEEditor.ErrorObject.Flag = TheTechIdea.Util.Errors.Ok;
-                addin.Run(DMEEditor.Passedarguments);
-                if (DMEEditor.ErrorObject.Flag == TheTechIdea.Util.Errors.Ok)
+                if (IsEdited)
                 {
-                    //DisplayPanel.Controls.Clear();
-                    //DisplayPanel.Controls.Add(ctl);
-                    visManager.ShowPage(ctl.Name, (PassedArgs)DMEEditor.Passedarguments, DisplayType.InControl);
-                    // DisplayPanel.SendToBack();
-                    ctl.Dock = DockStyle.Fill;
                     addin.Run(DMEEditor.Passedarguments);
                 }
+                ctl.BringToFront();
+                ctl.Visible = true;
+                node.IsVisible = true;
+                node.IsActive = true;
+               
                 LeaveButtons(node);
                 _SelectedIndex = node.Index;
                 HilightPanel.Top = node.Wizardbutton.Top;
             }
-         }
+            // visManager.ShowPage(ctl.Name, (PassedArgs)DMEEditor.Passedarguments, DisplayType.InControl);
+            DisplayPanel.SendToBack();
+          
+            return retval;
+        }
         public void MoveNext()
         {
             if (Nodes.Count > 0)
@@ -176,19 +208,25 @@ namespace Beep.Winform.Vis.Wizards
         {
             try
             {
-                _CurrentIdx += 1;
-                int top = StartTop + (CurrentIdx * (Height + 10));
-                IWizardNode node =new WizardNode(addin, title,  text, CurrentIdx, StartLeft, top, SidePanel.Width-(StartLeft*2), Height,  ColorsTemplate.ForColor, ColorsTemplate.BackColor);
-                SetColorTemplateForNode(node);
-                node.WizardNodeClickEvent += Node_WizardNodeClick;
-                node.WizardNodeEnterEvent += Node_WizardNodeEnterEvent;
-                LinkedListNode<IWizardNode> linkedListNode = new LinkedListNode<IWizardNode>(node);
-                Nodes.AddLast(linkedListNode);
-                WizardButton b = (WizardButton)node.Wizardbutton;
-                SidePanel.Controls.Add(b.button);
-                Nodes.AddLast(linkedListNode);
-                
-                return CurrentIdx;
+                //_CurrentIdx += 1;
+                //int top = StartTop + (CurrentIdx * (Height + 10));
+                //Control control = (Control)addin;
+                //control.Name = title;
+                //control.Tag = _CurrentIdx;
+                //control.Visible = false;
+                //IWizardNode node =new WizardNode(addin, title,  text, CurrentIdx, StartLeft, top, SidePanel.Width-(StartLeft*2), Height,  ColorsTemplate.ForColor, ColorsTemplate.BackColor);
+                //SetColorTemplateForNode(node);
+                //node.WizardNodeClickEvent += Node_WizardNodeClick;
+                //node.WizardNodeEnterEvent += Node_WizardNodeEnterEvent;
+                //LinkedListNode<IWizardNode> linkedListNode = new LinkedListNode<IWizardNode>(node);
+                //Nodes.AddLast(linkedListNode);
+                //WizardButton b = (WizardButton)node.Wizardbutton;
+                //SidePanel.Controls.Add(b.button);
+                //Nodes.AddLast(linkedListNode);
+                //node.IsVisible = false;
+                //DisplayPanel.Controls.Add(control);
+                //return CurrentIdx;
+                return AddNode(addin,  title,  text, ColorsTemplate.ForColor, ColorsTemplate.BackColor);
             }
             catch (Exception)
             {
@@ -201,8 +239,12 @@ namespace Beep.Winform.Vis.Wizards
         {
             try
             {
-                _CurrentIdx += 1;
+                
                 int top = StartTop + (CurrentIdx * (Height + 10));
+                Control control = (Control)addin;
+                control.Name = title;
+                control.Tag = _CurrentIdx;
+                control.Visible = false;
                 IWizardNode node = new WizardNode(addin, title, text, CurrentIdx, StartLeft, top, SidePanel.Width - (StartLeft * 2), Height, forcolor, backcolor);
                 SetColorTemplateForNode(node);
                 node.WizardNodeClickEvent += Node_WizardNodeClick;
@@ -210,8 +252,15 @@ namespace Beep.Winform.Vis.Wizards
                 LinkedListNode<IWizardNode> linkedListNode = new LinkedListNode<IWizardNode>(node);
                 Nodes.AddLast(linkedListNode);
                 WizardButton b = (WizardButton)node.Wizardbutton;
+                node.IsVisible = false;
+                node.IsActive = false;
+                node.IsHidden = true;
+                node.IsInit = false;
+                control.Dock = DockStyle.Fill;
                 SidePanel.Controls.Add(b.button);
-                return CurrentIdx;
+                DisplayPanel.Controls.Add(control);
+                _CurrentIdx += 1;
+                return CurrentIdx-1;
             }
             catch (Exception)
             {
@@ -368,8 +417,8 @@ namespace Beep.Winform.Vis.Wizards
             WizardParentForm.Height = 800;
             StartLeft  = 3;
             StartTop = 70;
-            _CurrentIdx = -1;
-            _SelectedIndex = -1;
+            _CurrentIdx = 0;
+            _SelectedIndex = 0;
             WizardParentForm.Controls.Clear();
             this.SidePanel.BackColor = ColorsTemplate.PanelAltBackColor;
             this.SidePanel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -390,12 +439,13 @@ namespace Beep.Winform.Vis.Wizards
             this.FooterPanel.TabIndex = 1;
             WizardParentForm.Controls.Add(this.FooterPanel);
 
-            this.DisplayPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DisplayPanel.Location = new System.Drawing.Point(183, 0);
+            this.DisplayPanel.Dock = System.Windows.Forms.DockStyle.None;
+            this.DisplayPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right));
+            this.DisplayPanel.Location = new System.Drawing.Point(184, 0);
             this.DisplayPanel.Name = "DisplayPanel";
-            this.DisplayPanel.Size = new System.Drawing.Size(695, 586);
+            this.DisplayPanel.Size = new System.Drawing.Size(WizardParentForm.Width-SidePanel.Width, WizardParentForm.Height-FooterPanel.Height-35);
             this.DisplayPanel.TabIndex = 2;
-            this.DisplayPanel.BackColor = Color.White;
+            this.DisplayPanel.BackColor = Color.Wheat;
            
 
             WizardParentForm.Controls.Add(this.DisplayPanel);
@@ -469,7 +519,7 @@ namespace Beep.Winform.Vis.Wizards
             DescriptionLabel.ForeColor = ColorsTemplate.ForColor;
             SidePanel.Controls.Add(TitleLabel);
             SidePanel.Controls.Add(DescriptionLabel);
-            this.DisplayPanel.BringToFront();
+          //  this.DisplayPanel.BringToFront();
             this.SidePanel.SendToBack();
             WizardParentForm.Text = "Import Data Wizard";
         }

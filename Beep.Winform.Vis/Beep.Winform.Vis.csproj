@@ -19,7 +19,7 @@
 	  <Title>TheTechIdea.Beep.Winform.Vis</Title>
 	  <Version>1.0.40</Version>
 	  <Product>TheTechIdea.Beep.Winform.Vis</Product>
-	  <AssemblyName>TheTechIdea.Beep.Winform.Vis</AssemblyName>
+	  <AssemblyName>Beep.Winform.Vis</AssemblyName>
   </PropertyGroup>
 
 
@@ -93,7 +93,7 @@
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.3" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.80" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.50" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.22" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.23" />
   </ItemGroup>
 
   <ItemGroup>
@@ -321,7 +321,7 @@
 		<Copy SourceFiles="$(OutputPath)$(PackageId).$(PackageVersion).nupkg" DestinationFolder="..\..\..\LocalNugetFiles" />
 	</Target>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Copy SourceFiles="$(TargetDir)$(PackageId).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\$(PackageId)\$(TargetFramework)" SkipUnchangedFiles="false" />
+		<Copy SourceFiles="$(TargetDir)$(Assemblyname).dll" DestinationFolder="$(ProjectDir)..\..\outputDLL\$(Assemblyname)\$(TargetFramework)" SkipUnchangedFiles="false" />
 	</Target>
 
 	<ItemGroup>

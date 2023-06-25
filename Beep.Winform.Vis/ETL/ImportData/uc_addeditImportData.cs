@@ -1,21 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
+using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Workflow.Mapping;
 using TheTechIdea.Logger;
 using TheTechIdea.Util;
 
+
 namespace Beep.Winform.Vis.ETL.ImportData
 {
+    [AddinAttribute(Caption = "Add/Edit import Data", Name = "uc_addeditImportData", misc = "Import", menu = "Import", addinType = AddinType.Control, displayType = DisplayType.InControl)]
     public partial class uc_addeditImportData : UserControl,IDM_Addin
     {
         public uc_addeditImportData()

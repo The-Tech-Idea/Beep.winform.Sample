@@ -43,6 +43,12 @@ namespace Beep.Winform.Vis.Wizards
         public object Data { get; set; } = null;
         public string Type { get; set; }
         public IWizardButton Wizardbutton { get; set; }
+        public bool IsInit { get  ; set  ; }
+        public bool IsHidden { get  ; set  ; }
+        public bool IsVisible { get  ; set  ; }
+        public bool IsChecked { get  ; set  ; }
+        public bool IsDisabled { get  ; set  ; }
+
         private void Wizardbutton_WizardNodeClickEvent(object sender, IWizardButton e)
         {
             WizardNodeClickEvent?.Invoke(this, this);
