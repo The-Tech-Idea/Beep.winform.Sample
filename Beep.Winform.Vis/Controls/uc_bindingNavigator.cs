@@ -21,7 +21,7 @@ namespace Beep.Winform.Controls
         public uc_bindingNavigator()
         {
             InitializeComponent();
-            Loadimages();
+            //Loadimages();
             InitPanels();
 
 
@@ -96,7 +96,7 @@ namespace Beep.Winform.Controls
                 bindingSource = (BindingSource)e.Objects.Where(c => c.Name == "BindingSource").FirstOrDefault().obj;
             }
 
-            Loadimages();
+            //Loadimages();
            // InitPanels();
 
            // HightlightColor = Color.Yellow;

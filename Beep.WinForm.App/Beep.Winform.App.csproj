@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFrameworks>net48;net7.0-windows;net6.0-windows</TargetFrameworks>
+    <TargetFramework>net7.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
 	  <LangVersion>latest</LangVersion>
@@ -322,6 +322,7 @@
     <None Remove="GFX\zip.ico" />
     <None Remove="LoadingExtensions\AppBuilderExtensions\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="LoadingExtensions\AssemblyLoaderAI\HereweAddLoadingAssemblyExtensions.txt" />
+    <None Remove="LoadingExtensions\Compilers\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="LoadingExtensions\IBranchLoaderExtension\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="LoadingExtensions\BusinessProcess\HereweAddLoadingAssemblyExtensions - Copy (2).txt" />
     <None Remove="LoadingExtensions\HereweAddLoadingAssemblyExtensions.txt" />
@@ -419,9 +420,15 @@
     <None Remove="ProjectClasses\AI\R\System.CodeDom.dll" />
     <None Remove="ProjectClasses\AI\R\System.Security.AccessControl.dll" />
     <None Remove="ProjectClasses\AI\R\System.Security.Principal.Windows.dll" />
+    <None Remove="ProjectClasses\BeepDeveloperAssistant\HereweputClasses.txt" />
     <None Remove="ProjectClasses\BeepEnterprizeTreeNodes\HereweputClasses.txt" />
+    <None Remove="ProjectClasses\BusinessProcessBuilder\HereweputClasses.txt" />
     <None Remove="ProjectClasses\CompositeLayer\HereweputClasses.txt" />
+    <None Remove="ProjectClasses\CSVManager\HereweputClasses.txt" />
+    <None Remove="ProjectClasses\DataSources\HereweputClasses.txt" />
     <None Remove="ProjectClasses\HereweputClasses.txt" />
+    <None Remove="ProjectClasses\InMemoryDB\HereweputClasses.txt" />
+    <None Remove="ProjectClasses\LangInterop\HereweputClasses.txt" />
     <None Remove="ProjectClasses\PrintManager\PrintManager.dll" />
     <None Remove="ProjectClasses\Py\beep.py" />
     <None Remove="ProjectClasses\Py\HereweputClasses.txt" />
@@ -594,21 +601,6 @@
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.Nodes\netstandard2.0\Beep.BusinessProcess.Nodes.dll" Link="ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Nodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.CSharp\netstandard2.0\Beep.Compilers.CSharp.dll" Link="ProjectClasses\IDE\Beep.Compilers.CSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.ExtensionLoader\netstandard2.0\Beep.Compilers.ExtensionLoader.dll" Link="LoadingExtensions\Compilers\Beep.Compilers.ExtensionLoader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.Module\netstandard2.0\Beep.Compilers.Module.dll" Link="LoadingExtensions\Compilers\Beep.Compilers.Module.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.Python\netstandard2.0\Beep.Compilers.Python.dll" Link="ProjectClasses\IDE\Beep.Compilers.Python.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.R\netstandard2.0\Beep.Compilers.R.dll" Link="ProjectClasses\IDE\Beep.Compilers.R.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.CSV.Extensions\netstandard2.0\Beep.CSV.Extensions.dll" Link="ProjectClasses\CSVManager\Beep.CSV.Extensions.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -628,9 +620,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.Winform\Beep.DeveloperAssistant.Winform.dll" Link="ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.Winform.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.IDE.Nodes\netstandard2.0\Beep.IDE.Nodes.dll" Link="ProjectClasses\IDE\Beep.IDE.Nodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.InMemory.Logic\netstandard2.0\Beep.InMemory.Logic.dll" Link="ProjectClasses\InMemoryDB\Beep.InMemory.Logic.dll">
@@ -1700,6 +1689,9 @@
     <Content Include="LoadingExtensions\AssemblyLoaderAI\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="LoadingExtensions\Compilers\HereweAddLoadingAssemblyExtensions.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="LoadingExtensions\IBranchLoaderExtension\HereweAddLoadingAssemblyExtensions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1991,13 +1983,31 @@
     <Content Include="ProjectClasses\AI\R\System.Security.Principal.Windows.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\BeepDeveloperAssistant\HereweputClasses.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectClasses\BeepEnterprizeTreeNodes\HereweputClasses.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\BusinessProcessBuilder\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\CompositeLayer\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ProjectClasses\CSVManager\HereweputClasses.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\DataSources\HereweputClasses.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ProjectClasses\HereweputClasses.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\InMemoryDB\HereweputClasses.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ProjectClasses\LangInterop\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\PrintManager\PrintManager.dll">
@@ -2366,20 +2376,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="LoadingExtensions\Compilers\" />
-    <Folder Include="ProjectClasses\BeepDeveloperAssistant\" />
-    <Folder Include="ProjectClasses\BusinessProcessBuilder\" />
-    <Folder Include="ProjectClasses\CSVManager\" />
-    <Folder Include="ProjectClasses\DataSources\" />
-    <Folder Include="ProjectClasses\InMemoryDB\" />
-    <Folder Include="ProjectClasses\LangInterop\" />
     <Folder Include="ProjectClasses\ML.NET\lib\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\outputDLL\Beep.IDE.WinformCore\net6.0-windows\Beep.IDE.WinformCore.dll" Link="ProjectClasses\IDE\Beep.IDE.WinformCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -2429,6 +2426,36 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.App.Winform.BuilderCore\net6.0-windows\Beep.App.Winform.BuilderCore.dll" Link="ProjectClasses\AppBuilder\Beep.App.Winform.BuilderCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.Compilers.CSharp\net6.0\Beep.Compilers.CSharp.dll" Link="ProjectClasses\IDE\Beep.Compilers.CSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.ExtensionLoader\net6.0\Beep.Compilers.ExtensionLoader.dll" Link="LoadingExtensions\Compilers\Beep.Compilers.ExtensionLoader.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.Julia\net6.0\Beep.Compilers.Julia.dll" Link="ProjectClasses\IDE\Beep.Compilers.Julia.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.Module\net6.0\Beep.Compilers.Module.dll" Link="LoadingExtensions\Compilers\Beep.Compilers.Module.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.Python\net6.0\Beep.Compilers.Python.dll" Link="ProjectClasses\IDE\Beep.Compilers.Python.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Compilers.R\net6.0\Beep.Compilers.R.dll" Link="ProjectClasses\IDE\Beep.Compilers.R.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.IDE.WinformCore\net6.0-windows\Beep.IDE.WinformCore.dll" Link="ProjectClasses\IDE\Beep.IDE.WinformCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.IDE.Nodes\netstandard2.0\Beep.IDE.Nodes.dll" Link="ProjectClasses\IDE\Beep.IDE.Nodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

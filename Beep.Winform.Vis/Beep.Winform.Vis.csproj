@@ -34,51 +34,7 @@
     <None Remove="gfx\success64.png" />
   </ItemGroup>
 
-
- 
-
   <ItemGroup>
-    <Content Include="Controls\gfx\tick.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Controls\gfx\add.png" />
-    <EmbeddedResource Include="Controls\gfx\cancel.png" />
-    <EmbeddedResource Include="Controls\gfx\checked.png" />
-    <EmbeddedResource Include="Controls\gfx\close.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\cancel.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\delete.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\edit.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\message.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\new.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\next.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\previous.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\print.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\printer.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\save.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\saveas.png" />
-    <EmbeddedResource Include="Controls\gfx\CRUDSmall\search.png" />
-    <EmbeddedResource Include="Controls\gfx\edit.png" />
-    <EmbeddedResource Include="Controls\gfx\Filter.png" />
-    <EmbeddedResource Include="Controls\gfx\info.png" />
-    <EmbeddedResource Include="Controls\gfx\inside.png" />
-    <EmbeddedResource Include="Controls\gfx\left.png" />
-    <EmbeddedResource Include="Controls\gfx\logo.ico" />
-    <EmbeddedResource Include="Controls\gfx\maximize.png" />
-    <EmbeddedResource Include="Controls\gfx\messages.png" />
-    <EmbeddedResource Include="Controls\gfx\minimize.png" />
-    <EmbeddedResource Include="Controls\gfx\outside.png" />
-    <EmbeddedResource Include="Controls\gfx\please_wait.gif" />
-    <EmbeddedResource Include="Controls\gfx\Print.png" />
-    <EmbeddedResource Include="Controls\gfx\printer.png" />
-    <EmbeddedResource Include="Controls\gfx\remove.png" />
-    <EmbeddedResource Include="Controls\gfx\right.png" />
-    <EmbeddedResource Include="Controls\gfx\save.png" />
-    <EmbeddedResource Include="Controls\gfx\search.png" />
-    <EmbeddedResource Include="Controls\gfx\ShareLink.png" />
-    <EmbeddedResource Include="Controls\gfx\shrink.png" />
-    <EmbeddedResource Include="Controls\gfx\SimpleInfoApps.png" />
-    <EmbeddedResource Include="Controls\gfx\stop.png" />
     <EmbeddedResource Include="gfx\clear.png" />
     <EmbeddedResource Include="gfx\clear64.png" />
     <EmbeddedResource Include="gfx\stop.png" />
