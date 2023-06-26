@@ -219,7 +219,6 @@
             this.NewButton.CausesValidation = false;
             this.NewButton.FlatAppearance.BorderSize = 0;
             this.NewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NewButton.Image = global::Beep.Winform.Vis.Properties.Resources.plus;
             this.NewButton.Location = new System.Drawing.Point(65, 5);
             this.NewButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.NewButton.Name = "NewButton";

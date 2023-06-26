@@ -2377,6 +2377,7 @@
 
   <ItemGroup>
     <Folder Include="ProjectClasses\ML.NET\lib\" />
+    <Folder Include="ProjectClasses\ExtensionsandHelpers\" />
   </ItemGroup>
 
   <ItemGroup>

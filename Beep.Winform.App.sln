@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.App", "Beep.Wi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Vis.Modules", "..\BeepEnterprize.winform\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj", "{A916A02E-336D-47D7-B083-B152FF64B198}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.ViewModels", "..\BeepEnterprize.winform\BeepViewModels\Beep.ViewModels.csproj", "{93251BA6-AB50-40EE-ABA3-FED5BF51081F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,14 @@ Global
 		{A916A02E-336D-47D7-B083-B152FF64B198}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A916A02E-336D-47D7-B083-B152FF64B198}.Release|x64.ActiveCfg = Release|Any CPU
 		{A916A02E-336D-47D7-B083-B152FF64B198}.Release|x64.Build.0 = Release|Any CPU
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Debug|x64.ActiveCfg = Debug|x64
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Debug|x64.Build.0 = Debug|x64
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Release|x64.ActiveCfg = Release|x64
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -54,6 +64,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{D4AD2BFA-23AD-4973-A233-7382FC51D405} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
 		{A916A02E-336D-47D7-B083-B152FF64B198} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
+		{93251BA6-AB50-40EE-ABA3-FED5BF51081F} = {FEB7533C-1BA2-4BA7-B5A0-FE84E3EF9C91}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
