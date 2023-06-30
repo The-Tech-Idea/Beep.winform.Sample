@@ -17,6 +17,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Vis.Module
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.ViewModels", "..\BeepEnterprize.winform\BeepViewModels\Beep.ViewModels.csproj", "{93251BA6-AB50-40EE-ABA3-FED5BF51081F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManagementEngine", "..\BeepDM\DataManagementEngineStandard\DataManagementEngine.csproj", "{91630202-DFD8-422C-B0C7-71A453CDF9C6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataManagementModels", "..\BeepDM\DataManagementModelsStandard\DataManagementModels.csproj", "{DE820798-8D42-4057-A20C-E65642C93837}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +61,22 @@ Global
 		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Release|x64.ActiveCfg = Release|x64
 		{93251BA6-AB50-40EE-ABA3-FED5BF51081F}.Release|x64.Build.0 = Release|x64
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6}.Debug|x64.Build.0 = Debug|Any CPU
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6}.Release|x64.ActiveCfg = Release|Any CPU
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6}.Release|x64.Build.0 = Release|Any CPU
+		{DE820798-8D42-4057-A20C-E65642C93837}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE820798-8D42-4057-A20C-E65642C93837}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE820798-8D42-4057-A20C-E65642C93837}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{DE820798-8D42-4057-A20C-E65642C93837}.Debug|x64.Build.0 = Debug|Any CPU
+		{DE820798-8D42-4057-A20C-E65642C93837}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE820798-8D42-4057-A20C-E65642C93837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE820798-8D42-4057-A20C-E65642C93837}.Release|x64.ActiveCfg = Release|Any CPU
+		{DE820798-8D42-4057-A20C-E65642C93837}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +85,8 @@ Global
 		{D4AD2BFA-23AD-4973-A233-7382FC51D405} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
 		{A916A02E-336D-47D7-B083-B152FF64B198} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
 		{93251BA6-AB50-40EE-ABA3-FED5BF51081F} = {FEB7533C-1BA2-4BA7-B5A0-FE84E3EF9C91}
+		{91630202-DFD8-422C-B0C7-71A453CDF9C6} = {26FB4439-77FC-48C1-8D18-0982E8A28C36}
+		{DE820798-8D42-4057-A20C-E65642C93837} = {26FB4439-77FC-48C1-8D18-0982E8A28C36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
