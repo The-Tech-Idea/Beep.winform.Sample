@@ -13,8 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.Vis", "Beep.Wi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Winform.App", "Beep.WinForm.App\Beep.Winform.App.csproj", "{CD0BD5BF-4B04-4D78-AC52-ECD16D50EA8F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.ViewModels", "..\Plugins\Beep.ViewModels\Beep.ViewModels.csproj", "{49BB44EE-43C2-42E7-A75B-1221A0E409F6}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,21 +37,12 @@ Global
 		{CD0BD5BF-4B04-4D78-AC52-ECD16D50EA8F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CD0BD5BF-4B04-4D78-AC52-ECD16D50EA8F}.Release|x64.ActiveCfg = Release|Any CPU
 		{CD0BD5BF-4B04-4D78-AC52-ECD16D50EA8F}.Release|x64.Build.0 = Release|Any CPU
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6}.Debug|x64.ActiveCfg = Debug|x64
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6}.Debug|x64.Build.0 = Debug|x64
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6}.Release|x64.ActiveCfg = Release|x64
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D4AD2BFA-23AD-4973-A233-7382FC51D405} = {6C8D5AB1-AED3-475B-B228-6CC4AB183574}
-		{49BB44EE-43C2-42E7-A75B-1221A0E409F6} = {26FB4439-77FC-48C1-8D18-0982E8A28C36}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
