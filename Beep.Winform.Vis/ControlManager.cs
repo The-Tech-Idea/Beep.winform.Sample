@@ -293,9 +293,10 @@ namespace Beep.Winform.Vis
         }
         #endregion
         #region "CRUD"
-        public IErrorsInfo GenerateEntityonControl(string entityname, object record, int starttop, string datasourceid, TransActionType TranType, IPassedArgs passedArgs=null)
+        public object GenerateEntityonControl(string entityname, object record, int starttop, string datasourceid, TransActionType TranType, IPassedArgs passedArgs=null)
         {
             Control control = new Control();
+            
             if (passedArgs.Objects.Where(c => c.Name == "BindingSource").Any())
             {
                 EntityBindingSource = (BindingSource)passedArgs.Objects.Where(c => c.Name == "BindingSource").FirstOrDefault().obj;
@@ -606,9 +607,31 @@ namespace Beep.Winform.Vis
                 ErrorsandMesseges.Ex = ex;
                 DMEEditor.Logger.WriteLog($"Error in Loading View ({ex.Message}) ");
             }
-            return ErrorsandMesseges;
+            return control;
         }
         public void CreateEntityFilterControls( EntityStructure entityStructure, List<DefaultValue> dsdefaults, IPassedArgs passedArgs = null)
+        {
+
+            CreateFilterFields(entityStructure,dsdefaults,passedArgs);
+
+        }
+        public void CreateFieldsFilterControls(List<EntityField> Fields, List<AppFilter> Filters, List<DefaultValue> dsdefaults, IPassedArgs passedArgs = null)
+        {
+          
+            if (Filters != null)
+            {
+                Filters.Clear();
+            }
+            else
+                Filters = new List<AppFilter>();
+
+            List<string> FieldNames = new List<string>();
+            EntityStructure str=new EntityStructure() { Fields=Fields, Filters=Filters};
+            CreateFilterFields(str,  dsdefaults, passedArgs);
+
+
+        }
+        private void CreateFilterFields(EntityStructure entityStructure,  List<DefaultValue> dsdefaults, IPassedArgs passedArgs = null)
         {
             if (passedArgs.Objects.Where(i => i.Name == "FilterPanel").Any())
             {
@@ -631,7 +654,7 @@ namespace Beep.Winform.Vis
             }
             else
                 entityStructure.Filters = new List<AppFilter>();
-           
+
             List<string> FieldNames = new List<string>();
             var starth = 25;
             int startleft = maxlabelsize + 90;
@@ -680,14 +703,14 @@ namespace Beep.Winform.Vis
                         Left = l.Left + l.Width + 10,
                         Top = starth
                     };
-                   
+
                     //cbcondition.DataSource = GetDisplayLookup(entityStructure.DataSourceID, FK.ParentEntityID, FK.ParentEntityColumnID, FK.EntityColumnID);
                     //cbcondition.DisplayMember = DisplayField;
                     //cbcondition.ValueMember = FK.ParentEntityColumnID;
                     cbcondition.DataSource = AddFilterTypes();
                     cbcondition.DisplayMember = "FilterDisplay";
                     cbcondition.ValueMember = "FilterValue";
-                   // cbcondition.SelectedValueChanged += Cb_SelectedValueChanged;
+                    // cbcondition.SelectedValueChanged += Cb_SelectedValueChanged;
                     cbcondition.Name = col.fieldname + "." + "Operator";
                     cbcondition.Width = 50;
                     cbcondition.Height = l.Height;
@@ -703,7 +726,7 @@ namespace Beep.Winform.Vis
                             Left = startleft,
                             Top = starth
                         };
-                    
+
                         cb.DataSource = GetDisplayLookup(entityStructure.DataSourceID, FK.RelatedEntityID, FK.RelatedEntityColumnID, FK.EntityColumnID);
                         cb.DisplayMember = "DisplayField";
                         cb.ValueMember = FK.RelatedEntityColumnID;
@@ -730,7 +753,7 @@ namespace Beep.Winform.Vis
 
                                 dt.Width = valuewidth;
                                 dt.Height = l.Height;
-                            //    dt.ValueChanged += Dt_ValueChanged;
+                                //    dt.ValueChanged += Dt_ValueChanged;
                                 //     dt.Anchor = AnchorStyles.Top;
                                 dt.Tag = i;
                                 dt.Format = DateTimePickerFormat.Short;
@@ -741,13 +764,13 @@ namespace Beep.Winform.Vis
                                     Left = dt.Left + 10 + dt.Width,
                                     Top = starth
                                 };
-                              
+
                                 dt1.DataBindings.Add(new System.Windows.Forms.Binding("Value", BindingData[i], "FilterValue1", true));
 
                                 dt1.Width = valuewidth;
                                 dt1.Height = l.Height;
                                 dt1.Format = DateTimePickerFormat.Short;
-                             //   dt1.ValueChanged += Dt_ValueChanged;
+                                //   dt1.ValueChanged += Dt_ValueChanged;
                                 //     dt.Anchor = AnchorStyles.Top;
                                 dt1.Tag = i;
                                 dt1.Name = "From" + "." + col.fieldname;
@@ -766,7 +789,7 @@ namespace Beep.Winform.Vis
                                 t1.Height = l.Height;
 
                                 t1.Tag = i;
-                               // t1.TextChanged += T_TextChanged;
+                                // t1.TextChanged += T_TextChanged;
                                 //  t1.KeyPress += T_KeyPress;
                                 //     t1.Anchor = AnchorStyles.Top;
                                 t1.Name = col.fieldname;
@@ -783,7 +806,7 @@ namespace Beep.Winform.Vis
                                 ch1.Text = "";
                                 ch1.Width = valuewidth;
                                 ch1.Height = l.Height;
-                               // ch1.CheckStateChanged += Ch1_CheckStateChanged; ;
+                                // ch1.CheckStateChanged += Ch1_CheckStateChanged; ;
                                 //       ch1.Anchor = AnchorStyles.Top;
                                 ch1.Tag = i;
                                 ch1.Name = col.fieldname;
@@ -809,7 +832,7 @@ namespace Beep.Winform.Vis
                                     ch2.TrueValue = v[0].ToCharArray()[0];
                                     ch2.FalseValue = v[1].ToCharArray()[0];
                                 }
-                              //  ch2.CheckStateChanged += Ch1_CheckStateChanged; ;
+                                //  ch2.CheckStateChanged += Ch1_CheckStateChanged; ;
                                 //   ch2.Anchor = AnchorStyles.Top;
                                 ch2.Tag = i;
                                 ch2.Name = col.fieldname;
@@ -832,7 +855,7 @@ namespace Beep.Winform.Vis
                                 t3.Height = l.Height;
                                 t3.Tag = i;
                                 t3.Minimum = 0;
-                              //  t3.TextChanged += T_TextChanged;
+                                //  t3.TextChanged += T_TextChanged;
                                 //t.KeyPress += T_KeyPress;
                                 //if (entityStructure.PrimaryKeys.Where(x => x.fieldname == col.fieldname).FirstOrDefault() != null)
                                 //{
@@ -849,7 +872,7 @@ namespace Beep.Winform.Vis
                                 t2.Height = l.Height;
                                 t2.Tag = i;
                                 t2.Maximum = 99999;
-                             //   t2.TextChanged += T_TextChanged;
+                                //   t2.TextChanged += T_TextChanged;
                                 //t.KeyPress += T_KeyPress;
                                 //if (entityStructure.PrimaryKeys.Where(x => x.fieldname == col.fieldname).FirstOrDefault() != null)
                                 //{
@@ -875,7 +898,7 @@ namespace Beep.Winform.Vis
                                     t1.Width = valuewidth;
                                     t1.Height = l.Height;
 
-                              //      t1.TextChanged += T_TextChanged;
+                                    //      t1.TextChanged += T_TextChanged;
                                     //  t1.KeyPress += T_KeyPress;
                                     //if (entityStructure.PrimaryKeys.Any(x => x.fieldname == col.fieldname))
                                     //{
@@ -927,7 +950,7 @@ namespace Beep.Winform.Vis
                                 t.Width = valuewidth;
                                 t.Height = l.Height;
                                 t.Tag = i;
-                             //   t.TextChanged += T_TextChanged;
+                                //   t.TextChanged += T_TextChanged;
                                 //t.KeyPress += T_KeyPress;
                                 //if (entityStructure.PrimaryKeys.Where(x => x.fieldname == col.fieldname).FirstOrDefault() != null)
                                 //{
@@ -949,329 +972,10 @@ namespace Beep.Winform.Vis
                 catch (Exception ex)
                 {
 
-                   // Logger.WriteLog($"Error in Loading View ({ex.Message}) ");
-                }
-
-            }
-
-
-        }
-        public void CreateFieldsFilterControls(List<EntityField> Fields, List<AppFilter> Filters, List<DefaultValue> dsdefaults, IPassedArgs passedArgs = null)
-        {
-            if (passedArgs.Objects.Where(i => i.Name == "FilterPanel").Any())
-            {
-                CrudFilterPanel = (Control)passedArgs.Objects.Where(c => c.Name == "FilterPanel").FirstOrDefault().obj;
-            }
-            CrudFilterPanel.Controls.Clear();
-            BindingSource[] BindingData = new BindingSource[Fields.Count];
-            int maxlabelsize = 0;
-            int maxDatasize = 0;
-            foreach (EntityField col in Fields)
-            {
-                int x = getTextSize(col.fieldname.ToUpper());
-                if (maxlabelsize < x)
-                    maxlabelsize = x;
-            }
-            maxDatasize = CrudFilterPanel.Width - maxlabelsize - 20;
-            if (Filters != null)
-            {
-                Filters.Clear();
-            }
-            else
-                Filters = new List<AppFilter>();
-
-            List<string> FieldNames = new List<string>();
-          
-            CreateFilterFields(maxlabelsize, BindingData, Fields, Filters, dsdefaults, passedArgs);
-
-
-        }
-        private void CreateFilterFields(int maxlabelsize,BindingSource[] BindingData,List<EntityField> Fields, List<AppFilter> Filters, List<DefaultValue> dsdefaults, IPassedArgs passedArgs = null)
-        {
-            int labelleft = 100;
-            var starth = 25;
-            int startleft = labelleft + maxlabelsize + 90;
-            int valuewidth = 100;
-            for (int i = 0; i <= Fields.Count - 1; i++)
-            {
-                AppFilter r = new AppFilter();
-                r.FieldName = Fields[i].fieldname;
-                r.Operator = null;
-                r.FilterValue = null;
-                r.FilterValue1 = null;
-                r.valueType = Fields[i].fieldtype;
-                Filters.Add(r);
-                BindingData[i] = new BindingSource();
-                BindingData[i].DataSource = r;
-               // FieldNames.Add(Fields[i].fieldname);
-                EntityField col = Fields[i];
-                try
-                {
-                    DefaultValue coldefaults = dsdefaults.Where(o => o.propertyName == col.fieldname).FirstOrDefault();
-                    if (coldefaults == null)
-                    {
-                        coldefaults = dsdefaults.Where(o => col.fieldname.Contains(o.propertyName)).FirstOrDefault();
-                    }
-                    string coltype = col.fieldtype;
-                    //RelationShipKeys FK = Relations.Where(f => f.EntityColumnID == col.fieldname).FirstOrDefault();
-                    //----------------------
-                    Label l = new Label
-                    {
-                        Top = starth,
-                        Left = labelleft,
-                        AutoSize = false,
-                        BorderStyle = BorderStyle.FixedSingle,
-                        Text = col.fieldname.ToUpper(),
-                        BackColor = Color.White,
-                        ForeColor = Color.Red
-
-                    };
-                    l.Size = TextRenderer.MeasureText(col.fieldname.ToUpper(), l.Font);
-                    l.Height += 10;
-                    l.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                    l.Width = maxlabelsize;
-                    //---------------------
-                    ComboBox cbcondition = new ComboBox
-                    {
-                        Left = l.Left + l.Width + 10,
-                        Top = starth
-                    };
-                    //string DisplayField = FK.EntityColumnID;
-                    //cbcondition.DataSource = Visutil.controlEditor.GetDisplayLookup(ds.DatasourceName, FK.ParentEntityID, FK.ParentEntityColumnID);
-                    //cbcondition.DisplayMember = DisplayField;
-                    //cbcondition.ValueMember = FK.ParentEntityColumnID;
-                    cbcondition.DataSource = AddFilterTypes();
-                    cbcondition.DisplayMember = "FilterDisplay";
-                    cbcondition.ValueMember = "FilterValue";
-                    // cbcondition.SelectedValueChanged += Cb_SelectedValueChanged;
-                    cbcondition.Name = col.fieldname + "." + "Operator";
-                    cbcondition.Width = 50;
-                    cbcondition.Height = l.Height;
-                    // cbcondition.SelectedText
-                    cbcondition.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", BindingData[i], "Operator", true, DataSourceUpdateMode.OnPropertyChanged));
-                    //  cbcondition.Anchor = AnchorStyles.Top;
-                    CrudFilterPanel.Controls.Add(cbcondition);
-
-
-                    switch (coltype)
-                    {
-                        case "System.DateTime":
-                            DateTimePicker dt = new DateTimePicker
-                            {
-                                Left = startleft,
-                                Top = starth
-                            };
-                            dt.DataBindings.Add(new System.Windows.Forms.Binding("Value", BindingData[i], "FilterValue", true));
-
-                            dt.Width = valuewidth;
-                            dt.Height = l.Height;
-                            //    dt.ValueChanged += Dt_ValueChanged;
-                            //     dt.Anchor = AnchorStyles.Top;
-                            dt.Tag = i;
-                            dt.Format = DateTimePickerFormat.Short;
-                            dt.Name = "From" + "." + col.fieldname;
-                            CrudFilterPanel.Controls.Add(dt);
-                            DateTimePicker dt1 = new DateTimePicker
-                            {
-                                Left = dt.Left + 10 + dt.Width,
-                                Top = starth
-                            };
-                            dt1.DataBindings.Add(new System.Windows.Forms.Binding("Value", BindingData[i], "FilterValue1", true));
-
-                            dt1.Width = valuewidth;
-                            dt1.Height = l.Height;
-                            dt1.Format = DateTimePickerFormat.Short;
-                            //   dt1.ValueChanged += Dt_ValueChanged;
-                            //     dt.Anchor = AnchorStyles.Top;
-                            dt1.Tag = i;
-                            dt1.Name = "From" + "." + col.fieldname;
-                            CrudFilterPanel.Controls.Add(dt1);
-                            break;
-                        case "System.TimeSpan":
-                            TextBox t1 = new TextBox
-                            {
-                                Left = startleft,
-                                Top = starth
-                            };
-
-                            t1.DataBindings.Add(new System.Windows.Forms.Binding("Text", BindingData[i], "FilterValue", true));
-                            t1.TextAlign = HorizontalAlignment.Left;
-                            t1.Width = valuewidth;
-                            t1.Height = l.Height;
-
-                            t1.Tag = i;
-                            // t1.TextChanged += T_TextChanged;
-                            //  t1.KeyPress += T_KeyPress;
-                            //     t1.Anchor = AnchorStyles.Top;
-                            t1.Name = col.fieldname;
-                            CrudFilterPanel.Controls.Add(t1);
-                            break;
-                        case "System.Boolean":
-                            CheckBox ch1 = new CheckBox
-                            {
-                                Left = startleft,
-                                Top = starth
-                            };
-
-                            ch1.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", BindingData[i], "FilterValue", true));
-                            ch1.Text = "";
-                            ch1.Width = valuewidth;
-                            ch1.Height = l.Height;
-                            // ch1.CheckStateChanged += Ch1_CheckStateChanged; ;
-                            //       ch1.Anchor = AnchorStyles.Top;
-                            ch1.Tag = i;
-                            ch1.Name = col.fieldname;
-                            CrudFilterPanel.Controls.Add(ch1);
-
-
-                            break;
-                        case "System.Char":
-                            MyCheckBox ch2 = new MyCheckBox
-                            {
-                                Left = startleft,
-                                Top = starth
-                            };
-
-                            ch2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", BindingData[i], "FilterValue", true));
-                            ch2.Text = "";
-                            ch2.Width = valuewidth;
-                            ch2.Height = l.Height;
-                            string[] v = coldefaults.propoertValue.Split(',');
-
-                            if (coldefaults != null)
-                            {
-                                ch2.TrueValue = v[0].ToCharArray()[0];
-                                ch2.FalseValue = v[1].ToCharArray()[0];
-                            }
-                            //  ch2.CheckStateChanged += Ch1_CheckStateChanged; ;
-                            //   ch2.Anchor = AnchorStyles.Top;
-                            ch2.Tag = i;
-                            ch2.Name = col.fieldname;
-                            CrudFilterPanel.Controls.Add(ch2);
-
-                            break;
-                        case "System.Int16":
-                        case "System.Int32":
-                        case "System.Int64":
-                        case "System.Decimal":
-                        case "System.Double":
-                        case "System.Single":
-                            NumericUpDown t3 = new NumericUpDown();
-
-                            t3.Left = startleft;
-                            t3.Top = starth;
-                            t3.DataBindings.Add(new System.Windows.Forms.Binding("Value", BindingData[i], "FilterValue", true));
-                            t3.TextAlign = HorizontalAlignment.Left;
-                            t3.Width = valuewidth;
-                            t3.Height = l.Height;
-                            t3.Tag = i;
-                            t3.Minimum = 0;
-                            //  t3.TextChanged += T_TextChanged;
-                            //t.KeyPress += T_KeyPress;
-
-                            CrudFilterPanel.Controls.Add(t3);
-
-                            NumericUpDown t2 = new NumericUpDown();
-                            t2.Left = t3.Left + t3.Width + 10;
-                            t2.Top = starth;
-                            t2.DataBindings.Add(new System.Windows.Forms.Binding("Value", BindingData[i], "FilterValue1", true));
-                            t2.TextAlign = HorizontalAlignment.Left;
-                            t2.Width = valuewidth;
-                            t2.Height = l.Height;
-                            t2.Tag = i;
-                            t2.Maximum = 99999;
-                            //   t2.TextChanged += T_TextChanged;
-                            //t.KeyPress += T_KeyPress;
-
-                            //   t.Anchor = AnchorStyles.Top;
-
-                            CrudFilterPanel.Controls.Add(t2);
-                            //   t.Anchor = AnchorStyles.Top;
-                            break;
-
-                        case "System.String":
-                            if (Fields.Where(p => p.fieldname == col.fieldname).FirstOrDefault().Size1 != 1)
-                            {
-                                t1 = new TextBox
-                                {
-                                    Left = startleft,
-                                    Top = starth
-                                };
-
-                                t1.DataBindings.Add(new System.Windows.Forms.Binding("Text", BindingData[i], "FilterValue", true));
-                                t1.TextAlign = HorizontalAlignment.Left;
-                                t1.Width = valuewidth;
-                                t1.Height = l.Height;
-
-                                //      t1.TextChanged += T_TextChanged;
-                                //  t1.KeyPress += T_KeyPress;
-
-                                CrudFilterPanel.Controls.Add(t1);
-                                t1.Tag = i;
-                                //      t1.Anchor = AnchorStyles.Top;
-                            }
-                            else
-                            {
-                                ch2 = new MyCheckBox
-                                {
-                                    Left = startleft,
-                                    Top = starth
-                                };
-
-                                ch2.DataBindings.Add(new System.Windows.Forms.Binding("Checked", BindingData[i], "FilterValue", true));
-                                ch2.Text = "";
-                                ch2.Width = valuewidth;
-                                ch2.Height = l.Height;
-                                ch2.Tag = i;
-
-
-                                if (coldefaults != null)
-                                {
-                                    v = coldefaults.propoertValue.Split(',');
-                                    ch2.TrueValue = v[0].ToCharArray()[0];
-                                    ch2.FalseValue = v[1].ToCharArray()[0];
-                                }
-                                // ch2.CheckStateChanged += Ch1_CheckStateChanged; ;
-
-                                CrudFilterPanel.Controls.Add(ch2);
-
-                                //     ch2.Anchor = AnchorStyles.Top;
-                            }
-                            break;
-                        default:
-                            TextBox t = new TextBox();
-
-                            t.Left = startleft;
-                            t.Top = starth;
-                            t.DataBindings.Add(new System.Windows.Forms.Binding("Text", BindingData[i], "FilterValue", true));
-                            t.TextAlign = HorizontalAlignment.Left;
-                            t.Width = valuewidth;
-                            t.Height = l.Height;
-                            t.Tag = i;
-                            //   t.TextChanged += T_TextChanged;
-                            //t.KeyPress += T_KeyPress;
-
-                            //   t.Anchor = AnchorStyles.Top;
-
-                            CrudFilterPanel.Controls.Add(t);
-
-                            break;
-
-                    }
-
-                    // l.Anchor = AnchorStyles.Top;
-                    CrudFilterPanel.Controls.Add(l);
-                    starth = l.Bottom + 1;
-
-                }
-                catch (Exception ex)
-                {
-
                     // Logger.WriteLog($"Error in Loading View ({ex.Message}) ");
                 }
 
             }
-
         }
         #endregion
         #region "util"

@@ -22,7 +22,6 @@ namespace Beep.Winform.Vis.CRUD
     {
         public CrudManager()
         {
-
         }
         public string ParentName { get ; set ; }
         public string ObjectName { get ; set ; } = "CRUD MANAGER";
@@ -39,9 +38,7 @@ namespace Beep.Winform.Vis.CRUD
         public EntityStructure EntityStructure { get ; set ; }
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
-
         public bool IsCrudEnabled { get; set; } = true;
-
         public object CurrentRecord { get; set; }
         public Type CurrentType { get; set; }
         public  BindingSource EntitybindingSource { get; set; }
@@ -53,15 +50,10 @@ namespace Beep.Winform.Vis.CRUD
         public TransActionType TransType { get; set; } 
       
         VisManager visManager;
-        Control DisplayPanel;
+        //Control DisplayPanel;
 
         public void Run(IPassedArgs pPassedarg)
         {
-            //DisplayPanel = (Control)visManager.Container;
-            //DisplayPanel.Controls.Clear();
-            //DisplayPanel.Controls.Add(listEntities);
-            //listEntities.Dock = System.Windows.Forms.DockStyle.Fill;
-          
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
@@ -343,8 +335,5 @@ namespace Beep.Winform.Vis.CRUD
             }
             return retval;
         }
-      
-       
-        
     }
 }

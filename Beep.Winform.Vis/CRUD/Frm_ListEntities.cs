@@ -111,23 +111,19 @@ namespace Beep.Winform.Vis.CRUD
         {
             
         }
-
         private void EntitybindingSource_DataError(object sender, BindingManagerDataErrorEventArgs e)
         {
            
         }
-
         private void EntitybindingSource_PositionChanged(object sender, EventArgs e)
         {
           
         }
-
         private void SubmitButton_Click(object sender, EventArgs e)
         {
             objdata = GetData();
             RefreshData(objdata);
         }
-
         private void PrintButton_Click(object sender, EventArgs e)
         {
             //List<ReportColumn> columns= this.DataGridView1.Columns.Cast<DataGridViewColumn>()
@@ -145,7 +141,6 @@ namespace Beep.Winform.Vis.CRUD
 
             visManager.PrintGrid(passedArgs);
         }
-
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             if (DataGridView1.SelectedRows.Count > 0)
@@ -156,7 +151,6 @@ namespace Beep.Winform.Vis.CRUD
             }
             crudManager.DeleteEntity(crudManager.CurrentRecord);
         }
-
         private void EditButton_Click(object sender, EventArgs e)
         {
             crudManager.TransType = TransActionType.Update;
@@ -177,7 +171,6 @@ namespace Beep.Winform.Vis.CRUD
             
             EntitybindingSource.Remove(record);
         }
-       
         public void UpdateRecord(object record)
         {
             EntitybindingSource.RemoveAt(CurrentRecordIndex);
@@ -197,7 +190,7 @@ namespace Beep.Winform.Vis.CRUD
         }
         public object GetData()
         {
-            return ds.GetEntity(crudManager.EntityStructure.DatasourceEntityName, crudManager.EntityStructure.Filters);
+            return ds.GetEntity(crudManager.EntityStructure.EntityName, crudManager.EntityStructure.Filters);
         }
         public void SetupConnection(string DatasourceName, PassedArgs e)
         {
