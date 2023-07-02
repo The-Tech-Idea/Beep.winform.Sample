@@ -1,12 +1,7 @@
 ﻿
 using BeepEnterprize.Winform;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace SampleApp
+namespace Beep.Winform.App
 {
     static class Program
     {
