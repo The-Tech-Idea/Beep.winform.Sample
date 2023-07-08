@@ -17,7 +17,7 @@
 	  <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 	  <PackageId>TheTechIdea.Beep.Winform.Vis</PackageId>
 	  <Title>TheTechIdea.Beep.Winform.Vis</Title>
-	  <Version>1.0.41</Version>
+	  <Version>1.0.42</Version>
 	  <Product>TheTechIdea.Beep.Winform.Vis</Product>
 	  <AssemblyName>Beep.Winform.Vis</AssemblyName>
   </PropertyGroup>
@@ -47,55 +47,61 @@
 
   <ItemGroup>
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.4" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.129" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.59" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.24" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.130" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.60" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.25" />
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Configuration\uc_ConfigurationControl.cs">
+    <Compile Update="Configuration\Configurations\uc_ConnectionDrivers.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Configuration\uc_ConnectionDrivers.cs">
+    <Compile Update="Configuration\Configurations\uc_DataSourceDataTypeMapping.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\Configurations\uc_datasourceDefaults.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\Configurations\uc_FolderConfigurationControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\Configurations\uc_QueryConfig.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\DataConnections\uc_Database.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\DataConnections\uc_dsList.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\DataConnections\uc_File.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\DataConnections\uc_WebApi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\DataConnections\WebApiConfig\uc_webapiHeaders.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\DataConnections\WebApiConfig\uc_webapiQueryParameters.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\Fucntions\uc_CreateLocalDatabase.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\FunctionConfigurations\uc_events.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Configuration\FunctionConfigurations\uc_function2function.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Configuration\uc_CreateEntity.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Configuration\uc_CreateLocalDatabase.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Configuration\uc_DataConnection.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Configuration\uc_datasourceDefaults.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Configuration\uc_DBFieldType.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Configuration\uc_DriversDefinitions.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="Configuration\uc_events.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Configuration\uc_fileconnections.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Configuration\uc_function2function.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="Configuration\uc_objectTypes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Configuration\uc_QueryConfig.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Configuration\uc_webapiHeaders.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Update="Configuration\uc_webapiQueryParameters.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Controls\BeepControlBase.cs">
@@ -212,13 +218,13 @@
     <Compile Update="MainForms\Frm_Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="MainForms\Frm_Main_1.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Real_UI\Frm_Main_1.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Update="ReportManagement\uc_reportdefinition.cs">
       <SubType>UserControl</SubType>
@@ -266,6 +272,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Real_UI\Controls\" />
     <Folder Include="Wizards\copyentities\" />
     <Folder Include="Wizards\createpoco\" />
     <Folder Include="Wizards\createview\" />
@@ -285,5 +292,9 @@
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\plugins\Beep.Config.Logic\Beep.Config.Logic.csproj" />
 	</ItemGroup>
 </Project>

@@ -1,5 +1,6 @@
 ﻿
 using Beep.Winform.Controls;
+using DataManagementModels.DriversConfigurations;
 
 namespace Beep.Winform.Vis
 {
@@ -48,7 +49,7 @@ namespace Beep.Winform.Vis
             // 
             // driverDefinitionsBindingSource
             // 
-            this.driverDefinitionsBindingSource.DataSource = typeof(TheTechIdea.Util.ConnectionDriversConfig);
+            this.driverDefinitionsBindingSource.DataSource = typeof(ConnectionDriversConfig);
             // 
             // dataDriversDataGridView
             // 

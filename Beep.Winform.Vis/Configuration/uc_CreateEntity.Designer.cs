@@ -1,4 +1,5 @@
 ﻿using Beep.Winform.Controls;
+using DataManagementModels.DriversConfigurations;
 
 namespace Beep.Winform.Vis.Configuration
 {
@@ -201,7 +202,7 @@ namespace Beep.Winform.Vis.Configuration
             // 
             // mappingBindingSource
             // 
-            this.mappingBindingSource.DataSource = typeof(TheTechIdea.Beep.DataBase.DatatypeMapping);
+            this.mappingBindingSource.DataSource = typeof(DatatypeMapping);
             // 
             // panel1
             // 

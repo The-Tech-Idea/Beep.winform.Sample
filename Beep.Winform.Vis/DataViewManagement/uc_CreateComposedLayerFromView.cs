@@ -1,4 +1,5 @@
 ﻿using BeepEnterprize.Vis.Module;
+using DataManagementModels.DriversConfigurations;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

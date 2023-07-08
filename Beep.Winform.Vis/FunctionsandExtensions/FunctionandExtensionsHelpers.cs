@@ -17,6 +17,7 @@ using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 using BeepEnterprize.Winform.Vis;
+using DataManagementModels.DriversConfigurations;
 
 namespace Beep.Winform.Vis.FunctionsandExtensions
 {

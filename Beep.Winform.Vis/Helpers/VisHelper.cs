@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using BeepEnterprize.Winform.Vis.Helpers;
+using DataManagementModels.DriversConfigurations;
 using TheTechIdea.Beep;
 using TheTechIdea.Util;
 
