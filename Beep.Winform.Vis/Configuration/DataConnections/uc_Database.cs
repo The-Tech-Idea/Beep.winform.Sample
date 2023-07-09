@@ -196,11 +196,7 @@ namespace Beep.Config.Winform.DataConnections
         {
             DBWork.Update(GuidID, cn);
             MessageBox.Show("Changes Saved", "Beep");
-            Form f = (Form)this.Parent;
-            if (f != null)
-            {
-                f.Close();
-            }
+           
         }
 
         private void DriverNameComboBox_SelectedValueChanged(object sender, EventArgs e)
