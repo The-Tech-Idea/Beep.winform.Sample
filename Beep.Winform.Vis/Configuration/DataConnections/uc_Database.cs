@@ -161,18 +161,7 @@ namespace Beep.Config.Winform.DataConnections
 
             }
           
-            //ds = DMEEditor.ConfigEditor.DataConnections.Where(x => x.Category == DatasourceCategory.RDBMS).ToList();
-            //ConnectionProperties file = new ConnectionProperties();
-            //file.FileName = "DataConnections.json";
-            //file.FilePath = "./config/";
-            //file.DriverName = "JSONSource";
-            //file.DriverVersion = "1";
-            //file.ConnectionName = "DataConnections";
-            //DMEEditor.ConfigEditor.AddDataConnection(file);
-            //JsonDataSource ds= (JsonDataSource)DMEEditor.GetDataSource("DataConnections");
-            //ds.Openconnection();
-            //DBWork = new UnitofWork<ConnectionProperties>(true, DMEEditor.Utilfunction.ConvertToObservableCollection<ConnectionProperties>( DMEEditor.ConfigEditor.DataConnections));
-            
+       
             dataConnectionsBindingSource.AllowNew = true;
           
             driverNameComboBox.SelectedValueChanged += DriverNameComboBox_SelectedValueChanged;
