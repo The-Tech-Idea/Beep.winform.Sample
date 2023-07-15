@@ -64,10 +64,13 @@ namespace Beep.Winform.Vis.Controls
                 Font f = this.Font;
                 string title = this.TabContainerPanel.TabPages[e.Index].Text;
                 SizeF titlesize=e.Graphics.MeasureString(title, f);
+                //This code will render a "x" mark at the end of the Tab caption. 
+                e.Graphics.DrawString("x", e.Font, Brushes.Black, e.Bounds.Right - 15, e.Bounds.Top + 4);
+                e.Graphics.DrawString(this.TabContainerPanel.TabPages[e.Index].Text, e.Font, Brushes.Black, e.Bounds.Left + 12, e.Bounds.Top + 4);
+                e.DrawFocusRectangle();
+                //e.Graphics.DrawString(title, f, TitleBrush, new PointF(r.X, r.Y));
                 
-                e.Graphics.DrawString(title, f, TitleBrush, new PointF(r.X, r.Y));
-                
-                e.Graphics.DrawImage(img, new Point(r.X + (this.TabContainerPanel.GetTabRect(e.Index).Width - _imageLocation.X), _imageLocation.Y));
+                //e.Graphics.DrawImage(img, new Point(r.X + (this.TabContainerPanel.GetTabRect(e.Index).Width - _imageLocation.X), _imageLocation.Y));
 
             }
             catch (Exception ex) { }

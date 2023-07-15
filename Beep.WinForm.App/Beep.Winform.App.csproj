@@ -680,67 +680,67 @@
     <Content Include="..\..\outputDLL\ML.NETExtensions\netstandard2.0\ML.NETExtensions.dll" Link="ProjectClasses\ML.NET\ML.NETExtensions.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.AutoML.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.AutoML.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.AutoML.dll" Link="OtherDLL\AI\lib\Microsoft.ML.AutoML.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CodeGenerator.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.CodeGenerator.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CodeGenerator.dll" Link="OtherDLL\AI\lib\Microsoft.ML.CodeGenerator.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Core.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Core.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Core.dll" Link="OtherDLL\AI\lib\Microsoft.ML.Core.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CpuMath.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.CpuMath.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CpuMath.dll" Link="OtherDLL\AI\lib\Microsoft.ML.CpuMath.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Data.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Data.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Data.dll" Link="OtherDLL\AI\lib\Microsoft.ML.Data.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.DataView.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.DataView.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.DataView.dll" Link="OtherDLL\AI\lib\Microsoft.ML.DataView.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.dll" Link="OtherDLL\AI\lib\Microsoft.ML.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.FastTree.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.FastTree.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.FastTree.dll" Link="OtherDLL\AI\lib\Microsoft.ML.FastTree.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.KMeansClustering.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.KMeansClustering.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.KMeansClustering.dll" Link="OtherDLL\AI\lib\Microsoft.ML.KMeansClustering.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.LightGbm.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.LightGbm.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.LightGbm.dll" Link="OtherDLL\AI\lib\Microsoft.ML.LightGbm.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Mkl.Components.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Mkl.Components.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Mkl.Components.dll" Link="OtherDLL\AI\lib\Microsoft.ML.Mkl.Components.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Parquet.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Parquet.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Parquet.dll" Link="OtherDLL\AI\lib\Microsoft.ML.Parquet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.PCA.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.PCA.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.PCA.dll" Link="OtherDLL\AI\lib\Microsoft.ML.PCA.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Scoring.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Scoring.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Scoring.dll" Link="OtherDLL\AI\lib\Microsoft.ML.Scoring.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.ScoringNative.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.ScoringNative.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.ScoringNative.dll" Link="OtherDLL\AI\lib\Microsoft.ML.ScoringNative.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.SearchSpace.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.SearchSpace.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.SearchSpace.dll" Link="OtherDLL\AI\lib\Microsoft.ML.SearchSpace.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.StandardTrainers.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.StandardTrainers.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.StandardTrainers.dll" Link="OtherDLL\AI\lib\Microsoft.ML.StandardTrainers.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TimeSeries.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.TimeSeries.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TimeSeries.dll" Link="OtherDLL\AI\lib\Microsoft.ML.TimeSeries.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TorchSharp.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.TorchSharp.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TorchSharp.dll" Link="OtherDLL\AI\lib\Microsoft.ML.TorchSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Transforms.dll" Link="ProjectClasses\ML.NET\lib\Microsoft.ML.Transforms.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Transforms.dll" Link="OtherDLL\AI\lib\Microsoft.ML.Transforms.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\mkldnn.dll" Link="ProjectClasses\ML.NET\lib\mkldnn.dll">
+    <Content Include="..\..\outputDLL\ML.NET\lib\mkldnn.dll" Link="OtherDLL\AI\lib\mkldnn.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\ML.NET\netstandard2.0\ML.NET.dll" Link="ProjectClasses\ML.NET\ML.NET.dll">
@@ -2054,22 +2054,7 @@
     <Content Include="ProjectClasses\Skia\SkiaSharp.Views.WindowsForms.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\System.Buffers.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Skia\System.Drawing.Common.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Skia\System.Memory.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Skia\System.Numerics.Vectors.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Skia\System.Runtime.CompilerServices.Unsafe.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="ProjectClasses\Skia\System.Text.Encoding.CodePages.dll">
+    <Content Include="OtherDLL\System.Drawing.Common.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\Skia\x64\libSkiaSharp.dll">

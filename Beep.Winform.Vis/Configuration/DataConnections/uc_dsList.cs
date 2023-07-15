@@ -105,7 +105,7 @@ namespace Beep.Config.Winform.DataConnections
             DataGridViewImageColumn editButtonColumn = new DataGridViewImageColumn();
             editButtonColumn.Name = "EditButton";
             editButtonColumn.HeaderText = "Edit";
-         //   editButtonColumn.Image = Properties.Resources._221_database_6; // Add your image from resources here
+             editButtonColumn.Image =  Beep.Winform.Vis.Properties.Resources._221_database_6; // Add your image from resources here
             editButtonColumn.ImageLayout = DataGridViewImageCellLayout.Normal;
 
             int columnIndex = 0;  // Choose the index where you want the button column to be.

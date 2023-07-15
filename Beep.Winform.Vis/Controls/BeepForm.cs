@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
+﻿
 namespace Beep.Winform.Controls
 {
     public partial class BeepForm : Form
@@ -20,7 +8,14 @@ namespace Beep.Winform.Controls
             InitializeComponent();
             Loadimages();
             this.FormClosing += BeepForm_FormClosing;
+         //   this.foreverClose1.Click += ForeverClose1_Click; ;
         }
+
+        private void ForeverClose1_Click(object? sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         public event EventHandler<FormClosingEventArgs> PreClose;
         private void BeepForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -90,7 +85,12 @@ namespace Beep.Winform.Controls
             //this.MessegepictureBox.Image = GetImage("messages.png");
             //this.PrinterpictureBox.Image = GetImage("printer.png");
         }
-        
+
         #endregion
+
+        private void metroPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

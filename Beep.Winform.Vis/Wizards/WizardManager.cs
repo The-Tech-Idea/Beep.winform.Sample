@@ -208,24 +208,7 @@ namespace Beep.Winform.Vis.Wizards
         {
             try
             {
-                //_CurrentIdx += 1;
-                //int top = StartTop + (CurrentIdx * (Height + 10));
-                //Control control = (Control)addin;
-                //control.Name = title;
-                //control.Tag = _CurrentIdx;
-                //control.Visible = false;
-                //IWizardNode node =new WizardNode(addin, title,  text, CurrentIdx, StartLeft, top, SidePanel.Width-(StartLeft*2), Height,  ColorsTemplate.ForColor, ColorsTemplate.BackColor);
-                //SetColorTemplateForNode(node);
-                //node.WizardNodeClickEvent += Node_WizardNodeClick;
-                //node.WizardNodeEnterEvent += Node_WizardNodeEnterEvent;
-                //LinkedListNode<IWizardNode> linkedListNode = new LinkedListNode<IWizardNode>(node);
-                //Nodes.AddLast(linkedListNode);
-                //WizardButton b = (WizardButton)node.Wizardbutton;
-                //SidePanel.Controls.Add(b.button);
-                //Nodes.AddLast(linkedListNode);
-                //node.IsVisible = false;
-                //DisplayPanel.Controls.Add(control);
-                //return CurrentIdx;
+             
                 return AddNode(addin,  title,  text, ColorsTemplate.ForColor, ColorsTemplate.BackColor);
             }
             catch (Exception)
@@ -394,7 +377,6 @@ namespace Beep.Winform.Vis.Wizards
         private Button ExitButton = new Button();
         private Panel DisplayPanel = new Panel();
         private BeepForm WizardParentForm;
-       
         private Label TitleLabel = new Label();
         private Label DescriptionLabel = new Label();
         private Panel HilightPanel = new Panel();

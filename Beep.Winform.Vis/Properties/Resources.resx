@@ -232,4 +232,10 @@
   <data name="080-inbox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\080-inbox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="221-database-6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\221-database-6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="223-add-database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\223-add-database.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -42,6 +42,8 @@
             this.ExitCancelpoisonButton = new ReaLTaiizor.Controls.PoisonButton();
             this.SaveButton = new ReaLTaiizor.Controls.PoisonButton();
             this.poisonPanel1 = new ReaLTaiizor.Controls.PoisonPanel();
+            this.FilePathpoisonTextBox1 = new ReaLTaiizor.Controls.PoisonTextBox();
+            this.FileNamepoisonTextBox = new ReaLTaiizor.Controls.PoisonTextBox();
             this.poisonPanel2 = new ReaLTaiizor.Controls.PoisonPanel();
             this.poisonLabel1 = new ReaLTaiizor.Controls.PoisonLabel();
             this.connectionNameTextBox = new ReaLTaiizor.Controls.PoisonTextBox();
@@ -49,8 +51,6 @@
             this.driverNameComboBox = new ReaLTaiizor.Controls.PoisonComboBox();
             this.userIDTextBox = new ReaLTaiizor.Controls.PoisonTextBox();
             this.passwordTextBox = new ReaLTaiizor.Controls.PoisonTextBox();
-            this.FileNamepoisonTextBox = new ReaLTaiizor.Controls.PoisonTextBox();
-            this.FilePathpoisonTextBox1 = new ReaLTaiizor.Controls.PoisonTextBox();
             driverVersionLabel = new ReaLTaiizor.Controls.PoisonLabel();
             connectionNameLabel = new ReaLTaiizor.Controls.PoisonLabel();
             driverNameLabel = new ReaLTaiizor.Controls.PoisonLabel();
@@ -64,6 +64,85 @@
             this.poisonPanel1.SuspendLayout();
             this.poisonPanel2.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // driverVersionLabel
+            // 
+            driverVersionLabel.AutoSize = true;
+            driverVersionLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            driverVersionLabel.Location = new System.Drawing.Point(103, 238);
+            driverVersionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            driverVersionLabel.Name = "driverVersionLabel";
+            driverVersionLabel.Size = new System.Drawing.Size(98, 19);
+            driverVersionLabel.TabIndex = 64;
+            driverVersionLabel.Text = "Driver Version:";
+            driverVersionLabel.UseStyleColors = true;
+            // 
+            // connectionNameLabel
+            // 
+            connectionNameLabel.AutoSize = true;
+            connectionNameLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            connectionNameLabel.Location = new System.Drawing.Point(79, 72);
+            connectionNameLabel.Name = "connectionNameLabel";
+            connectionNameLabel.Size = new System.Drawing.Size(122, 19);
+            connectionNameLabel.TabIndex = 41;
+            connectionNameLabel.Text = "Connection Name:";
+            connectionNameLabel.UseStyleColors = true;
+            // 
+            // driverNameLabel
+            // 
+            driverNameLabel.AutoSize = true;
+            driverNameLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            driverNameLabel.Location = new System.Drawing.Point(112, 205);
+            driverNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            driverNameLabel.Name = "driverNameLabel";
+            driverNameLabel.Size = new System.Drawing.Size(89, 19);
+            driverNameLabel.TabIndex = 63;
+            driverNameLabel.Text = "Driver Name:";
+            driverNameLabel.UseStyleColors = true;
+            // 
+            // passwordLabel
+            // 
+            passwordLabel.AutoSize = true;
+            passwordLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            passwordLabel.Location = new System.Drawing.Point(131, 127);
+            passwordLabel.Name = "passwordLabel";
+            passwordLabel.Size = new System.Drawing.Size(70, 19);
+            passwordLabel.TabIndex = 56;
+            passwordLabel.Text = "Password:";
+            passwordLabel.UseStyleColors = true;
+            // 
+            // userIDLabel
+            // 
+            userIDLabel.AutoSize = true;
+            userIDLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            userIDLabel.Location = new System.Drawing.Point(143, 104);
+            userIDLabel.Name = "userIDLabel";
+            userIDLabel.Size = new System.Drawing.Size(58, 19);
+            userIDLabel.TabIndex = 55;
+            userIDLabel.Text = "User ID:";
+            userIDLabel.UseStyleColors = true;
+            // 
+            // poisonLabel2
+            // 
+            poisonLabel2.AutoSize = true;
+            poisonLabel2.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            poisonLabel2.Location = new System.Drawing.Point(133, 152);
+            poisonLabel2.Name = "poisonLabel2";
+            poisonLabel2.Size = new System.Drawing.Size(68, 19);
+            poisonLabel2.TabIndex = 68;
+            poisonLabel2.Text = "FileName:";
+            poisonLabel2.UseStyleColors = true;
+            // 
+            // poisonLabel3
+            // 
+            poisonLabel3.AutoSize = true;
+            poisonLabel3.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
+            poisonLabel3.Location = new System.Drawing.Point(141, 179);
+            poisonLabel3.Name = "poisonLabel3";
+            poisonLabel3.Size = new System.Drawing.Size(60, 19);
+            poisonLabel3.TabIndex = 69;
+            poisonLabel3.Text = "FilePath:";
+            poisonLabel3.UseStyleColors = true;
             // 
             // poisonStyleManager1
             // 
@@ -141,6 +220,70 @@
             this.poisonPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.poisonPanel1.VerticalScrollbarSize = 10;
             // 
+            // FilePathpoisonTextBox1
+            // 
+            // 
+            // 
+            // 
+            this.FilePathpoisonTextBox1.CustomButton.Image = null;
+            this.FilePathpoisonTextBox1.CustomButton.Location = new System.Drawing.Point(366, 2);
+            this.FilePathpoisonTextBox1.CustomButton.Name = "";
+            this.FilePathpoisonTextBox1.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.FilePathpoisonTextBox1.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            this.FilePathpoisonTextBox1.CustomButton.TabIndex = 1;
+            this.FilePathpoisonTextBox1.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.FilePathpoisonTextBox1.CustomButton.UseSelectable = true;
+            this.FilePathpoisonTextBox1.CustomButton.Visible = false;
+            this.FilePathpoisonTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataConnectionsBindingSource, "FilePath", true));
+            this.FilePathpoisonTextBox1.Lines = new string[0];
+            this.FilePathpoisonTextBox1.Location = new System.Drawing.Point(209, 178);
+            this.FilePathpoisonTextBox1.MaxLength = 32767;
+            this.FilePathpoisonTextBox1.Name = "FilePathpoisonTextBox1";
+            this.FilePathpoisonTextBox1.PasswordChar = '\0';
+            this.FilePathpoisonTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.FilePathpoisonTextBox1.SelectedText = "";
+            this.FilePathpoisonTextBox1.SelectionLength = 0;
+            this.FilePathpoisonTextBox1.SelectionStart = 0;
+            this.FilePathpoisonTextBox1.ShortcutsEnabled = true;
+            this.FilePathpoisonTextBox1.Size = new System.Drawing.Size(384, 20);
+            this.FilePathpoisonTextBox1.TabIndex = 67;
+            this.FilePathpoisonTextBox1.UseSelectable = true;
+            this.FilePathpoisonTextBox1.UseStyleColors = true;
+            this.FilePathpoisonTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.FilePathpoisonTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // FileNamepoisonTextBox
+            // 
+            // 
+            // 
+            // 
+            this.FileNamepoisonTextBox.CustomButton.Image = null;
+            this.FileNamepoisonTextBox.CustomButton.Location = new System.Drawing.Point(366, 2);
+            this.FileNamepoisonTextBox.CustomButton.Name = "";
+            this.FileNamepoisonTextBox.CustomButton.Size = new System.Drawing.Size(15, 15);
+            this.FileNamepoisonTextBox.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
+            this.FileNamepoisonTextBox.CustomButton.TabIndex = 1;
+            this.FileNamepoisonTextBox.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            this.FileNamepoisonTextBox.CustomButton.UseSelectable = true;
+            this.FileNamepoisonTextBox.CustomButton.Visible = false;
+            this.FileNamepoisonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataConnectionsBindingSource, "FileName", true));
+            this.FileNamepoisonTextBox.Lines = new string[0];
+            this.FileNamepoisonTextBox.Location = new System.Drawing.Point(209, 152);
+            this.FileNamepoisonTextBox.MaxLength = 32767;
+            this.FileNamepoisonTextBox.Name = "FileNamepoisonTextBox";
+            this.FileNamepoisonTextBox.PasswordChar = '\0';
+            this.FileNamepoisonTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.FileNamepoisonTextBox.SelectedText = "";
+            this.FileNamepoisonTextBox.SelectionLength = 0;
+            this.FileNamepoisonTextBox.SelectionStart = 0;
+            this.FileNamepoisonTextBox.ShortcutsEnabled = true;
+            this.FileNamepoisonTextBox.Size = new System.Drawing.Size(384, 20);
+            this.FileNamepoisonTextBox.TabIndex = 66;
+            this.FileNamepoisonTextBox.UseSelectable = true;
+            this.FileNamepoisonTextBox.UseStyleColors = true;
+            this.FileNamepoisonTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.FileNamepoisonTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
             // poisonPanel2
             // 
             this.poisonPanel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -170,18 +313,6 @@
             this.poisonLabel1.Text = "File Connection";
             this.poisonLabel1.UseStyleColors = true;
             // 
-            // driverVersionLabel
-            // 
-            driverVersionLabel.AutoSize = true;
-            driverVersionLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
-            driverVersionLabel.Location = new System.Drawing.Point(103, 238);
-            driverVersionLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            driverVersionLabel.Name = "driverVersionLabel";
-            driverVersionLabel.Size = new System.Drawing.Size(98, 19);
-            driverVersionLabel.TabIndex = 64;
-            driverVersionLabel.Text = "Driver Version:";
-            driverVersionLabel.UseStyleColors = true;
-            // 
             // connectionNameTextBox
             // 
             // 
@@ -199,7 +330,6 @@
             this.connectionNameTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataConnectionsBindingSource, "ConnectionName", true));
             this.connectionNameTextBox.FontSize = ReaLTaiizor.Extension.Poison.PoisonTextBoxSize.Medium;
             this.connectionNameTextBox.FontWeight = ReaLTaiizor.Extension.Poison.PoisonTextBoxWeight.Bold;
-          //  this.connectionNameTextBox.Icon = global::Beep.Config.Winform.Properties.Resources._221_database_6;
             this.connectionNameTextBox.IconRight = true;
             this.connectionNameTextBox.Lines = new string[0];
             this.connectionNameTextBox.Location = new System.Drawing.Point(209, 72);
@@ -231,29 +361,6 @@
             this.driverVersionComboBox.UseSelectable = true;
             this.driverVersionComboBox.UseStyleColors = true;
             // 
-            // connectionNameLabel
-            // 
-            connectionNameLabel.AutoSize = true;
-            connectionNameLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
-            connectionNameLabel.Location = new System.Drawing.Point(79, 72);
-            connectionNameLabel.Name = "connectionNameLabel";
-            connectionNameLabel.Size = new System.Drawing.Size(122, 19);
-            connectionNameLabel.TabIndex = 41;
-            connectionNameLabel.Text = "Connection Name:";
-            connectionNameLabel.UseStyleColors = true;
-            // 
-            // driverNameLabel
-            // 
-            driverNameLabel.AutoSize = true;
-            driverNameLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
-            driverNameLabel.Location = new System.Drawing.Point(112, 205);
-            driverNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            driverNameLabel.Name = "driverNameLabel";
-            driverNameLabel.Size = new System.Drawing.Size(89, 19);
-            driverNameLabel.TabIndex = 63;
-            driverNameLabel.Text = "Driver Name:";
-            driverNameLabel.UseStyleColors = true;
-            // 
             // driverNameComboBox
             // 
             this.driverNameComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataConnectionsBindingSource, "DriverName", true));
@@ -266,17 +373,6 @@
             this.driverNameComboBox.TabIndex = 61;
             this.driverNameComboBox.UseSelectable = true;
             this.driverNameComboBox.UseStyleColors = true;
-            // 
-            // passwordLabel
-            // 
-            passwordLabel.AutoSize = true;
-            passwordLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
-            passwordLabel.Location = new System.Drawing.Point(131, 127);
-            passwordLabel.Name = "passwordLabel";
-            passwordLabel.Size = new System.Drawing.Size(70, 19);
-            passwordLabel.TabIndex = 56;
-            passwordLabel.Text = "Password:";
-            passwordLabel.UseStyleColors = true;
             // 
             // userIDTextBox
             // 
@@ -341,103 +437,6 @@
             this.passwordTextBox.UseStyleColors = true;
             this.passwordTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.passwordTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // userIDLabel
-            // 
-            userIDLabel.AutoSize = true;
-            userIDLabel.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
-            userIDLabel.Location = new System.Drawing.Point(143, 104);
-            userIDLabel.Name = "userIDLabel";
-            userIDLabel.Size = new System.Drawing.Size(58, 19);
-            userIDLabel.TabIndex = 55;
-            userIDLabel.Text = "User ID:";
-            userIDLabel.UseStyleColors = true;
-            // 
-            // FileNamepoisonTextBox
-            // 
-            // 
-            // 
-            // 
-            this.FileNamepoisonTextBox.CustomButton.Image = null;
-            this.FileNamepoisonTextBox.CustomButton.Location = new System.Drawing.Point(366, 2);
-            this.FileNamepoisonTextBox.CustomButton.Name = "";
-            this.FileNamepoisonTextBox.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.FileNamepoisonTextBox.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
-            this.FileNamepoisonTextBox.CustomButton.TabIndex = 1;
-            this.FileNamepoisonTextBox.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
-            this.FileNamepoisonTextBox.CustomButton.UseSelectable = true;
-            this.FileNamepoisonTextBox.CustomButton.Visible = false;
-            this.FileNamepoisonTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataConnectionsBindingSource, "FileName", true));
-            this.FileNamepoisonTextBox.Lines = new string[0];
-            this.FileNamepoisonTextBox.Location = new System.Drawing.Point(209, 152);
-            this.FileNamepoisonTextBox.MaxLength = 32767;
-            this.FileNamepoisonTextBox.Name = "FileNamepoisonTextBox";
-            this.FileNamepoisonTextBox.PasswordChar = '*';
-            this.FileNamepoisonTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.FileNamepoisonTextBox.SelectedText = "";
-            this.FileNamepoisonTextBox.SelectionLength = 0;
-            this.FileNamepoisonTextBox.SelectionStart = 0;
-            this.FileNamepoisonTextBox.ShortcutsEnabled = true;
-            this.FileNamepoisonTextBox.Size = new System.Drawing.Size(384, 20);
-            this.FileNamepoisonTextBox.TabIndex = 66;
-            this.FileNamepoisonTextBox.UseSelectable = true;
-            this.FileNamepoisonTextBox.UseStyleColors = true;
-            this.FileNamepoisonTextBox.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.FileNamepoisonTextBox.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // FilePathpoisonTextBox1
-            // 
-            // 
-            // 
-            // 
-            this.FilePathpoisonTextBox1.CustomButton.Image = null;
-            this.FilePathpoisonTextBox1.CustomButton.Location = new System.Drawing.Point(366, 2);
-            this.FilePathpoisonTextBox1.CustomButton.Name = "";
-            this.FilePathpoisonTextBox1.CustomButton.Size = new System.Drawing.Size(15, 15);
-            this.FilePathpoisonTextBox1.CustomButton.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Blue;
-            this.FilePathpoisonTextBox1.CustomButton.TabIndex = 1;
-            this.FilePathpoisonTextBox1.CustomButton.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
-            this.FilePathpoisonTextBox1.CustomButton.UseSelectable = true;
-            this.FilePathpoisonTextBox1.CustomButton.Visible = false;
-            this.FilePathpoisonTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.dataConnectionsBindingSource, "FilePath", true));
-            this.FilePathpoisonTextBox1.Lines = new string[0];
-            this.FilePathpoisonTextBox1.Location = new System.Drawing.Point(209, 178);
-            this.FilePathpoisonTextBox1.MaxLength = 32767;
-            this.FilePathpoisonTextBox1.Name = "FilePathpoisonTextBox1";
-            this.FilePathpoisonTextBox1.PasswordChar = '*';
-            this.FilePathpoisonTextBox1.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.FilePathpoisonTextBox1.SelectedText = "";
-            this.FilePathpoisonTextBox1.SelectionLength = 0;
-            this.FilePathpoisonTextBox1.SelectionStart = 0;
-            this.FilePathpoisonTextBox1.ShortcutsEnabled = true;
-            this.FilePathpoisonTextBox1.Size = new System.Drawing.Size(384, 20);
-            this.FilePathpoisonTextBox1.TabIndex = 67;
-            this.FilePathpoisonTextBox1.UseSelectable = true;
-            this.FilePathpoisonTextBox1.UseStyleColors = true;
-            this.FilePathpoisonTextBox1.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.FilePathpoisonTextBox1.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // poisonLabel2
-            // 
-            poisonLabel2.AutoSize = true;
-            poisonLabel2.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
-            poisonLabel2.Location = new System.Drawing.Point(133, 152);
-            poisonLabel2.Name = "poisonLabel2";
-            poisonLabel2.Size = new System.Drawing.Size(68, 19);
-            poisonLabel2.TabIndex = 68;
-            poisonLabel2.Text = "FileName:";
-            poisonLabel2.UseStyleColors = true;
-            // 
-            // poisonLabel3
-            // 
-            poisonLabel3.AutoSize = true;
-            poisonLabel3.FontWeight = ReaLTaiizor.Extension.Poison.PoisonLabelWeight.Regular;
-            poisonLabel3.Location = new System.Drawing.Point(141, 179);
-            poisonLabel3.Name = "poisonLabel3";
-            poisonLabel3.Size = new System.Drawing.Size(60, 19);
-            poisonLabel3.TabIndex = 69;
-            poisonLabel3.Text = "FilePath:";
-            poisonLabel3.UseStyleColors = true;
             // 
             // uc_File
             // 

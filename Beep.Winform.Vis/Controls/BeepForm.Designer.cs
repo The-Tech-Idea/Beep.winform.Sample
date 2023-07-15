@@ -28,46 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.FramePanel = new System.Windows.Forms.Panel();
-            this.Insidepanel = new System.Windows.Forms.Panel();
-            this.FramePanel.SuspendLayout();
+            this.Insidepanel = new ReaLTaiizor.Controls.MetroPanel();
             this.SuspendLayout();
-            // 
-            // FramePanel
-            // 
-            this.FramePanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.FramePanel.Controls.Add(this.Insidepanel);
-            this.FramePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FramePanel.Location = new System.Drawing.Point(0, 0);
-            this.FramePanel.Name = "FramePanel";
-            this.FramePanel.Size = new System.Drawing.Size(872, 608);
-            this.FramePanel.TabIndex = 1;
             // 
             // Insidepanel
             // 
-            this.Insidepanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Insidepanel.BackgroundColor = System.Drawing.Color.White;
+            this.Insidepanel.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.Insidepanel.BorderThickness = 1;
             this.Insidepanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Insidepanel.IsDerivedStyle = true;
             this.Insidepanel.Location = new System.Drawing.Point(0, 0);
             this.Insidepanel.Name = "Insidepanel";
-            this.Insidepanel.Size = new System.Drawing.Size(870, 606);
-            this.Insidepanel.TabIndex = 0;
+            this.Insidepanel.Size = new System.Drawing.Size(872, 608);
+            this.Insidepanel.Style = ReaLTaiizor.Enum.Metro.Style.Light;
+            this.Insidepanel.StyleManager = null;
+            this.Insidepanel.TabIndex = 2;
+            this.Insidepanel.ThemeAuthor = "Taiizor";
+            this.Insidepanel.ThemeName = "MetroLight";
             // 
             // BeepForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 608);
-            this.Controls.Add(this.FramePanel);
+            this.Controls.Add(this.Insidepanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximumSize = new System.Drawing.Size(3440, 1392);
+            this.MinimumSize = new System.Drawing.Size(190, 40);
             this.Name = "BeepForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "BeepForm";
-            this.FramePanel.ResumeLayout(false);
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "dungeonForm1";
+            this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel FramePanel;
-        public System.Windows.Forms.Panel Insidepanel;
+
+        private ReaLTaiizor.Controls.MetroPanel Insidepanel;
     }
 }
