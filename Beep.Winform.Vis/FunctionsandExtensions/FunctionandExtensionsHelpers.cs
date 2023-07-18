@@ -490,7 +490,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
             {
                 AppBlock blk = new AppBlock();
                 blk.filters = item.Filters;
-                blk.Paramenters = item.Paramenters;
+                blk.Paramenters = item.Parameters;
                 blk.Fields = item.Fields;
                 blk.Relations = item.Relations;
                 blk.ViewID = src.DatasourceName;
