@@ -396,11 +396,12 @@ namespace Beep.Winform.Vis.MainForms
         {
             if (startLoggin)
             {
-                    this.LogPanel.BeginInvoke(new Action(() => {
-                    this.LogPanel.AppendText(e + Environment.NewLine);
+                LogPanel.Invoke((MethodInvoker)delegate {
+                    // Perform your control modifications here
+                    LogPanel.AppendText(e + Environment.NewLine);
                     LogPanel.SelectionStart = LogPanel.Text.Length;
                     LogPanel.ScrollToCaret();
-                }));
+                });
             }
 
         }
@@ -408,3 +409,8 @@ namespace Beep.Winform.Vis.MainForms
        
     }
 }
+//this.LogPanel.BeginInvoke(new Action(() => {
+//    this.LogPanel.AppendText(e + Environment.NewLine);
+//    LogPanel.SelectionStart = LogPanel.Text.Length;
+//    LogPanel.ScrollToCaret();
+//}));

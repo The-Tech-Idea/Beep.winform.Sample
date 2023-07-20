@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using Beep.Winform.Vis.Controls;
 using TheTechIdea;
@@ -291,6 +284,35 @@ namespace Beep.Winform.Vis
             BeepEnterprize.Vis.Module.DialogResult result = MapDialogResult(saveFileDialog1.ShowDialog());
 
             return saveFileDialog1.FileName;
+        }
+        public string ShowSpecialDirectoriesComboBox()
+        {
+            ComboBox comboBox = new ComboBox();
+
+            // Get all special directories
+            var specialDirectories = Enum.GetValues(typeof(Environment.SpecialFolder));
+
+            // Add each special directory to the ComboBox
+            foreach (var directory in specialDirectories)
+            {
+                comboBox.Items.Add(directory);
+            }
+
+            // Display the ComboBox and wait for the selection
+            comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox.SelectedIndex = 0;
+
+            System.Windows.Forms.DialogResult result = MessageBox.Show(comboBox, "Select a special directory", "Special Directories", MessageBoxButtons.OKCancel);
+
+            // Check if the OK button was clicked and return the selected path
+            if (result == System.Windows.Forms.DialogResult.OK)
+            {
+                var selectedDirectory = (Environment.SpecialFolder)comboBox.SelectedItem;
+                return Environment.GetFolderPath(selectedDirectory);
+            }
+
+            // If the selection was canceled or closed, return null or an appropriate value for your scenario
+            return null;
         }
         #endregion
         #region "CRUD"
