@@ -12,6 +12,7 @@ using Beep.Winform.Vis.Controls;
 using TheTechIdea.Beep.Addin;
 using DataManagementModels.DriversConfigurations;
 using TheTechIdea.Beep.Editor;
+using DataManagementModels.Editor;
 
 namespace Beep.Config.Winform.Configurations
 {
@@ -124,7 +125,7 @@ namespace Beep.Config.Winform.Configurations
                 }
             }
 
-            DBWork = new UnitofWork<ConnectionDriversConfig>(DMEEditor, true, DMEEditor.Utilfunction.ConvertToObservableCollection<ConnectionDriversConfig>(DMEEditor.ConfigEditor.DataDriversClasses), "GuidID");
+            DBWork = new UnitofWork<ConnectionDriversConfig>(DMEEditor, true,new ObservableBindingList<ConnectionDriversConfig>(DMEEditor.ConfigEditor.DataDriversClasses), "GuidID");
             DBWork.PrimaryKey = "GuidID";
            
 

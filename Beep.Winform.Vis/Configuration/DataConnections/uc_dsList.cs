@@ -13,7 +13,7 @@ using Beep.Winform.Vis;
 using TheTechIdea.Beep.DataBase;
 
 using TheTechIdea.Beep.Report;
-
+using DataManagementModels.Editor;
 
 namespace Beep.Config.Winform.DataConnections
 {
@@ -97,7 +97,7 @@ namespace Beep.Config.Winform.DataConnections
             //}
           
             DatasourceCategorycomboBox.DataSource = Enum.GetValues(typeof(DatasourceCategory));
-            DBWork = new UnitofWork<ConnectionProperties>(DMEEditor,true, DMEEditor.Utilfunction.ConvertToObservableCollection<ConnectionProperties>(DMEEditor.ConfigEditor.DataConnections),"GuidID");
+            DBWork = new UnitofWork<ConnectionProperties>(DMEEditor,true, new ObservableBindingList<ConnectionProperties>(DMEEditor.ConfigEditor.DataConnections),"GuidID");
             DBWork.PrimaryKey = "GuidID";
             
            

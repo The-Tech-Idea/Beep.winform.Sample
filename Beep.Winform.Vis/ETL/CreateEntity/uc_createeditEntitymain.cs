@@ -76,7 +76,7 @@ namespace Beep.Winform.Vis.ETL.CreateEntity
                                 if (retval != null)
                                 {
                                     EntityStructure st = DMEEditor.Utilfunction.GetEntityStructure(retval);
-                                    Type type = DMEEditor.Utilfunction.GetEntityType("tab", st.Fields);
+                                    Type type = DMEEditor.Utilfunction.GetEntityType(DMEEditor,"tab", st.Fields);
                                   
                                     if (st != null)
                                     {

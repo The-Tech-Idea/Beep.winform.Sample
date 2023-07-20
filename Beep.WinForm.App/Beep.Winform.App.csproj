@@ -350,6 +350,8 @@
     <None Remove="OtherDLL\Lambda2Js.Signed.dll" />
     <None Remove="OtherDLL\Microsoft.Bcl.AsyncInterfaces.dll" />
     <None Remove="OtherDLL\Microsoft.Bcl.HashCode.dll" />
+    <None Remove="OtherDLL\Microsoft.CodeAnalysis.CSharp.dll" />
+    <None Remove="OtherDLL\Microsoft.CSharp.dll" />
     <None Remove="OtherDLL\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
     <None Remove="OtherDLL\Microsoft.Extensions.DependencyInjection.dll" />
     <None Remove="OtherDLL\Microsoft.ReportViewer.Common.dll" />
@@ -1769,6 +1771,12 @@
     <Content Include="OtherDLL\Microsoft.Bcl.HashCode.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="OtherDLL\Microsoft.CodeAnalysis.CSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="OtherDLL\Microsoft.CSharp.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="OtherDLL\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2543,8 +2551,8 @@
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.10" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.141" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.61" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.161" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.66" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.5" />
   </ItemGroup>

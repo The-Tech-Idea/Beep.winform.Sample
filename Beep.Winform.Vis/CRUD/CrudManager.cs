@@ -322,7 +322,7 @@ namespace Beep.Winform.Vis.CRUD
             bool retval = false;
             if (record != null)
             {
-                Type enttype = DMEEditor.Utilfunction.GetEntityType(EntityName, EntityStructure.Fields);
+                Type enttype = DMEEditor.Utilfunction.GetEntityType(DMEEditor, EntityName, EntityStructure.Fields);
                 var ti = Activator.CreateInstance(enttype);
                 DataRow dr = DMEEditor.Utilfunction.GetDataRowFromobject(EntityName, enttype, record, EntityStructure);
                 foreach (EntityField item in EntityStructure.PrimaryKeys)

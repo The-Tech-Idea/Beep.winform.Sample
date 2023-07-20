@@ -13,6 +13,7 @@ using TheTechIdea.Beep.DataBase;
 using DataManagementModels.DriversConfigurations;
 using TheTechIdea.Beep.Report;
 using TheTechIdea.Beep.Addin;
+using DataManagementModels.Editor;
 
 namespace Beep.Config.Winform.Configurations
 {
@@ -113,7 +114,7 @@ namespace Beep.Config.Winform.Configurations
             this.netDataTypeDataGridViewTextBoxColumn.DataSource = DMEEditor.typesHelper.GetNetDataTypes2();
             
 
-            DBWork = new UnitofWork<DatatypeMapping>(DMEEditor, true, DMEEditor.Utilfunction.ConvertToObservableCollection<DatatypeMapping>(DMEEditor.ConfigEditor.DataTypesMap), "GuidID");
+            DBWork = new UnitofWork<DatatypeMapping>(DMEEditor, true, new ObservableBindingList<DatatypeMapping>(DMEEditor.ConfigEditor.DataTypesMap), "GuidID");
             DBWork.PrimaryKey = "GuidID";
             dataTypesMapBindingSource.DataSource = DBWork.Units;
 
