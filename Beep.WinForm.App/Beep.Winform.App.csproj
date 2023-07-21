@@ -37,6 +37,9 @@
     <None Remove="ConnectionDrivers\Cassandra.dll" />
     <None Remove="ConnectionDrivers\Couchbase.Lite.dll" />
     <None Remove="ConnectionDrivers\DnsClient.dll" />
+    <None Remove="ConnectionDrivers\DuckDB.NET.Data.dll" />
+    <None Remove="ConnectionDrivers\DuckDb\duckdb.dll" />
+    <None Remove="ConnectionDrivers\DuckDb\DuckDB.NET.Bindings.dll" />
     <None Remove="ConnectionDrivers\Elasticsearch.Net.dll" />
     <None Remove="ConnectionDrivers\EntityFramework.dll" />
     <None Remove="ConnectionDrivers\EntityFramework.SqlServer.dll" />
@@ -184,6 +187,7 @@
     <None Remove="GFX\doc.ico" />
     <None Remove="GFX\driversdefinition.ico" />
     <None Remove="GFX\dropentities.ico" />
+    <None Remove="GFX\duckdb.ico" />
     <None Remove="GFX\dwg.ico" />
     <None Remove="GFX\edit.ico" />
     <None Remove="GFX\editdefaults.ico" />
@@ -835,6 +839,15 @@
     <Content Include="ConnectionDrivers\DnsClient.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="ConnectionDrivers\DuckDb\duckdb.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConnectionDrivers\DuckDb\DuckDB.NET.Bindings.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="ConnectionDrivers\DuckDb\DuckDB.NET.Data.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="ConnectionDrivers\Elasticsearch.Net.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1271,6 +1284,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\dropentities.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GFX\duckdb.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="GFX\dwg.ico">
@@ -2550,8 +2566,8 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
-    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.10" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.162" />
+    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.11" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.163" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.66" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.5" />
