@@ -21,6 +21,13 @@ namespace Beep.Winform.Vis
 {
     public class VisManager : IVisManager
     {
+
+        public event EventHandler<IPassedArgs> PreClose;
+        public event EventHandler<IPassedArgs> PreCallModule;
+        public event EventHandler<IPassedArgs> PreLogin;
+        public event EventHandler<IPassedArgs> PostLogin;
+        public event EventHandler<IPassedArgs> PreShowItem;
+
         public string LogoUrl { get; set; }
         public string Title { get; set; }
         public string IconUrl { get; set; }
@@ -69,7 +76,8 @@ namespace Beep.Winform.Vis
         public int Height { get; set; } = 1000;
         public VisManager(IDMEEditor pdmeeditor)
         {
-            
+            PassedArgs a = new PassedArgs();
+            PreLogin?.Invoke(this, a);
             IsDataModified = false;
             CurrentDisplayedAddin = null;
             DMEEditor = pdmeeditor;
@@ -179,6 +187,8 @@ namespace Beep.Winform.Vis
                     DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
                 }
             }
+            a = new PassedArgs();
+            PostLogin?.Invoke(this, a);
         }
         private void Container_AddinChanged(object sender, ContainerEvents e)
         {
@@ -210,7 +220,7 @@ namespace Beep.Winform.Vis
         #endregion
         public WizardManager wizardManager { get; set; }
         public bool IsShowingMainForm { get; set; } = false;
-        public bool TurnonOffCheckBox { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public bool TurnonOffCheckBox { get  ; set  ; }
    
         IDM_Addin MainFormView;
         public IErrorsInfo LoadSetting()
@@ -500,10 +510,13 @@ namespace Beep.Winform.Vis
             return addin;
             //BeepWaitForm.GetType().GetField("")
         }
-        public event EventHandler<FormClosingEventArgs> PreClose;
+
+
         private void Form_PreClose(object sender, FormClosingEventArgs e)
         {
-            PreClose?.Invoke(this, e);
+            PassedArgs a = new PassedArgs();
+            a.IsError = e.Cancel;
+            PreClose?.Invoke(this, a);
         }
 
         private IDM_Addin ShowUserControlDialogOnControl( string formname, Control control, IDMEEditor pDMEEditor, string[] args, IPassedArgs e)

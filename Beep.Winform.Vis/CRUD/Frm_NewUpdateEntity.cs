@@ -110,7 +110,7 @@ namespace Beep.Winform.Vis.CRUD
             EntitybindingSource.CurrentChanged += EntitybindingSource_CurrentChanged;
             visManager.PreClose += VisManager_PreClose;
         }
-        private void VisManager_PreClose(object sender, FormClosingEventArgs e)
+        private void VisManager_PreClose(object sender, IPassedArgs e)
         {
             if (EntitybindingSource != null)
             {
