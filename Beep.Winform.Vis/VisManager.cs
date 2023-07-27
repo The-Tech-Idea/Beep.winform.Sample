@@ -294,6 +294,12 @@ namespace Beep.Winform.Vis
                         E = (PassedArgs)DMEEditor.Passedarguments;
                     }
                     MainFormView = ShowForm(DMEEditor.ConfigEditor.Config.SystemEntryFormName, DMEEditor, args, E);
+                    if(MainFormView != null) { 
+                        if(string.IsNullOrEmpty(HomePageTitle))
+                        {
+                            ShowPage(HomePageTitle, E,DisplayType.InControl,true);
+                        }
+                    }
                 }
                 ErrorsandMesseges.Flag = Errors.Ok;
                 ErrorsandMesseges.Message = $"Function Executed";
