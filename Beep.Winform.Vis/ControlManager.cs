@@ -70,6 +70,7 @@ namespace Beep.Winform.Vis
             form.AcceptButton = buttonOk;
             form.CancelButton = buttonCancel;
 
+            
             BeepEnterprize.Vis.Module.DialogResult dialogResult = MapDialogResult(form.ShowDialog());
             //value = textBox.Text;
             return dialogResult;

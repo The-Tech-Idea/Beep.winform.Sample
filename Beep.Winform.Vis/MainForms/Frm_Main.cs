@@ -396,12 +396,23 @@ namespace Beep.Winform.Vis.MainForms
         {
             if (startLoggin)
             {
-                LogPanel.Invoke((MethodInvoker)delegate {
+                if (LogPanel.InvokeRequired)
+                {
+                    LogPanel.BeginInvoke((MethodInvoker)delegate {
+                        // Perform your control modifications here
+                        LogPanel.AppendText(e + Environment.NewLine);
+                        LogPanel.SelectionStart = LogPanel.Text.Length;
+                        LogPanel.ScrollToCaret();
+                    });
+                }
+                else
+                {
                     // Perform your control modifications here
                     LogPanel.AppendText(e + Environment.NewLine);
                     LogPanel.SelectionStart = LogPanel.Text.Length;
                     LogPanel.ScrollToCaret();
-                });
+                }
+
             }
 
         }
