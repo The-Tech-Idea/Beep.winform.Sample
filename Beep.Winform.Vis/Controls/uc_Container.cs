@@ -22,6 +22,8 @@ namespace Beep.Winform.Vis.Controls
         public uc_Container()
         {
             InitializeComponent();
+            
+            this.AllowDrop = true;
             TabContainerPanel.TabIndexChanged += TabContainerPanel_TabIndexChanged;
           
         }
@@ -107,6 +109,7 @@ namespace Beep.Winform.Vis.Controls
             if (!Controls.Contains(TabContainerPanel))
             {
                 TabContainerPanel = new TabControl();
+                TabContainerPanel.AllowDrop = true;
                 TabContainerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
            | System.Windows.Forms.AnchorStyles.Left)
            | System.Windows.Forms.AnchorStyles.Right)));

@@ -125,6 +125,13 @@ namespace Beep.Winform.Vis.MainForms
             //------------- Setup Control Container to Display controls and addons
             visManager.Container = (IDisplayContainer)ContainerPanel;
             visManager.MainForm = this;
+            this.AllowDrop = true;
+            this.MainSplitContainer1.AllowDrop= true;
+            this.MainViewsplitContainer.AllowDrop= true;
+            this.MainViewsplitContainer.Panel1.AllowDrop= true;
+            this.MainViewsplitContainer.Panel2.AllowDrop = true;
+            this.MainSplitContainer1.Panel1.AllowDrop = true;
+            this.MainSplitContainer1.Panel2.AllowDrop = true;
             //--------------------------------------------------------------------
             if (visManager.IsBeepDataOn)
             {
