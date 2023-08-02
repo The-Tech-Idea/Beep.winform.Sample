@@ -441,24 +441,24 @@
     <None Remove="ProjectClasses\Py\beep.py" />
     <None Remove="ProjectClasses\Py\HereweputClasses.txt" />
     <None Remove="ProjectClasses\Py\Scintilla.NET.dll" />
-    <None Remove="ProjectClasses\Skia\arm64\libSkiaSharp.dll" />
-    <None Remove="ProjectClasses\Skia\Beep.Skia.dll" />
-    <None Remove="ProjectClasses\Skia\libSkiaSharp.dylib" />
-    <None Remove="ProjectClasses\Skia\OpenTK.dll" />
-    <None Remove="ProjectClasses\Skia\OpenTK.GLControl.dll" />
-    <None Remove="ProjectClasses\Skia\SkiaSharp.dll" />
-    <None Remove="ProjectClasses\Skia\SkiaSharp.Extended.dll" />
-    <None Remove="ProjectClasses\Skia\SkiaSharp.Extended.Svg.dll" />
-    <None Remove="ProjectClasses\Skia\SkiaSharp.Views.Desktop.Common.dll" />
-    <None Remove="ProjectClasses\Skia\SkiaSharp.Views.WindowsForms.dll" />
-    <None Remove="ProjectClasses\Skia\System.Buffers.dll" />
-    <None Remove="ProjectClasses\Skia\System.Drawing.Common.dll" />
-    <None Remove="ProjectClasses\Skia\System.Memory.dll" />
-    <None Remove="ProjectClasses\Skia\System.Numerics.Vectors.dll" />
-    <None Remove="ProjectClasses\Skia\System.Runtime.CompilerServices.Unsafe.dll" />
-    <None Remove="ProjectClasses\Skia\System.Text.Encoding.CodePages.dll" />
-    <None Remove="ProjectClasses\Skia\x64\libSkiaSharp.dll" />
-    <None Remove="ProjectClasses\Skia\x86\libSkiaSharp.dll" />
+    <None Remove="OtherDLL\UI\Skia\arm64\libSkiaSharp.dll" />
+    <None Remove="OtherDLL\UI\Skia\Beep.Skia.dll" />
+    <None Remove="OtherDLL\UI\Skia\libSkiaSharp.dylib" />
+    <None Remove="OtherDLL\UI\Skia\OpenTK.dll" />
+    <None Remove="OtherDLL\UI\Skia\OpenTK.GLControl.dll" />
+    <None Remove="OtherDLL\UI\Skia\SkiaSharp.dll" />
+    <None Remove="OtherDLL\UI\Skia\SkiaSharp.Extended.dll" />
+    <None Remove="OtherDLL\UI\Skia\SkiaSharp.Extended.Svg.dll" />
+    <None Remove="OtherDLL\UI\Skia\SkiaSharp.Views.Desktop.Common.dll" />
+    <None Remove="OtherDLL\UI\Skia\SkiaSharp.Views.WindowsForms.dll" />
+    <None Remove="OtherDLL\UI\Skia\System.Buffers.dll" />
+    <None Remove="OtherDLL\UI\Skia\System.Drawing.Common.dll" />
+    <None Remove="OtherDLL\UI\Skia\System.Memory.dll" />
+    <None Remove="OtherDLL\UI\Skia\System.Numerics.Vectors.dll" />
+    <None Remove="OtherDLL\UI\Skia\System.Runtime.CompilerServices.Unsafe.dll" />
+    <None Remove="OtherDLL\UI\Skia\System.Text.Encoding.CodePages.dll" />
+    <None Remove="OtherDLL\UI\Skia\x64\libSkiaSharp.dll" />
+    <None Remove="OtherDLL\UI\Skia\x86\libSkiaSharp.dll" />
     <None Remove="ProjectData\AI_Datasets\iris.csv" />
     <None Remove="ProjectData\AI_Datasets\Oilwell.csv" />
     <None Remove="ProjectData\AI_Datasets\smoking_test_dataset.csv" />
@@ -668,7 +668,7 @@
     <Content Include="..\..\outputDLL\Beep.Skia.Loader\netstandard2.0\Beep.Skia.Loader.dll" Link="LoadingExtensions\Beep.Skia.Loader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Skia.WinformNet\Beep.Skia.WinformNet.dll" Link="ProjectClasses\Skia\Beep.Skia.WinformNet.dll">
+    <Content Include="..\..\outputDLL\Beep.Skia.WinformNet\Beep.Skia.WinformNet.dll" Link="OtherDLL\UI\Skia\Beep.Skia.WinformNet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\netstandard2.0\CompositeLayerNodes.dll" Link="ProjectClasses\CompositeLayer\CompositeLayerNodes.dll">
@@ -2048,43 +2048,43 @@
     <Content Include="ProjectClasses\Py\Scintilla.NET.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\arm64\libSkiaSharp.dll">
+    <Content Include="OtherDLL\UI\Skia\arm64\libSkiaSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\Beep.Skia.dll">
+    <Content Include="OtherDLL\UI\Skia\Beep.Skia.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\libSkiaSharp.dylib">
+    <Content Include="OtherDLL\UI\Skia\libSkiaSharp.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\OpenTK.dll">
+    <Content Include="OtherDLL\UI\Skia\OpenTK.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\OpenTK.GLControl.dll">
+    <Content Include="OtherDLL\UI\Skia\OpenTK.GLControl.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\SkiaSharp.dll">
+    <Content Include="OtherDLL\UI\Skia\SkiaSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\SkiaSharp.Extended.dll">
+    <Content Include="OtherDLL\UI\Skia\SkiaSharp.Extended.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\SkiaSharp.Extended.Svg.dll">
+    <Content Include="OtherDLL\UI\Skia\SkiaSharp.Extended.Svg.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\SkiaSharp.Views.Desktop.Common.dll">
+    <Content Include="OtherDLL\UI\Skia\SkiaSharp.Views.Desktop.Common.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\SkiaSharp.Views.WindowsForms.dll">
+    <Content Include="OtherDLL\UI\Skia\SkiaSharp.Views.WindowsForms.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="OtherDLL\System.Drawing.Common.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\x64\libSkiaSharp.dll">
+    <Content Include="OtherDLL\UI\Skia\x64\libSkiaSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\Skia\x86\libSkiaSharp.dll">
+    <Content Include="OtherDLL\UI\Skia\x86\libSkiaSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectData\AI_Datasets\iris.csv">
