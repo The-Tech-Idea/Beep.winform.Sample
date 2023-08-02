@@ -442,7 +442,6 @@
     <None Remove="ProjectClasses\Py\HereweputClasses.txt" />
     <None Remove="ProjectClasses\Py\Scintilla.NET.dll" />
     <None Remove="OtherDLL\UI\Skia\arm64\libSkiaSharp.dll" />
-    <None Remove="OtherDLL\UI\Skia\Beep.Skia.dll" />
     <None Remove="OtherDLL\UI\Skia\libSkiaSharp.dylib" />
     <None Remove="OtherDLL\UI\Skia\OpenTK.dll" />
     <None Remove="OtherDLL\UI\Skia\OpenTK.GLControl.dll" />
@@ -666,9 +665,6 @@
     </Content>
     <Content Include="..\..\outputDLL\Beep.Rust.Interop\netstandard2.0\Beep.Rust.Interop.dll" Link="ProjectClasses\LangInterop\Beep.Rust.Interop.dll" />
     <Content Include="..\..\outputDLL\Beep.Skia.Loader\netstandard2.0\Beep.Skia.Loader.dll" Link="LoadingExtensions\Beep.Skia.Loader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Skia.WinformNet\Beep.Skia.WinformNet.dll" Link="OtherDLL\UI\Skia\Beep.Skia.WinformNet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\netstandard2.0\CompositeLayerNodes.dll" Link="ProjectClasses\CompositeLayer\CompositeLayerNodes.dll">
@@ -2051,9 +2047,6 @@
     <Content Include="OtherDLL\UI\Skia\arm64\libSkiaSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="OtherDLL\UI\Skia\Beep.Skia.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="OtherDLL\UI\Skia\libSkiaSharp.dylib">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -2588,6 +2581,13 @@
     <Content Include="..\..\outputDLL\Beep.ETL.Mapping.Skia\net7.0-windows\Beep.ETL.Mapping.Skia.dll" Link="ProjectClasses\ETL\Beep.ETL.Mapping.Skia.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.Skia.Model\net7.0\Beep.Skia.Model.dll" Link="OtherDLL\UI\Skia\Beep.Skia.Model.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Skia\net7.0\Beep.Skia.dll" Link="OtherDLL\UI\Skia\Beep.Skia.dll" />
   </ItemGroup>
 
 </Project>
