@@ -433,13 +433,19 @@ namespace Beep.Winform.Vis.Controls
                 {
                     DMEEditor.Passedarguments = new PassedArgs();
                 }
-            DMEEditor.Passedarguments.ObjectName = br.BranchText;
-            DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
-            DMEEditor.Passedarguments.Id = br.BranchID;
-            DMEEditor.Passedarguments.ParameterInt1 = br.BranchID;
+            if (br != null)
+            {
+                DMEEditor.Passedarguments.ObjectName = br.BranchText;
+                DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
+                DMEEditor.Passedarguments.Id = br.BranchID;
+                DMEEditor.Passedarguments.ParameterInt1 = br.BranchID;
+                if (!IsMethodApplicabletoNode(cls, br)) return;
+
+            }
+       
               
                
-            if (!IsMethodApplicabletoNode(cls, br)) return;
+        
               
          
             if (methodsClass != null)
