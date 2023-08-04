@@ -47,8 +47,8 @@
 
   <ItemGroup>
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.4" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.175" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.68" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.176" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.69" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.28" />
   </ItemGroup>
 
