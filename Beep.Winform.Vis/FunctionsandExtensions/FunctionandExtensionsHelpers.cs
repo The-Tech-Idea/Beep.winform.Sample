@@ -18,6 +18,7 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Util;
 using BeepEnterprize.Winform.Vis;
 using DataManagementModels.DriversConfigurations;
+using TheTechIdea.Beep.FileManager;
 
 namespace Beep.Winform.Vis.FunctionsandExtensions
 {
@@ -411,6 +412,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
         }
         public ConnectionProperties CreateFileDataConnection(string file)
         {
+            FileHelpers fileHelpers = new FileHelpers(DMEEditor);
             try
             {
                 ConnectionProperties f = new ConnectionProperties
@@ -422,54 +424,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
 
 
                 };
-                if (f.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
-                {
-                    f.FilePath = f.FilePath.Replace(DMEEditor.ConfigEditor.ExePath, ".");
-                }
-
-                string ext = Path.GetExtension(file).Replace(".", "").ToLower();
-                List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null && p.extensionstoHandle.Contains(ext) && p.Favourite == true).ToList();
-                ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite == true).FirstOrDefault();
-                if (c is null)
-                {
-                    c = clss.Where(o => o.classHandler.Equals("CSVDataSource", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
-                }
-                if (c != null)
-                {
-                    f.DriverName = c.PackageName;
-                    f.DriverVersion = c.version;
-                    f.Category = c.DatasourceCategory;
-
-                    switch (f.Ext.ToLower())
-                    {
-                        case "txt":
-                            f.DatabaseType = DataSourceType.Text;
-                            break;
-                        case "csv":
-                            f.DatabaseType = DataSourceType.CSV;
-                            break;
-                        case "xml":
-                            f.DatabaseType = DataSourceType.xml;
-                            break;
-                        case "json":
-                            f.DatabaseType = DataSourceType.Json;
-                            break;
-                        case "xls":
-                        case "xlsx":
-                            f.DatabaseType = DataSourceType.Xls;
-                            break;
-                        default:
-                            f.DatabaseType = DataSourceType.Text;
-                            break;
-                    }
-                    f.Category = DatasourceCategory.FILE;
-                    return f;
-
-                }
-                else
-                {
-                    DMEEditor.AddLogMessage("Beep", $"Could not Load File {f.ConnectionName}", DateTime.Now, -1, null, Errors.Failed);
-                }
+               f= fileHelpers.CreateFileDataConnection(file);
                 return f;
             }
             catch (Exception ex)
@@ -541,108 +496,18 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
         }
         public virtual ConnectionProperties LoadFile()
         {
+            FileHelpers fileHelpers = new FileHelpers(DMEEditor);
             ConnectionProperties retval = new ConnectionProperties();
             try
             {
                 string pextens = DMEEditor.ConfigEditor.CreateFileExtensionString();
                 string pfilename = Vismanager.Controlmanager.LoadFileDialog("*", DMEEditor.ConfigEditor.Config.ProjectDataPath, pextens);
-                if(string.IsNullOrEmpty(pfilename))
+                if (string.IsNullOrEmpty(pfilename))
                 {
                     return null;
-
                 }
-                string pFileName = Path.GetFileName(pfilename);
-                string pFilePath = Path.GetDirectoryName(pfilename);
-                string pExt = Path.GetExtension(pfilename).Replace(".", "").ToLower();
-                if (!pFilePath.Contains(DMEEditor.ConfigEditor.ExePath))
-                {
-                    if (AskToCopyFile(pFileName, pFilePath))
-                    {
-                        pFilePath = @".\ProjectData";
-                    }
-                }
-
-                ConnectionProperties f = new ConnectionProperties
-                {
-                    FileName = Path.GetFileName(pfilename),
-                    Ext = Path.GetExtension(pfilename).Replace(".", "").ToLower(),
-                    FilePath = pFilePath,
-                    ConnectionName = Path.GetFileName(pfilename)
-                };
-                if (f.FilePath.Contains(DMEEditor.ConfigEditor.ExePath))
-                {
-                    pFilePath = @".\";
-                }
-                if (f.FilePath.StartsWith(@DMEEditor.ConfigEditor.Config.DataFilePath, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    string pathafter = pFilePath.Substring(pFilePath.IndexOf("DataFiles") + 9);
-                    if (string.IsNullOrEmpty(pathafter))
-                    {
-                        pFilePath = @".\DataFiles";
-                    }
-                    else
-                    {
-                        pFilePath = @".\DataFiles" + pathafter;
-                    }
-                    f.FilePath = pFilePath;
-                }
-                if (f.FilePath.StartsWith(@DMEEditor.ConfigEditor.Config.ProjectDataPath, StringComparison.InvariantCultureIgnoreCase))
-                {
-                    string pathafter = pFilePath.Substring(pFilePath.IndexOf("ProjectData") + 11);
-                    if (string.IsNullOrEmpty(pathafter))
-                    {
-                        pFilePath = @".\ProjectData";
-                    }
-                    else
-                    {
-                        pFilePath = @".\ProjectData" + pathafter;
-                    }
-                    f.FilePath = pFilePath;
-                }
-                string ext = Path.GetExtension(pfilename).Replace(".", "").ToLower();
-                List<ConnectionDriversConfig> clss = DMEEditor.ConfigEditor.DataDriversClasses.Where(p => p.extensionstoHandle != null && p.Favourite == true).ToList();
-                ConnectionDriversConfig c = clss.Where(o => o.extensionstoHandle.Contains(ext) && o.Favourite == true).FirstOrDefault();
-                if (c is null)
-                {
-                    c = clss.Where(o => o.classHandler.Equals("CSVDataSource", StringComparison.InvariantCultureIgnoreCase)).FirstOrDefault();
-                }
-                if (c != null)
-                {
-                    f.DriverName = c.PackageName;
-                    f.DriverVersion = c.version;
-                    f.Category = c.DatasourceCategory;
-
-                    switch (f.Ext.ToLower())
-                    {
-                        case "txt":
-                            f.DatabaseType = DataSourceType.Text;
-                            break;
-                        case "csv":
-                            f.DatabaseType = DataSourceType.CSV;
-                            break;
-                        case "xml":
-                            f.DatabaseType = DataSourceType.xml;
-
-                            break;
-                        case "json":
-                            f.DatabaseType = DataSourceType.Json;
-                            break;
-                        case "xls":
-                        case "xlsx":
-                            f.DatabaseType = DataSourceType.Xls;
-                            break;
-                        default:
-                            f.DatabaseType = DataSourceType.Text;
-                            break;
-                    }
-                    f.Category = DatasourceCategory.FILE;
-                    retval = f;
-
-                }
-                else
-                {
-                    DMEEditor.AddLogMessage("Beep", $"Could not Load File {f.ConnectionName}", DateTime.Now, -1, null, Errors.Failed);
-                }
+  
+                retval = fileHelpers.CreateFileDataConnection(pfilename);
                 return retval;
             }
             catch (Exception ex)

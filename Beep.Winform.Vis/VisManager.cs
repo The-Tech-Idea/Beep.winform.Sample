@@ -223,6 +223,8 @@ namespace Beep.Winform.Vis
         public bool TurnonOffCheckBox { get  ; set  ; }
    
         IDM_Addin MainFormView;
+        private bool disposedValue;
+
         public IErrorsInfo LoadSetting()
         {
             try
@@ -1107,10 +1109,52 @@ namespace Beep.Winform.Vis
             return DMEEditor.ErrorObject;
         }
 
+     
+
         public string HomePageTitle { get; set; }
         public string HomePageDescription { get; set; }
         public IProfile DefaultProfile { get; set; }
         public List<IPrivilege> Privileges { get; set; } = new List<IPrivilege>();
         public List<IUser> Users { get; set; }=new List<IUser>();
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposedValue)
+            {
+                if (disposing)
+                {
+                    Tree = null;
+                    SecondaryTree = null;
+                    ToolStrip = null;
+                    MenuStrip = null;
+                    SecondaryMenuStrip = null;
+                    SecondaryToolStrip = null;
+                    container.Clear();
+                    MainFormView = null;
+                    foreach (var item in addinsShowns)
+                    {
+                        item.Addin = null;
+                    }
+                }
+
+                // TODO: free unmanaged resources (unmanaged objects) and override finalizer
+                // TODO: set large fields to null
+                disposedValue = true;
+            }
+        }
+
+        // // TODO: override finalizer only if 'Dispose(bool disposing)' has code to free unmanaged resources
+        // ~VisManager()
+        // {
+        //     // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        //     Dispose(disposing: false);
+        // }
+
+        public void Dispose()
+        {
+            // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
     }
 }

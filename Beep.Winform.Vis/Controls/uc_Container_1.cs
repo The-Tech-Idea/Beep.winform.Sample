@@ -182,6 +182,11 @@ namespace Beep.Winform.Vis.Controls
             AddinAdded?.Invoke(this, new ContainerEvents() { Control = control, TitleText = control.AddinName });
             return retval;
         }
+
+        public void Clear()
+        {
+            throw new NotImplementedException();
+        }
     }
    
 }

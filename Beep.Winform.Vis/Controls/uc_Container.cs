@@ -4,7 +4,7 @@ using TheTechIdea;
 
 namespace Beep.Winform.Vis.Controls
 {
-    public partial class uc_Container : UserControl,IDisplayContainer
+    public partial class uc_Container : UserControl, IDisplayContainer
     {
         public ContainerTypeEnum ContainerType { get; set; }
         private Panel ContainerPanel=new Panel();
@@ -190,6 +190,13 @@ namespace Beep.Winform.Vis.Controls
             return retval;
 
         }
+
+        public void Clear()
+        {
+            TabContainerPanel.TabPages.Clear();
+            ContainerPanel.Controls.Clear();
+        }
+       
     }
    
 }

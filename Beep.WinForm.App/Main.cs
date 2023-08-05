@@ -121,7 +121,8 @@ namespace BeepEnterprize.Winform
                 
                 vis.IsShowingMainForm =true; 
                 vis.ShowMainPage();
-               
+                vis.Dispose();
+                DMEEditor.Dispose();
 
             }
         }
