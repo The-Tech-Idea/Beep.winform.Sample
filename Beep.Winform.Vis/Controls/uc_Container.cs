@@ -193,8 +193,15 @@ namespace Beep.Winform.Vis.Controls
 
         public void Clear()
         {
-            TabContainerPanel.TabPages.Clear();
-            ContainerPanel.Controls.Clear();
+            if (TabContainerPanel != null)
+            {
+                TabContainerPanel.TabPages.Clear();
+            }
+            if (ContainerPanel != null)
+            {
+                ContainerPanel.Controls.Clear();
+            }
+           
         }
        
     }

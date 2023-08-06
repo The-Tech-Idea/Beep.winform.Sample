@@ -1129,7 +1129,11 @@ namespace Beep.Winform.Vis
                     MenuStrip = null;
                     SecondaryMenuStrip = null;
                     SecondaryToolStrip = null;
-                    container.Clear();
+                    if (container != null)
+                    {
+                        container.Clear();
+                    }
+                   
                     MainFormView = null;
                     foreach (var item in addinsShowns)
                     {
