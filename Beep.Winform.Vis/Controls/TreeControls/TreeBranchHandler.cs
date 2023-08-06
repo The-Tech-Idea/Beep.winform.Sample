@@ -291,7 +291,12 @@ namespace Beep.Winform.Vis.Controls
                 {
                     RemoveEntityFromCategory(ParentBranch.BranchClass, foldername, CurrentBranch.BranchText);
                 }
-                TreeV.Nodes.Remove(CurrentBranchNode);
+                if(CurrentBranchNode!= null)
+                {
+                    TreeV.Nodes.Remove(CurrentBranchNode);
+
+                }
+              
 
 
                 CategoryFolder CurFodler = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.RootName == ParentBranch.BranchClass).FirstOrDefault();
