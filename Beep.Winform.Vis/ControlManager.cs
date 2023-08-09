@@ -93,16 +93,19 @@ namespace Beep.Winform.Vis
             buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
 
             label.SetBounds(9, 20, 372, 13);
-            textBox.SetBounds(12, 36, 372, 20);
-            buttonOk.SetBounds(228, 72, 75, 23);
-            buttonCancel.SetBounds(309, 72, 75, 23);
+            textBox.SetBounds(12, 36, 372, 80); // Change the height to 80 or your desired value
+            buttonOk.SetBounds(228, 132, 75, 23); // Move the buttons down to make space for the larger TextBox
+            buttonCancel.SetBounds(309, 132, 75, 23);
 
             label.AutoSize = true;
             textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
             buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
 
-            form.ClientSize = new Size(396, 107);
+            textBox.Multiline = true; // Enable multiline input
+            textBox.ScrollBars = ScrollBars.Vertical; // Optionally, add a vertical scrollbar
+
+            form.ClientSize = new Size(396, 167); // Adjust the client size to fit the new layout
             form.Controls.AddRange(new Control[] { label, buttonOk, textBox, buttonCancel });
             form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
             form.FormBorderStyle = FormBorderStyle.FixedDialog;
