@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	  <LangVersion>latest</LangVersion>
 	  <StartupObject>Beep.Winform.App.Program</StartupObject>
+	  <PlatformTarget>AnyCPU</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,11 +1,6 @@
 ﻿using BeepEnterprize.Vis.Module;
 using Beep.Winform.Vis.Helpers;
 using ReaLTaiizor.Controls;
-using System;
-
-using System.Drawing;
-
-using System.Windows.Forms;
 using TheTechIdea;
 
 namespace Beep.Winform.Vis.Controls
@@ -49,7 +44,39 @@ namespace Beep.Winform.Vis.Controls
                 }
             }
         }
+        public bool IsControlExit(IDM_Addin control)
+        {
+            if (TabContainerPanel != null)
+            {
+                for (int i = TabContainerPanel.TabPages.Count - 1; i >= 0; i--)
+                {
+                    System.Windows.Forms.TabPage tabPage = TabContainerPanel.TabPages[i];
+                    foreach (Control ctl in tabPage.Controls)
+                    {
+                        IDM_Addin d = (IDM_Addin)ctl;
+                        if (ctl == control)
+                        {
+                            return true;
+                        }
+                    }
 
+                }
+            }
+            if (ContainerPanel != null)
+            {
+                for (int i = ContainerPanel.Controls.Count - 1; i >= 0; i--)
+                {
+                    Control ctl = ContainerPanel.Controls[i];
+                    IDM_Addin d = (IDM_Addin)ctl;
+                    if (ctl == control)
+                    {
+                        return true;
+                    }
+                }
+            }
+
+            return false;
+        }
         private void TabContainerPanel_DrawItem(object sender, DrawItemEventArgs e)
         {
             try

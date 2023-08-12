@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 using TheTechIdea;
 
 namespace Beep.Winform.Vis
@@ -17,5 +13,8 @@ namespace Beep.Winform.Vis
         public string GuidID { get; set; } = Guid.NewGuid().ToString();
         public bool IsSingleton { get; set; } = false;
         public bool IsShown { get; set; }=false;
+        public bool IsHidden { get; set; } = false;
+        public bool IsAdded { get; set; } = false;
+        public bool IsRemoved { get; set; } = false;
     }
 }

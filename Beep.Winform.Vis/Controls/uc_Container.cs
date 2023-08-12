@@ -33,7 +33,39 @@ namespace Beep.Winform.Vis.Controls
 
            
         }
-
+        public bool IsControlExit(IDM_Addin control)
+        {
+            if (TabContainerPanel != null)
+            {
+                for (int i = TabContainerPanel.TabPages.Count - 1; i >= 0; i--)
+                {
+                    TabPage tabPage = TabContainerPanel.TabPages[i];
+                    foreach (Control ctl in tabPage.Controls)
+                    {
+                        IDM_Addin d = (IDM_Addin)ctl;
+                        if (ctl == control)
+                        {
+                            return true;
+                        }
+                    }
+                    
+                }
+            }
+            if (ContainerPanel != null)
+            {
+                for (int i = ContainerPanel.Controls.Count - 1; i >= 0; i--)
+                {
+                    Control ctl = ContainerPanel.Controls[i];
+                    IDM_Addin d = (IDM_Addin)ctl;
+                    if (ctl == control)
+                    {
+                        return true;
+                    }
+                }
+            }
+            
+            return false;
+        }
         private void TabContainerPanel_MouseClick(object sender, MouseEventArgs e)
         {
             for (var i = 0; i < this.TabContainerPanel.TabPages.Count; i++)
@@ -195,13 +227,26 @@ namespace Beep.Winform.Vis.Controls
         {
             if (TabContainerPanel != null)
             {
-                TabContainerPanel.TabPages.Clear();
+                for (int i = TabContainerPanel.TabPages.Count - 1; i >= 0; i--)
+                {
+                    TabPage tabPage = TabContainerPanel.TabPages[i];
+                    foreach (Control ctl in tabPage.Controls)
+                    {
+                        ctl.Dispose();
+                    }
+                    TabContainerPanel.TabPages.RemoveAt(i);
+                }
             }
             if (ContainerPanel != null)
             {
-                ContainerPanel.Controls.Clear();
+                for (int i = ContainerPanel.Controls.Count - 1; i >= 0; i--)
+                {
+                    Control ctl = ContainerPanel.Controls[i];
+                    ctl.Dispose();
+                    ContainerPanel.Controls.RemoveAt(i);
+                }
             }
-           
+
         }
        
     }

@@ -119,6 +119,50 @@ namespace Beep.Winform.Vis
             value = textBox.Text;
             return dialogResult;
         }
+        public BeepEnterprize.Vis.Module.DialogResult InputLargeBox(string title, string promptText, ref string value)
+        {
+            Form form = new Form();
+            Label label = new Label();
+            TextBox textBox = new TextBox();
+            Button buttonOk = new Button();
+            Button buttonCancel = new Button();
+
+            form.Text = title;
+            label.Text = promptText;
+            textBox.Text = value;
+
+            buttonOk.Text = "OK";
+            buttonCancel.Text = "Cancel";
+            buttonOk.DialogResult = System.Windows.Forms.DialogResult.OK;
+            buttonCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+
+            label.SetBounds(9, 20, 372, 13);
+            textBox.SetBounds(12, 36, 372, 23); // Change the height to 80 or your desired value
+            buttonOk.SetBounds(228, 132, 75, 23); // Move the buttons down to make space for the larger TextBox
+            buttonCancel.SetBounds(309, 132, 75, 23);
+
+            label.AutoSize = true;
+            textBox.Anchor = textBox.Anchor | AnchorStyles.Right;
+            buttonOk.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            buttonCancel.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+
+           // textBox.Multiline = true; // Enable multiline input
+           // textBox.ScrollBars = ScrollBars.Vertical; // Optionally, add a vertical scrollbar
+
+            form.ClientSize = new Size(396, 167); // Adjust the client size to fit the new layout
+            form.Controls.AddRange(new Control[] { label, buttonOk, textBox, buttonCancel });
+            form.ClientSize = new Size(Math.Max(300, label.Right + 10), form.ClientSize.Height);
+            form.FormBorderStyle = FormBorderStyle.FixedDialog;
+            form.StartPosition = FormStartPosition.CenterScreen;
+            form.MinimizeBox = false;
+            form.MaximizeBox = false;
+            form.AcceptButton = buttonOk;
+            form.CancelButton = buttonCancel;
+
+            BeepEnterprize.Vis.Module.DialogResult dialogResult = MapDialogResult(form.ShowDialog());
+            value = textBox.Text;
+            return dialogResult;
+        }
         public void MsgBox(string title, string promptText)
         {
 
@@ -1162,15 +1206,31 @@ namespace Beep.Winform.Vis
             }
         }
 
-        public bool ShowAlert()
+        public bool ShowAlert(string title, string message, string icon)
         {
-            throw new NotImplementedException();
-        }
 
-        public void ShowMessege()
-        {
-            throw new NotImplementedException();
+            NotifyIcon notifyIcon = new NotifyIcon()
+            {
+                Icon = SystemIcons.Exclamation, // You can set your custom icon here
+                Visible = true
+            };
+            notifyIcon.BalloonTipTitle = title;
+            notifyIcon.BalloonTipText = message;
+            notifyIcon.ShowBalloonTip(3000); // The number is the time in milliseconds the tip is displayed        }
+            return true;
         }
+        public void ShowMessege(string title, string message, string icon)
+        {
+                NotifyIcon notifyIcon = new NotifyIcon()
+                {
+                    Icon = SystemIcons.Information, // You can set your custom icon here
+                    Visible = true
+                };
+                notifyIcon.BalloonTipTitle = title;
+                notifyIcon.BalloonTipText = message;
+                notifyIcon.ShowBalloonTip(3000); // The number is the time in milliseconds the tip is displayed        }
+              
+          }
         #endregion
     }
 }
