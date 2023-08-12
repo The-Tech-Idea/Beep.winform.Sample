@@ -191,10 +191,8 @@ namespace Beep.Winform.Vis.Controls
         }
         public IErrorsInfo RemoveBranch(IBranch Branch)
         {
-
             try
             {
-
                 TreeNode n = Treecontrol.GetTreeNodeByID(Branch.BranchID, TreeV.Nodes);
                 string foldername = CheckifBranchExistinCategory(Branch.BranchText, Branch.BranchClass);
                 if (foldername!=null)
@@ -297,8 +295,6 @@ namespace Beep.Winform.Vis.Controls
 
                 }
               
-
-
                 CategoryFolder CurFodler = DMEEditor.ConfigEditor.CategoryFolders.Where(y => y.RootName == ParentBranch.BranchClass).FirstOrDefault();
                 if (CurFodler != null)
                 {

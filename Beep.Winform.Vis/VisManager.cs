@@ -435,39 +435,51 @@ namespace Beep.Winform.Vis
         private Tuple<AddinsShownData, bool> GetShownData(string formname,Type type)
         {
             UserControl uc = new UserControl();
+            bool IsJustAdded = false;
             bool AddinExist = false;
+            int idx;
             AddinsShownData shownData = null;
             if (addinsShowns.Count== 0)
             {
                 addinsShowns.Add(new AddinsShownData() { IsSingleton = CurrentSingltonChecked, IsAdded = true, Name = formname, Type = type.FullName });
+                IsJustAdded = true;
             }
-            int idx = addinsShowns.FindIndex(p => p.Name.Equals(formname, StringComparison.InvariantCultureIgnoreCase));
-            if (idx > -1)
+            if (!IsJustAdded)
             {
-                shownData = addinsShowns[idx];
-                AddinExist = true;
-             }
-            else
-            {
-                addinsShowns.Add(new AddinsShownData() { IsSingleton = CurrentSingltonChecked, IsAdded = true, Name = formname, Type = type.FullName });
                 idx = addinsShowns.FindIndex(p => p.Name.Equals(formname, StringComparison.InvariantCultureIgnoreCase));
+                if(idx == -1)
+                {
+                    addinsShowns.Add(new AddinsShownData() { IsSingleton = CurrentSingltonChecked, IsAdded = true, Name = formname, Type = type.FullName });
+                    IsJustAdded = true;
+                    AddinExist = false;
+                }
+                else
+                {
+                    AddinExist=true;
+                    IsJustAdded = false;
+                }
             }
+            idx = addinsShowns.FindIndex(p => p.Name.Equals(formname, StringComparison.InvariantCultureIgnoreCase));
             shownData = addinsShowns[idx];
-            if (shownData != null && shownData.IsShown && !Container.IsControlExit(shownData.Addin))
+            if (!IsJustAdded)
             {
-                shownData.IsRemoved  = true;
-            }
-            if (shownData.IsRemoved)
-            {
+                if (shownData != null && shownData.IsShown && !Container.IsControlExit(shownData.Addin))
+                {
+                    shownData.IsRemoved = true;
+                }
+                if (shownData.IsRemoved)
+                {
                     if (idx != -1)
                     {
                         addinsShowns.Remove(addinsShowns[idx]);
                         shownData = null;
                         AddinExist = false;
                     }
-   
+
+                }
             }
-            if (AddinExist)
+          
+            if (AddinExist && shownData.IsShown )
             {
                 if (shownData.IsSingleton && shownData.IsShown)
                 {
@@ -733,7 +745,7 @@ namespace Beep.Winform.Vis
                 Tuple<AddinsShownData, bool> Tdata = GetShownData(formname, type);
                 AddinsShownData shownData = Tdata.Item1;
                 bool AddinExist = Tdata.Item2;
-                if (AddinExist)
+                if (AddinExist && !IsShowingMainForm)
                 {
                     return shownData.Addin;
                 }
@@ -765,21 +777,25 @@ namespace Beep.Winform.Vis
                         }
                         IsShowingMainForm = false;
                     }
+                    else
+                    {
+                        if (addinsShowns.Count > 0)
+                        {
+                            int idx = addinsShowns.FindIndex(p => p.Name.Equals(formname, StringComparison.InvariantCultureIgnoreCase));
+                            if (idx > -1)
+                            {
+                                shownData = addinsShowns[idx];
+                            }
+                        }
+                        shownData.Addin = addin;
+                        shownData.IsShown = true;
+                    }
                     if (!string.IsNullOrEmpty(IconUrl))
                     {
                         string Iconp = ImagesUrls.Where(p => p.FileName.Equals(IconUrl)).FirstOrDefault().Url;
                         form.Icon =new Icon(Iconp);
                     }
-                    if (addinsShowns.Count > 0)
-                    {
-                        int idx = addinsShowns.FindIndex(p => p.Name.Equals(formname, StringComparison.InvariantCultureIgnoreCase));
-                        if (idx > -1)
-                        {
-                            shownData = addinsShowns[idx];
-                        }
-                    }
-                    shownData.Addin = addin;
-                    shownData.IsShown = true;
+                   
                     form.ShowDialog();
 
                 }
