@@ -404,7 +404,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
         }
         public ConnectionProperties CreateFileDataConnection(string file)
         {
-            FileHelpers fileHelpers = new FileHelpers(DMEEditor);
+            //FileHelpers fileHelpers = new FileHelpers(DMEEditor);
             try
             {
                 ConnectionProperties f = new ConnectionProperties
@@ -416,7 +416,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
 
 
                 };
-               f= fileHelpers.CreateFileDataConnection(file);
+               f= DMEEditor.Utilfunction.CreateFileDataConnection(file);
                 return f;
             }
             catch (Exception ex)
@@ -488,7 +488,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
         }
         public virtual ConnectionProperties LoadFile()
         {
-            FileHelpers fileHelpers = new FileHelpers(DMEEditor);
+            //FileHelpers fileHelpers = new FileHelpers(DMEEditor);
             ConnectionProperties retval = new ConnectionProperties();
             try
             {
@@ -499,7 +499,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
                     return null;
                 }
   
-                retval = fileHelpers.CreateFileDataConnection(pfilename);
+                retval = DMEEditor.Utilfunction.CreateFileDataConnection(pfilename);
                 return retval;
             }
             catch (Exception ex)
