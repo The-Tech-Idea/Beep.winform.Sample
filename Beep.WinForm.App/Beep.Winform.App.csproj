@@ -564,9 +564,6 @@
     <Content Include="..\..\..\..\..\.nuget\packages\scintilla.net\5.3.2.3\lib\net45\Scintilla.NET.dll" Link="ProjectClasses\IDE\Scintilla.NET.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\..\..\..\.nuget\packages\scintilla.net\5.3.2.7\build\x86\Lexilla.dll" Link="ProjectClasses\IDE\Lexilla.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\AIExtensionLoader\netstandard2.0\AIExtensionLoader.dll" Link="LoadingExtensions\AssemblyLoaderAI\AIExtensionLoader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -641,9 +638,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Logic\netstandard2.0\Beep.Python.Logic.dll" Link="ProjectClasses\Py\Beep.Python.Logic.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.RunTime.CMD\netstandard2.0\Beep.Python.RunTime.CMD.dll" Link="ProjectClasses\Py\Beep.Python.RunTime.CMD.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Runtime.PythonNet\netstandard2.0\Beep.Python.Runtime.PythonNet.dll" Link="ProjectClasses\Py\Beep.Python.Runtime.PythonNet.dll">
