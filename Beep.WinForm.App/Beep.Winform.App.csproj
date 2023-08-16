@@ -433,7 +433,7 @@
     <None Remove="ProjectClasses\BusinessProcessBuilder\HereweputClasses.txt" />
     <None Remove="ProjectClasses\CompositeLayer\HereweputClasses.txt" />
     <None Remove="ProjectClasses\CSVManager\HereweputClasses.txt" />
-    <None Remove="ProjectClasses\DataSources\HereweputClasses.txt" />
+    <None Remove="DataSources\HereweputClasses.txt" />
     <None Remove="ProjectClasses\ExtensionsandHelpers\HereweputClasses.txt" />
     <None Remove="ProjectClasses\HereweputClasses.txt" />
     <None Remove="ProjectClasses\InMemoryDB\HereweputClasses.txt" />
@@ -2012,7 +2012,7 @@
     <Content Include="ProjectClasses\CSVManager\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="ProjectClasses\DataSources\HereweputClasses.txt">
+    <Content Include="DataSources\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ProjectClasses\ExtensionsandHelpers\HereweputClasses.txt">
@@ -2375,25 +2375,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\DataSources\CompositeLayerDataSourceCore\netstandard2.0\CompositeLayerDataSourceCore.dll" Link="ProjectClasses\DataSources\CompositeLayerDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\CompositeLayerDataSourceCore\netstandard2.0\CompositeLayerDataSourceCore.dll" Link="DataSources\CompositeLayerDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\MySqlDataSourceCore\netstandard2.0\MySqlDataSourceCore.dll" Link="ProjectClasses\DataSources\MySqlDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\MySqlDataSourceCore\netstandard2.0\MySqlDataSourceCore.dll" Link="DataSources\MySqlDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\OracleDataSourceCore\netstandard2.1\OracleDataSourceCore.dll" Link="ProjectClasses\DataSources\OracleDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\OracleDataSourceCore\netstandard2.1\OracleDataSourceCore.dll" Link="DataSources\OracleDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\RedisDataSourceCore\netstandard2.1\RedisDataSourceCore.dll" Link="ProjectClasses\DataSources\RedisDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\RedisDataSourceCore\netstandard2.1\RedisDataSourceCore.dll" Link="DataSources\RedisDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\SqliteDatasourceCore\netstandard2.0\SqliteDatasourceCore.dll" Link="ProjectClasses\DataSources\SqliteDatasourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\SqliteDatasourceCore\netstandard2.0\SqliteDatasourceCore.dll" Link="DataSources\SqliteDatasourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\SqlServerDataSourceCore\netstandard2.1\SqlServerDataSourceCore.dll" Link="ProjectClasses\DataSources\SqlServerDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\SqlServerDataSourceCore\netstandard2.1\SqlServerDataSourceCore.dll" Link="DataSources\SqlServerDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\TxtXlsCSVFileSourceCore\netstandard2.0\TxtXlsCSVFileSourceCore.dll" Link="ProjectClasses\DataSources\TxtXlsCSVFileSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\TxtXlsCSVFileSourceCore\netstandard2.0\TxtXlsCSVFileSourceCore.dll" Link="DataSources\TxtXlsCSVFileSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -2456,88 +2456,88 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\DataSources\CouchBaseDataSourceCore\net7.0\CouchBaseDataSourceCore.dll" Link="ProjectClasses\DataSources\CouchBaseDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\CouchBaseDataSourceCore\net7.0\CouchBaseDataSourceCore.dll" Link="DataSources\CouchBaseDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\CouchBaseLiteDataSourceCore\net7.0\CouchBaseLiteDataSourceCore.dll" Link="ProjectClasses\DataSources\CouchBaseLiteDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\CouchBaseLiteDataSourceCore\net7.0\CouchBaseLiteDataSourceCore.dll" Link="DataSources\CouchBaseLiteDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\DataBricksDataSourceCore\net7.0\DataBricksDataSourceCore.dll" Link="ProjectClasses\DataSources\DataBricksDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\DataBricksDataSourceCore\net7.0\DataBricksDataSourceCore.dll" Link="DataSources\DataBricksDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\DuckDBDataSourceCore\net7.0\DuckDBDataSourceCore.dll" Link="ProjectClasses\DataSources\DuckDBDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\DuckDBDataSourceCore\net7.0\DuckDBDataSourceCore.dll" Link="DataSources\DuckDBDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\FireBaseDataSourceCore\net7.0\FireBaseDataSourceCore.dll" Link="ProjectClasses\DataSources\FireBaseDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\FireBaseDataSourceCore\net7.0\FireBaseDataSourceCore.dll" Link="DataSources\FireBaseDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\FireboltDataSourceCore\net7.0\FireboltDataSourceCore.dll" Link="ProjectClasses\DataSources\FireboltDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\FireboltDataSourceCore\net7.0\FireboltDataSourceCore.dll" Link="DataSources\FireboltDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\GoogleBigQueryDatasourceCore\net7.0\GoogleBigQueryDatasourceCore.dll" Link="ProjectClasses\DataSources\GoogleBigQueryDatasourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\GoogleBigQueryDatasourceCore\net7.0\GoogleBigQueryDatasourceCore.dll" Link="DataSources\GoogleBigQueryDatasourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\GoogleSheetsDataSourceCore\net7.0\GoogleSheetsDataSourceCore.dll" Link="ProjectClasses\DataSources\GoogleSheetsDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\GoogleSheetsDataSourceCore\net7.0\GoogleSheetsDataSourceCore.dll" Link="DataSources\GoogleSheetsDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\HadoopDataSourceCore\net7.0\HadoopDataSourceCore.dll" Link="ProjectClasses\DataSources\HadoopDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\HadoopDataSourceCore\net7.0\HadoopDataSourceCore.dll" Link="DataSources\HadoopDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\HanaDataSourceCore\net7.0\HanaDataSourceCore.dll" Link="ProjectClasses\DataSources\HanaDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\HanaDataSourceCore\net7.0\HanaDataSourceCore.dll" Link="DataSources\HanaDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\Hdf5DataSourceCore\net7.0\Hdf5DataSourceCore.dll" Link="ProjectClasses\DataSources\Hdf5DataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\Hdf5DataSourceCore\net7.0\Hdf5DataSourceCore.dll" Link="DataSources\Hdf5DataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\HologresDataSource\net7.0\HologresDataSource.dll" Link="ProjectClasses\DataSources\HologresDataSource.dll">
+    <Content Include="..\..\outputDLL\DataSources\HologresDataSource\net7.0\HologresDataSource.dll" Link="DataSources\HologresDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\KafkaDataSourceCore\net7.0\KafkaDataSourceCore.dll" Link="ProjectClasses\DataSources\KafkaDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\KafkaDataSourceCore\net7.0\KafkaDataSourceCore.dll" Link="DataSources\KafkaDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\MlModelDataSourceCore\net7.0\MlModelDataSourceCore.dll" Link="ProjectClasses\DataSources\MlModelDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\MlModelDataSourceCore\net7.0\MlModelDataSourceCore.dll" Link="DataSources\MlModelDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\MongoDBDataSourceCore\net7.0\MongoDBDataSourceCore.dll" Link="ProjectClasses\DataSources\MongoDBDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\MongoDBDataSourceCore\net7.0\MongoDBDataSourceCore.dll" Link="DataSources\MongoDBDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\OnnxDataSourceCore\net7.0\OnnxDataSourceCore.dll" Link="ProjectClasses\DataSources\OnnxDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\OnnxDataSourceCore\net7.0\OnnxDataSourceCore.dll" Link="DataSources\OnnxDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\PetastormDataSourceCore\net7.0\PetastormDataSourceCore.dll" Link="ProjectClasses\DataSources\PetastormDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\PetastormDataSourceCore\net7.0\PetastormDataSourceCore.dll" Link="DataSources\PetastormDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\PostgreDataSourceCore\net7.0\PostgreDataSourceCore.dll" Link="ProjectClasses\DataSources\PostgreDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\PostgreDataSourceCore\net7.0\PostgreDataSourceCore.dll" Link="DataSources\PostgreDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\PrestoDatasourceCore\net7.0\PrestoDatasourceCore.dll" Link="ProjectClasses\DataSources\PrestoDatasourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\PrestoDatasourceCore\net7.0\PrestoDatasourceCore.dll" Link="DataSources\PrestoDatasourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\RavenDBDataSourceCore\net7.0\RavenDBDataSourceCore.dll" Link="ProjectClasses\DataSources\RavenDBDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\RavenDBDataSourceCore\net7.0\RavenDBDataSourceCore.dll" Link="DataSources\RavenDBDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\RealMDataSourceCore\net7.0\RealMDataSourceCore.dll" Link="ProjectClasses\DataSources\RealMDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\RealMDataSourceCore\net7.0\RealMDataSourceCore.dll" Link="DataSources\RealMDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\RocksetDatasourceCore\net7.0\RocksetDatasourceCore.dll" Link="ProjectClasses\DataSources\RocksetDatasourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\RocksetDatasourceCore\net7.0\RocksetDatasourceCore.dll" Link="DataSources\RocksetDatasourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\SnowFlakeDataSourceCore\net7.0\SnowFlakeDataSourceCore.dll" Link="ProjectClasses\DataSources\SnowFlakeDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\SnowFlakeDataSourceCore\net7.0\SnowFlakeDataSourceCore.dll" Link="DataSources\SnowFlakeDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\SpannerDataSourceCore\net7.0\SpannerDataSourceCore.dll" Link="ProjectClasses\DataSources\SpannerDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\SpannerDataSourceCore\net7.0\SpannerDataSourceCore.dll" Link="DataSources\SpannerDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\TerraDataDataSourceCore\net7.0\TerraDataDataSourceCore.dll" Link="ProjectClasses\DataSources\TerraDataDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\TerraDataDataSourceCore\net7.0\TerraDataDataSourceCore.dll" Link="DataSources\TerraDataDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\TimeScaleDBDataSource\net7.0\TimeScaleDBDataSource.dll" Link="ProjectClasses\DataSources\TimeScaleDBDataSource.dll">
+    <Content Include="..\..\outputDLL\DataSources\TimeScaleDBDataSource\net7.0\TimeScaleDBDataSource.dll" Link="DataSources\TimeScaleDBDataSource.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\TrinoDataSourceCore\net7.0\TrinoDataSourceCore.dll" Link="ProjectClasses\DataSources\TrinoDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\TrinoDataSourceCore\net7.0\TrinoDataSourceCore.dll" Link="DataSources\TrinoDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\DataSources\VerticaDataSourceCore\net7.0\VerticaDataSourceCore.dll" Link="ProjectClasses\DataSources\VerticaDataSourceCore.dll">
+    <Content Include="..\..\outputDLL\DataSources\VerticaDataSourceCore\net7.0\VerticaDataSourceCore.dll" Link="DataSources\VerticaDataSourceCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -2554,9 +2554,9 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
-    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.12" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.200" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.79" />
+    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.14" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.202" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.80" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.5" />
   </ItemGroup>
