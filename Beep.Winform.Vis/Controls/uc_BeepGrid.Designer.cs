@@ -42,6 +42,7 @@
             this.NextButton = new System.Windows.Forms.Button();
             this.Newbutton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.filterPanel = new System.Windows.Forms.Panel();
             this.Toppanel.SuspendLayout();
             this.Bottompanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -65,7 +66,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Titlelabel.Location = new System.Drawing.Point(3, 1);
             this.Titlelabel.Name = "Titlelabel";
-            this.Titlelabel.Size = new System.Drawing.Size(640, 20);
+            this.Titlelabel.Size = new System.Drawing.Size(117, 20);
             this.Titlelabel.TabIndex = 9;
             this.Titlelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -188,10 +189,18 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 22);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 46);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(735, 302);
+            this.dataGridView1.Size = new System.Drawing.Size(735, 278);
             this.dataGridView1.TabIndex = 2;
+            // 
+            // filterPanel
+            // 
+            this.filterPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.filterPanel.Location = new System.Drawing.Point(0, 22);
+            this.filterPanel.Name = "filterPanel";
+            this.filterPanel.Size = new System.Drawing.Size(735, 24);
+            this.filterPanel.TabIndex = 3;
             // 
             // uc_BeepGrid
             // 
@@ -200,6 +209,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.filterPanel);
             this.Controls.Add(this.Bottompanel);
             this.Controls.Add(this.Toppanel);
             this.Name = "uc_BeepGrid";
@@ -228,5 +238,6 @@
         public System.Windows.Forms.Label Titlelabel;
         public System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private Panel filterPanel;
     }
 }

@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
@@ -23,6 +16,7 @@ namespace Beep.Winform.Controls
             InitializeComponent();
             Loadimages();
             InitPanels();
+            dataGridView1.Resize += DataGridView_Resize;
             //foreach (Control c in this.Controls)
             //{
             //    c.Click += (sender, e) => { this.InvokeOnClick(this, e); };
@@ -30,22 +24,22 @@ namespace Beep.Winform.Controls
             //    c.MouseDown += (sender, e) => { this.OnMouseDown(e); };
             //    c.MouseMove += (sender, e) => { this.OnMouseMove(e); };
             //}
-         //   dataGridView1 = new System.Windows.Forms.DataGridView();
-         //   // 
-         //   // dataGridView1
-         //   // 
-         //   dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-         //   dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-           
-         //   dataGridView1.Location = new System.Drawing.Point(0, 25);
-         //   dataGridView1.Name = "dataGridView1";
-            
-         //   dataGridView1.TabIndex = 2;
-         //   Controls.Add(this.dataGridView1);
-         ////   this.Size = new System.Drawing.Size(250, 200);
-         //   dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-         //   dataGridView1.BringToFront();
-        //    WireAllControls(this);
+            //   dataGridView1 = new System.Windows.Forms.DataGridView();
+            //   // 
+            //   // dataGridView1
+            //   // 
+            //   dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            //   dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+
+            //   dataGridView1.Location = new System.Drawing.Point(0, 25);
+            //   dataGridView1.Name = "dataGridView1";
+
+            //   dataGridView1.TabIndex = 2;
+            //   Controls.Add(this.dataGridView1);
+            ////   this.Size = new System.Drawing.Size(250, 200);
+            //   dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            //   dataGridView1.BringToFront();
+            //    WireAllControls(this);
         }
         public DataGridViewColumnCollection ColumnCollection { get { return dataGridView1.Columns; }  }
 
@@ -381,5 +375,125 @@ namespace Beep.Winform.Controls
         }
 
         #endregion
+        #region "Grid Properties"
+
+           // private DataGridView dataGridView; // Assume this is your internal DataGridView control
+
+            // Expose Properties
+            public object DataSource
+            {
+                get { return dataGridView1.DataSource; }
+                set { dataGridView1.DataSource = value; }
+            }
+
+            public DataGridViewColumnCollection Columns => dataGridView1.Columns;
+            public DataGridViewRowCollection Rows => dataGridView1.Rows;
+            public DataGridViewCell this[int col, int invert] => dataGridView1[col, invert];
+            public bool AllowUserToAddRows
+            {
+                get { return dataGridView1.AllowUserToAddRows; }
+                set { dataGridView1.AllowUserToAddRows = value; }
+            }
+            public bool AllowUserToDeleteRows
+            {
+                get { return dataGridView1.AllowUserToDeleteRows; }
+                set { dataGridView1.AllowUserToDeleteRows = value; }
+            }
+            public bool ReadOnly
+            {
+                get { return dataGridView1.ReadOnly; }
+                set { dataGridView1.ReadOnly = value; }
+            }
+
+            // Expose Methods
+            public void ClearSelection() => dataGridView1.ClearSelection();
+            public void Sort(DataGridViewColumn dataGridViewColumn, ListSortDirection direction) => dataGridView1.Sort(dataGridViewColumn, direction);
+            public void AutoResizeColumn(int columnIndex) => dataGridView1.AutoResizeColumn(columnIndex);
+            public void AutoResizeColumns() => dataGridView1.AutoResizeColumns();
+
+            // Expose Events
+            public event DataGridViewCellEventHandler CellClick
+            {
+                add { dataGridView1.CellClick += value; }
+                remove { dataGridView1.CellClick -= value; }
+            }
+            public event DataGridViewCellEventHandler CellDoubleClick
+            {
+                add { dataGridView1.CellDoubleClick += value; }
+                remove { dataGridView1.CellDoubleClick -= value; }
+            }
+            public event DataGridViewCellFormattingEventHandler CellFormatting
+            {
+                add { dataGridView1.CellFormatting += value; }
+                remove { dataGridView1.CellFormatting -= value; }
+            }
+            public event DataGridViewRowStateChangedEventHandler RowStateChanged
+            {
+                add { dataGridView1.RowStateChanged += value; }
+                remove { dataGridView1.RowStateChanged -= value; }
+            }
+            public event DataGridViewDataErrorEventHandler DataError
+            {
+                add { dataGridView1.DataError += value; }
+                remove { dataGridView1.DataError -= value; }
+            }
+
+        // You can continue to map other properties, methods, and events as needed.
+
+
+        #endregion
+        private void CreateFilterControls()
+        {
+            filterPanel.Controls.Clear();
+
+            PictureBox filterIcon = new PictureBox
+            {
+                Image = Image.FromFile(@"C:\path\to\filter_icon.png"), // Path to your filter icon
+                Size = new Size(20, 20), // Adjust size as needed
+                Location = new Point(0, 0),
+            };
+
+            filterPanel.Controls.Add(filterIcon);
+
+            int xOffset = filterIcon.Width; // Start position for text boxes
+
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                TextBox filterTextBox = new TextBox
+                {
+                    Width = column.Width,
+                    Location = new Point(xOffset, 0)
+                };
+
+                filterTextBox.TextChanged += FilterTextBox_TextChanged;
+
+                filterPanel.Controls.Add(filterTextBox);
+
+                xOffset += column.Width; // Move position for next text box
+            }
+        }
+
+        private void FilterTextBox_TextChanged(object? sender, EventArgs e)
+        {
+            
+        }
+
+        private void DataGridView_Resize(object sender, EventArgs e)
+        {
+            int xOffset = filterPanel.Controls.OfType<PictureBox>().First().Width; // Start position after the icon
+
+            for (int i = 1; i < filterPanel.Controls.Count; i++) // Start from 1 to skip the PictureBox
+            {
+                if (i - 1 < dataGridView1.Columns.Count)
+                {
+                    filterPanel.Controls[i].Width = dataGridView1.Columns[i - 1].Width;
+                    filterPanel.Controls[i].Location = new Point(xOffset, 0);
+                    xOffset += dataGridView1.Columns[i - 1].Width;
+                }
+            }
+        }
+      
+
+
     }
 }
