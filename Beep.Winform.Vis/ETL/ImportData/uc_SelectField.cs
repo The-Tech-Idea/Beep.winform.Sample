@@ -57,7 +57,7 @@ namespace Beep.Winform.Vis.ETL.ImportData
                 this.AddFieldButton.Click -= AddFieldButton_Click;
                 this.RemoveFieldbutton.Click -= RemoveFieldbutton_Click;
 
-                this.AddFieldButton.Click += AddFieldButton_Click;
+                 this.AddFieldButton.Click += AddFieldButton_Click;
                 this.RemoveFieldbutton.Click += RemoveFieldbutton_Click;
                 DMEEditor.ErrorObject.Flag = Errors.Ok;
             }

@@ -250,7 +250,7 @@ namespace Beep.Winform.Vis.Controls
             CreateMenuMethods(br);
             if ( br.ObjectType!=null && br.BranchClass != null)
             {
-                CreateGlobalMenu(br, n);
+                CreateGlobalMenu(br);
             }
            
             br.DMEEditor = DMEEditor;
@@ -261,7 +261,7 @@ namespace Beep.Winform.Vis.Controls
             Branches.Add(br);
             br.CreateChildNodes();
         }
-        public IErrorsInfo CreateGlobalMenu(IBranch br, TreeNode n)
+        public IErrorsInfo CreateGlobalMenu(IBranch br)
         {
             try
             {

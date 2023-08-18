@@ -270,6 +270,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ImportData\" />
     <Folder Include="Real_UI\Controls\" />
     <Folder Include="Wizards\copyentities\" />
     <Folder Include="Wizards\createpoco\" />

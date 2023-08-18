@@ -66,7 +66,7 @@ namespace Beep.Winform.Vis.Controls
                 n.Name = Branch.ID.ToString();
                 Console.WriteLine(Branch.BranchText);
                 Treecontrol.CreateMenuMethods(Branch);
-                Treecontrol.CreateGlobalMenu(Branch, n);
+                Treecontrol.CreateGlobalMenu(Branch);
                 Branch.DMEEditor = DMEEditor;
                 Tree.Branches.Add(Branch);
                 if (!DMEEditor.ConfigEditor.objectTypes.Any(i => i.ObjectType == Branch.BranchClass && i.ObjectName == Branch.BranchType.ToString() + "_" + Branch.BranchClass))
