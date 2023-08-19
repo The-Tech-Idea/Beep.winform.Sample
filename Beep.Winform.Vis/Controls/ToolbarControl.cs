@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Beep.Winform.Vis.Helpers;
 using BeepEnterprize.Vis.Module;
 using TheTechIdea;
 using TheTechIdea.Beep;
@@ -54,34 +55,10 @@ namespace Beep.Winform.Vis.Controls
         {
             throw new NotImplementedException();
         }
-        private Size _iconsize = new Size(20, 20);
-        private bool IsNewSizeSet = false;
-        public Size IconSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true; } }
-        private ImageList GetImageList()
+         private ImageList GetImageList()
         {
-
-
-            switch (IconSize.Height)
-            {
-                case 16:
-                    return vismanager.Images16;
-                    break;
-                case 32:
-                    return vismanager.Images32;
-                    break;
-                case 64:
-                    return vismanager.Images64;
-                    break;
-                case 128:
-                    return vismanager.Images128;
-                    break;
-                case 256:
-                    return vismanager.Images256;
-                    break;
-                default:
-                    return vismanager.Images;
-                    break;
-            }
+            VisHelper visHelper = (VisHelper)vismanager.visHelper;
+            return visHelper.ImageList;
 
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
@@ -112,10 +89,6 @@ namespace Beep.Winform.Vis.Controls
             try
             {
 
-               
-              
-                    // toolbarstrip.AutoSize = false;
-
                 toolbarstrip.ImageScalingSize = new Size(20, 20);
                 toolbarstrip.Dock = System.Windows.Forms.DockStyle.Fill;
               //  toolbarstrip.Location = new System.Drawing.Point(342, 0);
@@ -134,7 +107,9 @@ namespace Beep.Winform.Vis.Controls
                         ToolStripButton toolStripButton1 = new ToolStripButton();
                         if (item.iconimage != null)
                         {
-                            toolStripButton1.ImageIndex = vismanager.visHelper.GetImageIndex(item.iconimage, IconSize.Width);
+                            
+                            toolStripButton1.ImageIndex = vismanager.visHelper.GetImageIndex(item.iconimage);
+                            toolStripButton1.ImageKey= item.iconimage;
                         }
                         toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
                         toolStripButton1.TextAlign = ContentAlignment.BottomLeft;

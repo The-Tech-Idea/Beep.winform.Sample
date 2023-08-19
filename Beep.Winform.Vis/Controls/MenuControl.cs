@@ -59,35 +59,11 @@ namespace Beep.Winform.Vis.Controls
         {
             throw new NotImplementedException();
         }
-        private Size _iconsize = new Size(32, 32);
-        private bool IsNewSizeSet = false;
-        public Size IconSize { get { return _iconsize; } set { _iconsize = value; IsNewSizeSet = true; } }
         private ImageList GetImageList()
         {
-
-
-            switch (IconSize.Height)
-            {
-                case 16:
-                    return vismanager.Images16;
-                    break;
-                case 32:
-                    return vismanager.Images32;
-                    break;
-                case 64:
-                    return vismanager.Images64;
-                    break;
-                case 128:
-                    return vismanager.Images128;
-                    break;
-                case 256:
-                    return vismanager.Images256;
-                    break;
-                default:
-                    return vismanager.Images;
-                    break;
-            }
-
+            VisHelper visHelper=(VisHelper)vismanager.visHelper;
+                    return visHelper.ImageList;
+          
         }
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)
         {
@@ -114,7 +90,7 @@ namespace Beep.Winform.Vis.Controls
                         Extensionsmenu.Text = attrib.Caption;
                         Extensionsmenu.Tag = attrib.TypeId;
                         Extensionsmenu.ImageScaling = ToolStripItemImageScaling.SizeToFit;
-                        Extensionsmenu.ImageIndex = vismanager.visHelper.GetImageIndex(attrib.iconimage,IconSize.Width);
+                        Extensionsmenu.ImageIndex = vismanager.visHelper.GetImageIndex(attrib.iconimage);
                         menuitems.Add(Extensionsmenu);
                         menustrip.Items.Add(Extensionsmenu);
                         foreach (MethodsClass item in cls.Methods)
@@ -127,7 +103,7 @@ namespace Beep.Winform.Vis.Controls
                             menuItem.Click += RunToolStripFunction;
                             menuItem.ImageScaling = ToolStripItemImageScaling.SizeToFit;
                             menuItem.DisplayStyle = ToolStripItemDisplayStyle.ImageAndText;
-                            menuItem.Image = visHelper.GetImage(item.iconimage,IconSize.Width);
+                            menuItem.Image = (Image)visHelper.GetImage(item.iconimage);
                             Extensionsmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem });
                            
                            
@@ -144,7 +120,7 @@ namespace Beep.Winform.Vis.Controls
                     Configmenu.Text = "Configuration";
                     Configmenu.Tag = "Config";
                     Configmenu.ImageScaling = ToolStripItemImageScaling.SizeToFit;
-                    Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico", IconSize.Width);
+                    Configmenu.ImageIndex = vismanager.visHelper.GetImageIndex("configuration.ico"  );
                     foreach (AddinTreeStructure item in DMEEditor.ConfigEditor.AddinTreeStructure)
                     {
                         ToolStripMenuItem menuItem = new ToolStripMenuItem();
@@ -155,7 +131,7 @@ namespace Beep.Winform.Vis.Controls
                         menuItem.ImageScaling = ToolStripItemImageScaling.SizeToFit;
                         menuItem.Tag = item.className;
                         menuItem.Click += RunConfigFunction;
-                        menuItem.Image = visHelper.GetImage(item.Imagename, IconSize.Width);
+                        menuItem.Image = (Image)visHelper.GetImage(item.Imagename);
                         // menuItem.ImageIndex = vismanager.visHelper.GetImageIndex(item.Imagename);
                         Configmenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { menuItem });
                     }

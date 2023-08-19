@@ -79,7 +79,7 @@ namespace Beep.Winform.Controls
         public EntityStructure EntityStructure { get ; set ; }
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
-     //   public System.Windows.Forms.DataGridView dataGridView1 { get; set; }
+         // public System.Windows.Forms.DataGridView DataGridView => dataGridView1;
         IVisManager visManager;
         BindingSource _bindingSource;
         public BindingSource bindingSource { get { return _bindingSource; } set { dataGridView1.DataSource = value; _bindingSource = value; dataGridView1.Refresh(); } }

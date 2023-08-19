@@ -106,59 +106,19 @@ namespace Beep.Winform.Vis
             Images = new ImageList();
             Images.ColorDepth = ColorDepth.Depth32Bit;
             Images.ImageSize = new Size(20, 20);
-            Images16 = new ImageList();
-            Images16.ImageSize = new Size(16, 16);
-            Images16.ColorDepth = ColorDepth.Depth32Bit;
-            Images32 = new ImageList();
-            Images32.ImageSize = new Size(32, 32);
-            Images32.ColorDepth = ColorDepth.Depth32Bit;
-            Images64 = new ImageList();
-            Images64.ImageSize = new Size(64, 64);
-            Images64.ColorDepth = ColorDepth.Depth32Bit;
-            Images128 = new ImageList();
-            Images128.ImageSize = new Size(128 ,128);
-            Images128.ColorDepth = ColorDepth.Depth32Bit;
-            Images256 = new ImageList();
-            Images256.ImageSize = new Size(256, 256);
-            Images256.ColorDepth = ColorDepth.Depth32Bit;
+            visHelper.GetGraphicFilesLocations(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, false);
             List<string> paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ico", SearchOption.AllDirectories).ToList();
             foreach (string filename_w_path in paths)
             {
                 try
                 {
                     string filename = Path.GetFileName(filename_w_path);
-                    ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
+                  //  ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
                     Image im = Image.FromFile(filename_w_path);
                     if (im != null)
                     {
-                        Images16.Images.Add(filename, im);
-                        Images32.Images.Add(filename, im);
-                        Images64.Images.Add(filename, im);
-                        Images128.Images.Add(filename, im);
-                        Images256.Images.Add(filename, im);
+                       
                         Images.Images.Add(filename, im);
-
-                        //switch (im.Size.Height)
-                        //{
-                        //    case 16:
-                        //        Images16.Images.Add(filename,im );
-                        //        break;
-                        //    case 32:
-                        //        Images32.Images.Add(filename, im);
-                        //        break;
-                        //    case 64:
-                        //        Images64.Images.Add(filename, im);
-                        //        break;
-                        //    case 128:
-                        //        Images128.Images.Add(filename, im);
-                        //        break;
-                        //    case 256:
-                        //        Images256.Images.Add(filename, im);
-                        //        break;
-                        //    default:
-                        //        Images.Images.Add(filename, im);
-                        //        break;
-                        //}
                         ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
                     }
                    
@@ -170,6 +130,7 @@ namespace Beep.Winform.Vis
                     DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
                 }
             }
+            
             paths = Directory.GetFiles(DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.png", SearchOption.AllDirectories).ToList();
             foreach (string filename_w_path in paths)
             {
@@ -178,7 +139,7 @@ namespace Beep.Winform.Vis
                     string filename = Path.GetFileName(filename_w_path);
                     Images.Images.Add(filename, Image.FromFile(filename_w_path));
                     ImagesUrls.Add(new FileStorage() { FileName = filename, Url = filename_w_path });
-
+                 
                 }
                 catch (FileLoadException ex)
                 {
@@ -187,17 +148,14 @@ namespace Beep.Winform.Vis
                     DMEEditor.Logger.WriteLog($"Error Loading icons ({ex.Message})");
                 }
             }
+           
             a = new PassedArgs();
             PostLogin?.Invoke(this, a);
         }
     
         #region "Winform Implemetation Properties"
         public ImageList Images { get; set; } = new ImageList();
-        public ImageList Images16 { get; set; } = new ImageList();
-        public ImageList Images32 { get; set; } = new ImageList();
-        public ImageList Images64 { get; set; } = new ImageList();
-        public ImageList Images128 { get; set; } = new ImageList();
-        public ImageList Images256 { get; set; } = new ImageList();
+     
         public List<IFileStorage> ImagesUrls { get; set; } = new List<IFileStorage>();
         BeepWait BeepWaitForm { get; set; }
         public IWaitForm WaitForm { get; set; }
@@ -1006,47 +964,7 @@ namespace Beep.Winform.Vis
         }
         #endregion
         #region "Resource Loaders"
-        public Image GetImage(string fullName)
-        {
-            Bitmap image = null;
-            Stream stream;
-            Assembly assembly = Assembly.GetExecutingAssembly();
-            // Is this just a single (ie. one-time) image?
-            stream = assembly.GetManifestResourceStream(fullName);
-            if (stream != null)
-            {
-               
-                image = new Bitmap(stream);
-                stream.Close();
-                return image;
-            }
-            else
-            {
-                assembly = Assembly.GetCallingAssembly();
-                stream = assembly.GetManifestResourceStream(fullName);
-                if (stream != null)
-                {
-                    image = new Bitmap(stream);
-                    stream.Close();
-                    return image;
-                }
-            }
-            return null;
-        }
-        public List<string> GetImageList(Assembly assembly)
-        {
-            System.Globalization.CultureInfo culture = System.Threading.Thread.CurrentThread.CurrentCulture;
-            string resourceName = assembly.GetName().Name ;
-            System.Resources.ResourceManager rm = new System.Resources.ResourceManager(resourceName, assembly);
-            System.Resources.ResourceSet resourceSet = rm.GetResourceSet(culture, true, true);
-            List<string> resources = new List<string>();
-            foreach (DictionaryEntry resource in resourceSet)
-            {
-                resources.Add((string)resource.Key);
-            }
-            rm.ReleaseAllResources();
-            return resources;
-        }
+   
         #endregion
         public IErrorsInfo PrintGrid(IPassedArgs e)
         {

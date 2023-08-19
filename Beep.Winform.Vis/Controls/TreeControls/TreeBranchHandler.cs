@@ -49,10 +49,10 @@ namespace Beep.Winform.Vis.Controls
                 TreeNode p = Treecontrol.GetTreeNodeByID(ParentBranch.BranchID, TreeV.Nodes);
                
                 TreeNode n = p.Nodes.Add(Branch.BranchText);
-                if (visManager.visHelper.GetImageIndex(Branch.IconImageName,Treecontrol.IconsSize.Width) == -1)
+                if (visManager.visHelper.GetImageIndex(Branch.IconImageName) == -1)
                 {
-                    n.ImageIndex = visManager.visHelper.GetImageIndexFromConnectioName(Branch.BranchText, Treecontrol.IconsSize.Width);
-                    n.SelectedImageIndex = visManager.visHelper.GetImageIndexFromConnectioName(Branch.BranchText, Treecontrol.IconsSize.Width);
+                    n.ImageIndex = visManager.visHelper.GetImageIndexFromConnectioName(Branch.BranchText);
+                    n.SelectedImageIndex = visManager.visHelper.GetImageIndexFromConnectioName(Branch.BranchText);
                 }
                 else
                 {

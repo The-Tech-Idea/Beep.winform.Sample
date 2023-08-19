@@ -141,9 +141,7 @@ namespace Beep.Winform.Vis.MainForms
                 BeeptoolbarControl.ObjectType = visManager.BeepObjectsName;
                 BeepmenuControl.ObjectType = visManager.BeepObjectsName;
 
-                BeepTreeControl.IconsSize = new Size(32, 32);
-                BeepmenuControl.IconSize = new Size(32, 32);
-                BeeptoolbarControl.IconSize = new Size(32, 32); 
+              
 
                 BeepTreeControl.TreeV = BeepTreeView;
                 BeepmenuControl.TreeV = BeepTreeView;
@@ -182,9 +180,7 @@ namespace Beep.Winform.Vis.MainForms
                 ApptoolbarControl.ObjectType = visManager.AppObjectsName;
                 AppmenuControl.ObjectType = visManager.AppObjectsName; ;
 
-                ApptreeControl.IconsSize=new Size(32,32);
-                AppmenuControl.IconSize = new Size(32, 32);
-                ApptoolbarControl.IconSize = new Size(32, 32);
+             
 
                 ApptreeControl.TreeV = AppTreeView;
                 ApptoolbarControl.TreeV = AppTreeView;

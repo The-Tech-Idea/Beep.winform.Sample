@@ -1,16 +1,8 @@
 ﻿using BeepEnterprize.Vis.Module;
 using DataManagementModels.DriversConfigurations;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+
 using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+
 using TheTechIdea;
 using TheTechIdea.Beep;
 using TheTechIdea.Beep.DataBase;
@@ -103,9 +95,9 @@ namespace Beep.Winform.Vis.DataViewManagement
                 this.CreateEntitiesbutton.Click += CreateEntitiesbutton_Click;
                 this.Okbutton.Click += Okbutton_Click;
                 this.Cancelbutton.Click += Cancelbutton_Click;
-                this.CreateLayerButton.Image = visManager.GetImage("Beep.Winform.Vis.gfx.clear64.png");
-                this.Okbutton.Image= visManager.GetImage("Beep.Winform.Vis.gfx.success32.png");
-                this.Cancelbutton.Image = visManager.GetImage("Beep.Winform.Vis.gfx.stop32.png");
+                this.CreateLayerButton.Image = (Image)visManager.visHelper.GetImage("Beep.Winform.Vis.gfx.clear64.png");
+                this.Okbutton.Image= (Image)visManager.visHelper.GetImage("Beep.Winform.Vis.gfx.success32.png");
+                this.Cancelbutton.Image = (Image)visManager.visHelper.GetImage("Beep.Winform.Vis.gfx.stop32.png");
             }
         }
         #region"Button Events"
