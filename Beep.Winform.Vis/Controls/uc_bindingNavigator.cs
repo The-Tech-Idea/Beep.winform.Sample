@@ -164,7 +164,7 @@ namespace Beep.Winform.Controls
                 this.Recordnumberinglabel1.MouseHover += Recordnumberinglabel1_MouseHover;
 
                 datasourcechanged();
-                this.Height = 31;
+               // this.Height = 31;
               
             }
         }
@@ -176,10 +176,10 @@ namespace Beep.Winform.Controls
             Label box = (Label)sender;
             if (box != null)
             {
-                Highlightpanel.Left = box.Left - 2;
-                Highlightpanel.Top = box.Top - 2;
-                Highlightpanel.Height = box.Height + 4;
-                Highlightpanel.Width = box.Width + 4;
+                Highlightpanel.Left = box.Left - 1;
+                Highlightpanel.Top = box.Top - 1;
+                Highlightpanel.Height = box.Height + 1;
+                Highlightpanel.Width = box.Width + 1;
                 Highlightpanel.SendToBack();
             }
         }
@@ -189,19 +189,19 @@ namespace Beep.Winform.Controls
             Button box = (Button)sender;
             if (box != null)
             {
-                Highlightpanel.Left = box.Left-2 ;
-                Highlightpanel.Top = box.Top-2;
-                Highlightpanel.Height = box.Height+4;
-                Highlightpanel.Width = box.Width+4;
+                Highlightpanel.Left = box.Left-1 ;
+                Highlightpanel.Top = box.Top-1;
+                Highlightpanel.Height = box.Height+1;
+                Highlightpanel.Width = box.Width+1;
                 Highlightpanel.SendToBack();
             }
         }
         private void InitPanels()
         {
-            Highlightpanel.Left = Recordnumberinglabel1.Left - 2;
-            Highlightpanel.Top = Recordnumberinglabel1.Top-2;
-            Highlightpanel.Height = Recordnumberinglabel1.Height+4;
-            Highlightpanel.Width = Recordnumberinglabel1.Width + 4;
+            Highlightpanel.Left = Recordnumberinglabel1.Left - 1;
+            Highlightpanel.Top = Recordnumberinglabel1.Top-1;
+            Highlightpanel.Height = Recordnumberinglabel1.Height+1;
+            Highlightpanel.Width = Recordnumberinglabel1.Width + 1;
             //foreach (Button item in GetAll(this, typeof(Button)))
             //{
             //    item.FlatAppearance.BorderSize = ButtonBorderSize;

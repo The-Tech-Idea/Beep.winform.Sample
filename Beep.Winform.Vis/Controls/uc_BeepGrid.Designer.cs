@@ -30,27 +30,28 @@
         {
             this.Toppanel = new System.Windows.Forms.Panel();
             this.Titlelabel = new System.Windows.Forms.Label();
+            this.MessageLabel = new System.Windows.Forms.Label();
             this.Sharebutton = new System.Windows.Forms.Button();
             this.Printbutton = new System.Windows.Forms.Button();
             this.Filterbutton = new System.Windows.Forms.Button();
             this.Bottompanel = new System.Windows.Forms.Panel();
-            this.SaveButton = new System.Windows.Forms.Button();
-            this.MessageLabel = new System.Windows.Forms.Label();
-            this.Cancelbutton = new System.Windows.Forms.Button();
-            this.Deletebutton = new System.Windows.Forms.Button();
-            this.Previousbutton = new System.Windows.Forms.Button();
-            this.NextButton = new System.Windows.Forms.Button();
-            this.Newbutton = new System.Windows.Forms.Button();
+            this.uc_bindingNavigator1 = new Beep.Winform.Controls.uc_bindingNavigator();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.filterPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Toppanel.SuspendLayout();
             this.Bottompanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.filterPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Toppanel
             // 
+            this.Toppanel.BackColor = System.Drawing.Color.White;
+            this.Toppanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Toppanel.Controls.Add(this.Titlelabel);
+            this.Toppanel.Controls.Add(this.MessageLabel);
             this.Toppanel.Controls.Add(this.Sharebutton);
             this.Toppanel.Controls.Add(this.Printbutton);
             this.Toppanel.Controls.Add(this.Filterbutton);
@@ -62,19 +63,28 @@
             // 
             // Titlelabel
             // 
-            this.Titlelabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.Titlelabel.Location = new System.Drawing.Point(3, 1);
             this.Titlelabel.Name = "Titlelabel";
-            this.Titlelabel.Size = new System.Drawing.Size(117, 20);
+            this.Titlelabel.Size = new System.Drawing.Size(262, 20);
             this.Titlelabel.TabIndex = 9;
             this.Titlelabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // MessageLabel
+            // 
+            this.MessageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.MessageLabel.Location = new System.Drawing.Point(271, 1);
+            this.MessageLabel.Name = "MessageLabel";
+            this.MessageLabel.Size = new System.Drawing.Size(382, 20);
+            this.MessageLabel.TabIndex = 8;
+            this.MessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Sharebutton
             // 
             this.Sharebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Sharebutton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources.messages;
             this.Sharebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Sharebutton.Location = new System.Drawing.Point(663, 1);
+            this.Sharebutton.Location = new System.Drawing.Point(661, 1);
             this.Sharebutton.Name = "Sharebutton";
             this.Sharebutton.Size = new System.Drawing.Size(20, 20);
             this.Sharebutton.TabIndex = 2;
@@ -83,8 +93,9 @@
             // Printbutton
             // 
             this.Printbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Printbutton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._015_printer;
             this.Printbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Printbutton.Location = new System.Drawing.Point(688, 1);
+            this.Printbutton.Location = new System.Drawing.Point(686, 1);
             this.Printbutton.Name = "Printbutton";
             this.Printbutton.Size = new System.Drawing.Size(20, 20);
             this.Printbutton.TabIndex = 1;
@@ -93,8 +104,9 @@
             // Filterbutton
             // 
             this.Filterbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Filterbutton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._052_filter;
             this.Filterbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Filterbutton.Location = new System.Drawing.Point(712, 1);
+            this.Filterbutton.Location = new System.Drawing.Point(710, 1);
             this.Filterbutton.Name = "Filterbutton";
             this.Filterbutton.Size = new System.Drawing.Size(20, 20);
             this.Filterbutton.TabIndex = 0;
@@ -102,91 +114,50 @@
             // 
             // Bottompanel
             // 
-            this.Bottompanel.Controls.Add(this.SaveButton);
-            this.Bottompanel.Controls.Add(this.MessageLabel);
-            this.Bottompanel.Controls.Add(this.Cancelbutton);
-            this.Bottompanel.Controls.Add(this.Deletebutton);
-            this.Bottompanel.Controls.Add(this.Previousbutton);
-            this.Bottompanel.Controls.Add(this.NextButton);
-            this.Bottompanel.Controls.Add(this.Newbutton);
+            this.Bottompanel.BackColor = System.Drawing.Color.White;
+            this.Bottompanel.Controls.Add(this.uc_bindingNavigator1);
             this.Bottompanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Bottompanel.Location = new System.Drawing.Point(0, 324);
             this.Bottompanel.Name = "Bottompanel";
             this.Bottompanel.Size = new System.Drawing.Size(735, 24);
             this.Bottompanel.TabIndex = 1;
             // 
-            // SaveButton
+            // uc_bindingNavigator1
             // 
-            this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SaveButton.Location = new System.Drawing.Point(712, 3);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(20, 20);
-            this.SaveButton.TabIndex = 9;
-            this.SaveButton.UseVisualStyleBackColor = true;
-            // 
-            // MessageLabel
-            // 
-            this.MessageLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.uc_bindingNavigator1.AddinName = null;
+            this.uc_bindingNavigator1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.MessageLabel.Location = new System.Drawing.Point(86, 4);
-            this.MessageLabel.Name = "MessageLabel";
-            this.MessageLabel.Size = new System.Drawing.Size(571, 20);
-            this.MessageLabel.TabIndex = 8;
-            this.MessageLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // Cancelbutton
-            // 
-            this.Cancelbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Cancelbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Cancelbutton.Location = new System.Drawing.Point(688, 3);
-            this.Cancelbutton.Name = "Cancelbutton";
-            this.Cancelbutton.Size = new System.Drawing.Size(20, 20);
-            this.Cancelbutton.TabIndex = 7;
-            this.Cancelbutton.UseVisualStyleBackColor = true;
-            // 
-            // Deletebutton
-            // 
-            this.Deletebutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.Deletebutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Deletebutton.Location = new System.Drawing.Point(663, 3);
-            this.Deletebutton.Name = "Deletebutton";
-            this.Deletebutton.Size = new System.Drawing.Size(20, 20);
-            this.Deletebutton.TabIndex = 6;
-            this.Deletebutton.UseVisualStyleBackColor = true;
-            // 
-            // Previousbutton
-            // 
-            this.Previousbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Previousbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Previousbutton.Location = new System.Drawing.Point(5, 2);
-            this.Previousbutton.Name = "Previousbutton";
-            this.Previousbutton.Size = new System.Drawing.Size(20, 20);
-            this.Previousbutton.TabIndex = 5;
-            this.Previousbutton.UseVisualStyleBackColor = true;
-            // 
-            // NextButton
-            // 
-            this.NextButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.NextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.NextButton.Location = new System.Drawing.Point(30, 2);
-            this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(20, 20);
-            this.NextButton.TabIndex = 4;
-            this.NextButton.UseVisualStyleBackColor = true;
-            // 
-            // Newbutton
-            // 
-            this.Newbutton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.Newbutton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Newbutton.Location = new System.Drawing.Point(54, 2);
-            this.Newbutton.Name = "Newbutton";
-            this.Newbutton.Size = new System.Drawing.Size(20, 20);
-            this.Newbutton.TabIndex = 3;
-            this.Newbutton.UseVisualStyleBackColor = true;
+            this.uc_bindingNavigator1.BackColor = System.Drawing.Color.White;
+            this.uc_bindingNavigator1.bindingSource = null;
+            this.uc_bindingNavigator1.ButtonBorderSize = 0;
+            this.uc_bindingNavigator1.CausesValidation = false;
+            this.uc_bindingNavigator1.ControlHeight = 30;
+            this.uc_bindingNavigator1.DefaultCreate = false;
+            this.uc_bindingNavigator1.Description = null;
+            this.uc_bindingNavigator1.DllName = null;
+            this.uc_bindingNavigator1.DllPath = null;
+            this.uc_bindingNavigator1.DMEEditor = null;
+            this.uc_bindingNavigator1.EntityName = null;
+            this.uc_bindingNavigator1.EntityStructure = null;
+            this.uc_bindingNavigator1.ErrorObject = null;
+            this.uc_bindingNavigator1.HightlightColor = System.Drawing.Color.Empty;
+            this.uc_bindingNavigator1.Location = new System.Drawing.Point(0, 3);
+            this.uc_bindingNavigator1.Logger = null;
+            this.uc_bindingNavigator1.Name = "uc_bindingNavigator1";
+            this.uc_bindingNavigator1.NameSpace = null;
+            this.uc_bindingNavigator1.ObjectName = null;
+            this.uc_bindingNavigator1.ObjectType = null;
+            this.uc_bindingNavigator1.ParentName = null;
+            this.uc_bindingNavigator1.Passedarg = null;
+            this.uc_bindingNavigator1.SelectedColor = System.Drawing.Color.Empty;
+            this.uc_bindingNavigator1.Size = new System.Drawing.Size(731, 18);
+            this.uc_bindingNavigator1.TabIndex = 9;
+            this.uc_bindingNavigator1.VerifyDelete = true;
             // 
             // dataGridView1
             // 
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 46);
@@ -196,11 +167,24 @@
             // 
             // filterPanel
             // 
+            this.filterPanel.BackColor = System.Drawing.Color.White;
+            this.filterPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.filterPanel.Controls.Add(this.pictureBox1);
             this.filterPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.filterPanel.Location = new System.Drawing.Point(0, 22);
             this.filterPanel.Name = "filterPanel";
             this.filterPanel.Size = new System.Drawing.Size(735, 24);
             this.filterPanel.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Beep.Winform.Vis.Properties.Resources._052_filter;
+            this.pictureBox1.Location = new System.Drawing.Point(6, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(27, 16);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // uc_BeepGrid
             // 
@@ -217,6 +201,8 @@
             this.Toppanel.ResumeLayout(false);
             this.Bottompanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.filterPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -229,15 +215,11 @@
         public System.Windows.Forms.Button Filterbutton;
         public System.Windows.Forms.Button Printbutton;
         public System.Windows.Forms.Button Sharebutton;
-        public System.Windows.Forms.Button Cancelbutton;
-        public System.Windows.Forms.Button Deletebutton;
-        public System.Windows.Forms.Button Previousbutton;
-        public System.Windows.Forms.Button NextButton;
-        public System.Windows.Forms.Button Newbutton;
         public System.Windows.Forms.Label MessageLabel;
         public System.Windows.Forms.Label Titlelabel;
-        public System.Windows.Forms.Button SaveButton;
         private System.Windows.Forms.DataGridView dataGridView1;
         private Panel filterPanel;
+        private uc_bindingNavigator uc_bindingNavigator1;
+        private PictureBox pictureBox1;
     }
 }

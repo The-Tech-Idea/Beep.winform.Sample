@@ -14,8 +14,9 @@ namespace Beep.Winform.Controls
         public uc_BeepGrid()
         {
             InitializeComponent();
-            Loadimages();
+          //  Loadimages();
             InitPanels();
+            WireAllControls();
             dataGridView1.Resize += DataGridView_Resize;
             //foreach (Control c in this.Controls)
             //{
@@ -108,22 +109,14 @@ namespace Beep.Winform.Controls
                 this.bindingSource.DataSourceChanged += BindingSource_DataSourceChanged;
                 this.bindingSource.ListChanged += BindingSource_ListChanged;
                 this.bindingSource.CurrentChanged += BindingSource_CurrentChanged;
-                this.Previousbutton.Click -= PreviouspictureBox_Click;
-                this.NextButton.Click -= NextpictureBox_Click;
-                this.Deletebutton.Click -= RemovepictureBox_Click;
+              
              //   this..Click -= SavepictureBox_Click;
-                this.Cancelbutton.Click -= RollbackpictureBox_Click;
+            
               //  this.EditButton.Click -= EditpictureBox_Click;
               //  this.FindButton.Click -= FindpictureBox_Click;
                 this.Printbutton.Click -= PrinterpictureBox_Click;
                 this.Sharebutton.Click -= MessegepictureBox_Click;
-                this.Newbutton.Click -= NewButton_Click;
-
-                this.Newbutton.Click += NewButton_Click;
-                this.Previousbutton.Click += PreviouspictureBox_Click;
-                this.NextButton.Click += NextpictureBox_Click;
-                this.Deletebutton.Click += RemovepictureBox_Click;
-                this.SaveButton.Click += SavepictureBox_Click;
+              
               //  this.RollbackButton.Click += RollbackpictureBox_Click;
                // this.EditButton.Click += EditpictureBox_Click;
              //   this.FindButton.Click += FindpictureBox_Click;
@@ -134,7 +127,7 @@ namespace Beep.Winform.Controls
 
         }
 
-        private void WireAllControls(Control cont)
+        private void WireAllControls()
         {
             foreach (Control c in this.Controls)
             {
@@ -182,23 +175,7 @@ namespace Beep.Winform.Controls
             this.Filterbutton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "Filter.png");
             this.Sharebutton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "ShareLink.png");
             this.Printbutton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "Print.png");
-            ////CRUDSmall
-            this.Cancelbutton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.CRUDSmall.", "cancel.png");
-            this.Deletebutton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.CRUDSmall.", "delete.png");
-            this.Newbutton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.CRUDSmall.", "new.png");
-            this.NextButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.CRUDSmall.", "next.png");
-            this.Previousbutton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.CRUDSmall.", "previous.png");
-            this.SaveButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.CRUDSmall.", "Save.png");
-            //this.SaveButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "save.png");
-            //this.NextButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "right.png");
-            //this.PrevoiusButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "left.png");
-            //this.RemoveButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "remove.png");
-            //this.RollbackButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "cancel.png");
-            //this.EditButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "edit.png");
-            //this.FindButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "search.png");
-            //this.MessageButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "messages.png");
-            //this.PrinterButton.BackgroundImage = resourceManager.GetImage("Beep.Winform.Controls.gfx.", "printer.png");
-
+         
         }
         #region "BindingSource Events"
         private void RollbackpictureBox_Click(object sender, EventArgs e)
@@ -492,8 +469,7 @@ namespace Beep.Winform.Controls
                 }
             }
         }
-      
 
-
+       
     }
 }

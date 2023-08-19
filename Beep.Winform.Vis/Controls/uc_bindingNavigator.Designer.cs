@@ -45,14 +45,12 @@
             // 
             // Recordnumberinglabel1
             // 
-            this.Recordnumberinglabel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Recordnumberinglabel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Recordnumberinglabel1.BackColor = System.Drawing.Color.White;
-            this.Recordnumberinglabel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Recordnumberinglabel1.ForeColor = System.Drawing.Color.Black;
-            this.Recordnumberinglabel1.Location = new System.Drawing.Point(200, 5);
-            this.Recordnumberinglabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Recordnumberinglabel1.Location = new System.Drawing.Point(103, 0);
             this.Recordnumberinglabel1.Name = "Recordnumberinglabel1";
-            this.Recordnumberinglabel1.Size = new System.Drawing.Size(292, 33);
+            this.Recordnumberinglabel1.Size = new System.Drawing.Size(195, 17);
             this.Recordnumberinglabel1.TabIndex = 0;
             this.Recordnumberinglabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -60,178 +58,165 @@
             // 
             this.Highlightpanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Highlightpanel.BackColor = System.Drawing.Color.DodgerBlue;
-            this.Highlightpanel.Location = new System.Drawing.Point(5, 3);
-            this.Highlightpanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Highlightpanel.Location = new System.Drawing.Point(3, 0);
             this.Highlightpanel.Name = "Highlightpanel";
-            this.Highlightpanel.Size = new System.Drawing.Size(4, 34);
+            this.Highlightpanel.Size = new System.Drawing.Size(3, 17);
             this.Highlightpanel.TabIndex = 15;
             // 
             // Focuspanel
             // 
             this.Focuspanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.Focuspanel.BackColor = System.Drawing.Color.Orange;
-            this.Focuspanel.Location = new System.Drawing.Point(10, 3);
-            this.Focuspanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.Focuspanel.Location = new System.Drawing.Point(6, 0);
             this.Focuspanel.Name = "Focuspanel";
-            this.Focuspanel.Size = new System.Drawing.Size(4, 34);
+            this.Focuspanel.Size = new System.Drawing.Size(3, 17);
             this.Focuspanel.TabIndex = 16;
             // 
             // FindButton
             // 
-            this.FindButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.FindButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.FindButton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._010_search;
             this.FindButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.FindButton.CausesValidation = false;
             this.FindButton.FlatAppearance.BorderSize = 0;
             this.FindButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FindButton.Location = new System.Drawing.Point(20, 5);
-            this.FindButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.FindButton.Location = new System.Drawing.Point(15, 1);
             this.FindButton.Name = "FindButton";
-            this.FindButton.Size = new System.Drawing.Size(36, 35);
+            this.FindButton.Size = new System.Drawing.Size(16, 16);
             this.FindButton.TabIndex = 19;
             this.FindButton.UseVisualStyleBackColor = true;
             // 
             // EditButton
             // 
-            this.EditButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.EditButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EditButton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._064_edit;
             this.EditButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.EditButton.CausesValidation = false;
             this.EditButton.FlatAppearance.BorderSize = 0;
             this.EditButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.EditButton.Location = new System.Drawing.Point(110, 5);
-            this.EditButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.EditButton.Location = new System.Drawing.Point(59, 1);
             this.EditButton.Name = "EditButton";
-            this.EditButton.Size = new System.Drawing.Size(36, 35);
+            this.EditButton.Size = new System.Drawing.Size(16, 16);
             this.EditButton.TabIndex = 21;
             this.EditButton.UseVisualStyleBackColor = true;
             // 
             // PrinterButton
             // 
-            this.PrinterButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PrinterButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PrinterButton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._015_printer;
             this.PrinterButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PrinterButton.CausesValidation = false;
             this.PrinterButton.FlatAppearance.BorderSize = 0;
             this.PrinterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PrinterButton.Location = new System.Drawing.Point(682, 5);
-            this.PrinterButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PrinterButton.Location = new System.Drawing.Point(392, 1);
             this.PrinterButton.Name = "PrinterButton";
-            this.PrinterButton.Size = new System.Drawing.Size(36, 35);
+            this.PrinterButton.Size = new System.Drawing.Size(16, 16);
             this.PrinterButton.TabIndex = 27;
             this.PrinterButton.UseVisualStyleBackColor = true;
             // 
             // MessageButton
             // 
-            this.MessageButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.MessageButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.MessageButton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._080_inbox;
             this.MessageButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.MessageButton.CausesValidation = false;
             this.MessageButton.FlatAppearance.BorderSize = 0;
             this.MessageButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MessageButton.Location = new System.Drawing.Point(726, 5);
-            this.MessageButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.MessageButton.Location = new System.Drawing.Point(414, 1);
             this.MessageButton.Name = "MessageButton";
-            this.MessageButton.Size = new System.Drawing.Size(36, 35);
+            this.MessageButton.Size = new System.Drawing.Size(16, 16);
             this.MessageButton.TabIndex = 28;
             this.MessageButton.UseVisualStyleBackColor = true;
             // 
             // SaveButton
             // 
-            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.SaveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.SaveButton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._054_upload;
             this.SaveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.SaveButton.CausesValidation = false;
             this.SaveButton.FlatAppearance.BorderSize = 0;
             this.SaveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaveButton.Location = new System.Drawing.Point(636, 5);
-            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.SaveButton.Location = new System.Drawing.Point(370, 1);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(36, 35);
+            this.SaveButton.Size = new System.Drawing.Size(16, 16);
             this.SaveButton.TabIndex = 26;
             this.SaveButton.UseVisualStyleBackColor = true;
             // 
             // RollbackButton
             // 
-            this.RollbackButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RollbackButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.RollbackButton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._062_cancel;
             this.RollbackButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RollbackButton.CausesValidation = false;
             this.RollbackButton.FlatAppearance.BorderSize = 0;
             this.RollbackButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RollbackButton.Location = new System.Drawing.Point(592, 5);
-            this.RollbackButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RollbackButton.Location = new System.Drawing.Point(348, 1);
             this.RollbackButton.Name = "RollbackButton";
-            this.RollbackButton.Size = new System.Drawing.Size(36, 35);
+            this.RollbackButton.Size = new System.Drawing.Size(16, 16);
             this.RollbackButton.TabIndex = 25;
             this.RollbackButton.UseVisualStyleBackColor = true;
             // 
             // RemoveButton
             // 
-            this.RemoveButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.RemoveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.RemoveButton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._053_trash;
             this.RemoveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.RemoveButton.CausesValidation = false;
             this.RemoveButton.FlatAppearance.BorderSize = 0;
             this.RemoveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.RemoveButton.Location = new System.Drawing.Point(546, 5);
-            this.RemoveButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.RemoveButton.Location = new System.Drawing.Point(326, 0);
             this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(36, 35);
+            this.RemoveButton.Size = new System.Drawing.Size(16, 16);
             this.RemoveButton.TabIndex = 24;
             this.RemoveButton.UseVisualStyleBackColor = true;
             // 
             // NextButton
             // 
-            this.NextButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.NextButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.NextButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.NextButton.CausesValidation = false;
             this.NextButton.FlatAppearance.BorderSize = 0;
             this.NextButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.NextButton.Image = global::Beep.Winform.Vis.Properties.Resources.Collapseright;
-            this.NextButton.Location = new System.Drawing.Point(502, 5);
-            this.NextButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NextButton.Location = new System.Drawing.Point(304, 1);
             this.NextButton.Name = "NextButton";
-            this.NextButton.Size = new System.Drawing.Size(36, 35);
+            this.NextButton.Size = new System.Drawing.Size(16, 16);
             this.NextButton.TabIndex = 23;
             this.NextButton.UseVisualStyleBackColor = true;
             // 
             // PrevoiusButton
             // 
-            this.PrevoiusButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.PrevoiusButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PrevoiusButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.PrevoiusButton.CausesValidation = false;
             this.PrevoiusButton.FlatAppearance.BorderSize = 0;
             this.PrevoiusButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PrevoiusButton.Image = global::Beep.Winform.Vis.Properties.Resources.CollapseLeft;
-            this.PrevoiusButton.Location = new System.Drawing.Point(155, 5);
-            this.PrevoiusButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PrevoiusButton.Location = new System.Drawing.Point(81, 1);
             this.PrevoiusButton.Name = "PrevoiusButton";
-            this.PrevoiusButton.Size = new System.Drawing.Size(36, 35);
+            this.PrevoiusButton.Size = new System.Drawing.Size(16, 16);
             this.PrevoiusButton.TabIndex = 22;
             this.PrevoiusButton.UseVisualStyleBackColor = true;
             // 
             // NewButton
             // 
-            this.NewButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.NewButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.NewButton.BackgroundImage = global::Beep.Winform.Vis.Properties.Resources._079_add;
             this.NewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.NewButton.CausesValidation = false;
             this.NewButton.FlatAppearance.BorderSize = 0;
             this.NewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.NewButton.Location = new System.Drawing.Point(65, 5);
-            this.NewButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NewButton.Location = new System.Drawing.Point(37, 1);
             this.NewButton.Name = "NewButton";
-            this.NewButton.Size = new System.Drawing.Size(36, 35);
+            this.NewButton.Size = new System.Drawing.Size(16, 16);
             this.NewButton.TabIndex = 20;
             this.NewButton.UseVisualStyleBackColor = true;
             // 
             // uc_bindingNavigator
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.CausesValidation = false;
             this.Controls.Add(this.MessageButton);
             this.Controls.Add(this.PrinterButton);
@@ -246,9 +231,8 @@
             this.Controls.Add(this.Recordnumberinglabel1);
             this.Controls.Add(this.Focuspanel);
             this.Controls.Add(this.Highlightpanel);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "uc_bindingNavigator";
-            this.Size = new System.Drawing.Size(800, 48);
+            this.Size = new System.Drawing.Size(437, 20);
             this.ResumeLayout(false);
 
         }
