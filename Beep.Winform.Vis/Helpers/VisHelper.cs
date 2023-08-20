@@ -393,226 +393,91 @@ namespace Beep.Winform.Vis.Helpers
         //    }
 
         //}
-        public void Nodemenu_ItemClicked(IBranch br, object sender, ToolStripItemClickedEventArgs e)
-        {
-            ContextMenuStrip menu = (ContextMenuStrip)sender;
-            ToolStripItem item = e.ClickedItem;
-            menu.Hide();
-            AssemblyClassDefinition cls = (AssemblyClassDefinition)item.Tag;
+        //public void Nodemenu_ItemClicked(IBranch br, object sender, ToolStripItemClickedEventArgs e)
+        //{
+        //    ContextMenuStrip menu = (ContextMenuStrip)sender;
+        //    ToolStripItem item = e.ClickedItem;
+        //    menu.Hide();
+        //    AssemblyClassDefinition cls = (AssemblyClassDefinition)item.Tag;
 
-            if (cls != null)
-            {
-                if (!IsMethodApplicabletoNode(cls, br)) return;
-                if (cls.componentType == "IFunctionExtension")
-                {
-                    RunFunction(br, item);
+        //    if (cls != null)
+        //    {
+        //        if (!IsMethodApplicabletoNode(cls, br)) return;
+        //        if (cls.componentType == "IFunctionExtension")
+        //        {
+        //            RunFunction(br, item);
 
-                }
-                else
-                {
+        //        }
+        //        else
+        //        {
 
-                    RunMethod(br, item.Text);
-                };
+        //            RunMethod(br, item.Text);
+        //        };
 
-            }
-        }
-        public void Nodemenu_MouseClick(IBranch br, TreeNodeMouseClickEventArgs e)
-        {
-
-
-            if (br != null)
-            {
-                string clicks = "";
-                if (e.Button == MouseButtons.Right)
-                {
-                    if (IsMenuCreated(br))
-                    {
-                        MenuList menuList = GetMenuList(br);
-                        menuList.Menu.Show(Cursor.Position);
-                    }
-                }
-                else
-                {
-                    switch (e.Clicks)
-                    {
-                        case 1:
-                            clicks = "SingleClick";
-                            break;
-                        case 2:
-                            clicks = "DoubleClick";
-                            break;
-
-                        default:
-                            break;
-                    }
-                    AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
-                    if (cls != null)
-                    {
-                        if (!IsMethodApplicabletoNode(cls, br)) return;
-                        RunMethod(br, clicks);
-
-                    }
-                }
-
-            }
-
-        }
-        private bool IsMenuCreated(IBranch br)
-        {
-            if (br.ObjectType != null)
-            {
-                return Menus.Where(p => p.ObjectType != null && p.BranchClass.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
-                && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
-                && p.PointType == br.BranchType).Any();
-            }
-            return
-                false;
+        //    }
+        //}
+        //public void Nodemenu_MouseClick(IBranch br, TreeNodeMouseClickEventArgs e)
+        //{
 
 
+        //    if (br != null)
+        //    {
+        //        string clicks = "";
+        //        if (e.Button == MouseButtons.Right)
+        //        {
+        //            if (IsMenuCreated(br))
+        //            {
+        //                MenuList menuList = GetMenuList(br);
+        //                menuList.Menu.Show(Cursor.Position);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            switch (e.Clicks)
+        //            {
+        //                case 1:
+        //                    clicks = "SingleClick";
+        //                    break;
+        //                case 2:
+        //                    clicks = "DoubleClick";
+        //                    break;
+
+        //                default:
+        //                    break;
+        //            }
+        //            AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.PackageName == br.Name && x.Methods.Where(y => y.DoubleClick == true || y.Click == true).Any()).FirstOrDefault();
+        //            if (cls != null)
+        //            {
+        //                if (!IsMethodApplicabletoNode(cls, br)) return;
+        //                RunMethod(br, clicks);
+
+        //            }
+        //        }
+
+        //    }
+
+        //}
+        //private bool IsMenuCreated(IBranch br)
+        //{
+        //    if (br.ObjectType != null)
+        //    {
+        //        return Menus.Where(p => p.ObjectType != null && p.BranchClass.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+        //        && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
+        //        && p.PointType == br.BranchType).Any();
+        //    }
+        //    return
+        //        false;
 
 
-        }
-        private MenuList GetMenuList(IBranch br)
-        {
-            return Menus.Where(p => p.ObjectType != null && p.BranchClass.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
-                && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
-                && p.PointType == br.BranchType).FirstOrDefault();
-        }
-        public void RunFunction(IBranch br,object sender, EventArgs e)
-        {
-         
-            AssemblyClassDefinition assemblydef = new AssemblyClassDefinition();
-            MethodInfo method = null;
-            MethodsClass methodsClass;
-            string MethodName = "";
-            if (sender == null) { return; }
-            if (sender.GetType() == typeof(ToolStripButton))
-            {
-                ToolStripButton item = (ToolStripButton)sender;
-                assemblydef = (AssemblyClassDefinition)item.Tag;
-                MethodName = item.Text;
-            }
-            if (sender.GetType() == typeof(ToolStripMenuItem))
-            {
-                ToolStripMenuItem item = (ToolStripMenuItem)sender;
-                assemblydef = (AssemblyClassDefinition)item.Tag;
-                MethodName = item.Text;
-            }
-            dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.dllname, assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
-            //  dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
-            if (fc == null)
-            {
-                return;
-            }
-            Type t = ((IFunctionExtension)fc).GetType();
-            AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
-            methodsClass = cls.Methods.Where(x => x.Caption == MethodName).FirstOrDefault();
-            if (br != null)
-            {
-                DMEEditor.Passedarguments.ObjectName = br.BranchText;
-                DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
-                DMEEditor.Passedarguments.Id = br.BranchID;
-                DMEEditor.Passedarguments.ParameterInt1 = br.BranchID;
-                if (!IsMethodApplicabletoNode(cls, br)) return;
-            }
-            if (methodsClass != null)
-            {
-                method = methodsClass.Info;
-                if (method.GetParameters().Length > 0)
-                {
-                    method.Invoke(fc, new object[] { DMEEditor.Passedarguments });
-                }
-                else
-                    method.Invoke(fc, null);
-            }
-        }
-        public void RunFunction(IBranch br, ToolStripItem item)
-        {
-            if (br != null)
-            {
-                DMEEditor.Passedarguments.ObjectName = br.BranchText;
-                DMEEditor.Passedarguments.DatasourceName = br.DataSourceName;
-                DMEEditor.Passedarguments.Id = br.BranchID;
-                DMEEditor.Passedarguments.ParameterInt1 = br.BranchID;
-                AssemblyClassDefinition assemblydef = (AssemblyClassDefinition)item.Tag;
-                dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.dllname, assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
-                Type t = (( IFunctionExtension)fc).GetType();
-                //dynamic fc = Activator.CreateInstance(assemblydef.type, new object[] { DMEEditor, Vismanager, this });
-                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
-                MethodInfo method = null;
-                MethodsClass methodsClass;
-                if (!IsMethodApplicabletoNode(cls, br)) return;
-                try
-                {
-                    if (br.BranchType != TheTechIdea.Beep.Vis.EnumPointType.Global)
-                    {
-                        methodsClass = cls.Methods.Where(x => x.Caption == item.Text).FirstOrDefault();
-                    }
-                    else
-                    {
-                        methodsClass = cls.Methods.Where(x => x.Caption == item.Text && x.PointType == br.BranchType).FirstOrDefault();
-                    }
-
-                }
-                catch (Exception)
-                {
-
-                    methodsClass = null;
-                }
-                if (methodsClass != null)
-                {
-                    method = methodsClass.Info;
-                    if (method.GetParameters().Length > 0)
-                    {
-                        method.Invoke(fc, new object[] { DMEEditor.Passedarguments });
-                    }
-                    else
-                        method.Invoke(fc, null);
-                }
-            }
 
 
-        }
-        public IErrorsInfo RunMethod(Object branch, string MethodName)
-        {
-
-            try
-            {
-                Type t = branch.GetType();
-                AssemblyClassDefinition cls = DMEEditor.ConfigEditor.BranchesClasses.Where(x => x.className == t.Name).FirstOrDefault();
-                MethodInfo method = null;
-                MethodsClass methodsClass;
-                try
-                {
-                    methodsClass = cls.Methods.Where(x => x.Caption == MethodName).FirstOrDefault();
-                }
-                catch (Exception)
-                {
-
-                    methodsClass = null;
-                }
-                if (methodsClass != null)
-                {
-                    if (!IsMethodApplicabletoNode(cls, (IBranch)branch)) return DMEEditor.ErrorObject;
-                    method = methodsClass.Info;
-                    if (method.GetParameters().Length > 0)
-                    {
-                        method.Invoke(branch, new object[] { DMEEditor.Passedarguments.Objects[0].obj });
-                    }
-                    else
-                        method.Invoke(branch, null);
-
-
-                    //  DMEEditor.AddLogMessage("Success", "Running method", DateTime.Now, 0, null, Errors.Ok);
-                }
-
-            }
-            catch (Exception ex)
-            {
-                string mes = "Could not Run Method " + MethodName;
-                DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
-            };
-            return DMEEditor.ErrorObject;
-        }
+        //}
+        //private MenuList GetMenuList(IBranch br)
+        //{
+        //    return Menus.Where(p => p.ObjectType != null && p.BranchClass.Equals(br.BranchClass, StringComparison.InvariantCultureIgnoreCase)
+        //        && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
+        //        && p.PointType == br.BranchType).FirstOrDefault();
+        //}
+       
     }
 }

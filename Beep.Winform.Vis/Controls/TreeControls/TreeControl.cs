@@ -261,13 +261,14 @@ namespace Beep.Winform.Vis.Controls
                     menuList.branchname = br.BranchText;
                     Menus.Add(menuList);
                     ContextMenuStrip nodemenu = new ContextMenuStrip();
+                    nodemenu.ImageList = GetImageList();
+                    nodemenu.ItemClicked -= Nodemenu_ItemClicked;
+                    nodemenu.ItemClicked += Nodemenu_ItemClicked;
+                    nodemenu.Items.Clear();
                     menuList.Menu = nodemenu;
                     menuList.ObjectType = br.ObjectType;
                     menuList.BranchClass = br.BranchClass;
-                    menuList.Menu.ImageList = GetImageList();
-                    menuList.Menu.ItemClicked -= Nodemenu_ItemClicked;
-                    menuList.Menu.ItemClicked += Nodemenu_ItemClicked;
-                    menuList.Menu.Items.Clear();
+                    
 
                 }
                 else
@@ -286,8 +287,9 @@ namespace Beep.Winform.Vis.Controls
                             {
                                 if (item.PointType == br.BranchType)
                                 {
-                                    ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
-                                    menuList.Menu.Name = br.ToString();
+                                    ContextMenuStrip ls = (ContextMenuStrip)menuList.Menu;
+                                    ToolStripItem st = ls.Items.Add(item.Caption);
+                                   ls.Name = br.ToString();
                                     if (item.iconimage != null)
                                     {
                                         st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
@@ -299,8 +301,9 @@ namespace Beep.Winform.Vis.Controls
                             {
                                 if ((item.PointType == br.BranchType) && (br.BranchClass.Equals(item.ClassType,StringComparison.InvariantCultureIgnoreCase)))
                                 {
-                                    ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
-                                    menuList.Menu.Name = br.ToString();
+                                    ContextMenuStrip ls = (ContextMenuStrip)menuList.Menu;
+                                    ToolStripItem st =ls.Items.Add(item.Caption);
+                                    ls.Name = br.ToString();
                                     if (item.iconimage != null)
                                     {
                                         st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
@@ -325,6 +328,7 @@ namespace Beep.Winform.Vis.Controls
         }
         public ContextMenuStrip CreateMenuMethods(IBranch branch)
         {
+            ContextMenuStrip ls=null;
             MenuList menuList = new MenuList();
             if (!IsMenuCreated(branch))
             {
@@ -332,14 +336,16 @@ namespace Beep.Winform.Vis.Controls
                 menuList.branchname = branch.BranchText;
                 Menus.Add(menuList);
                 ContextMenuStrip nodemenu = new ContextMenuStrip();
+                nodemenu.Items.Clear();
+                nodemenu.ImageList = GetImageList();
+                nodemenu.ItemClicked -= Nodemenu_ItemClicked;
+                nodemenu.ItemClicked += Nodemenu_ItemClicked;
                 menuList.Menu = nodemenu;
                 menuList.ObjectType = branch.ObjectType;
                 menuList.BranchClass = branch.BranchClass;
-                menuList.Menu.Items.Clear();
-                menuList.Menu.ImageList = GetImageList();
-                menuList.Menu.ItemClicked -= Nodemenu_ItemClicked;
-                menuList.Menu.ItemClicked += Nodemenu_ItemClicked;
+             
 
+                //ContextMenuStrip ls = (ContextMenuStrip)menuList.Menu;
             }
             else
                 menuList = GetMenuList(branch);
@@ -353,9 +359,9 @@ namespace Beep.Winform.Vis.Controls
                     menuList.classDefinitions.Add(cls);
                     foreach (var item in cls.Methods.Where(y => y.Hidden == false))
                     {
-
-                        ToolStripItem st = menuList.Menu.Items.Add(item.Caption);
-                        menuList.Menu.Name = branch.ToString();
+                        ls = (ContextMenuStrip)menuList.Menu;
+                        ToolStripItem st = ls.Items.Add(item.Caption);
+                        ls.Name = branch.ToString();
                         if (item.iconimage != null)
                         {
                             st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
@@ -373,7 +379,7 @@ namespace Beep.Winform.Vis.Controls
                 string mes = "Could not add method to menu " + branch.BranchText;
                 DMEEditor.AddLogMessage(ex.Message, mes, DateTime.Now, -1, mes, Errors.Failed);
             };
-            return menuList.Menu;
+            return ls;
         }
         public void Run(IPassedArgs pPassedarg)
         {
@@ -689,7 +695,8 @@ namespace Beep.Winform.Vis.Controls
                     if (IsMenuCreated(br))
                     {
                         MenuList menuList = GetMenuList(br);
-                        menuList.Menu.Show(Cursor.Position);
+                        ContextMenuStrip ls=(ContextMenuStrip)menuList.Menu;
+                        ls.Show(Cursor.Position);
                     }
                 }
                 else
