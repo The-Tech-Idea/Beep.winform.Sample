@@ -50,7 +50,7 @@
     <PackageReference Include="Svg" Version="3.4.4" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.202" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.80" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.42" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.45" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,7 +5,6 @@ using DataManagementModels.DriversConfigurations;
 using System.Collections;
 using System.Reflection;
 using TheTechIdea.Beep;
-using TheTechIdea.Beep.Addin;
 using TheTechIdea.Util;
 
 namespace Beep.Winform.Vis.Helpers
