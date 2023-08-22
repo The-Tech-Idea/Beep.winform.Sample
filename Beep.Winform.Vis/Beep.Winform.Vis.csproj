@@ -293,4 +293,8 @@
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\plugins\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
+	</ItemGroup>
 </Project>

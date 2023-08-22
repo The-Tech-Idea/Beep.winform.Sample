@@ -45,12 +45,12 @@ namespace Beep.Config.Winform.Functions
 
         public void RaiseObjectSelected()
         {
-            throw new NotImplementedException();
+         
         }
 
         public void Run(IPassedArgs pPassedarg)
         {
-            throw new NotImplementedException();
+            
         }
 
         public void SetConfig(IDMEEditor pbl, IDMLogger plogger, IUtil putil, string[] args, IPassedArgs e, IErrorsInfo per)

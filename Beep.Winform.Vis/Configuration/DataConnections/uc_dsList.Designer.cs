@@ -45,7 +45,6 @@
             this.poisonStyleManager1 = new ReaLTaiizor.Manager.PoisonStyleManager(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.connectionNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uc_BeepGrid1 = new Beep.Winform.Controls.uc_BeepGrid();
             ((System.ComponentModel.ISupportInitialize)(this.poisonDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).BeginInit();
             this.poisonPanel1.SuspendLayout();
@@ -166,7 +165,6 @@
             // 
             // poisonPanel2
             // 
-            this.poisonPanel2.Controls.Add(this.uc_BeepGrid1);
             this.poisonPanel2.Controls.Add(this.poisonDataGridView1);
             this.poisonPanel2.Controls.Add(this.poisonPanel3);
             this.poisonPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -239,36 +237,6 @@
             this.connectionNameDataGridViewTextBoxColumn.Name = "connectionNameDataGridViewTextBoxColumn";
             this.connectionNameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // uc_BeepGrid1
-            // 
-            this.uc_BeepGrid1.AddinName = null;
-            this.uc_BeepGrid1.AllowDrop = true;
-            this.uc_BeepGrid1.AllowUserToAddRows = true;
-            this.uc_BeepGrid1.AllowUserToDeleteRows = true;
-            this.uc_BeepGrid1.bindingSource = null;
-            this.uc_BeepGrid1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.uc_BeepGrid1.DataSource = null;
-            this.uc_BeepGrid1.DefaultCreate = false;
-            this.uc_BeepGrid1.Description = null;
-            this.uc_BeepGrid1.DllName = null;
-            this.uc_BeepGrid1.DllPath = null;
-            this.uc_BeepGrid1.DMEEditor = null;
-            this.uc_BeepGrid1.EntityName = null;
-            this.uc_BeepGrid1.EntityStructure = null;
-            this.uc_BeepGrid1.ErrorObject = null;
-            this.uc_BeepGrid1.Location = new System.Drawing.Point(42, 172);
-            this.uc_BeepGrid1.Logger = null;
-            this.uc_BeepGrid1.Name = "uc_BeepGrid1";
-            this.uc_BeepGrid1.NameSpace = null;
-            this.uc_BeepGrid1.ObjectName = null;
-            this.uc_BeepGrid1.ObjectType = null;
-            this.uc_BeepGrid1.ParentName = null;
-            this.uc_BeepGrid1.Passedarg = null;
-            this.uc_BeepGrid1.ReadOnly = false;
-            this.uc_BeepGrid1.Size = new System.Drawing.Size(629, 348);
-            this.uc_BeepGrid1.TabIndex = 4;
-            this.uc_BeepGrid1.VerifyDelete = true;
-            // 
             // uc_dsList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,6 +271,5 @@
         private ReaLTaiizor.Controls.PoisonLabel poisonLabel1;
         private ReaLTaiizor.Controls.PoisonButton SaveChangespoisonButton;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private Beep.Winform.Controls.uc_BeepGrid uc_BeepGrid1;
     }
 }

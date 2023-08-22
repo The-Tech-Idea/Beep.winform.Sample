@@ -2589,4 +2589,10 @@
     <Content Include="..\..\outputDLL\Beep.Skia\net7.0\Beep.Skia.dll" Link="OtherDLL\UI\Skia\Beep.Skia.dll" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\TheTechIdea.Beep.Winform.Controls\net6.0-windows\TheTechIdea.Beep.Winform.Controls.dll" Link="OtherDLL\UI\TheTechIdea.Beep.Winform.Controls.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

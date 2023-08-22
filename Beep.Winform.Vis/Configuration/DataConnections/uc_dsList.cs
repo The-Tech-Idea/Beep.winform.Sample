@@ -99,7 +99,7 @@ namespace Beep.Config.Winform.DataConnections
             DatasourceCategorycomboBox.DataSource = Enum.GetValues(typeof(DatasourceCategory));
             DBWork = new UnitofWork<ConnectionProperties>(DMEEditor,true, new ObservableBindingList<ConnectionProperties>(DMEEditor.ConfigEditor.DataConnections),"GuidID");
             DBWork.PrimaryKey = "GuidID";
-            
+           // beepGrid1.DataSource = DBWork.Units;
            
             // Create a new DataGridViewImageColumn
             DataGridViewImageColumn editButtonColumn = new DataGridViewImageColumn();
