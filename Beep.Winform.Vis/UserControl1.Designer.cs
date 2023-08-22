@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.beepGrid1 = new TheTechIdea.Beep.Winform.Controls.Grid.BeepGrid();
+            this.dataConnectionsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // beepGrid1
@@ -61,13 +64,18 @@
             this.beepGrid1.TabIndex = 0;
             this.beepGrid1.VerifyDelete = true;
             // 
+            // dataConnectionsBindingSource
+            // 
+            this.dataConnectionsBindingSource.DataSource = typeof(TheTechIdea.Util.ConnectionProperties);
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.beepGrid1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(753, 596);
+            this.Size = new System.Drawing.Size(755, 596);
+            ((System.ComponentModel.ISupportInitialize)(this.dataConnectionsBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -75,5 +83,6 @@
         #endregion
 
         private TheTechIdea.Beep.Winform.Controls.Grid.BeepGrid beepGrid1;
+        private BindingSource dataConnectionsBindingSource;
     }
 }
