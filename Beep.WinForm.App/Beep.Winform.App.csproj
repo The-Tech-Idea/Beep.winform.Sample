@@ -7,7 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
 	  <LangVersion>latest</LangVersion>
 	  <StartupObject>Beep.Winform.App.Program</StartupObject>
-	  <PlatformTarget>AnyCPU</PlatformTarget>
+	  <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -2571,6 +2571,7 @@
 
   <ItemGroup>
     <Folder Include="ProjectClasses\ETL\" />
+    <Folder Include="ProjectClasses\IDE\" />
   </ItemGroup>
 
   <ItemGroup>
