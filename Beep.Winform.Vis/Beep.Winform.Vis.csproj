@@ -24,6 +24,7 @@
 
 
   <ItemGroup>
+    <None Remove="Beep.Winform.Vis - Shortcut.lnk" />
     <None Remove="gfx\clear.png" />
     <None Remove="gfx\clear64.png" />
     <None Remove="gfx\stop.png" />
@@ -48,9 +49,9 @@
   <ItemGroup>
     <PackageReference Include="ReaLTaiizor" Version="3.7.9.5" />
     <PackageReference Include="Svg" Version="3.4.4" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.210" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.81" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.45" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.216" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.83" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.46" />
   </ItemGroup>
 
   <ItemGroup>
