@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using System.Reflection;
 using BeepEnterprize.Vis.Module;
 using Beep.Winform.Vis.Helpers;
 using TheTechIdea;
@@ -26,8 +19,8 @@ namespace Beep.Winform.Vis.Controls
             DMEEditor = pDMEEditor;
             Treecontrol = ptreeControl;
 
-            vismanager = (VisManager)Treecontrol.Vismanager;
-            TreeV = (System.Windows.Forms.TreeView)Treecontrol.TreeV;
+            vismanager = Treecontrol.VisManager;
+            TreeV =Treecontrol.TreeV;
            // CreateToolbar();
 
         }
@@ -52,7 +45,7 @@ namespace Beep.Winform.Vis.Controls
         public string EntityName { get ; set ; }
         public IPassedArgs Passedarg { get ; set ; }
         public MenuStrip menustrip { get; set; }
-        public  VisManager vismanager { get; set; }
+        public  IVisManager vismanager { get; set; }
         public List<ToolStripMenuItem> menuitems { get; set; } = new List<ToolStripMenuItem>();
         VisHelper visHelper { get { return (VisHelper)vismanager.visHelper; }  }
         public void Run(IPassedArgs pPassedarg)

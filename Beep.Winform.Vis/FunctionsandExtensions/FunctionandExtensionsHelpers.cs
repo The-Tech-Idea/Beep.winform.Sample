@@ -32,7 +32,7 @@ namespace Beep.Winform.Vis.FunctionsandExtensions
         public IBranch RootBranch { get; set; }
         public IBranch ParentBranch { get; set; }
         public IBranch ViewRootBranch { get; set; }
-        public FunctionandExtensionsHelpers(IDMEEditor pdMEEditor, VisManager pvisManager, TreeControl ptreeControl)
+        public FunctionandExtensionsHelpers(IDMEEditor pdMEEditor, IVisManager pvisManager, TreeControl ptreeControl)
         {
             DMEEditor = pdMEEditor;
             Vismanager = pvisManager;

@@ -22,7 +22,7 @@ namespace Beep.Winform.Vis.Controls
             DMEEditor = pDMEEditor;
             Tree = ptreeControl;
             Treecontrol = ptreeControl;
-            visManager = (VisManager)Treecontrol.Vismanager;
+            visManager = (IVisManager)Treecontrol.VisManager;
             TreeV = Treecontrol.TreeV;
             CreateDelagates();
 
@@ -31,7 +31,7 @@ namespace Beep.Winform.Vis.Controls
         private TreeControl Treecontrol { get; set; }
         public IDMEEditor DMEEditor { get; set; }
         private ITree Tree { get; set; }
-        private VisManager visManager { get; set; }
+        private IVisManager visManager { get; set; }
         #region "Branch Handling"
         public IErrorsInfo CreateBranch(IBranch Branch)
         {

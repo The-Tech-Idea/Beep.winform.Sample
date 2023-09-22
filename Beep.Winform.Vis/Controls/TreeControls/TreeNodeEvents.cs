@@ -30,7 +30,7 @@ namespace Beep.Winform.Vis.Controls
             treeControl = ptreeControl;
             Tree = ptreeControl;
             Treecontrol = ptreeControl;
-            visManager = (VisManager)Treecontrol.Vismanager;
+            visManager = Treecontrol.VisManager;
             TreeV = Treecontrol.TreeV;
             TreeV.AllowDrop = true;
             TreeV.NodeMouseClick += TreeView1_NodeMouseClick;
@@ -45,7 +45,7 @@ namespace Beep.Winform.Vis.Controls
         public TreeControl treeControl { get; set; }
         private ITree Tree { get; set; }
         private TreeControl Treecontrol { get; set; }
-        private VisManager visManager { get; set; }
+        private IVisManager visManager { get; set; }
         public System.Windows.Forms.TreeView TreeV { get; set; }
         private bool IsSelecting = false;
 

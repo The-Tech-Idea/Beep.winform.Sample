@@ -22,7 +22,7 @@ namespace Beep.Winform.Vis.Controls
         public TreeControl(IDMEEditor pDMEEditor,IVisManager pVismanager)
         {
             DMEEditor = pDMEEditor;
-            Vismanager = (VisManager)pVismanager;
+          //  Vismanager = (VisManager)pVismanager;
             VisManager = pVismanager;
          
 
@@ -46,7 +46,7 @@ namespace Beep.Winform.Vis.Controls
         public IPassedArgs Passedarg { get; set; }
         #endregion
         public string TreeType { get; set; }
-        public VisManager Vismanager { get; set; }
+    
         public IVisManager VisManager { get; set; }
         public System.Windows.Forms.TreeView TreeV { get; set; }
         public string CategoryIcon { get; set; } = "Category.ico";
@@ -76,7 +76,7 @@ namespace Beep.Winform.Vis.Controls
      
 
            private ImageList GetImageList() {
-            VisHelper visHelper = (VisHelper)Vismanager.visHelper;
+            VisHelper visHelper = (VisHelper)VisManager.visHelper;
             return visHelper.ImageList;
             //switch (IconsSize.Height)
             //{
@@ -115,7 +115,7 @@ namespace Beep.Winform.Vis.Controls
                         nodemenu.Name = br.ToString();
                         if (item.iconimage != null)
                         {
-                            st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                            st.ImageIndex = VisManager.visHelper.GetImageIndex(item.iconimage);
                         }
                         nodemenu.ItemClicked += Nodemenu_ItemClicked;
                         nodemenu.Tag = br;
@@ -224,10 +224,10 @@ namespace Beep.Winform.Vis.Controls
             ParentNode = null;
             CurrentNode = n;
             //br.ParentBranch = n;
-            if (Vismanager.visHelper.GetImageIndex(br.IconImageName) == -1)
+            if (VisManager.visHelper.GetImageIndex(br.IconImageName) == -1)
             {
-                n.ImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
-                n.SelectedImageIndex = Vismanager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
+                n.ImageIndex = VisManager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
+                n.SelectedImageIndex = VisManager.visHelper.GetImageIndexFromConnectioName(br.BranchText);
             }
             else
             {
@@ -292,7 +292,7 @@ namespace Beep.Winform.Vis.Controls
                                    ls.Name = br.ToString();
                                     if (item.iconimage != null)
                                     {
-                                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                                        st.ImageIndex = VisManager.visHelper.GetImageIndex(item.iconimage);
                                     }
                                     st.Tag = cls;
                                 }
@@ -306,7 +306,7 @@ namespace Beep.Winform.Vis.Controls
                                     ls.Name = br.ToString();
                                     if (item.iconimage != null)
                                     {
-                                        st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                                        st.ImageIndex = VisManager.visHelper.GetImageIndex(item.iconimage);
                                     }
                                     st.Tag = cls;
                                 }
@@ -364,7 +364,7 @@ namespace Beep.Winform.Vis.Controls
                         ls.Name = branch.ToString();
                         if (item.iconimage != null)
                         {
-                            st.ImageIndex = Vismanager.visHelper.GetImageIndex(item.iconimage);
+                            st.ImageIndex = VisManager.visHelper.GetImageIndex(item.iconimage);
                         }
                         st.Tag = cls;
 
@@ -405,7 +405,7 @@ namespace Beep.Winform.Vis.Controls
                  assemblydef = (AssemblyClassDefinition)item.Tag;
                 MethodName = item.Text;
             }
-            dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.dllname, assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
+            dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.dllname, assemblydef.type.ToString(), new object[] { DMEEditor, VisManager, this });
           //  dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
             if (fc == null)
             {
@@ -477,7 +477,7 @@ namespace Beep.Winform.Vis.Controls
                 DMEEditor.Passedarguments.Id = br.BranchID;
                 DMEEditor.Passedarguments.ParameterInt1 = br.BranchID;
                 AssemblyClassDefinition assemblydef = (AssemblyClassDefinition)item.Tag;
-                dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.dllname,assemblydef.type.ToString(), new object[] { DMEEditor, Vismanager, this });
+                dynamic fc = DMEEditor.assemblyHandler.CreateInstanceFromString(assemblydef.dllname,assemblydef.type.ToString(), new object[] { DMEEditor, VisManager, this });
                 Type t = ((IFunctionExtension)fc).GetType();
                 //dynamic fc = Activator.CreateInstance(assemblydef.type, new object[] { DMEEditor, Vismanager, this });
                 AssemblyClassDefinition cls = DMEEditor.ConfigEditor.GlobalFunctions.Where(x => x.className == t.Name).FirstOrDefault();
