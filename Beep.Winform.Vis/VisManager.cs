@@ -28,6 +28,7 @@ namespace Beep.Winform.Vis
         public event EventHandler<IPassedArgs> PostLogin;
         public event EventHandler<IPassedArgs> PreShowItem;
 
+        public bool IsShowingWaitForm { get; set; }
         public string LogoUrl { get; set; }
         public string Title { get; set; }
         public string IconUrl { get; set; }
