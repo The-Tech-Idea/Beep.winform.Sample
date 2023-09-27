@@ -328,6 +328,11 @@ namespace Beep.Winform.Vis.Helpers
 
 
         }
+
+        public List<string> GetImageNames()
+        {
+            throw new NotImplementedException();
+        }
         //public void Nodemenu_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         //{
         //    ContextMenuStrip menu = (ContextMenuStrip)sender;
@@ -353,8 +358,8 @@ namespace Beep.Winform.Vis.Helpers
         //}
         //public void Nodemenu_MouseClick(TreeNodeMouseClickEventArgs e)
         //{
-           
-        
+
+
         //    if (br != null)
         //    {
         //        string clicks = "";
@@ -477,6 +482,6 @@ namespace Beep.Winform.Vis.Helpers
         //        && p.ObjectType.Equals(br.ObjectType, StringComparison.InvariantCultureIgnoreCase)
         //        && p.PointType == br.BranchType).FirstOrDefault();
         //}
-       
+
     }
 }
