@@ -1086,6 +1086,7 @@ namespace Beep.Winform.Vis
         public IProfile DefaultProfile { get; set; }
         public List<IPrivilege> Privileges { get; set; } = new List<IPrivilege>();
         public List<IUser> Users { get; set; }=new List<IUser>();
+        public bool IsLogOn { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         protected virtual void Dispose(bool disposing)
         {

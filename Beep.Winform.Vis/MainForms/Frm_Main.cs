@@ -12,7 +12,7 @@ using TheTechIdea.Util;
 namespace Beep.Winform.Vis.MainForms
 {
     [AddinAttribute(Caption ="Beep", Name ="MainForm", misc ="MainForm")]
-    public partial class Frm_Main :  Form, IDM_Addin,IMainForm
+    public partial class Frm_Main : Form, IDM_Addin, IMainForm
     {
         public Frm_Main()
         {
@@ -416,7 +416,20 @@ namespace Beep.Winform.Vis.MainForms
 
         }
 
-       
+        void IMainForm.ShowTreeWindow(bool showornot)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMainForm.ShowLogWindow(bool showornot)
+        {
+            throw new NotImplementedException();
+        }
+
+        void IMainForm.StartStopLog(bool startornot)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 //this.LogPanel.BeginInvoke(new Action(() => {
