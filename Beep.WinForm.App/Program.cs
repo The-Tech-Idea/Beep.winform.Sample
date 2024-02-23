@@ -1,12 +1,13 @@
-﻿
-using BeepEnterprize.Vis.Module;
-using BeepEnterprize.Winform;
+﻿using BeepEnterprize.Vis.Module;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TheTechIdea.Beep.Container;
 using TheTechIdea.Beep.Container.Services;
-using TheTechIdea.Beep.Winform.Extensions;
 using TheTechIdea.Util;
+using Beep.Python.RuntimeEngine;
+using TheTechIdea.Beep.Winform.Extensions;
+using TheTechIdea;
+using Beep.Python.Model;
 
 namespace Beep.Winform.App
 {
@@ -26,7 +27,20 @@ namespace Beep.Winform.App
 
             builder.Services.RegisterBeep(AppContext.BaseDirectory, null, TheTechIdea.Util.BeepConfigType.Application);
             builder.Services.RegisterVisManager();
-            // Register Other Services here
+
+            string pythonhome = string.Empty;
+            if (Directory.Exists(@"\\mvcsepimprod\DHUB\py\x64"))
+            {
+                pythonhome = @"\\mvcsepimprod\DHUB\py\x64";
+            }
+            if (Directory.Exists(@"W:\\Cpython\\3.9\\x64"))
+            {
+                pythonhome = @"W:\\Cpython\\3.9\\x64";
+            }
+
+
+            builder.Services.RegisterPythonService(pythonhome);//C:\Users\f_ald\source\repos\The-Tech-Idea\Beep.Python\PythonRuntime\3.9\x64"
+                                                               // Register Other Services here
 
             using IHost host = builder.Build();
 
@@ -34,6 +48,9 @@ namespace Beep.Winform.App
             ServiceHelper.Initialize(host.Services);
             IBeepService beepService = host.Services.GetService<IBeepService>()!;
             IVisManager visManager = host.Services.GetService<IVisManager>()!;
+            // Get Python runtime engine
+            IPythonRunTimeManager PythonRunTimeManager = host.Services.GetService<IPythonRunTimeManager>()!;
+
 
             //Setting the Main Form 
             visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "","","");
@@ -44,32 +61,48 @@ namespace Beep.Winform.App
             beepService.AddAllDataSourceQueryConfigurations();
 
 
+            PassedArgs p = new PassedArgs();
+
+            p.Messege = "Loading DLL's";
+            // Show Wait Form
+            visManager.ShowWaitForm(p);
+
+            // Passing Message to WaitForm
+            visManager.PasstoWaitForm(p);
+
+            // Prepare Async Data Notification from Assembly loader to WaitForm
+
+            var progress = new Progress<PassedArgs>(percent => {
+
+                p.Messege = percent.Messege;
+                visManager.PasstoWaitForm(p);
+            });
+
             // Load Assemblies from folders (DataSources,Drivers, Extensions,...)
-            visManager.LoadAssemblies(beepService); //loading DLL using VisManager to show waiting form
-                                                    // you can also load DLL using
-                                                    // beepService.LoadAssemblies();
-                                                    //but this will not show any waiting form
+            visManager.LoadAssemblies(beepService, progress); //loading DLL using VisManager to show waiting form
+                                                              // you can also load DLL using
+                                                              // beepService.LoadAssemblies();
+                                                              //but this will not show any waiting form
 
             // have to fo this , to work as crossplaform and Different UI
             visManager.SetBeepReference(beepService);
 
 
             // Load extra grahics files and icons
-            visManager.visHelper.GetGraphicFilesLocations(null, true);
-            visManager.visHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, false);
-
-            // Here you can
-            // Initialize Your Services and Database Connections
-            //IDhubMainConfig dhubMainConfig = host.Services.GetService<IDhubMainConfig>()!;
-            //dhubMainConfig.InitService(false, false);
+            string[] namespacestoinclude = { "BeepEnterprize", "Koc", "DHUB", "TheTechIdea", "Beep" };
+            visManager.visHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
+            visManager.visHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
 
 
+ 
+            visManager.CloseWaitForm();
             // Show main Page
             visManager.ShowMainPage();
 
             // Dispose all objects after closing application
             beepService.vis.Dispose();
             beepService.DMEEditor.Dispose();
+            PythonRunTimeManager.Dispose();
             beepService = null;
 
         }
