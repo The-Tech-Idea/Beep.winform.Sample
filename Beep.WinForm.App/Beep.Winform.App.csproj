@@ -71,74 +71,11 @@
     <None Remove="Beep\LoadingExtensions\ML.NET\HereweAddLoadingAssemblyExtensions - Copy.txt" />
     <None Remove="Beep\LoadingExtensions\PythonExtentionLoader\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="Beep\Mapping\HereweAddAllmapping.txt" />
-    <None Remove="Beep\OtherDLL\BouncyCastle.Crypto.dll" />
-    <None Remove="Beep\OtherDLL\CommunityToolkit.Mvvm.dll" />
-    <None Remove="Beep\OtherDLL\Couchbase.Lite.Support.NetDesktop.dll" />
-    <None Remove="Beep\OtherDLL\Dapper.Contrib.dll" />
-    <None Remove="Beep\OtherDLL\Dapper.dll" />
-    <None Remove="Beep\OtherDLL\Dapper.SimpleCRUD.dll" />
-    <None Remove="Beep\OtherDLL\DnsClient.dll" />
-    <None Remove="Beep\OtherDLL\DotLiquid.dll" />
-    <None Remove="Beep\OtherDLL\EntityFramework.dll" />
-    <None Remove="Beep\OtherDLL\EntityFramework.SqlServer.dll" />
-    <None Remove="Beep\OtherDLL\FastMember.dll" />
-    <None Remove="Beep\OtherDLL\Flee.dll" />
-    <None Remove="Beep\OtherDLL\Google.Protobuf.dll" />
-    <None Remove="Beep\OtherDLL\HereweAddotherdll.txt" />
-    <None Remove="Beep\OtherDLL\K4os.Compression.LZ4.dll" />
-    <None Remove="Beep\OtherDLL\K4os.Compression.LZ4.Streams.dll" />
-    <None Remove="Beep\OtherDLL\K4os.Hash.xxHash.dll" />
-    <None Remove="Beep\OtherDLL\Lambda2Js.Signed.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.Bcl.AsyncInterfaces.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.Bcl.HashCode.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.CodeAnalysis.CSharp.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.CSharp.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.Extensions.DependencyInjection.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.ReportViewer.Common.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.ReportViewer.DataVisualization.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.ReportViewer.Design.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.ReportViewer.ProcessingObjectModel.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.ReportViewer.WinForms.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.SqlServer.Types.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.Web.WebView2.Core.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.Web.WebView2.WinForms.dll" />
-    <None Remove="Beep\OtherDLL\Microsoft.Web.WebView2.Wpf.dll" />
-    <None Remove="Beep\OtherDLL\mkldnn.dll" />
-    <None Remove="Beep\OtherDLL\netstandard.dll" />
-    <None Remove="Beep\OtherDLL\Newtonsoft.Json.dll" />
-    <None Remove="Beep\OtherDLL\Newtonsoft.Json.Schema.dll" />
-    <None Remove="Beep\OtherDLL\NJsonSchema.CodeGeneration.CSharp.dll" />
-    <None Remove="Beep\OtherDLL\NJsonSchema.CodeGeneration.dll" />
-    <None Remove="Beep\OtherDLL\NJsonSchema.dll" />
-    <None Remove="Beep\OtherDLL\Renci.SshNet.dll" />
-    <None Remove="Beep\OtherDLL\SharpCompress.dll" />
-    <None Remove="Beep\OtherDLL\Sparrow.dll" />
-    <None Remove="Beep\OtherDLL\System.Buffers.dll" />
-    <None Remove="Beep\OtherDLL\System.CodeDom.dll" />
-    <None Remove="Beep\OtherDLL\System.Collections.Immutable.dll" />
-    <None Remove="Beep\OtherDLL\System.ComponentModel.Annotations.dll" />
-    <None Remove="Beep\OtherDLL\System.Data.SQLite.Linq.dll" />
-    <None Remove="Beep\OtherDLL\System.Linq.Dynamic.Core.dll" />
-    <None Remove="Beep\OtherDLL\System.Memory.dll" />
-    <None Remove="Beep\OtherDLL\System.Numerics.Vectors.dll" />
-    <None Remove="Beep\OtherDLL\System.Runtime.CompilerServices.Unsafe.dll" />
-    <None Remove="Beep\OtherDLL\System.Security.Cryptography.Cng.dll" />
-    <None Remove="Beep\OtherDLL\System.Text.Encoding.CodePages.dll" />
-    <None Remove="Beep\OtherDLL\System.Text.Encodings.Web.dll" />
-    <None Remove="Beep\OtherDLL\System.Text.Json.dll" />
-    <None Remove="Beep\OtherDLL\System.Threading.Channels.dll" />
-    <None Remove="Beep\OtherDLL\System.Threading.Tasks.Extensions.dll" />
-    <None Remove="Beep\OtherDLL\System.ValueTuple.dll" />
     <None Remove="Beep\OtherDLL\System.Windows.Forms.DataVisualization.dll" />
-    <None Remove="Beep\OtherDLL\Ubiety.Dns.Core.dll" />
     <None Remove="Beep\OtherDLL\UI\ReaLTaiizor.dll" />
     <None Remove="Beep\OtherDLL\UI\Svg.dll" />
-    <None Remove="Beep\OtherDLL\WebView2Loader.dll" />
     <None Remove="Beep\OtherDLL\win-x64\native\WebView2Loader.dll" />
     <None Remove="Beep\OtherDLL\win-x86\native\WebView2Loader.dll" />
-    <None Remove="Beep\OtherDLL\Zstandard.Net.dll" />
-    <None Remove="Beep\OtherDLL\ZstdNet.dll" />
     <None Remove="Beep\ProjectClasses\BeepDeveloperAssistant\HereweputClasses.txt" />
     <None Remove="Beep\ProjectClasses\BeepEnterprizeTreeNodes\HereweputClasses.txt" />
     <None Remove="Beep\ProjectClasses\BusinessProcessBuilder\HereweputClasses.txt" />
@@ -329,7 +266,6 @@
     <Content Include="..\..\outputDLL\Beep.InMemory.Nodes\netstandard2.0\Beep.InMemory.Nodes.dll" Link="Beep\ProjectClasses\InMemoryDB\Beep.InMemory.Nodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Julia.Interop\netstandard2.0\Beep.Julia.Interop.dll" Link="Beep\ProjectClasses\LangInterop\Beep.Julia.Interop.dll" />
     <Content Include="..\..\outputDLL\Beep.Python.ExtensionLoader\netstandard2.0\Beep.Python.ExtensionLoader.dll" Link="Beep\LoadingExtensions\PythonExtentionLoader\Beep.Python.ExtensionLoader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -342,74 +278,10 @@
     <Content Include="..\..\outputDLL\Beep.Python.Runtime.Winform\Beep.Python.Runtime.Winform.dll" Link="Beep\ProjectClasses\Py\Beep.Python.Runtime.Winform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Rust.Interop\netstandard2.0\Beep.Rust.Interop.dll" Link="Beep\ProjectClasses\LangInterop\Beep.Rust.Interop.dll" />
     <Content Include="..\..\outputDLL\Beep.Skia.Loader\netstandard2.0\Beep.Skia.Loader.dll" Link="Beep\LoadingExtensions\Beep.Skia.Loader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\CompositeLayerNodes\netstandard2.0\CompositeLayerNodes.dll" Link="Beep\ProjectClasses\CompositeLayer\CompositeLayerNodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.AutoML.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.AutoML.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CodeGenerator.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.CodeGenerator.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Core.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.Core.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.CpuMath.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.CpuMath.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Data.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.Data.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.DataView.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.DataView.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.FastTree.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.FastTree.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.KMeansClustering.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.KMeansClustering.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.LightGbm.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.LightGbm.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Mkl.Components.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.Mkl.Components.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Parquet.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.Parquet.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.PCA.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.PCA.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Scoring.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.Scoring.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.ScoringNative.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.ScoringNative.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.SearchSpace.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.SearchSpace.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.StandardTrainers.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.StandardTrainers.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TimeSeries.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.TimeSeries.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.TorchSharp.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.TorchSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\Microsoft.ML.Transforms.dll" Link="Beep\OtherDLL\AI\lib\Microsoft.ML.Transforms.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\ML.NET\lib\mkldnn.dll" Link="Beep\OtherDLL\AI\lib\mkldnn.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\netstandard2.0\TheTechIdea.Beep.TreeNodes.dll" Link="Beep\ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll">
@@ -589,208 +461,19 @@
     <Content Include="Beep\Mapping\HereweAddAllmapping.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Beep\OtherDLL\BouncyCastle.Crypto.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\CommunityToolkit.Mvvm.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Couchbase.Lite.Support.NetDesktop.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Dapper.Contrib.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Dapper.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Dapper.SimpleCRUD.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\DnsClient.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\DotLiquid.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\EntityFramework.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\EntityFramework.SqlServer.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\FastMember.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Flee.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Google.Protobuf.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\HereweAddotherdll.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\K4os.Compression.LZ4.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\K4os.Compression.LZ4.Streams.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\K4os.Hash.xxHash.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Lambda2Js.Signed.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.Bcl.AsyncInterfaces.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.Bcl.HashCode.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.CodeAnalysis.CSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.CSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.Extensions.DependencyInjection.Abstractions.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.Extensions.DependencyInjection.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.ReportViewer.Common.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.ReportViewer.DataVisualization.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.ReportViewer.Design.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.ReportViewer.ProcessingObjectModel.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.ReportViewer.WinForms.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.SqlServer.Types.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.Web.WebView2.Core.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.Web.WebView2.WinForms.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Microsoft.Web.WebView2.Wpf.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\mkldnn.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\netstandard.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Newtonsoft.Json.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Newtonsoft.Json.Schema.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\NJsonSchema.CodeGeneration.CSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\NJsonSchema.CodeGeneration.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\NJsonSchema.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Renci.SshNet.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\SharpCompress.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Sparrow.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Buffers.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.CodeDom.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Collections.Immutable.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.ComponentModel.Annotations.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Data.SQLite.Linq.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Linq.Dynamic.Core.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Memory.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Numerics.Vectors.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Runtime.CompilerServices.Unsafe.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Security.Cryptography.Cng.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Text.Encoding.CodePages.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Text.Encodings.Web.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Text.Json.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Threading.Channels.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Threading.Tasks.Extensions.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.ValueTuple.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Beep\OtherDLL\UI\Svg.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\ProjectClasses\AppBuilder\System.Windows.Forms.DataVisualization.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Beep\OtherDLL\Ubiety.Dns.Core.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Beep\OtherDLL\UI\ReaLTaiizor.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\WebView2Loader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\OtherDLL\win-x64\native\WebView2Loader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\OtherDLL\win-x86\native\WebView2Loader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\Zstandard.Net.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\ZstdNet.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\ProjectClasses\BeepDeveloperAssistant\HereweputClasses.txt">
@@ -860,9 +543,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\OtherDLL\UI\Skia\SkiaSharp.Views.WindowsForms.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\System.Drawing.Common.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\OtherDLL\UI\Skia\x64\libSkiaSharp.dll">
@@ -1198,36 +878,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\Beep.Compilers.CSharp\net6.0\Beep.Compilers.CSharp.dll" Link="Beep\ProjectClasses\IDE\Beep.Compilers.CSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.ExtensionLoader\net6.0\Beep.Compilers.ExtensionLoader.dll" Link="Beep\LoadingExtensions\Compilers\Beep.Compilers.ExtensionLoader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.Julia\net6.0\Beep.Compilers.Julia.dll" Link="Beep\ProjectClasses\IDE\Beep.Compilers.Julia.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.Module\net6.0\Beep.Compilers.Module.dll" Link="Beep\LoadingExtensions\Compilers\Beep.Compilers.Module.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.Python\net6.0\Beep.Compilers.Python.dll" Link="Beep\ProjectClasses\IDE\Beep.Compilers.Python.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Compilers.R\net6.0\Beep.Compilers.R.dll" Link="Beep\ProjectClasses\IDE\Beep.Compilers.R.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.IDE.WinformCore\net6.0-windows\Beep.IDE.WinformCore.dll" Link="Beep\ProjectClasses\IDE\Beep.IDE.WinformCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\outputDLL\Beep.IDE.Nodes\netstandard2.0\Beep.IDE.Nodes.dll" Link="Beep\ProjectClasses\IDE\Beep.IDE.Nodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.WinformCore\net7.0-windows\Beep.DeveloperAssistant.WinformCore.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.WinformCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -1235,6 +885,15 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="8.0.0" />
+    <PackageReference Include="Beep.Compilers.CSharp" Version="1.0.0" />
+    <PackageReference Include="Beep.Compilers.ExtensionLoader" Version="1.0.0" />
+    <PackageReference Include="Beep.Compilers.Julia" Version="1.0.0" />
+    <PackageReference Include="Beep.Compilers.Module" Version="1.0.0" />
+    <PackageReference Include="Beep.Compilers.Python" Version="1.0.0" />
+    <PackageReference Include="Beep.Compilers.R" Version="1.0.0" />
+    <PackageReference Include="Beep.Compilers.Rust" Version="1.0.0" />
+    <PackageReference Include="Beep.IDE.Nodes" Version="1.0.0" />
+    <PackageReference Include="Beep.IDE.WinformCore" Version="1.0.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.0" />
     <PackageReference Include="DuckDBDataSourceCore" Version="1.0.0" />
@@ -1250,7 +909,7 @@
     <PackageReference Include="SqliteDatasourceCore" Version="1.0.0" />
     <PackageReference Include="SqlServerDataSourceCore" Version="1.0.0" />
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
-    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.21" />
+    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.26" />
     <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.21" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.14" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.350" />
@@ -1282,19 +941,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Skia\net7.0\Beep.Skia.dll" Link="Beep\OtherDLL\UI\Skia\Beep.Skia.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\outputDLL\TheTechIdea.Beep.Winform.Controls\net6.0-windows\TheTechIdea.Beep.Winform.Controls.dll" Link="Beep\OtherDLL\UI\TheTechIdea.Beep.Winform.Controls.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\outputDLL\Scintilla\x64\Lexilla.dll" Link="Beep\ProjectClasses\IDE\Lexilla.dll" />
-    <Content Include="..\..\outputDLL\Scintilla\x64\Scintilla.dll" Link="Beep\ProjectClasses\IDE\Scintilla.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
 
   <ItemGroup>
