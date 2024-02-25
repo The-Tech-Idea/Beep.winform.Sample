@@ -48,10 +48,12 @@ namespace Beep.Winform.App
             ServiceHelper.Initialize(host.Services);
             IBeepService beepService = host.Services.GetService<IBeepService>()!;
             IVisManager visManager = host.Services.GetService<IVisManager>()!;
+
+
             // Get Python runtime engine
             IPythonRunTimeManager PythonRunTimeManager = host.Services.GetService<IPythonRunTimeManager>()!;
-
-
+            PythonRunTimeManager.DMEditor= beepService.DMEEditor;
+            
             //Setting the Main Form 
             visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "","","");
 

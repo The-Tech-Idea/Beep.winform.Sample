@@ -242,18 +242,6 @@
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.Nodes\netstandard2.0\Beep.BusinessProcess.Nodes.dll" Link="Beep\ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Nodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.CSV.Extensions\netstandard2.0\Beep.CSV.Extensions.dll" Link="Beep\ProjectClasses\CSVManager\Beep.CSV.Extensions.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.CSV.Nodes\netstandard2.0\Beep.CSV.Nodes.dll" Link="Beep\ProjectClasses\CSVManager\Beep.CSV.Nodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.CSVManager.Winform\Beep.CSVManager.Winform.dll" Link="Beep\ProjectClasses\CSVManager\Beep.CSVManager.Winform.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.CSVManager\netstandard2.0\Beep.CSVManager.dll" Link="Beep\ProjectClasses\CSVManager\Beep.CSVManager.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.logic\netstandard2.0\Beep.DeveloperAssistant.logic.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.logic.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -273,9 +261,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Python.Logic\netstandard2.0\Beep.Python.Logic.dll" Link="Beep\ProjectClasses\Py\Beep.Python.Logic.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Runtime.Winform\Beep.Python.Runtime.Winform.dll" Link="Beep\ProjectClasses\Py\Beep.Python.Runtime.Winform.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.Skia.Loader\netstandard2.0\Beep.Skia.Loader.dll" Link="Beep\LoadingExtensions\Beep.Skia.Loader.dll">
@@ -889,7 +874,6 @@
     <PackageReference Include="Beep.Compilers.ExtensionLoader" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Julia" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Module" Version="1.0.0" />
-    <PackageReference Include="Beep.Compilers.Python" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.R" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Rust" Version="1.0.0" />
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.0" />
@@ -950,6 +934,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.Python.WinformCore\Beep.Python.WinformCore.dll" Link="Beep\ProjectClasses\Py\Beep.Python.WinformCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Beep.Compilers\Beep.Compilers.Python\Beep.Compilers.Python.csproj" />
     <ProjectReference Include="..\..\Beep.Python\Beep.Python.Model\Beep.Python.Model.csproj" />
     <ProjectReference Include="..\..\Beep.Python\Beep.Python.Runtime\Beep.Python.Runtime.PythonNet.csproj" />
     <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM.Loader\TheTechIdea.Beep.MVVM.Loader.csproj" />
