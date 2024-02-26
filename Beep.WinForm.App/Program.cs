@@ -91,7 +91,7 @@ namespace Beep.Winform.App
 
 
             // Load extra grahics files and icons
-            string[] namespacestoinclude = { "BeepEnterprize", "Koc", "DHUB", "TheTechIdea", "Beep" };
+            string[] namespacestoinclude = { "BeepEnterprize", "TheTechIdea", "Beep" };
             visManager.visHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
             visManager.visHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
 
