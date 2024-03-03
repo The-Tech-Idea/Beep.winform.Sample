@@ -260,9 +260,6 @@
     <Content Include="..\..\outputDLL\Beep.Python.Extensions\netstandard2.0\Beep.Python.Extensions.dll" Link="Beep\ProjectClasses\Py\Beep.Python.Extensions.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Logic\netstandard2.0\Beep.Python.Logic.dll" Link="Beep\ProjectClasses\Py\Beep.Python.Logic.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.Skia.Loader\netstandard2.0\Beep.Skia.Loader.dll" Link="Beep\LoadingExtensions\Beep.Skia.Loader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
