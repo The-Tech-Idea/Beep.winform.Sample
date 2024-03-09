@@ -52,20 +52,20 @@ namespace Beep.Winform.App
 
             // SetUp Python runtime engine
             IPythonRunTimeManager PythonRunTimeManager = host.Services.GetService<IPythonRunTimeManager>()!;
-            IPackageManagerViewModel packageManagerViewModel = host.Services.GetService<IPackageManagerViewModel>()!;
             PythonRunTimeManager.DMEditor= beepService.DMEEditor;
-            packageManagerViewModel.Editor = beepService.DMEEditor;
-            packageManagerViewModel.Init();
+
+      
 
 
             //Setting the Main Form 
             visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "","","");
 
             // Adding Required Configurations
+            beepService.DMEEditor.ConfigEditor.DataDriversClasses.Clear();
             beepService.AddAllDataSourceMappings();
             beepService.AddAllConnectionConfigurations();
             beepService.AddAllDataSourceQueryConfigurations();
-
+            beepService.DMEEditor.ConfigEditor.LoadDataConnectionsValues();
 
             PassedArgs p = new PassedArgs();
 
@@ -109,7 +109,7 @@ namespace Beep.Winform.App
             beepService.vis.Dispose();
             beepService.DMEEditor.Dispose();
             PythonRunTimeManager.Dispose();
-            packageManagerViewModel.Dispose();
+            //packageManagerViewModel.Dispose();
             beepService = null;
 
         }
