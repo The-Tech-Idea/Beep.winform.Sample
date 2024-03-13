@@ -72,7 +72,6 @@
     <None Remove="Beep\LoadingExtensions\PythonExtentionLoader\HereweAddLoadingAssemblyExtensions.txt" />
     <None Remove="Beep\Mapping\HereweAddAllmapping.txt" />
     <None Remove="Beep\OtherDLL\System.Windows.Forms.DataVisualization.dll" />
-    <None Remove="Beep\OtherDLL\UI\ReaLTaiizor.dll" />
     <None Remove="Beep\OtherDLL\UI\Svg.dll" />
     <None Remove="Beep\OtherDLL\win-x64\native\WebView2Loader.dll" />
     <None Remove="Beep\OtherDLL\win-x86\native\WebView2Loader.dll" />
@@ -89,7 +88,6 @@
     <None Remove="Beep\ProjectClasses\PrintManager\PrintManager.dll" />
     <None Remove="Beep\ProjectClasses\Py\beep.py" />
     <None Remove="Beep\ProjectClasses\Py\HereweputClasses.txt" />
-    <None Remove="Beep\ProjectClasses\Py\Scintilla.NET.dll" />
     <None Remove="Beep\OtherDLL\UI\Skia\arm64\libSkiaSharp.dll" />
     <None Remove="Beep\OtherDLL\UI\Skia\libSkiaSharp.dylib" />
     <None Remove="Beep\OtherDLL\UI\Skia\OpenTK.dll" />
@@ -446,9 +444,6 @@
     <Content Include="Beep\OtherDLL\UI\Svg.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Beep\OtherDLL\UI\ReaLTaiizor.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Beep\OtherDLL\win-x64\native\WebView2Loader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -492,9 +487,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\ProjectClasses\Py\HereweputClasses.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\ProjectClasses\Py\Scintilla.NET.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\OtherDLL\UI\Skia\arm64\libSkiaSharp.dll">
@@ -868,7 +860,7 @@
     <PackageReference Include="Beep.Compilers.ExtensionLoader" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Julia" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Module" Version="1.0.0" />
-    <PackageReference Include="Beep.Compilers.Python" Version="1.0.0" />
+    <PackageReference Include="Beep.Compilers.Python" Version="1.0.1" />
     <PackageReference Include="Beep.Compilers.R" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Rust" Version="1.0.0" />
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.0" />
@@ -893,9 +885,9 @@
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.26" />
-    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.21" />
-    <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.14" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.358" />
+    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.23" />
+    <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.15" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.360" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.122" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.5" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.7" />
