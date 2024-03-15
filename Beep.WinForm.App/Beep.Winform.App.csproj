@@ -255,9 +255,6 @@
     <Content Include="..\..\outputDLL\Beep.Python.ExtensionLoader\netstandard2.0\Beep.Python.ExtensionLoader.dll" Link="Beep\LoadingExtensions\PythonExtentionLoader\Beep.Python.ExtensionLoader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.Python.Extensions\netstandard2.0\Beep.Python.Extensions.dll" Link="Beep\ProjectClasses\Py\Beep.Python.Extensions.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.Skia.Loader\netstandard2.0\Beep.Skia.Loader.dll" Link="Beep\LoadingExtensions\Beep.Skia.Loader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -885,7 +882,7 @@
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.26" />
-    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.24" />
+    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.26" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.15" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.360" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.122" />
@@ -928,6 +925,12 @@
 
   <ItemGroup>
     <Content Include="..\..\outputDLL\Beep.Python.WinformCore\Beep.Python.WinformCore.dll" Link="Beep\ProjectClasses\Py\Beep.Python.WinformCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.Python.Extensions\net8.0\Beep.Python.Extensions.dll" Link="Beep\ProjectClasses\Py\Beep.Python.Extensions.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
