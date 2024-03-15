@@ -860,7 +860,7 @@
     <PackageReference Include="Beep.Compilers.ExtensionLoader" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Julia" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Module" Version="1.0.0" />
-    <PackageReference Include="Beep.Compilers.Python" Version="1.0.1" />
+    <PackageReference Include="Beep.Compilers.Python" Version="1.0.3" />
     <PackageReference Include="Beep.Compilers.R" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Rust" Version="1.0.0" />
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.0" />
@@ -885,7 +885,7 @@
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.26" />
-    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.23" />
+    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.24" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.15" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.360" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.122" />

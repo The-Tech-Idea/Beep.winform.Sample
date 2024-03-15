@@ -40,7 +40,8 @@ namespace Beep.Winform.App
 
 
             builder.Services.RegisterPythonService(pythonhome);//C:\Users\f_ald\source\repos\The-Tech-Idea\Beep.Python\PythonRuntime\3.9\x64"
-                                                               // Register Other Services here
+            builder.Services.RegisterPythonPackageManagerService(pythonhome);
+            // Register Other Services here
 
             using IHost host = builder.Build();
 
@@ -48,20 +49,14 @@ namespace Beep.Winform.App
             ServiceHelper.Initialize(host.Services);
             IBeepService beepService = host.Services.GetService<IBeepService>()!;
             IVisManager visManager = host.Services.GetService<IVisManager>()!;
-
-
-            // SetUp Python runtime engine
             IPythonRunTimeManager PythonRunTimeManager = host.Services.GetService<IPythonRunTimeManager>()!;
             PythonRunTimeManager.DMEditor= beepService.DMEEditor;
-
-      
-
-
+            IPackageManagerViewModel packageManagerViewModel = host.Services.GetService<IPackageManagerViewModel>()!;
+            packageManagerViewModel.Editor = beepService.DMEEditor;
             //Setting the Main Form 
             visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "","","");
 
             // Adding Required Configurations
-         //   beepService.DMEEditor.ConfigEditor.DataDriversClasses.Clear();
             beepService.AddAllDataSourceMappings();
             beepService.AddAllConnectionConfigurations();
             beepService.AddAllDataSourceQueryConfigurations();
