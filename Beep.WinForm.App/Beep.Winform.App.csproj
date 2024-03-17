@@ -853,21 +853,16 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="8.0.0" />
-    <PackageReference Include="Beep.Compilers.CSharp" Version="1.0.0" />
-    <PackageReference Include="Beep.Compilers.ExtensionLoader" Version="1.0.0" />
-    <PackageReference Include="Beep.Compilers.Julia" Version="1.0.0" />
-    <PackageReference Include="Beep.Compilers.Module" Version="1.0.0" />
-    <PackageReference Include="Beep.Compilers.Python" Version="1.0.3" />
-    <PackageReference Include="Beep.Compilers.R" Version="1.0.0" />
-    <PackageReference Include="Beep.Compilers.Rust" Version="1.0.0" />
-    <PackageReference Include="Beep.IDE.Nodes" Version="1.0.0" />
+    <PackageReference Include="Beep.Compilers.ExtensionLoader" Version="1.0.1" />
+    <PackageReference Include="Beep.Compilers.Module" Version="1.0.1" />
+    <PackageReference Include="Beep.Compilers.Python" Version="1.0.4" />
+    <PackageReference Include="Beep.IDE.Nodes" Version="1.0.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.0" />
     <PackageReference Include="DuckDBDataSourceCore" Version="1.0.0" />
     <PackageReference Include="FireBaseDataSourceCore" Version="1.0.0" />
     <PackageReference Include="FirebirdDataSourceCore" Version="1.0.0" />
     <PackageReference Include="LiteDBDataSourceCore" Version="1.0.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
     <PackageReference Include="MySqlDataSourceCore" Version="1.0.0" />
     <PackageReference Include="OracleDataSourceCore" Version="1.0.2" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
@@ -881,8 +876,8 @@
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.26" />
-    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.26" />
-    <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.15" />
+    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.28" />
+    <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.16" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.360" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.124" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.5" />
