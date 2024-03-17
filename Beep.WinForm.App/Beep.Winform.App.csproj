@@ -861,7 +861,6 @@
     <PackageReference Include="Beep.Compilers.R" Version="1.0.0" />
     <PackageReference Include="Beep.Compilers.Rust" Version="1.0.0" />
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.0" />
-    <PackageReference Include="Beep.IDE.WinformCore" Version="1.0.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.0" />
     <PackageReference Include="DuckDBDataSourceCore" Version="1.0.0" />
@@ -885,7 +884,7 @@
     <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.26" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.15" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.360" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.122" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.124" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.5" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.7" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Vis" Version="1.0.57" />
@@ -936,6 +935,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Beep.IDE\Beep.IDE.WinformCore\Beep.IDE.WinformCore.csproj" />
     <ProjectReference Include="..\..\Beep.Python\Beep.Python.Model\Beep.Python.Model.csproj" />
     <ProjectReference Include="..\..\Beep.Python\Beep.Python.Runtime\Beep.Python.Runtime.PythonNet.csproj" />
     <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM.Loader\TheTechIdea.Beep.MVVM.Loader.csproj" />
