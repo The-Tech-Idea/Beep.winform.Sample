@@ -73,8 +73,6 @@
     <None Remove="Beep\Mapping\HereweAddAllmapping.txt" />
     <None Remove="Beep\OtherDLL\System.Windows.Forms.DataVisualization.dll" />
     <None Remove="Beep\OtherDLL\UI\Svg.dll" />
-    <None Remove="Beep\OtherDLL\win-x64\native\WebView2Loader.dll" />
-    <None Remove="Beep\OtherDLL\win-x86\native\WebView2Loader.dll" />
     <None Remove="Beep\ProjectClasses\BeepDeveloperAssistant\HereweputClasses.txt" />
     <None Remove="Beep\ProjectClasses\BeepEnterprizeTreeNodes\HereweputClasses.txt" />
     <None Remove="Beep\ProjectClasses\BusinessProcessBuilder\HereweputClasses.txt" />
@@ -88,23 +86,6 @@
     <None Remove="Beep\ProjectClasses\PrintManager\PrintManager.dll" />
     <None Remove="Beep\ProjectClasses\Py\beep.py" />
     <None Remove="Beep\ProjectClasses\Py\HereweputClasses.txt" />
-    <None Remove="Beep\OtherDLL\UI\Skia\arm64\libSkiaSharp.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\libSkiaSharp.dylib" />
-    <None Remove="Beep\OtherDLL\UI\Skia\OpenTK.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\OpenTK.GLControl.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\SkiaSharp.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\SkiaSharp.Extended.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\SkiaSharp.Extended.Svg.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\SkiaSharp.Views.Desktop.Common.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\SkiaSharp.Views.WindowsForms.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\System.Buffers.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\System.Drawing.Common.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\System.Memory.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\System.Numerics.Vectors.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\System.Runtime.CompilerServices.Unsafe.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\System.Text.Encoding.CodePages.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\x64\libSkiaSharp.dll" />
-    <None Remove="Beep\OtherDLL\UI\Skia\x86\libSkiaSharp.dll" />
     <None Remove="Beep\ProjectData\AI_Datasets\iris.csv" />
     <None Remove="Beep\ProjectData\AI_Datasets\Oilwell.csv" />
     <None Remove="Beep\ProjectData\AI_Datasets\smoking_test_dataset.csv" />
@@ -228,16 +209,7 @@
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.AssemblyLoaderExtension\netstandard2.0\Beep.BusinessProcess.AssemblyLoaderExtension.dll" Link="Beep\LoadingExtensions\BusinessProcess\Beep.BusinessProcess.AssemblyLoaderExtension.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Extensions\netstandard2.0\Beep.BusinessProcess.Extensions.dll" Link="Beep\ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Extensions.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Logic\netstandard2.0\Beep.BusinessProcess.Logic.dll" Link="Beep\ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Logic.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.Module\netstandard2.0\Beep.BusinessProcess.Module.dll" Link="Beep\LoadingExtensions\BusinessProcess\Beep.BusinessProcess.Module.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.BusinessProcess.Nodes\netstandard2.0\Beep.BusinessProcess.Nodes.dll" Link="Beep\ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.Nodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.logic\netstandard2.0\Beep.DeveloperAssistant.logic.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.logic.dll">
@@ -441,12 +413,6 @@
     <Content Include="Beep\OtherDLL\UI\Svg.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Beep\OtherDLL\win-x64\native\WebView2Loader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\win-x86\native\WebView2Loader.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Beep\ProjectClasses\BeepDeveloperAssistant\HereweputClasses.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -484,39 +450,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\ProjectClasses\Py\HereweputClasses.txt">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\arm64\libSkiaSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\libSkiaSharp.dylib">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\OpenTK.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\OpenTK.GLControl.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\SkiaSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\SkiaSharp.Extended.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\SkiaSharp.Extended.Svg.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\SkiaSharp.Views.Desktop.Common.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\SkiaSharp.Views.WindowsForms.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\x64\libSkiaSharp.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Beep\OtherDLL\UI\Skia\x86\libSkiaSharp.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Beep\ProjectData\AI_Datasets\iris.csv">
@@ -831,21 +764,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\Beep.BusinessProcess.WinformCore\net7.0-windows\Beep.BusinessProcess.WinformCore.dll" Link="Beep\ProjectClasses\BusinessProcessBuilder\Beep.BusinessProcess.WinformCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\outputDLL\Beep.App.Controls.WinformCore\net6.0-windows\Beep.App.Controls.WinformCore.dll" Link="Beep\ProjectClasses\AppBuilder\Beep.App.Controls.WinformCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.App.Winform.BuilderCore\net6.0-windows\Beep.App.Winform.BuilderCore.dll" Link="Beep\ProjectClasses\AppBuilder\Beep.App.Winform.BuilderCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.WinformCore\net7.0-windows\Beep.DeveloperAssistant.WinformCore.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.WinformCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -871,6 +789,9 @@
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="SkiaSharp" Version="2.88.7" />
+    <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
+    <PackageReference Include="SkiaSharp.Views.WindowsForms" Version="2.88.7" />
     <PackageReference Include="SqliteDatasourceCore" Version="1.0.0" />
     <PackageReference Include="SqlServerDataSourceCore" Version="1.0.0" />
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
@@ -905,13 +826,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\Beep.Skia.Model\net7.0\Beep.Skia.Model.dll" Link="Beep\OtherDLL\UI\Skia\Beep.Skia.Model.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.Skia\net7.0\Beep.Skia.dll" Link="Beep\OtherDLL\UI\Skia\Beep.Skia.dll" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Include="..\..\outputDLL\TheTechIdea.Beep.Winform.Views\net8.0-windows\TheTechIdea.Beep.Winform.Views.dll" Link="Beep\ProjectClasses\TheTechIdea.Beep.Winform.Views.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -925,6 +839,24 @@
 
   <ItemGroup>
     <Content Include="..\..\outputDLL\Beep.Python.Extensions\net8.0\Beep.Python.Extensions.dll" Link="Beep\ProjectClasses\Py\Beep.Python.Extensions.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.App.Controls.WinformCore\net8.0-windows\Beep.App.Controls.WinformCore.dll" Link="Beep\ProjectClasses\AppBuilder\Beep.App.Controls.WinformCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.App.Winform.BuilderCore\net8.0-windows\Beep.App.Winform.BuilderCore.dll" Link="Beep\ProjectClasses\AppBuilder\Beep.App.Winform.BuilderCore.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.Skia.Model\net7.0\Beep.Skia.Model.dll" Link="Beep\OtherDLL\Beep.Skia.Model.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.Skia\net7.0\Beep.Skia.dll" Link="Beep\OtherDLL\Beep.Skia.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
