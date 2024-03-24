@@ -865,7 +865,6 @@
     <ProjectReference Include="..\..\Beep.IDE\Beep.IDE.WinformCore\Beep.IDE.WinformCore.csproj" />
     <ProjectReference Include="..\..\Beep.Python\Beep.Python.Model\Beep.Python.Model.csproj" />
     <ProjectReference Include="..\..\Beep.Python\Beep.Python.Runtime\Beep.Python.Runtime.PythonNet.csproj" />
-    <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM.Loader\TheTechIdea.Beep.MVVM.Loader.csproj" />
     <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM\TheTechIdea.Beep.MVVM.csproj" />
     <ProjectReference Include="..\..\Plugins\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
     <ProjectReference Include="..\..\Plugins\TheTechIdea.Beep.Winform.Extensions\TheTechIdea.Beep.Winform.Extensions.csproj" />
