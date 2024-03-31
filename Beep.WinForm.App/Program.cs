@@ -8,12 +8,14 @@ using Beep.Python.RuntimeEngine;
 using TheTechIdea.Beep.Winform.Extensions;
 using TheTechIdea;
 using Beep.Python.Model;
+using TheTechIdea.Beep.Winform.Controls.Managers;
 
 
 namespace Beep.Winform.App
 {
     static class Program
     {
+       
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -26,9 +28,8 @@ namespace Beep.Winform.App
             Application.SetCompatibleTextRenderingDefault(false);
             HostApplicationBuilder builder = Host.CreateApplicationBuilder();
 
-            builder.Services.RegisterBeep(AppContext.BaseDirectory, null, TheTechIdea.Util.BeepConfigType.Application);
+            builder.Services.RegisterBeep(AppContext.BaseDirectory, null, TheTechIdea.Util.BeepConfigType.Application,true);
             builder.Services.RegisterVisManager();
-
             string pythonhome = string.Empty;
             if (Directory.Exists(@"\\mvcsepimprod\DHUB\py\x64"))
             {
@@ -48,12 +49,17 @@ namespace Beep.Winform.App
 
             // Retreiving Services
             ServiceHelper.Initialize(host.Services);
+            
             IBeepService beepService = host.Services.GetService<IBeepService>()!;
+           
             IVisManager visManager = host.Services.GetService<IVisManager>()!;
+            visManager = new VisManager(beepService.DMEEditor);
+            beepService.vis = visManager;
             IPythonRunTimeManager PythonRunTimeManager = host.Services.GetService<IPythonRunTimeManager>()!;
             PythonRunTimeManager.DMEditor= beepService.DMEEditor;
             IPackageManagerViewModel packageManagerViewModel = host.Services.GetService<IPackageManagerViewModel>()!;
             packageManagerViewModel.Editor = beepService.DMEEditor;
+           
             //Setting the Main Form 
             visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "","","");
 
@@ -109,5 +115,6 @@ namespace Beep.Winform.App
             beepService = null;
 
         }
+       
     }
 }
