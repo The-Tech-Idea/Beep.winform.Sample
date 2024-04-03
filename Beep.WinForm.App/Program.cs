@@ -59,7 +59,7 @@ namespace Beep.Winform.App
             PythonRunTimeManager.DMEditor= beepService.DMEEditor;
             IPackageManagerViewModel packageManagerViewModel = host.Services.GetService<IPackageManagerViewModel>()!;
             packageManagerViewModel.Editor = beepService.DMEEditor;
-           
+            packageManagerViewModel.Init();
             //Setting the Main Form 
             visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "","","");
 
