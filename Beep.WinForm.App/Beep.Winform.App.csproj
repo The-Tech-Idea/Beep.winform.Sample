@@ -776,7 +776,7 @@
     <PackageReference Include="MySqlDataSourceCore" Version="1.0.0" />
     <PackageReference Include="OracleDataSourceCore" Version="1.0.2" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
-    <PackageReference Include="RDBDataSource" Version="1.0.20" />
+    <PackageReference Include="RDBDataSource" Version="1.0.21" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
@@ -784,15 +784,15 @@
     <PackageReference Include="SkiaSharp" Version="2.88.7" />
     <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
     <PackageReference Include="SkiaSharp.Views.WindowsForms" Version="2.88.7" />
-    <PackageReference Include="SqliteDatasourceCore" Version="1.0.10" />
+    <PackageReference Include="SqliteDatasourceCore" Version="1.0.21" />
     <PackageReference Include="SqlServerDataSourceCore" Version="1.0.0" />
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.37" />
     <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.51" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.27" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.372" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.130" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.377" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.133" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.9" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Vis" Version="1.0.57" />
