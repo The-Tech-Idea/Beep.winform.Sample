@@ -769,14 +769,14 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.0" />
     <PackageReference Include="CompositeLayerNodes" Version="1.0.0" />
-    <PackageReference Include="DuckDBDataSourceCore" Version="1.0.26" />
+    <PackageReference Include="DuckDBDataSourceCore" Version="1.0.35" />
     <PackageReference Include="FireBaseDataSourceCore" Version="1.0.0" />
     <PackageReference Include="FirebirdDataSourceCore" Version="1.0.0" />
     <PackageReference Include="LiteDBDataSourceCore" Version="1.0.0" />
     <PackageReference Include="MySqlDataSourceCore" Version="1.0.0" />
     <PackageReference Include="OracleDataSourceCore" Version="1.0.3" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
-    <PackageReference Include="RDBDataSource" Version="1.0.31" />
+    <PackageReference Include="RDBDataSource" Version="1.0.32" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
@@ -854,16 +854,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\net8.0\TheTechIdea.Beep.TreeNodes.dll" Link="Beep\ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll">
+    <Content Include="..\..\outputDLL\Beep.InMemory.Logic\net8.0\Beep.InMemory.Logic.dll" Link="Beep\ProjectClasses\InMemoryDB\Beep.InMemory.Logic.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.InMemory.Nodes\net8.0\Beep.InMemory.Nodes.dll" Link="Beep\ProjectClasses\InMemoryDB\Beep.InMemory.Nodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\Beep.InMemory.Logic\net8.0\Beep.InMemory.Logic.dll" Link="Beep\ProjectClasses\InMemoryDB\Beep.InMemory.Logic.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.InMemory.Nodes\net8.0\Beep.InMemory.Nodes.dll" Link="Beep\ProjectClasses\InMemoryDB\Beep.InMemory.Nodes.dll">
+    <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\net8.0\TheTechIdea.Beep.TreeNodes.dll" Link="Beep\ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

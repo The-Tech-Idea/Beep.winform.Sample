@@ -71,7 +71,7 @@ namespace Beep.Winform.App
             beepService.AddAllDataSourceMappings();
             beepService.AddAllConnectionConfigurations();
             beepService.AddAllDataSourceQueryConfigurations();
-            beepService.DMEEditor.ConfigEditor.LoadDataConnectionsValues();
+            //beepService.DMEEditor.ConfigEditor.LoadDataConnectionsValues();
             
             PassedArgs p = new PassedArgs();
 
