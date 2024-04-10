@@ -68,9 +68,9 @@ namespace Beep.Winform.App
             visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "","","");
 
             // Adding Required Configurations
-            beepService.AddAllDataSourceMappings();
-            beepService.AddAllConnectionConfigurations();
-            beepService.AddAllDataSourceQueryConfigurations();
+            //beepService.AddAllDataSourceMappings();
+            //beepService.AddAllConnectionConfigurations();
+            //beepService.AddAllDataSourceQueryConfigurations();
             //beepService.DMEEditor.ConfigEditor.LoadDataConnectionsValues();
             
             PassedArgs p = new PassedArgs();
