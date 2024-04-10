@@ -212,12 +212,6 @@
     <Content Include="..\..\outputDLL\Beep.BusinessProcess.Module\netstandard2.0\Beep.BusinessProcess.Module.dll" Link="Beep\LoadingExtensions\BusinessProcess\Beep.BusinessProcess.Module.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.logic\netstandard2.0\Beep.DeveloperAssistant.logic.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.logic.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.Nodes\netstandard2.0\Beep.DeveloperAssistant.Nodes.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.Nodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="..\..\outputDLL\Beep.Python.ExtensionLoader\netstandard2.0\Beep.Python.ExtensionLoader.dll" Link="Beep\LoadingExtensions\PythonExtentionLoader\Beep.Python.ExtensionLoader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -755,12 +749,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.WinformCore\net7.0-windows\Beep.DeveloperAssistant.WinformCore.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.WinformCore.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Autofac" Version="8.0.0" />
     <PackageReference Include="Beep.Compilers.ExtensionLoader" Version="1.0.1" />
     <PackageReference Include="Beep.Compilers.Module" Version="1.0.1" />
@@ -789,8 +777,8 @@
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.38" />
-    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.52" />
-    <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.27" />
+    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.54" />
+    <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.28" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.395" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.135" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
@@ -864,6 +852,18 @@
 
   <ItemGroup>
     <Content Include="..\..\outputDLL\TheTechIdea.Beep.TreeNodes\net8.0\TheTechIdea.Beep.TreeNodes.dll" Link="Beep\ProjectClasses\BeepEnterprizeTreeNodes\TheTechIdea.Beep.TreeNodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.logic\net8.0\Beep.DeveloperAssistant.Logic.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.Logic.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.Nodes\net8.0\Beep.DeveloperAssistant.Nodes.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.DeveloperAssistant.WinformCore\net8.0-windows\Beep.DeveloperAssistant.WinformCore.dll" Link="Beep\ProjectClasses\BeepDeveloperAssistant\Beep.DeveloperAssistant.WinformCore.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
