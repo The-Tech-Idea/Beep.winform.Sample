@@ -29,12 +29,14 @@ namespace Beep.Winform.App
             // Register Beep Services
             BeepProgram.RegisterServices(builder);
             // Register Other Services here
-
+            
             using IHost host = builder.Build();
 
             // Retreiving Services and Configuring them
             BeepProgram.InitializeAndConfigureServices(host);
-           
+
+            BeepProgram.RegisterGlobalKeyHandler();
+
             // Start the Application
             BeepProgram.StartLoadingDataThenShowMainForm(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
 
