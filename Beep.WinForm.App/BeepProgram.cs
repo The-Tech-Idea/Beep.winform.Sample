@@ -10,38 +10,21 @@ using TheTechIdea;
 using Beep.Python.Model;
 using TheTechIdea.Beep.Winform.Controls.Managers;
 using TheTechIdea.Beep.Winform.Controls.FunctionsandExtensions;
+using TheTechIdea.Beep.Winform.Controls.KeyManager;
 
 namespace TheTechIdea.Beep.Container
 {
     public static class BeepProgram
     {
-        static Dictionary<KeyCombination, string> keyMapToFunction = new Dictionary<KeyCombination, string>
-    {
-        { new KeyCombination(Keys.C, true, false, false), "CopyFunction" },
-        { new KeyCombination(Keys.F4, false, true, false), "CloseFunction" },
-        { new KeyCombination(Keys.A, false, false, true), "SelectAllFunction" },
-        // Add more mappings as needed
-    };
+      
         public static IVisManager visManager { get; set; }
         public static IBeepService beepService { get; set; }
         public static void RegisterGlobalKeyHandler( )
         {
             // Registering global key handler
-            var globalKeyHandler = new GlobalKeyHandler();
-            Application.AddMessageFilter(globalKeyHandler);
-            globalKeyHandler.KeyDown += GlobalKeyDown;
+            KeyManager.RegisterGlobalKeyHandler(beepService.DMEEditor);
         }
-        private static void GlobalKeyDown(object sender, KeyEventArgs e)
-        {
-            var combination = new KeyCombination(e.KeyCode, e.Control, e.Alt, e.Shift);
-
-            if (keyMapToFunction.TryGetValue(combination, out var functionName))
-            {
-                Console.WriteLine($"{functionName} triggered");
-                // Implement your function call logic based on functionName
-                e.Handled = true;
-            }
-        }
+       
         public static void RegisterServices(HostApplicationBuilder builder)
         {
             // Register beep services
