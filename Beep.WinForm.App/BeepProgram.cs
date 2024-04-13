@@ -10,21 +10,32 @@ using TheTechIdea;
 using Beep.Python.Model;
 using TheTechIdea.Beep.Winform.Controls.Managers;
 using TheTechIdea.Beep.Winform.Controls.FunctionsandExtensions;
-using TheTechIdea.Beep.Winform.Controls.KeyManager;
+using TheTechIdea.Beep.Winform.Controls.KeyManagement;
 
 namespace TheTechIdea.Beep.Container
 {
     public static class BeepProgram
     {
-      
+        /// <summary>
+        /// Visualiztion Manager
+        /// </summary>
         public static IVisManager visManager { get; set; }
+        /// <summary>
+        /// Beep Service
+        /// </summary>
         public static IBeepService beepService { get; set; }
-        public static void RegisterGlobalKeyHandler( )
+        /// <summary>
+        /// Register Global Key Handler
+        /// </summary>
+        public static void RegisterGlobalKeyHandler()
         {
             // Registering global key handler
-            KeyManager.RegisterGlobalKeyHandler(beepService.DMEEditor);
+            KeyManager.RegisterGlobalKeyHandler(beepService.DMEEditor,visManager);
         }
-       
+        /// <summary>
+        ///  Register Services
+        /// </summary>
+        /// <param name="builder"></param>
         public static void RegisterServices(HostApplicationBuilder builder)
         {
             // Register beep services
@@ -37,6 +48,10 @@ namespace TheTechIdea.Beep.Container
             builder.Services.RegisterPythonPackageManagerService(pythonHome);
             // Add additional service registrations here
         }
+        /// <summary>
+        /// Determine Python Home Path
+        /// </summary>
+        /// <returns>Python Home </returns>
         public static string DeterminePythonHomePath()
         {
             if (Directory.Exists(@"\\mvcsepimprod\DHUB\py\x64"))
@@ -49,28 +64,37 @@ namespace TheTechIdea.Beep.Container
             }
             return string.Empty; // Consider a default or throw an exception if necessary
         }
-
+        /// <summary>
+        /// Initialize and Configure Services
+        /// </summary>
+        /// <param name="host"></param>
         public static void InitializeAndConfigureServices(IHost host)
         {
             ServiceHelper.Initialize(host.Services);
             // Extracted service retrieval and initial configuration into a separate method
-             beepService = host.Services.GetService<IBeepService>()!;
-             visManager = host.Services.GetService<IVisManager>()!;
+            beepService = host.Services.GetService<IBeepService>()!;
+            visManager = host.Services.GetService<IVisManager>()!;
 
             // Assuming these method calls setup and configure the services as necessary
-            SetupVisManager( );
+            SetupVisManager();
             SetupPythonRuntimeManager(host.Services);
             SetupPackageManagerViewModel(host.Services);
         }
+        /// <summary>
+        /// Setup Visulization Manager
+        /// </summary>
         public static void SetupVisManager()
         {    // have to fo this , to work as crossplaform and Different UI
             visManager = new VisManager(beepService.DMEEditor);
             visManager.SetBeepReference(beepService);
             // Original logic for setting up visManager
-           
-           
-        }
 
+
+        }
+        /// <summary>
+        /// Setup Python Runtime Manager
+        /// </summary>
+        /// <param name="services"></param>
         public static void SetupPythonRuntimeManager(IServiceProvider services)
         {
             var pythonRunTimeManager = services.GetService<IPythonRunTimeManager>()!;
@@ -78,7 +102,10 @@ namespace TheTechIdea.Beep.Container
             pythonRunTimeManager.DMEditor = beepService.DMEEditor;
             // Additional setup as necessary
         }
-
+        /// <summary>
+        /// Setup Package Manager View Model
+        /// </summary>
+        /// <param name="services"></param>
         public static void SetupPackageManagerViewModel(IServiceProvider services)
         {
             var packageManagerViewModel = services.GetService<IPackageManagerViewModel>()!;
@@ -87,16 +114,16 @@ namespace TheTechIdea.Beep.Container
             packageManagerViewModel.Init();
             // Add additional setup as required
         }
-
-
-
-
-        public static void StartLoadingDataThenShowMainForm( string[] namespacestoinclude)
+        /// <summary>
+        /// Start Loading Data then Show Main Form
+        /// </summary>
+        /// <param name="namespacestoinclude"></param>
+        public static void StartLoadingDataThenShowMainForm(string[] namespacestoinclude)
         {
             //Setting the Main Form 
             visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "", "", "");
 
-            
+
 
             PassedArgs p = new PassedArgs();
 
@@ -109,7 +136,8 @@ namespace TheTechIdea.Beep.Container
 
             // Prepare Async Data Notification from Assembly loader to WaitForm
 
-            var progress = new Progress<PassedArgs>(percent => {
+            var progress = new Progress<PassedArgs>(percent =>
+            {
 
                 p.Messege = percent.Messege;
                 visManager.PasstoWaitForm(p);
@@ -121,27 +149,34 @@ namespace TheTechIdea.Beep.Container
                                                               // beepService.LoadAssemblies();
                                                               //but this will not show any waiting form
 
-            LoadGraphics( namespacestoinclude);
+            LoadGraphics(namespacestoinclude);
 
             visManager.CloseWaitForm();
             // Show main Page
             visManager.ShowMainPage();
         }
-
-        public static void LoadGraphics( string[] namespacestoinclude)
+        /// <summary>
+        /// Load Graphics
+        /// </summary>
+        /// <param name="namespacestoinclude"></param>
+        public static void LoadGraphics(string[] namespacestoinclude)
         {
-            if (namespacestoinclude==null)
+            if (namespacestoinclude == null)
             {
                 namespacestoinclude = new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" };
             }
-                
+
             visManager.visHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
             visManager.visHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
 
         }
+        /// <summary>
+        /// Dispose Services
+        /// </summary>
+        /// <param name="services"></param>
         public static void DisposeServices(IServiceProvider services)
         {
-            
+
             var pythonRunTimeManager = services.GetService<IPythonRunTimeManager>();
             // Dispose logic for services
             var packageManagerViewModel = services.GetService<IPackageManagerViewModel>()!;
@@ -153,7 +188,7 @@ namespace TheTechIdea.Beep.Container
             {
                 pythonRunTimeManager?.Dispose();
             }
-            
+            KeyManager.UnregisterGlobalKeyHandler();
             visManager.Dispose();
             beepService.DMEEditor.Dispose();
             beepService?.Dispose();
