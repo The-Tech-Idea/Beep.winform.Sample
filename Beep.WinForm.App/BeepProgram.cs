@@ -40,6 +40,7 @@ namespace TheTechIdea.Beep.Container
         {
             // Register beep services
             builder.Services.RegisterBeep(AppContext.BaseDirectory, null, TheTechIdea.Util.BeepConfigType.Application, true);
+
             builder.Services.RegisterVisManager();
 
             // Python service registration
@@ -85,8 +86,8 @@ namespace TheTechIdea.Beep.Container
         /// </summary>
         public static void SetupVisManager()
         {    // have to fo this , to work as crossplaform and Different UI
-            visManager = new VisManager(beepService.DMEEditor);
-            visManager.SetBeepReference(beepService);
+         //   visManager = new VisManager(beepService.DMEEditor);
+          //  visManager.SetBeepReference(beepService);
             // Original logic for setting up visManager
 
 
