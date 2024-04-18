@@ -171,6 +171,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.JS.Winform
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.BI.Winform.Designer", "..\Beep.BI\TheTechIdea.Beep.BI.Winform.Designer\TheTechIdea.Beep.BI.Winform.Designer.csproj", "{E1130B89-961C-4FAD-A45F-ABBA464F6098}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeLayerDataSourceCore", "..\Beep.CompositeLayer\CompositeLayerDataSource6\CompositeLayerDataSourceCore.csproj", "{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CompositeLayerNodes", "..\Beep.CompositeLayer\Beep.CompositeLayer.Nodes\CompositeLayerNodes.csproj", "{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -739,6 +743,22 @@ Global
 		{E1130B89-961C-4FAD-A45F-ABBA464F6098}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E1130B89-961C-4FAD-A45F-ABBA464F6098}.Release|x64.ActiveCfg = Release|Any CPU
 		{E1130B89-961C-4FAD-A45F-ABBA464F6098}.Release|x64.Build.0 = Release|Any CPU
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}.Debug|x64.Build.0 = Debug|Any CPU
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}.Release|x64.ActiveCfg = Release|Any CPU
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876}.Release|x64.Build.0 = Release|Any CPU
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}.Debug|x64.Build.0 = Debug|Any CPU
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}.Release|x64.ActiveCfg = Release|Any CPU
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -812,6 +832,8 @@ Global
 		{8A6A2134-FB5F-448F-BCD5-AE1BCEC0303A} = {045BF505-DCCD-42FD-9B28-5840529C5539}
 		{7F68A71C-7C39-4CDF-9A97-1A77C6E36E6D} = {045BF505-DCCD-42FD-9B28-5840529C5539}
 		{E1130B89-961C-4FAD-A45F-ABBA464F6098} = {B82F2A12-C195-49DA-BDAA-EF069F4D687A}
+		{C6FE4ECC-85CD-4E1B-8EA3-85C11D5DB876} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
+		{ED12542B-5E99-4A44-8E9F-3B4219F9BEB5} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}

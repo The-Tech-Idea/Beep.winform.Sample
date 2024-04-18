@@ -206,9 +206,6 @@
     <Content Include="..\..\outputDLL\Beep.Skia.Loader\netstandard2.0\Beep.Skia.Loader.dll" Link="Beep\LoadingExtensions\Beep.Skia.Loader.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="..\..\outputDLL\CompositeLayerNodes\netstandard2.0\CompositeLayerNodes.dll" Link="Beep\ProjectClasses\CompositeLayer\CompositeLayerNodes.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Beep\Addin\HereweAddAllVisualAddin.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -743,7 +740,7 @@
     <PackageReference Include="Beep.Compilers.Python" Version="1.0.4" />
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
-    <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.0" />
+    <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.1" />
     <PackageReference Include="CompositeLayerNodes" Version="1.0.0" />
     <PackageReference Include="DuckDBDataSourceCore" Version="1.0.36" />
     <PackageReference Include="FireBaseDataSourceCore" Version="1.0.0" />
@@ -870,6 +867,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.App.Nodes\net8.0\Beep.App.Nodes.dll" Link="Beep\ProjectClasses\AppBuilder\Beep.App.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\CompositeLayerNodes\net8.0\CompositeLayerNodes.dll" Link="Beep\ProjectClasses\CompositeLayer\CompositeLayerNodes.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
