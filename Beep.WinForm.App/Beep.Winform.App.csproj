@@ -763,7 +763,7 @@
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.11" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.4" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.103" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.106" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Vis" Version="1.0.57" />
     <PackageReference Include="TxtXlsCSVFileSourceCore" Version="1.0.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
@@ -775,6 +775,7 @@
     <Folder Include="Beep\ProjectClasses\AI\" />
     <Folder Include="Beep\ProjectClasses\ETL\" />
     <Folder Include="Beep\ProjectClasses\IDE\" />
+    <Folder Include="Beep\ProjectClasses\sqleditor\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -863,6 +864,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.App.Nodes\net8.0\Beep.App.Nodes.dll" Link="Beep\ProjectClasses\AppBuilder\Beep.App.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="..\..\outputDLL\Beep.SQLEditor.Nodes\net8.0\Beep.SQLEditor.Nodes.dll" Link="Beep\ProjectClasses\sqleditor\Beep.SQLEditor.Nodes.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.SQLEditor.Winform\net8.0-windows\Beep.SQLEditor.Winform.dll" Link="Beep\ProjectClasses\sqleditor\Beep.SQLEditor.Winform.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\..\outputDLL\Beep.SQLEditor\net8.0\Beep.SQLEditor.dll" Link="Beep\ProjectClasses\sqleditor\Beep.SQLEditor.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
