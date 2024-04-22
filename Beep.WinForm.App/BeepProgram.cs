@@ -24,6 +24,11 @@ namespace TheTechIdea.Beep.Container
         /// Beep Service
         /// </summary>
         public static IBeepService beepService { get; set; }
+        private static IPythonRunTimeManager PythonRunTimeManager;
+        private static bool IsReady = false;
+        private static string Pythonruntimepath;
+        private static IPackageManagerViewModel PackageManager;
+        private static string PythonDataPath;
         /// <summary>
         /// Register Global Key Handler
         /// </summary>
@@ -44,9 +49,9 @@ namespace TheTechIdea.Beep.Container
             builder.Services.RegisterVisManager();
 
             // Python service registration
-            string pythonHome = DeterminePythonHomePath();
-            builder.Services.RegisterPythonService(pythonHome);
-            builder.Services.RegisterPythonPackageManagerService(pythonHome);
+            Pythonruntimepath = DeterminePythonHomePath();
+            builder.Services.RegisterPythonService(Pythonruntimepath);
+            builder.Services.RegisterPythonPackageManagerService();
             // Add additional service registrations here
         }
         /// <summary>
@@ -65,6 +70,7 @@ namespace TheTechIdea.Beep.Container
             }
             return string.Empty; // Consider a default or throw an exception if necessary
         }
+       
         /// <summary>
         /// Initialize and Configure Services
         /// </summary>
@@ -98,9 +104,13 @@ namespace TheTechIdea.Beep.Container
         /// <param name="services"></param>
         public static void SetupPythonRuntimeManager(IServiceProvider services)
         {
-            var pythonRunTimeManager = services.GetService<IPythonRunTimeManager>()!;
+            PythonRunTimeManager = services.GetService<IPythonRunTimeManager>()!;
+            IsReady = PythonRunTimeManager.Initialize(DeterminePythonHomePath(), BinType32or64.p395x64, @"lib\site-packages");
+            PythonServices.PythonRunTimeManager = PythonRunTimeManager;
+            PythonServices.Pythonruntimepath = Pythonruntimepath;
+
             // Setting up Python runtime manager with the necessary configurations
-            pythonRunTimeManager.DMEditor = beepService.DMEEditor;
+            // pythonRunTimeManager.DMEditor = beepService.DMEEditor;
             // Additional setup as necessary
         }
         /// <summary>
@@ -109,10 +119,10 @@ namespace TheTechIdea.Beep.Container
         /// <param name="services"></param>
         public static void SetupPackageManagerViewModel(IServiceProvider services)
         {
-            var packageManagerViewModel = services.GetService<IPackageManagerViewModel>()!;
+            PackageManager = services.GetService<IPackageManagerViewModel>()!;
             // Configuring package manager view model
-            packageManagerViewModel.Editor = beepService.DMEEditor;
-            packageManagerViewModel.Init();
+            PackageManager.Init();
+            PythonServices.PackageManager = PackageManager;
             // Add additional setup as required
         }
         /// <summary>
