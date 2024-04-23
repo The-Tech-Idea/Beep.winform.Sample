@@ -736,7 +736,7 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.1" />
     <PackageReference Include="CompositeLayerNodes" Version="1.0.2" />
-    <PackageReference Include="DuckDBDataSourceCore" Version="1.0.36" />
+    <PackageReference Include="DuckDBDataSourceCore" Version="1.0.37" />
     <PackageReference Include="FireBaseDataSourceCore" Version="1.0.0" />
     <PackageReference Include="FirebirdDataSourceCore" Version="1.0.0" />
     <PackageReference Include="LiteDBDataSourceCore" Version="1.0.0" />
