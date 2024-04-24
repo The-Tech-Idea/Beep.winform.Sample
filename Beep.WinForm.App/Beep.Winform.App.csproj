@@ -758,8 +758,8 @@
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.39" />
     <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.63" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.28" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.408" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.142" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.409" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.143" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.11" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.4" />
