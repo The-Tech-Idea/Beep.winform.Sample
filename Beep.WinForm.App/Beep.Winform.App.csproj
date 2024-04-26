@@ -735,7 +735,7 @@
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.1" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.1" />
-    <PackageReference Include="CompositeLayerNodes" Version="1.0.2" />
+    <PackageReference Include="CompositeLayerNodes" Version="1.0.5" />
     <PackageReference Include="DuckDBDataSourceCore" Version="1.0.37" />
     <PackageReference Include="FireBaseDataSourceCore" Version="1.0.0" />
     <PackageReference Include="FirebirdDataSourceCore" Version="1.0.0" />
@@ -763,7 +763,7 @@
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.11" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.4" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.106" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.107" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Vis" Version="1.0.57" />
     <PackageReference Include="TxtXlsCSVFileSourceCore" Version="1.0.0" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
