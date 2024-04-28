@@ -126,6 +126,7 @@ namespace TheTechIdea.Beep.Container
             // Configuring package manager view model
             PackageManager.Init();
             PythonServices.PackageManager = PackageManager;
+            PythonServices.PackageManager= PackageManager;
             // Add additional setup as required
         }
         public static void SetupPythonMLManagerViewModel(IServiceProvider services)
