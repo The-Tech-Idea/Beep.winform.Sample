@@ -28,6 +28,7 @@ namespace TheTechIdea.Beep.Container
         private static bool IsReady = false;
         private static string Pythonruntimepath;
         private static IPackageManagerViewModel PackageManager;
+        private static IPythonMLManager pythonMLManager;
         private static string PythonDataPath;
         /// <summary>
         /// Register Global Key Handler
@@ -52,6 +53,7 @@ namespace TheTechIdea.Beep.Container
             Pythonruntimepath = DeterminePythonHomePath();
             builder.Services.RegisterPythonService(Pythonruntimepath);
             builder.Services.RegisterPythonPackageManagerService();
+            builder.Services.RegisterPythonMLService();
             // Add additional service registrations here
         }
         /// <summary>
@@ -86,6 +88,7 @@ namespace TheTechIdea.Beep.Container
             SetupVisManager();
             SetupPythonRuntimeManager(host.Services);
             SetupPackageManagerViewModel(host.Services);
+            SetupPythonMLManagerViewModel(host.Services);
         }
         /// <summary>
         /// Setup Visulization Manager
@@ -108,7 +111,7 @@ namespace TheTechIdea.Beep.Container
             IsReady = PythonRunTimeManager.Initialize(DeterminePythonHomePath(), BinType32or64.p395x64, @"lib\site-packages");
             PythonServices.PythonRunTimeManager = PythonRunTimeManager;
             PythonServices.Pythonruntimepath = Pythonruntimepath;
-
+           
             // Setting up Python runtime manager with the necessary configurations
             // pythonRunTimeManager.DMEditor = beepService.DMEEditor;
             // Additional setup as necessary
@@ -123,6 +126,11 @@ namespace TheTechIdea.Beep.Container
             // Configuring package manager view model
             PackageManager.Init();
             PythonServices.PackageManager = PackageManager;
+            // Add additional setup as required
+        }
+        public static void SetupPythonMLManagerViewModel(IServiceProvider services)
+        {
+            PythonServices.PythonMLManager = services.GetService<IPythonMLManager>()!;
             // Add additional setup as required
         }
         /// <summary>
