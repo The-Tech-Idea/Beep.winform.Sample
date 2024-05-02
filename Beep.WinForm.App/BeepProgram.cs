@@ -29,7 +29,9 @@ namespace TheTechIdea.Beep.Container
         private static string Pythonruntimepath;
         private static IPackageManagerViewModel PackageManager;
         private static IPythonMLManager pythonMLManager;
+        public static IPythonVirtualEnvViewModel PythonvirtualEnvViewModel;
         private static string PythonDataPath;
+        private static bool IsVirtualEnvReady = false;
         /// <summary>
         /// Register Global Key Handler
         /// </summary>
@@ -50,8 +52,9 @@ namespace TheTechIdea.Beep.Container
             builder.Services.RegisterVisManager();
 
             // Python service registration
-            Pythonruntimepath = DeterminePythonHomePath();
+         
             builder.Services.RegisterPythonService(Pythonruntimepath);
+            builder.Services.RegisterPythonVirtualEnvService();
             builder.Services.RegisterPythonPackageManagerService();
             builder.Services.RegisterPythonMLService();
             // Add additional service registrations here
@@ -62,15 +65,24 @@ namespace TheTechIdea.Beep.Container
         /// <returns>Python Home </returns>
         public static string DeterminePythonHomePath()
         {
-            if (Directory.Exists(@"\\mvcsepimprod\DHUB\py\x64"))
+            if (IsVirtualEnvReady)
             {
-                return @"\\mvcsepimprod\DHUB\py\x64";
+                Pythonruntimepath = Path.Combine(PythonServices.PythonDataPath, Environment.UserName,"Scripts");
             }
-            if (Directory.Exists(@"W:\\Cpython\\3.9\\x64"))
+            else
             {
-                return @"W:\\Cpython\\3.9\\x64";
+                if (Directory.Exists(@"\\mvcsepimprod\DHUB\py\x64"))
+                {
+                    Pythonruntimepath = @"\\mvcsepimprod\DHUB\py\x64";
+                }
+                if (Directory.Exists(@"W:\\Cpython\\3.9\\x64"))
+                {
+                    Pythonruntimepath = @"W:\\Cpython\\3.9\\x64";
+                }
             }
-            return string.Empty; // Consider a default or throw an exception if necessary
+           
+           
+            return Pythonruntimepath; // Consider a default or throw an exception if necessary
         }
        
         /// <summary>
@@ -86,10 +98,15 @@ namespace TheTechIdea.Beep.Container
 
             // Assuming these method calls setup and configure the services as necessary
             SetupVisManager();
+            DeterminePythonHomePath();
             SetupPythonRuntimeManager(host.Services);
+        //    SetupPythonVirtualEnvViewModel(host.Services);
             SetupPackageManagerViewModel(host.Services);
             SetupPythonMLManagerViewModel(host.Services);
         }
+
+      
+
         /// <summary>
         /// Setup Visulization Manager
         /// </summary>
@@ -128,6 +145,17 @@ namespace TheTechIdea.Beep.Container
             PythonServices.PackageManager = PackageManager;
             PythonServices.PackageManager= PackageManager;
             // Add additional setup as required
+        }
+        private static void SetupPythonVirtualEnvViewModel(IServiceProvider services)
+        {
+            PythonvirtualEnvViewModel = services.GetService<IPythonVirtualEnvViewModel>()!;
+            if(PythonvirtualEnvViewModel.InitializeForUser(PythonServices.PythonDataPath, Environment.UserName))
+            {
+                IsVirtualEnvReady = true;
+                DeterminePythonHomePath();
+            }
+            PythonvirtualEnvViewModel.ShutDown();
+            PythonRunTimeManager.Initialize(DeterminePythonHomePath(), BinType32or64.p395x64, @"lib\site-packages");
         }
         public static void SetupPythonMLManagerViewModel(IServiceProvider services)
         {
