@@ -11,6 +11,7 @@ using Beep.Python.Model;
 using TheTechIdea.Beep.Winform.Controls.Managers;
 using TheTechIdea.Beep.Winform.Controls.FunctionsandExtensions;
 using TheTechIdea.Beep.Winform.Controls.KeyManagement;
+using Beep.Python.RuntimeEngine.ViewModels;
 
 namespace TheTechIdea.Beep.Container
 {
@@ -30,7 +31,9 @@ namespace TheTechIdea.Beep.Container
         private static IPackageManagerViewModel PackageManager;
         private static IPythonMLManager pythonMLManager;
         public static IPythonVirtualEnvViewModel PythonvirtualEnvViewModel;
+        
         private static string PythonDataPath;
+      
         private static bool IsVirtualEnvReady = false;
         /// <summary>
         /// Register Global Key Handler
@@ -57,6 +60,8 @@ namespace TheTechIdea.Beep.Container
             builder.Services.RegisterPythonVirtualEnvService();
             builder.Services.RegisterPythonPackageManagerService();
             builder.Services.RegisterPythonMLService();
+            builder.Services.RegisterPythonAIProjectService();
+            builder.Services.RegisterPythonModelEvaluationGraphsService();
             // Add additional service registrations here
         }
         /// <summary>
@@ -160,6 +165,16 @@ namespace TheTechIdea.Beep.Container
         public static void SetupPythonMLManagerViewModel(IServiceProvider services)
         {
             PythonServices.PythonMLManager = services.GetService<IPythonMLManager>()!;
+            // Add additional setup as required
+        }
+        public static void SetupPythonAIProjectViewModel(IServiceProvider services)
+        {
+            PythonServices.PythonAIProjectViewModel = services.GetService<IPythonAIProjectViewModel>()!;
+            // Add additional setup as required
+        }
+        public static void SetupPythonModelEvaluationGraphsViewModel(IServiceProvider services)
+        {
+            PythonServices.PythonModelEvaluationGraphsViewModel = services.GetService<IPythonModelEvaluationGraphsViewModel>()!;
             // Add additional setup as required
         }
         /// <summary>
