@@ -329,9 +329,6 @@
     <Content Include="Beep\GFX\oracle.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Beep\GFX\postgres.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
     <Content Include="Beep\GFX\ravendb.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -746,8 +743,9 @@
     <PackageReference Include="LiteDBDataSourceCore" Version="1.0.0" />
     <PackageReference Include="MySqlDataSourceCore" Version="1.0.0" />
     <PackageReference Include="OracleDataSourceCore" Version="1.0.3" />
+    <PackageReference Include="PostgreDataSourceCore" Version="1.0.0" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
-    <PackageReference Include="RDBDataSource" Version="1.0.35" />
+    <PackageReference Include="RDBDataSource" Version="1.0.36" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
@@ -762,7 +760,7 @@
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.41" />
     <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.64" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.28" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.419" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.426" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.144" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.11" />
@@ -880,6 +878,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.SQLEditor\net8.0\Beep.SQLEditor.dll" Link="Beep\ProjectClasses\sqleditor\Beep.SQLEditor.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Beep\GFX\postgres.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
