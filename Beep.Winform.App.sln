@@ -193,6 +193,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TxtXlsCSVFileSourceCore", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PostgreDataSourceCore", "..\BeepDataSources\DataSourcesPluginsCore\PostgreDataSourceCore\PostgreDataSourceCore.csproj", "{D31F40BF-31F6-4DFF-B391-635B98D0ECF7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MongoDBDataSourceCore", "..\BeepDataSources\DataSourcesPluginsCore\MongoDBDataSourceCore\MongoDBDataSourceCore.csproj", "{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -833,6 +835,14 @@ Global
 		{D31F40BF-31F6-4DFF-B391-635B98D0ECF7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D31F40BF-31F6-4DFF-B391-635B98D0ECF7}.Release|x64.ActiveCfg = Release|Any CPU
 		{D31F40BF-31F6-4DFF-B391-635B98D0ECF7}.Release|x64.Build.0 = Release|Any CPU
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}.Debug|x64.Build.0 = Debug|Any CPU
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}.Release|x64.ActiveCfg = Release|Any CPU
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -915,6 +925,7 @@ Global
 		{4B5288D6-C9AB-486F-B315-B4D364A0AD18} = {FEB7533C-1BA2-4BA7-B5A0-FE84E3EF9C91}
 		{67B07F3B-C584-4537-84EB-8C44411EFE54} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
 		{D31F40BF-31F6-4DFF-B391-635B98D0ECF7} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
+		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
