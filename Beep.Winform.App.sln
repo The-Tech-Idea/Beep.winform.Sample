@@ -199,6 +199,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LiteDBDataSourceCore", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WooCommerceDataSourceCore", "..\BeepDataSources\AppsAndServices\WoCommerceDataSourceCore\WooCommerceDataSourceCore.csproj", "{F45F47E6-E056-44B9-886E-4AF75A015387}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InfluxDBDataSourceCore", "..\BeepDataSources\DataSourcesPluginsCore\InfluxDBDataSourceCore\InfluxDBDataSourceCore.csproj", "{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -863,6 +865,14 @@ Global
 		{F45F47E6-E056-44B9-886E-4AF75A015387}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F45F47E6-E056-44B9-886E-4AF75A015387}.Release|x64.ActiveCfg = Release|Any CPU
 		{F45F47E6-E056-44B9-886E-4AF75A015387}.Release|x64.Build.0 = Release|Any CPU
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}.Debug|x64.Build.0 = Debug|Any CPU
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}.Release|x64.ActiveCfg = Release|Any CPU
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -948,6 +958,7 @@ Global
 		{95C32104-50BD-4C0C-9F0E-D24D79A2C8C7} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
 		{75BB553F-F7AD-4743-8ABA-74D7DBCAA562} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
 		{F45F47E6-E056-44B9-886E-4AF75A015387} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
+		{AE95A92B-63E9-42D0-A8B0-18201BBFC6F1} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
