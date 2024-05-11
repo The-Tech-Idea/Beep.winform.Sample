@@ -743,10 +743,10 @@
     <PackageReference Include="LiteDBDataSourceCore" Version="1.0.3" />
     <PackageReference Include="MongoDBDataSourceCore" Version="1.0.2" />
     <PackageReference Include="MySqlDataSourceCore" Version="1.0.0" />
-    <PackageReference Include="OracleDataSourceCore" Version="1.0.3" />
+    <PackageReference Include="OracleDataSourceCore" Version="1.0.7" />
     <PackageReference Include="PostgreDataSourceCore" Version="1.0.0" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
-    <PackageReference Include="RDBDataSource" Version="1.0.38" />
+    <PackageReference Include="RDBDataSource" Version="1.0.41" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
