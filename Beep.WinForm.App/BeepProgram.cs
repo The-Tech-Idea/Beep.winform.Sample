@@ -76,9 +76,9 @@ namespace TheTechIdea.Beep.Container
             }
             else
             {
-                if (Directory.Exists(@"\\mvcsepimprod\DHUB\py\x64"))
+                if (Directory.Exists(@"\\sahala\WinApps\DHUB\py\x64"))
                 {
-                    Pythonruntimepath = @"\\mvcsepimprod\DHUB\py\x64";
+                    Pythonruntimepath = @"\\sahala\WinApps\DHUB\py\x64";
                 }
                 if (Directory.Exists(@"W:\\Cpython\\3.9\\x64"))
                 {
