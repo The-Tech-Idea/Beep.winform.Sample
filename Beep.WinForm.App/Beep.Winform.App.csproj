@@ -766,7 +766,7 @@
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.11" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.4" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.109" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.110" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Vis" Version="1.0.57" />
     <PackageReference Include="TxtXlsCSVFileSourceCore" Version="1.0.7" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
