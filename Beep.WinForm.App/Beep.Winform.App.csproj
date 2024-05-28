@@ -748,6 +748,7 @@
     <PackageReference Include="PostgreDataSourceCore" Version="1.0.0" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
     <PackageReference Include="RDBDataSource" Version="1.0.42" />
+    <PackageReference Include="ReaLTaiizor" Version="3.8.0.5" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
@@ -768,7 +769,6 @@
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.11" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.4" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.110" />
-    <PackageReference Include="TheTechIdea.Beep.Winform.Vis" Version="1.0.57" />
     <PackageReference Include="TxtXlsCSVFileSourceCore" Version="1.0.7" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
   </ItemGroup>
@@ -787,12 +787,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="..\..\outputDLL\Beep.ETL.Mapping.Skia\net7.0-windows\Beep.ETL.Mapping.Skia.dll" Link="Beep\ProjectClasses\ETL\Beep.ETL.Mapping.Skia.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="..\..\outputDLL\TheTechIdea.Beep.Winform.Views\net8.0-windows\TheTechIdea.Beep.Winform.Views.dll" Link="Beep\ProjectClasses\TheTechIdea.Beep.Winform.Views.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -896,6 +890,7 @@
     <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM\TheTechIdea.Beep.MVVM.csproj" />
     <ProjectReference Include="..\..\Plugins\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
     <ProjectReference Include="..\..\Plugins\TheTechIdea.Beep.Winform.Extensions\TheTechIdea.Beep.Winform.Extensions.csproj" />
+    <ProjectReference Include="..\..\Plugins\TheTechIdea.Beep.Winform.Views\TheTechIdea.Beep.Winform.Views.csproj" />
   </ItemGroup>
 
 </Project>
