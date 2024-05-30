@@ -209,6 +209,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.ETL", "..\Beep.ETL\Bee
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Skia.Model", "..\Plugins\Beep.Skia.Model\Beep.Skia.Model.csproj", "{159A4DB9-E7AD-4C29-8F2F-DADD4F745E9B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepWinFormsApp", "..\Beep.Winform.AppTemplate\BeepWinFormsApp\BeepWinFormsApp.csproj", "{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -913,6 +915,14 @@ Global
 		{159A4DB9-E7AD-4C29-8F2F-DADD4F745E9B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{159A4DB9-E7AD-4C29-8F2F-DADD4F745E9B}.Release|x64.ActiveCfg = Release|Any CPU
 		{159A4DB9-E7AD-4C29-8F2F-DADD4F745E9B}.Release|x64.Build.0 = Release|Any CPU
+		{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}.Debug|x64.Build.0 = Debug|Any CPU
+		{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}.Release|x64.ActiveCfg = Release|Any CPU
+		{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
