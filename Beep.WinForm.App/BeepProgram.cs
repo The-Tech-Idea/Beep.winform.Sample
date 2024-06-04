@@ -213,7 +213,7 @@ namespace TheTechIdea.Beep.Container
                                                               //but this will not show any waiting form
 
             LoadGraphics(namespacestoinclude);
-
+            visManager.BeepObjectsName="Beep";
             visManager.CloseWaitForm();
             // Show main Page
             visManager.ShowMainPage();
