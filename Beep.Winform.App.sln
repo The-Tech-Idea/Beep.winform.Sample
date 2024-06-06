@@ -211,13 +211,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepWinFormsApp", "..\Beep.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.SemanticKernel", "..\Beep.SemanticKernel\Beep.SemanticKernel.csproj", "{C57B9F2A-18C6-4F6F-B8BD-91BDC2D73992}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.LLama", "..\Beep.LLama\Beep.LLama.csproj", "{51A4D2D3-B023-4488-B8E5-96B571DDA5BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.LLama", "..\Beep.LLama\Beep.LLama.csproj", "{51A4D2D3-B023-4488-B8E5-96B571DDA5BC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.KernelMemory", "..\Beep.KernelMemory\Beep.KernelMemory.csproj", "{8A2B4009-394A-4391-8D63-EEFDFFF5C72B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.KernelMemory", "..\Beep.KernelMemory\Beep.KernelMemory.csproj", "{8A2B4009-394A-4391-8D63-EEFDFFF5C72B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.LangChain", "..\Beep.LangChain\Beep.LangChain.csproj", "{43766944-422D-4A31-A784-B01774ACEE34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.LangChain", "..\Beep.LangChain\Beep.LangChain.csproj", "{43766944-422D-4A31-A784-B01774ACEE34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.BotSharp", "..\Beep.BotSharp\Beep.BotSharp.csproj", "{7206ABFE-0111-4697-A472-D4AF6D69C850}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.BotSharp", "..\Beep.BotSharp\Beep.BotSharp.csproj", "{7206ABFE-0111-4697-A472-D4AF6D69C850}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Halal_Solution", "Halal_Solution", "{50F64057-6D2C-4EF4-9973-3B5EE9D92FF2}"
 EndProject
@@ -238,6 +238,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mobile", "Mobile", "{37C1E183-7C6D-40FA-BD35-C1380119A0CE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Maui", "..\Mobile\TheTechIdea.Beep.Maui\TheTechIdea.Beep.Maui.csproj", "{82427647-7E4A-487F-B078-B70E5D83119F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.AI.Model", "..\Beep.ML.NET\AIModule\TheTechIdea.Beep.AI.Model.csproj", "{27BD91E7-094C-44CF-A7B5-602572C9C3A8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.AI.ExtensionLoader", "..\Beep.ML.NET\AIExtensionLoader\TheTechIdea.Beep.AI.ExtensionLoader.csproj", "{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -1051,6 +1055,22 @@ Global
 		{82427647-7E4A-487F-B078-B70E5D83119F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{82427647-7E4A-487F-B078-B70E5D83119F}.Release|x64.ActiveCfg = Release|Any CPU
 		{82427647-7E4A-487F-B078-B70E5D83119F}.Release|x64.Build.0 = Release|Any CPU
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8}.Debug|x64.Build.0 = Debug|Any CPU
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8}.Release|x64.ActiveCfg = Release|Any CPU
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8}.Release|x64.Build.0 = Release|Any CPU
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}.Debug|x64.Build.0 = Debug|Any CPU
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}.Release|x64.ActiveCfg = Release|Any CPU
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -1154,6 +1174,8 @@ Global
 		{388D052B-CCA0-4D55-9597-FFC900223C2E} = {37C1E183-7C6D-40FA-BD35-C1380119A0CE}
 		{37C1E183-7C6D-40FA-BD35-C1380119A0CE} = {3AC797E4-E6CE-426E-AEBE-A629EFB5406C}
 		{82427647-7E4A-487F-B078-B70E5D83119F} = {37C1E183-7C6D-40FA-BD35-C1380119A0CE}
+		{27BD91E7-094C-44CF-A7B5-602572C9C3A8} = {04992159-A9E4-4297-B5CB-0541AAF49EBE}
+		{9588B884-6BAF-4FBE-B06A-8E357C5C8F83} = {04992159-A9E4-4297-B5CB-0541AAF49EBE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
