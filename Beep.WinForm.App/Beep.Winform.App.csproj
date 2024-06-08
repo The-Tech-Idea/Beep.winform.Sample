@@ -752,7 +752,7 @@
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.46" />
     <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.64" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.29" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.517" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.518" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.198" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.DuckDBDataSourceCore" Version="1.0.43" />
@@ -761,9 +761,9 @@
     <PackageReference Include="TheTechIdea.Beep.MongoDBDataSourceCore" Version="1.0.29" />
     <PackageReference Include="TheTechIdea.Beep.MVVM" Version="1.0.13" />
     <PackageReference Include="TheTechIdea.Beep.MySqlDataSourceCore" Version="1.0.1" />
-    <PackageReference Include="TheTechIdea.Beep.OracleDataSourceCore" Version="1.0.10" />
+    <PackageReference Include="TheTechIdea.Beep.OracleDataSourceCore" Version="1.0.14" />
     <PackageReference Include="TheTechIdea.Beep.PostgreDataSourceCore" Version="1.0.1" />
-    <PackageReference Include="TheTechIdea.Beep.RDBDataSource" Version="1.0.68" />
+    <PackageReference Include="TheTechIdea.Beep.RDBDataSource" Version="1.0.77" />
     <PackageReference Include="TheTechIdea.Beep.SqliteDatasourceCore" Version="1.0.51" />
     <PackageReference Include="TheTechIdea.Beep.TxtXlsCSVFileSourceCore" Version="1.0.13" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.4" />
