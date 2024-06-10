@@ -738,6 +738,7 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.1" />
     <PackageReference Include="CompositeLayerNodes" Version="1.0.5" />
+    <PackageReference Include="HalalLib" Version="1.0.2" />
     <PackageReference Include="Npgsql" Version="8.0.3" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
@@ -749,11 +750,11 @@
     <PackageReference Include="SkiaSharp.Views.WindowsForms" Version="2.88.8" />
     <PackageReference Include="System.Security.Principal" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.1" />
-    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.46" />
+    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.47" />
     <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.64" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.29" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.518" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.198" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.199" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.DuckDBDataSourceCore" Version="1.0.43" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.11" />
@@ -766,10 +767,10 @@
     <PackageReference Include="TheTechIdea.Beep.RDBDataSource" Version="1.0.77" />
     <PackageReference Include="TheTechIdea.Beep.SqliteDatasourceCore" Version="1.0.51" />
     <PackageReference Include="TheTechIdea.Beep.TxtXlsCSVFileSourceCore" Version="1.0.13" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.4" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.5" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Logic" Version="1.0.2" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.110" />
-    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.96" />
+    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.97" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Extensions" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Views" Version="1.0.8" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />

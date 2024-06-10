@@ -38,7 +38,7 @@ namespace Beep.Winform.App
             BeepProgram.RegisterGlobalKeyHandler();
 
             // Start the Application
-            BeepProgram.StartLoadingDataThenShowMainForm(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
+            BeepProgram.StartLoadingDataThenShowMainForm(new string[5] { "BeepEnterprize", "HalalLib","Halal", "TheTechIdea", "Beep" });
 
             // Dispose Services
             BeepProgram.DisposeServices(host.Services);
