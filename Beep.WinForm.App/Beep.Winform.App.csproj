@@ -753,13 +753,13 @@
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="1.0.47" />
     <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.64" />
     <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.29" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.525" />
-    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.203" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.527" />
+    <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.204" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.DuckDBDataSourceCore" Version="1.0.43" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="1.0.11" />
     <PackageReference Include="TheTechIdea.Beep.LiteDBDataSourceCore" Version="1.0.4" />
-    <PackageReference Include="TheTechIdea.Beep.MongoDBDataSourceCore" Version="1.0.37" />
+    <PackageReference Include="TheTechIdea.Beep.MongoDBDataSourceCore" Version="1.0.44" />
     <PackageReference Include="TheTechIdea.Beep.MVVM" Version="1.0.14" />
     <PackageReference Include="TheTechIdea.Beep.MySqlDataSourceCore" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.OracleDataSourceCore" Version="1.0.14" />
@@ -770,7 +770,7 @@
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.5" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Logic" Version="1.0.2" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.110" />
-    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.99" />
+    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.101" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Extensions" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Views" Version="1.0.16" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
