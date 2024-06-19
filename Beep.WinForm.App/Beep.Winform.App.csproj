@@ -770,7 +770,7 @@
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.5" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Logic" Version="1.0.2" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.111" />
-    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.105" />
+    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.106" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Extensions" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Views" Version="1.0.17" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
