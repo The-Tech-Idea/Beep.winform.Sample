@@ -10,6 +10,11 @@
 	  <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
+
+  <ItemGroup>
+    <Content Remove="C:\Users\f_ald\.nuget\packages\beep.python.winformcore\1.0.1\contentFiles\any\net8.0-windows7.0\tmp.csv" />
+  </ItemGroup>
+
   <ItemGroup>
     <None Remove="Beep\Addin\HereweAddAllVisualAddin.txt" />
     <None Remove="Beep\AI\beep.py" />
@@ -734,11 +739,15 @@
     <PackageReference Include="Beep.Compilers.Rust" Version="1.0.1" />
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.3" />
     <PackageReference Include="Beep.IDE.WinformCore" Version="1.0.4" />
+    <PackageReference Include="Beep.Python.Extensions" Version="1.0.0" />
+    <PackageReference Include="Beep.Python.Model" Version="1.0.5" />
+    <PackageReference Include="Beep.Python.Nodes" Version="1.0.3" />
+    <PackageReference Include="Beep.Python.Runtime.PythonNet" Version="1.0.9" />
+    <PackageReference Include="Beep.Python.WinformCore" Version="1.0.6" />
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
     <PackageReference Include="CompositeLayerDataSourceCore" Version="1.0.1" />
     <PackageReference Include="CompositeLayerNodes" Version="1.0.5" />
-    <PackageReference Include="HalalLib" Version="1.0.2" />
     <PackageReference Include="Npgsql" Version="8.0.3" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
     <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
@@ -885,11 +894,6 @@
     <Content Include="Beep\GFX\postgres.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Beep.Python\Beep.Python.Model\Beep.Python.Model.csproj" />
-    <ProjectReference Include="..\..\Beep.Python\Beep.Python.Runtime\Beep.Python.Runtime.PythonNet.csproj" />
   </ItemGroup>
 
 </Project>
