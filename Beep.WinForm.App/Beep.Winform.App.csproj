@@ -740,9 +740,9 @@
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.3" />
     <PackageReference Include="Beep.IDE.WinformCore" Version="1.0.4" />
     <PackageReference Include="Beep.Python.Extensions" Version="1.0.0" />
-    <PackageReference Include="Beep.Python.Model" Version="1.0.9" />
+    <PackageReference Include="Beep.Python.Model" Version="1.0.14" />
     <PackageReference Include="Beep.Python.Nodes" Version="1.0.4" />
-    <PackageReference Include="Beep.Python.Runtime.PythonNet" Version="1.0.16" />
+    <PackageReference Include="Beep.Python.Runtime.PythonNet" Version="1.0.42" />
     <PackageReference Include="Beep.Python.WinformCore" Version="1.0.33" />
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
@@ -777,7 +777,7 @@
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Logic" Version="1.0.10" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.112" />
-    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.156" />
+    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.160" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Extensions" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Views" Version="1.0.21" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
