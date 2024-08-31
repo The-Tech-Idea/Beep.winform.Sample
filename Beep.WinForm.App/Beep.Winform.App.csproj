@@ -738,17 +738,16 @@
     <PackageReference Include="Beep.Compilers.Python" Version="1.0.6" />
     <PackageReference Include="Beep.Compilers.Rust" Version="1.0.1" />
     <PackageReference Include="Beep.IDE.Nodes" Version="1.0.3" />
-    <PackageReference Include="Beep.IDE.WinformCore" Version="1.0.4" />
+    <PackageReference Include="Beep.IDE.WinformCore" Version="1.0.7" />
     <PackageReference Include="Beep.Python.Extensions" Version="1.0.0" />
     <PackageReference Include="Beep.Python.Model" Version="1.0.14" />
     <PackageReference Include="Beep.Python.Nodes" Version="1.0.4" />
     <PackageReference Include="Beep.Python.Runtime.PythonNet" Version="1.0.42" />
     <PackageReference Include="Beep.Python.WinformCore" Version="1.0.33" />
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.0" />
     <PackageReference Include="Npgsql" Version="8.0.3" />
     <PackageReference Include="pythonnet" Version="3.0.3" />
-    <PackageReference Include="Scintilla.NET" Version="5.3.2.9" />
     <PackageReference Include="Serilog" Version="4.0.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
