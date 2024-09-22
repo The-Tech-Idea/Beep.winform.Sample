@@ -730,7 +730,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="8.0.0" />
+    <PackageReference Include="Autofac" Version="8.1.0" />
     <PackageReference Include="Beep.Compilers.CSharp" Version="1.0.1" />
     <PackageReference Include="Beep.Compilers.ExtensionLoader" Version="1.0.1" />
     <PackageReference Include="Beep.Compilers.Julia" Version="1.0.1" />
@@ -742,12 +742,12 @@
     <PackageReference Include="Beep.Python.Extensions" Version="1.0.0" />
     <PackageReference Include="Beep.Python.Model" Version="1.0.14" />
     <PackageReference Include="Beep.Python.Nodes" Version="1.0.4" />
-    <PackageReference Include="Beep.Python.Runtime.PythonNet" Version="1.0.42" />
-    <PackageReference Include="Beep.Python.WinformCore" Version="1.0.33" />
+    <PackageReference Include="Beep.Python.Runtime.PythonNet" Version="1.0.43" />
+    <PackageReference Include="Beep.Python.WinformCore" Version="1.0.34" />
     <PackageReference Include="BouncyCastle.Cryptography" Version="2.4.0" />
-    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.0" />
-    <PackageReference Include="Npgsql" Version="8.0.3" />
-    <PackageReference Include="pythonnet" Version="3.0.3" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
+    <PackageReference Include="Npgsql" Version="8.0.4" />
+    <PackageReference Include="pythonnet" Version="3.0.4" />
     <PackageReference Include="Serilog" Version="4.0.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
@@ -776,7 +776,7 @@
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Logic" Version="1.0.10" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.112" />
-    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.160" />
+    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.161" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Extensions" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Views" Version="1.0.21" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
