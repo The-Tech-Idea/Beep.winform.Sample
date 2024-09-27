@@ -26,7 +26,8 @@ namespace TheTechIdea.Beep.Container
         /// </summary>
         public static IBeepService beepService { get; set; }
         private static IPythonRunTimeManager PythonRunTimeManager;
-        private static bool IsReady = false;
+        private static bool IsPythonReady = false;
+        private static bool IsPathReady = false;
         private static string Pythonruntimepath;
         private static IPackageManagerViewModel PackageManager;
         private static IPythonMLManager pythonMLManager;
@@ -57,11 +58,15 @@ namespace TheTechIdea.Beep.Container
             // Python service registration
          
             builder.Services.RegisterPythonService(Pythonruntimepath);
-            builder.Services.RegisterPythonVirtualEnvService();
-            builder.Services.RegisterPythonPackageManagerService();
-            builder.Services.RegisterPythonMLService();
-            builder.Services.RegisterPythonAIProjectService();
-            builder.Services.RegisterPythonModelEvaluationGraphsService();
+            if(IsPathReady)
+            {
+                builder.Services.RegisterPythonVirtualEnvService();
+                builder.Services.RegisterPythonPackageManagerService();
+                builder.Services.RegisterPythonMLService();
+                builder.Services.RegisterPythonAIProjectService();
+                builder.Services.RegisterPythonModelEvaluationGraphsService();
+            }
+            
             // Add additional service registrations here
         }
         /// <summary>
@@ -79,10 +84,12 @@ namespace TheTechIdea.Beep.Container
                 if (Directory.Exists(@"\\sahala\WinApps\DHUB\py\x64"))
                 {
                     Pythonruntimepath = @"\\sahala\WinApps\DHUB\py\x64";
+                    IsPathReady = true;
                 }
                 if (Directory.Exists(@"W:\\Cpython\\3.9\\x64"))
                 {
                     Pythonruntimepath = @"W:\\Cpython\\3.9\\x64";
+                    IsPathReady= true;
                 }
             }
            
@@ -104,10 +111,14 @@ namespace TheTechIdea.Beep.Container
             // Assuming these method calls setup and configure the services as necessary
             SetupVisManager();
             DeterminePythonHomePath();
-            SetupPythonRuntimeManager(host.Services);
-        //    SetupPythonVirtualEnvViewModel(host.Services);
-            SetupPackageManagerViewModel(host.Services);
-            SetupPythonMLManagerViewModel(host.Services);
+            if(IsPathReady)
+            {
+                SetupPythonRuntimeManager(host.Services);
+                //    SetupPythonVirtualEnvViewModel(host.Services);
+                SetupPackageManagerViewModel(host.Services);
+                SetupPythonMLManagerViewModel(host.Services);
+            }
+       
         }
 
       
@@ -130,7 +141,7 @@ namespace TheTechIdea.Beep.Container
         public static void SetupPythonRuntimeManager(IServiceProvider services)
         {
             PythonRunTimeManager = services.GetService<IPythonRunTimeManager>()!;
-            IsReady = PythonRunTimeManager.Initialize(DeterminePythonHomePath(), BinType32or64.p395x64, @"lib\site-packages");
+            IsPythonReady = PythonRunTimeManager.Initialize(DeterminePythonHomePath(), BinType32or64.p395x64, @"lib\site-packages");
             PythonServices.PythonRunTimeManager = PythonRunTimeManager;
             PythonServices.Pythonruntimepath = Pythonruntimepath;
            
@@ -144,11 +155,19 @@ namespace TheTechIdea.Beep.Container
         /// <param name="services"></param>
         public static void SetupPackageManagerViewModel(IServiceProvider services)
         {
-            PackageManager = services.GetService<IPackageManagerViewModel>()!;
-            // Configuring package manager view model
-            PackageManager.Init();
-            PythonServices.PackageManager = PackageManager;
-            PythonServices.PackageManager= PackageManager;
+            try
+            {
+                PackageManager = services.GetService<IPackageManagerViewModel>()!;
+                // Configuring package manager view model
+                PackageManager.Init();
+                PythonServices.PackageManager = PackageManager;
+                PythonServices.PackageManager = PackageManager;
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.ToString());
+            }
+          
             // Add additional setup as required
         }
         private static void SetupPythonVirtualEnvViewModel(IServiceProvider services)
