@@ -58,7 +58,8 @@ namespace TheTechIdea.Beep.Container
             // Python service registration
          
             builder.Services.RegisterPythonService(Pythonruntimepath);
-            if(IsPathReady)
+            DeterminePythonHomePath();
+            if (IsPathReady)
             {
                 builder.Services.RegisterPythonVirtualEnvService();
                 builder.Services.RegisterPythonPackageManagerService();
