@@ -748,7 +748,7 @@
     <PackageReference Include="CommunityToolkit.Mvvm" Version="8.3.2" />
     <PackageReference Include="Npgsql" Version="8.0.4" />
     <PackageReference Include="pythonnet" Version="3.0.4" />
-    <PackageReference Include="Serilog" Version="4.0.1" />
+    <PackageReference Include="Serilog" Version="4.0.2" />
     <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="6.0.0" />
     <PackageReference Include="SkiaSharp" Version="2.88.8" />
@@ -776,7 +776,7 @@
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Logic" Version="1.0.10" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.112" />
-    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.161" />
+    <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.162" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Extensions" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Views" Version="1.0.21" />
     <PackageReference Include="WinForms.DataVisualization" Version="1.9.2" />
