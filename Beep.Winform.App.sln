@@ -227,11 +227,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Skia", "Skia", "{3DA3FFE5-C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nugget", "Nugget", "{33A4AD19-74B3-4516-87EC-908A95E1FC5E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Nugget.Logic", "..\Beep.Nugget\Beep.Nugget.Logic\Beep.Nugget.Logic.csproj", "{AAE13115-D5A4-4D8B-B32F-89D7B0D5007C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Nugget.Logic", "..\Beep.Nugget\Beep.Nugget.Logic\Beep.Nugget.Logic.csproj", "{AAE13115-D5A4-4D8B-B32F-89D7B0D5007C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Nugget.Winform", "..\Beep.Nugget\Beep.Nugget.Winform\Beep.Nugget.Winform.csproj", "{A1DD8EFA-0EEA-4271-84E6-2CB818FAE5C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Nugget.Winform", "..\Beep.Nugget\Beep.Nugget.Winform\Beep.Nugget.Winform.csproj", "{A1DD8EFA-0EEA-4271-84E6-2CB818FAE5C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Nugget.Server", "..\Beep.Nugget\Beep.Nugget.Server\Beep.Nugget.Server.csproj", "{BAEE6BE9-CECE-4BF6-B614-E196A82E65EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.Nugget.Server", "..\Beep.Nugget\Beep.Nugget.Server\Beep.Nugget.Server.csproj", "{BAEE6BE9-CECE-4BF6-B614-E196A82E65EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
