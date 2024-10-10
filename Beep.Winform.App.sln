@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Winform.Ex
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Winform.Views", "..\Plugins\TheTechIdea.Beep.Winform.Views\TheTechIdea.Beep.Winform.Views.csproj", "{74379100-FF4B-4DAC-BCE8-245D7AF963B5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BeepWinFormsApp", "..\Beep.Winform.AppTemplate\BeepWinFormsApp\BeepWinFormsApp.csproj", "{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Beep.WinForm.Sample.App", "..\Beep.Winform.AppTemplate\BeepWinFormsApp\Beep.WinForm.Sample.App.csproj", "{E25F0496-EB83-44B9-B9D5-FC52EB4D4374}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
