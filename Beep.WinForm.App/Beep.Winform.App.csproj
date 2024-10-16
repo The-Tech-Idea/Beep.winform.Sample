@@ -775,7 +775,7 @@
     <PackageReference Include="TheTechIdea.Beep.TxtXlsCSVFileSourceCore" Version="1.0.13" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Loader" Version="1.0.6" />
     <PackageReference Include="TheTechIdea.Beep.Vis.Logic" Version="1.0.10" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.118" />
+    <PackageReference Include="TheTechIdea.Beep.Vis.Modules" Version="1.0.120" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Controls" Version="1.0.162" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Extensions" Version="1.0.1" />
     <PackageReference Include="TheTechIdea.Beep.Winform.Views" Version="1.0.21" />
