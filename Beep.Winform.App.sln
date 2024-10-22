@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Vis.Module
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.Vis.Logic", "..\Plugins\TheTechIdea.Beep.Vis.Logic\TheTechIdea.Beep.Vis.Logic.csproj", "{E2755DAA-4CA7-4887-B3CE-E5CE7672B2C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsApp.UI.Test", "WinFormsApp.UI.Test\WinFormsApp.UI.Test.csproj", "{3F782409-5BB0-478E-B8F5-E2011BFE8D86}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,22 @@ Global
 		{E2755DAA-4CA7-4887-B3CE-E5CE7672B2C5}.Release|x64.Build.0 = Release|Any CPU
 		{E2755DAA-4CA7-4887-B3CE-E5CE7672B2C5}.Release|x86.ActiveCfg = Release|Any CPU
 		{E2755DAA-4CA7-4887-B3CE-E5CE7672B2C5}.Release|x86.Build.0 = Release|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Debug|arm64.Build.0 = Debug|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Debug|x64.Build.0 = Debug|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Debug|x86.Build.0 = Debug|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Release|arm64.ActiveCfg = Release|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Release|arm64.Build.0 = Release|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Release|x64.ActiveCfg = Release|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Release|x64.Build.0 = Release|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Release|x86.ActiveCfg = Release|Any CPU
+		{3F782409-5BB0-478E-B8F5-E2011BFE8D86}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
