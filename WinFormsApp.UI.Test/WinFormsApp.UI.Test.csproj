@@ -12,10 +12,10 @@
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.572" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.254" />
     <PackageReference Include="TheTechIdea.Beep.MVVM" Version="1.0.16" />
-    <PackageReference Include="TheTechIdea.Beep.Vis.Logic" Version="1.0.10" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Plugins\TheTechIdea.Beep.Vis.Logic\TheTechIdea.Beep.Vis.Logic.csproj" />
     <ProjectReference Include="..\..\Plugins\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj" />
     <ProjectReference Include="..\..\Plugins\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
   </ItemGroup>
