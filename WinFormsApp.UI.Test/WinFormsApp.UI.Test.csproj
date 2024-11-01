@@ -11,7 +11,6 @@
   <ItemGroup>
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="1.0.572" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="1.0.254" />
-    <PackageReference Include="TheTechIdea.Beep.MVVM" Version="1.0.16" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿using Beep.Vis.Module;
+﻿using TheTechIdea.Beep.Vis.Modules;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TheTechIdea.Beep.Container;
