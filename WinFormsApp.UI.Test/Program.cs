@@ -14,7 +14,7 @@ namespace WinFormsApp.UI.Test
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            var x = new Form2();
+            var x = new Form1();
             Application.Run(x);
 
         }
