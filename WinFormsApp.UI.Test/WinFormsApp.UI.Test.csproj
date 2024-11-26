@@ -18,7 +18,6 @@
     <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM\TheTechIdea.Beep.MVVM.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Vis.Logic\TheTechIdea.Beep.Vis.Logic.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj" />
-    <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Extensions\TheTechIdea.Beep.Winform.Controls.Extensions.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
   </ItemGroup>
 
