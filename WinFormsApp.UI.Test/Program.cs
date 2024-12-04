@@ -1,4 +1,6 @@
 using TheTechIdea.Beep.Winform.Controls;
+using TheTechIdea.Beep.Winform.Controls.Helpers;
+using WinFormsApp.UI.Test.Properties;
 
 
 namespace WinFormsApp.UI.Test
@@ -15,6 +17,16 @@ namespace WinFormsApp.UI.Test
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             var x = new Form1();
+            BeepSplashScreen beepSplashScreen = new BeepSplashScreen();
+            beepSplashScreen.Title = "Beep Splash Screen";
+            //  beepSplashScreen.Message = "Loading...";
+            // set the logo image from resourses slack.svg
+            ImageTools.GetGraphicFilesLocationsFromEmbedded(new string[] { "System" });
+            beepSplashScreen.LogoPath = "WinFormsApp.UI.Test.gfx.slack.svg";
+            beepSplashScreen.ShowWithFadeIn();
+            Application.DoEvents();
+            Thread.Sleep(5000);
+            beepSplashScreen.HideWithFadeOut();
             Application.Run(x);
 
         }
