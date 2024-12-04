@@ -27,6 +27,11 @@ namespace WinFormsApp.UI.Test
             Application.DoEvents();
             Thread.Sleep(5000);
             beepSplashScreen.HideWithFadeOut();
+            BeepWaitScreen beepWaitScreen = new BeepWaitScreen();
+            beepWaitScreen.ShowAndRunAsync(async () =>
+            {
+                await Task.Delay(5000);
+            });
             Application.Run(x);
 
         }
