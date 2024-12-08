@@ -21,7 +21,7 @@ namespace WinFormsApp.UI.Test
             beepSplashScreen.Title = "Beep Splash Screen";
             //  beepSplashScreen.Message = "Loading...";
             // set the logo image from resourses slack.svg
-            ImageTools.GetGraphicFilesLocationsFromEmbedded(new string[] { "System" });
+      //      ImageTools.GetGraphicFilesLocationsFromEmbedded(new string[] { "System" });
             beepSplashScreen.LogoPath = "WinFormsApp.UI.Test.gfx.slack.svg";
             beepSplashScreen.ShowWithFadeIn();
             Application.DoEvents();
