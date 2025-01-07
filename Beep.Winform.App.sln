@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Vi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.WinForm.Sample.App", "..\Beep.Winform.AppTemplate\BeepWinFormsApp\Beep.WinForm.Sample.App.csproj", "{6D6C9AF6-2B31-471C-B4DB-1E6679B5F146}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Desktop.Controls.Common", "..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Common\TheTechIdea.Beep.Desktop.Controls.Common.csproj", "{E264887E-AA0E-43BF-A2D5-43F6235DA229}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Desktop.Common", "..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Common\TheTechIdea.Beep.Desktop.Common.csproj", "{E264887E-AA0E-43BF-A2D5-43F6235DA229}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Desktop.Design.Extensions", "..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Design.Extensions\TheTechIdea.Beep.Desktop.Design.Extensions.csproj", "{76FBA3E0-188D-4463-9451-7AD6C71F6FD9}"
 EndProject
