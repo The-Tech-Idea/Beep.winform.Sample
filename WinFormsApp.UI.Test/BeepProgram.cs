@@ -5,6 +5,7 @@ using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Winform.Controls.KeyManagement;
 using TheTechIdea.Beep.Addin;
+using TheTechIdea.Beep.Winform.Extensions;
 
 
 namespace TheTechIdea.Beep.Container
@@ -72,10 +73,10 @@ namespace TheTechIdea.Beep.Container
         /// Start Loading Data then Show Main Form
         /// </summary>
         /// <param name="namespacestoinclude"></param>
-        public static void StartLoadingDataThenShowMainForm(string[] namespacestoinclude)
+        public static void StartLoading(string[] namespacestoinclude)
         {
             //Setting the Main Form 
-            visManager.SetMainDisplay("Frm_Main", "Beep - The Data Plaform", "SimpleODM.ico", "", "", "");
+        //    visManager.SetMainDisplay("Form1", "Beep - The Data Plaform", "SimpleODM.ico", "", "", "");
             PassedArgs p = new PassedArgs();
             p.Messege = "Loading DLL's";
             // Show Wait Form
@@ -97,6 +98,18 @@ namespace TheTechIdea.Beep.Container
             visManager.CloseWaitForm();
             // Show main Page if you want ot use main page use in Beep Platform
             // visManager.ShowMainPage();
+        }
+        public static void SetMainModule(string ModuleName,string Title= "Beep - The Data Plaform",string iconname= "SimpleODM.ico")
+        {
+            visManager.SetMainDisplay(ModuleName, Title, iconname, "", "", "");
+          
+            // Show main Page if you want ot use main page use in Beep Platform
+           
+        }
+        public static void ShowMainPage()
+        {
+            visManager.CloseWaitForm();
+            visManager.ShowMainPage();
         }
         /// <summary>
         /// Load Graphics
