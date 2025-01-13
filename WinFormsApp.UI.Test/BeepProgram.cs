@@ -6,6 +6,7 @@ using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Winform.Controls.KeyManagement;
 using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.Winform.Extensions;
+using TheTechIdea.Beep.Desktop.Common;
 
 
 namespace TheTechIdea.Beep.Container
@@ -109,7 +110,7 @@ namespace TheTechIdea.Beep.Container
         public static void ShowMainPage()
         {
             visManager.CloseWaitForm();
-            visManager.ShowMainPage();
+            visManager.ShowHome();
         }
         /// <summary>
         /// Load Graphics
@@ -121,8 +122,12 @@ namespace TheTechIdea.Beep.Container
             {
                 namespacestoinclude = new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" };
             }
-            visManager.visHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
-            visManager.visHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
+            // Load Graphics from Embedded Resources
+            ImageListHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
+            // Load Graphics from Folders
+            ImageListHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
+            //  visManager.visHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
+            //   visManager.visHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
 
         }
         /// <summary>
