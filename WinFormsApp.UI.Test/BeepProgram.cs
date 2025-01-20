@@ -5,7 +5,7 @@ using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Winform.Controls.KeyManagement;
 using TheTechIdea.Beep.Addin;
-using TheTechIdea.Beep.Winform.Extensions;
+//using TheTechIdea.Beep.Winform.Extensions;
 using TheTechIdea.Beep.Desktop.Common;
 
 
@@ -39,7 +39,10 @@ namespace TheTechIdea.Beep.Container
         {
             // Register beep services
             builder.Services.RegisterBeep(AppContext.BaseDirectory, null, BeepConfigType.Application, true);
-            builder.Services.RegisterVisManager();
+            builder.Services.RegisterRouter();
+            builder.Services.RegisterViewModels();
+            builder.Services.RegisterViews();
+            builder.Services.RegisterAppManager();
             // Add additional service registrations here
         }
         /// <summary>
@@ -130,15 +133,7 @@ namespace TheTechIdea.Beep.Container
             //   visManager.visHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
 
         }
-        /// <summary>
-        /// Load Classes That Implement IBeepViewModel
-        /// </summary>
-        /// <param name="namespacestoinclude"></param>
-        public static void LoadViewModels()
-        {
-           
-           
-        }
+       
         /// <summary>
         /// Dispose Services
         /// </summary>
