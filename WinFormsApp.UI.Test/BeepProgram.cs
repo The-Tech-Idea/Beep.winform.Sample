@@ -7,6 +7,7 @@ using TheTechIdea.Beep.Winform.Controls.KeyManagement;
 using TheTechIdea.Beep.Addin;
 //using TheTechIdea.Beep.Winform.Extensions;
 using TheTechIdea.Beep.Desktop.Common;
+using TheTechIdea.Beep.Winform.Controls;
 
 
 namespace TheTechIdea.Beep.Container
@@ -26,11 +27,7 @@ namespace TheTechIdea.Beep.Container
         /// <summary>
         /// Register Global Key Handler
         /// </summary>
-        public static void RegisterGlobalKeyHandler()
-        {
-            // Registering global key handler
-            KeyManager.RegisterGlobalKeyHandler(beepService.DMEEditor,visManager);
-        }
+       
         /// <summary>
         ///  Register Services
         /// </summary>
@@ -40,6 +37,7 @@ namespace TheTechIdea.Beep.Container
             // Register beep services
             builder.Services.RegisterBeep(AppContext.BaseDirectory, null, BeepConfigType.Application, true);
             builder.Services.RegisterRouter();
+            builder.Services.RegisterKeyHandler();
             builder.Services.RegisterViewModels();
             builder.Services.RegisterViews();
             builder.Services.RegisterAppManager();
@@ -60,19 +58,9 @@ namespace TheTechIdea.Beep.Container
             //Connect Winform Visula Manager to My Beep Service
             //if Web or other UI use the appropriate VisManager
 
-            SetupVisManager();
+           // SetupVisManager();
         }
-        /// <summary>
-        /// Setup Visulization Manager
-        /// </summary>
-        public static void SetupVisManager()
-        {    // have to fo this , to work as crossplaform and Different UI
-         //   visManager = new VisManager(beepService.DMEEditor);
-           
-            // Original logic for setting up visManager
-        }
-        /// <summary>
-      
+       
         /// <summary>
         /// Start Loading Data then Show Main Form
         /// </summary>
@@ -82,9 +70,13 @@ namespace TheTechIdea.Beep.Container
             //Setting the Main Form 
         //    visManager.SetMainDisplay("Form1", "Beep - The Data Plaform", "SimpleODM.ico", "", "", "");
             PassedArgs p = new PassedArgs();
-            p.Messege = "Loading DLL's";
+            visManager.WaitForm = new BeepWait();
+            p.Messege = "Starting ....";
             // Show Wait Form
+            p.Title = "Beep - The Data Platform";
+            p.ImagePath = "TheTechIdea.Beep.Winform.Controls.GFX.SVG.simpleinfoapps.svg";
             visManager.ShowWaitForm(p);
+            p.Messege = "Starting ...........";
             // Passing Message to WaitForm
             visManager.PasstoWaitForm(p);
             // Prepare Async Data Notification from Assembly loader to WaitForm
@@ -109,6 +101,10 @@ namespace TheTechIdea.Beep.Container
           
             // Show main Page if you want ot use main page use in Beep Platform
            
+        }
+        public static void RegisterRoutes()
+        {
+            visManager.RoutingManager.RegisterRoute("Form1", typeof(TheTechIdea.Beep.Winform.Controls.Form1));
         }
         public static void ShowMainPage()
         {
