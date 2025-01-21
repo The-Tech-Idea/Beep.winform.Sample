@@ -104,7 +104,7 @@ namespace TheTechIdea.Beep.Container
         }
         public static void RegisterRoutes()
         {
-            visManager.RoutingManager.RegisterRoute("Form1", typeof(TheTechIdea.Beep.Winform.Controls.Form1));
+            visManager.RoutingManager.RegisterRouteByName("Form1", "Form1");
         }
         public static void ShowMainPage()
         {
