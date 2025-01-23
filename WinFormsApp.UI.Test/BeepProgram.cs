@@ -62,20 +62,21 @@ namespace TheTechIdea.Beep.Container
         }
        
         /// <summary>
-        /// Start Loading Data then Show Main Form
+        /// Start Loading Data then Config Main Form
         /// </summary>
         /// <param name="namespacestoinclude"></param>
         public static void StartLoading(string[] namespacestoinclude)
         {
+            LoadGraphics(namespacestoinclude);
             //Setting the Main Form 
-        //    visManager.SetMainDisplay("Form1", "Beep - The Data Plaform", "SimpleODM.ico", "", "", "");
+            //    visManager.SetMainDisplay("Form1", "Beep - The Data Plaform", "SimpleODM.ico", "", "", "");
             PassedArgs p = new PassedArgs();
-            visManager.WaitForm = new BeepWait();
             p.Messege = "Starting ....";
-            // Show Wait Form
-            p.Title = "Beep - The Data Platform";
-            p.ImagePath = "TheTechIdea.Beep.Winform.Controls.GFX.SVG.simpleinfoapps.svg";
+            // Config Wait Form
+         //   p.Title = "Beep - The Data Platform";
+         //   p.ImagePath = "TheTechIdea.Beep.Winform.Controls.GFX.SVG.simpleinfoapps.svg";
             visManager.ShowWaitForm(p);
+            Task.Delay(2000).Wait();
             p.Messege = "Starting ...........";
             // Passing Message to WaitForm
             visManager.PasstoWaitForm(p);
@@ -85,32 +86,22 @@ namespace TheTechIdea.Beep.Container
                 p.Messege = percent.Messege;
                 visManager.PasstoWaitForm(p);
             });
+
             // Load Assemblies from folders (DataSources,Drivers, Extensions,...)
             visManager.LoadAssemblies(beepService, progress); //loading DLL using VisManager to show waiting form
                                                               // you can also load DLL using
                                                               // beepService.LoadAssemblies();
                                                               //but this will not show any waiting form
-            LoadGraphics(namespacestoinclude);
-            visManager.CloseWaitForm();
-            // Show main Page if you want ot use main page use in Beep Platform
-            // visManager.ShowMainPage();
-        }
-        public static void SetMainModule(string ModuleName,string Title= "Beep - The Data Plaform",string iconname= "SimpleODM.ico")
-        {
-            visManager.SetMainDisplay(ModuleName, Title, iconname, "", "", "");
-          
-            // Show main Page if you want ot use main page use in Beep Platform
            
+            visManager.CloseWaitForm();
+            // Config main Page if you want ot use main page use in Beep Platform
+            // visManager.ShowMainPage();
         }
         public static void RegisterRoutes()
         {
             visManager.RoutingManager.RegisterRouteByName("Form1", "Form1");
         }
-        public static void ShowMainPage()
-        {
-            visManager.CloseWaitForm();
-            visManager.ShowHome();
-        }
+        
         /// <summary>
         /// Load Graphics
         /// </summary>
@@ -125,8 +116,6 @@ namespace TheTechIdea.Beep.Container
             ImageListHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
             // Load Graphics from Folders
             ImageListHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
-            //  visManager.visHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
-            //   visManager.visHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
 
         }
        
