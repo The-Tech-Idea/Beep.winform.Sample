@@ -1,5 +1,8 @@
+using Autofac;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TheTechIdea.Beep.Container;
+using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
@@ -24,15 +27,24 @@ namespace WinFormsApp.UI.Test
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+        //    StartAppUsingMicroSoft();
+
+            StartAppUsingAutoFac();
+
+
+        }
+        private static void StartAppUsingMicroSoft()
+        {
             HostApplicationBuilder builder = Host.CreateApplicationBuilder();
             // Register Beep Services
-            BeepProgram.RegisterServices(builder);
+            BeepServicesRegister.RegisterServices(builder);
             // Register Other Services here
 
             using IHost host = builder.Build();
 
             // Retreiving Services and Configuring them
-            BeepProgram.InitializeAndConfigureServices(host);
+            BeepServicesRegister.ConfigureServices(host);
 
 
             host.Services.ConfigureAppManager(appManager =>
@@ -45,21 +57,60 @@ namespace WinFormsApp.UI.Test
                 appManager.IconUrl = "simpleinfoapps.ico";
                 appManager.LogoUrl = "simpleinfoapps.svg";
                 appManager.HomePageName = "Form1";
-    
+
                 appManager.HomePageDescription = "homePageDescription";
             });
             // Start the Application
-            BeepProgram.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
-            BeepProgram.RegisterRoutes();
-            
-           
-            host.Services.ShowHome();
+            BeepAppServices.visManager = BeepAppServices.visManager ?? host.Services.GetService<IAppManager>();
+            BeepAppServices.beepService = BeepAppServices.beepService ?? host.Services.GetService<IBeepService>();
+            BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
+            BeepAppServices.RegisterRoutes();
+
+
+            BeepServicesRegister.ShowHome();
             //  Application.Run(new Form1(BeepProgram.beepService));
             // Dispose Services
-            BeepProgram.DisposeServices(host.Services);
-
-
-           
+            BeepServicesRegister.DisposeServices(host.Services);
         }
+        private static void StartAppUsingAutoFac()
+        {
+            // Create Autofac ContainerBuilder
+            var builder = new ContainerBuilder();
+            
+            // Register Beep Services with Autofac
+            BeepServicesRegisterAutFac.RegisterServices(builder);
+
+            // Register Other Services here (if any)
+
+            // Build the Autofac container
+            var container = builder.Build();
+
+            // Resolve and configure services
+            BeepServicesRegisterAutFac.ConfigureServices(container);
+
+            // Configure AppManager
+            var appManager = container.Resolve<IAppManager>();
+            appManager.Title = "Beep Data Management Platform";
+            appManager.Theme = EnumBeepThemes.CandyTheme;
+            appManager.WaitFormType = typeof(BeepWait);
+            appManager.DMEEditor.ConfigEditor.Config.SystemEntryFormName = "Form1";
+            appManager.IconUrl = "simpleinfoapps.ico";
+            appManager.LogoUrl = "simpleinfoapps.svg";
+            appManager.HomePageName = "Form1";
+            appManager.HomePageDescription = "homePageDescription";
+
+            // Start the Application
+            BeepAppServices.visManager = BeepAppServices.visManager ?? container.Resolve<IAppManager>();
+            BeepAppServices.beepService = BeepAppServices.beepService ?? container.Resolve<IBeepService>();
+            BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
+            BeepAppServices.RegisterRoutes();
+
+            // Show the home page
+            BeepServicesRegisterAutFac.ShowHome();
+
+            // Dispose services (if needed)
+            BeepServicesRegisterAutFac.DisposeServices();
+        }
+
     }
 }

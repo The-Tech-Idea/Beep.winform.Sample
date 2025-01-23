@@ -17,10 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.1" />
     <PackageReference Include="Svg" Version="3.4.7" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="2.0.2" />
-    <PackageReference Include="TheTechIdea.Beep.Container" Version="1.0.0.77" />
-    <PackageReference Include="TheTechIdea.Beep.Container.Model" Version="1.0.0.40" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementEngine" Version="2.0.10" />
     <PackageReference Include="TheTechIdea.Beep.DataManagementModels" Version="2.0.36" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="2.0.1" />
@@ -30,6 +29,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Beep.Branchs\TheTechIdea.Beep.TreeNodes\TheTechIdea.Beep.TreeNodes.csproj" />
     <ProjectReference Include="..\..\Beep.Branchs\TheTechIdea.Beep.Vis.Loader\TheTechIdea.Beep.Vis.Loader.csproj" />
+    <ProjectReference Include="..\..\Beep.Containers\Beep.Container.AutoFac\TheTechIdea.Beep.Container.AutoFac.csproj" />
+    <ProjectReference Include="..\..\Beep.Containers\Beep.Containers.Models\TheTechIdea.Beep.Container.Model.csproj" />
+    <ProjectReference Include="..\..\Beep.Containers\Beep.Container\TheTechIdea.Beep.Container.csproj" />
+    <ProjectReference Include="..\..\Beep.Shared\Beep.Shared\TheTechIdea.Beep.Shared.csproj" />
     <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM\TheTechIdea.Beep.MVVM.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Vis.Logic\TheTechIdea.Beep.Vis.Logic.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj" />
