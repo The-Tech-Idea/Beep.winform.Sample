@@ -61,7 +61,7 @@ namespace WinFormsApp.UI.Test
                 appManager.HomePageDescription = "homePageDescription";
             });
             // Start the Application
-            BeepAppServices.visManager = BeepAppServices.visManager ?? host.Services.GetService<IAppManager>();
+            BeepAppServices.visManager = BeepAppServices.visManager ?? host.Services.GetService<TheTechIdea.Beep.Vis.Modules.IAppManager>();
             BeepAppServices.beepService = BeepAppServices.beepService ?? host.Services.GetService<IBeepService>();
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
@@ -89,7 +89,7 @@ namespace WinFormsApp.UI.Test
             BeepServicesRegisterAutFac.ConfigureServices(container);
 
             // Configure AppManager
-            var appManager = container.Resolve<IAppManager>();
+            var appManager = container.Resolve<TheTechIdea.Beep.Vis.Modules.IAppManager>();
             appManager.Title = "Beep Data Management Platform";
             appManager.Theme = EnumBeepThemes.CandyTheme;
             appManager.WaitFormType = typeof(BeepWait);
@@ -100,7 +100,7 @@ namespace WinFormsApp.UI.Test
             appManager.HomePageDescription = "homePageDescription";
 
             // Start the Application
-            BeepAppServices.visManager = BeepAppServices.visManager ?? container.Resolve<IAppManager>();
+            BeepAppServices.visManager = BeepAppServices.visManager ?? container.Resolve<TheTechIdea.Beep.Vis.Modules.IAppManager>();
             BeepAppServices.beepService = BeepAppServices.beepService ?? container.Resolve<IBeepService>();
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();

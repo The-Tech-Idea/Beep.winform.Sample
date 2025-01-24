@@ -19,7 +19,7 @@ namespace WinFormsApp.UI.Test
         /// <summary>
         /// Visualiztion Manager
         /// </summary>
-        public static IAppManager visManager { get; set; }
+        public static TheTechIdea.Beep.Vis.Modules.IAppManager visManager { get; set; }
         /// <summary>
         /// Beep Service
         /// </summary>
