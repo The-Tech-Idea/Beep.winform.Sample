@@ -91,7 +91,7 @@ namespace WinFormsApp.UI.Test
             // Configure AppManager
             var appManager = container.Resolve<TheTechIdea.Beep.Vis.Modules.IAppManager>();
             appManager.Title = "Beep Data Management Platform";
-            appManager.Theme = EnumBeepThemes.DarkTheme;
+            appManager.Theme = EnumBeepThemes.DesertTheme;
             appManager.WaitFormType = typeof(BeepWait);
             appManager.DMEEditor.ConfigEditor.Config.SystemEntryFormName = "Form1";
             appManager.IconUrl = "simpleinfoapps.ico";
