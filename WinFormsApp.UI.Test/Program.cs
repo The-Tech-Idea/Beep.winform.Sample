@@ -6,7 +6,7 @@ using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
-using TheTechIdea.Beep.Winform.Controls.Managers;
+
 
 
 namespace WinFormsApp.UI.Test
@@ -52,7 +52,7 @@ namespace WinFormsApp.UI.Test
 
                 appManager.Title = "Beep Data Managment Platform";
                 appManager.Theme = EnumBeepThemes.CandyTheme;
-                appManager.WaitFormType = typeof(BeepWait);
+                //appManager.WaitFormType = typeof(BeepWait);
                 appManager.DMEEditor.ConfigEditor.Config.SystemEntryFormName = "Form1";
                 appManager.IconUrl = "simpleinfoapps.ico";
                 appManager.LogoUrl = "simpleinfoapps.svg";
