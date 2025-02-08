@@ -103,6 +103,7 @@ namespace WinFormsApp.UI.Test
             // Start the Application
             BeepAppServices.visManager = BeepAppServices.visManager ?? container.Resolve<TheTechIdea.Beep.Vis.Modules.IAppManager>();
             BeepAppServices.beepService = BeepAppServices.beepService ?? container.Resolve<IBeepService>();
+            BeepAppServices.beepService.vis= BeepAppServices.visManager;
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
 
