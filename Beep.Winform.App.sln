@@ -37,6 +37,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataManagementEngine", "..\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Controls", "..\Beep.Winform\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj", "{DD474AC4-87A3-461E-BCE9-F9AD8F7059C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Default.Views", "..\Beep.Winform\TheTechIdea.Beep.Winform.Default.Views\TheTechIdea.Beep.Winform.Default.Views.csproj", "{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -321,6 +323,22 @@ Global
 		{DD474AC4-87A3-461E-BCE9-F9AD8F7059C7}.Release|x64.Build.0 = Release|Any CPU
 		{DD474AC4-87A3-461E-BCE9-F9AD8F7059C7}.Release|x86.ActiveCfg = Release|Any CPU
 		{DD474AC4-87A3-461E-BCE9-F9AD8F7059C7}.Release|x86.Build.0 = Release|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Debug|arm64.Build.0 = Debug|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Debug|x64.Build.0 = Debug|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Debug|x86.Build.0 = Debug|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Release|arm64.ActiveCfg = Release|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Release|arm64.Build.0 = Release|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Release|x64.ActiveCfg = Release|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Release|x64.Build.0 = Release|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Release|x86.ActiveCfg = Release|Any CPU
+		{C78D8241-4BC7-468D-BEB7-A9B7C991B25E}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
