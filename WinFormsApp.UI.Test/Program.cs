@@ -53,7 +53,6 @@ namespace WinFormsApp.UI.Test
                 appManager.Title = "Beep Data Managment Platform";
                 appManager.Theme = EnumBeepThemes.CandyTheme;
                 //appManager.WaitFormType = typeof(BeepWait);
-                appManager.DMEEditor.ConfigEditor.Config.SystemEntryFormName = "Form1";
                 appManager.IconUrl = "simpleinfoapps.ico";
                 appManager.LogoUrl = "simpleinfoapps.svg";
                 appManager.HomePageName = "Form1";
@@ -93,10 +92,9 @@ namespace WinFormsApp.UI.Test
             appManager.Title = "Beep Data Management Platform";
             appManager.Theme = EnumBeepThemes.DefaultTheme;
             appManager.WaitFormType = typeof(BeepWait);
-            appManager.DMEEditor.ConfigEditor.Config.SystemEntryFormName = "Form1";
             appManager.IconUrl = "simpleinfoapps.ico";
             appManager.LogoUrl = "simpleinfoapps.svg";
-            appManager.HomePageName = "Form1";
+            appManager.HomePageName = "MainForm";
             appManager.HomePageDescription = "homePageDescription";
             // Start the Application
             BeepAppServices.visManager = BeepAppServices.visManager ?? container.Resolve<TheTechIdea.Beep.Vis.Modules.IAppManager>();

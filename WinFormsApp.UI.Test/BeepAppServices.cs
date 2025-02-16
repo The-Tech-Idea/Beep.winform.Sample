@@ -71,7 +71,7 @@ namespace WinFormsApp.UI.Test
         }
         public static void RegisterRoutes()
         {
-            visManager.RoutingManager.RegisterRouteByName("Form1", "Form1");
+            visManager.RoutingManager.RegisterRouteByName("MainForm", "MainForm");
         }
        
        
