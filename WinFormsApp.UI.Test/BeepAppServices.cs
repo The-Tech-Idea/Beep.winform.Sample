@@ -48,24 +48,26 @@ namespace WinFormsApp.UI.Test
          //   p.Title = "Beep - The Data Platform";
          //   p.ImagePath = "TheTechIdea.Beep.Winform.Controls.GFX.SVG.simpleinfoapps.svg";
             visManager.ShowWaitForm(p);
-            Task.Delay(2000).Wait();
+            Task.Delay(1000).Wait();
             p.Messege = "Starting ...........";
             // Passing Message to WaitForm
             visManager.PasstoWaitForm(p);
             // Prepare Async Data Notification from Assembly loader to WaitForm
             var progress = new Progress<PassedArgs>(percent =>
             {
+                Task.Delay(1000).Wait();
                 p.Messege = percent.Messege;
                 visManager.PasstoWaitForm(p);
             });
-
+            Task.Delay(1000).Wait();
             // Load Assemblies from folders (DataSources,Drivers, Extensions,...)
             visManager.LoadAssemblies(beepService, progress); //loading DLL using VisManager to show waiting form
                                                               // you can also load DLL using
                                                               // beepService.LoadAssemblies();
                                                               //but this will not show any waiting form
-           
+            Task.Delay(1000).Wait();
             visManager.CloseWaitForm();
+            Task.Delay(3000).Wait();
             // Config main Page if you want ot use main page use in Beep Platform
             // AppManager.ShowMainPage();
         }
