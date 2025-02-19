@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using TheTechIdea.Beep.Container;
 using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Desktop.Common;
+using TheTechIdea.Beep.Vis.Logic;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
 
@@ -102,7 +103,7 @@ namespace WinFormsApp.UI.Test
             BeepAppServices.beepService.vis= BeepAppServices.visManager;
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
-
+            MethodHandler.DMEEditor = BeepAppServices.beepService.DMEEditor;
             // Show the home page
             BeepServicesRegisterAutFac.ShowHome();
 
