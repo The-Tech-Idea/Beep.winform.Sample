@@ -103,7 +103,7 @@ namespace WinFormsApp.UI.Test
             BeepAppServices.beepService.vis= BeepAppServices.visManager;
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
-            MethodHandler.DMEEditor = BeepAppServices.beepService.DMEEditor;
+          //  MethodHandler.DMEEditor = BeepAppServices.beepService.DMEEditor;
             // Show the home page
             BeepServicesRegisterAutFac.ShowHome();
 
