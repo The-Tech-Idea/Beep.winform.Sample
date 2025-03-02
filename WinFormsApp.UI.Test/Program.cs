@@ -80,7 +80,7 @@ namespace WinFormsApp.UI.Test
             // Register Beep Services with Autofac
             BeepServicesRegisterAutFac.RegisterServices(builder);
             RegisterBeepWinformServices.RegisterControlManager(builder);
-            BeepServicesRegisterAutFac.CreateBeepMapping(builder);
+          
             // Register Other Services here (if any)
 
             // Build the Autofac container
