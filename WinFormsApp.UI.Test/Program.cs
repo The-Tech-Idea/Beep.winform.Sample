@@ -80,6 +80,7 @@ namespace WinFormsApp.UI.Test
             // Register Beep Services with Autofac
             BeepServicesRegisterAutFac.RegisterServices(builder);
             RegisterBeepWinformServices.RegisterControlManager(builder);
+            BeepServicesRegisterAutFac.CreateBeepMapping(builder);
             // Register Other Services here (if any)
 
             // Build the Autofac container
@@ -87,7 +88,7 @@ namespace WinFormsApp.UI.Test
 
             // Resolve and configure services
             BeepServicesRegisterAutFac.ConfigureServices(container);
-
+           
             // Configure AppManager
             var appManager = container.Resolve<TheTechIdea.Beep.Vis.Modules.IAppManager>();
             appManager.Title = "Beep Data Management Platform";
