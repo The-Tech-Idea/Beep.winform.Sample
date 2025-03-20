@@ -1,15 +1,8 @@
-﻿using TheTechIdea.Beep.Vis.Modules;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using TheTechIdea.Beep.Container.Services;
+﻿using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Utilities;
-
 using TheTechIdea.Beep.Addin;
-//using TheTechIdea.Beep.Winform.Extensions;
-using TheTechIdea.Beep.Desktop.Common;
-
 using Autofac;
-using TheTechIdea.Beep.Container;
+using TheTechIdea.Beep.Winform.Controls.Helpers;
 
 
 namespace WinFormsApp.UI.Test
@@ -60,8 +53,11 @@ namespace WinFormsApp.UI.Test
                 visManager.PasstoWaitForm(p);
             });
             Task.Delay(1000).Wait();
+            beepService.LoadAssemblies(progress);
+            beepService.Config_editor.LoadedAssemblies = beepService.LLoader.Assemblies.Select(c => c.DllLib).ToList();
+
             // Load Assemblies from folders (DataSources,Drivers, Extensions,...)
-            visManager.LoadAssemblies(beepService, progress); //loading DLL using VisManager to show waiting form
+          //  visManager.LoadAssemblies(beepService, progress); //loading DLL using VisManager to show waiting form
                                                               // you can also load DLL using
                                                               // beepService.LoadAssemblies();
                                                               //but this will not show any waiting form
