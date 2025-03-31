@@ -17,6 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Beep.DeveloperAssistant.Logic" Version="1.0.1" />
+    <PackageReference Include="Beep.DeveloperAssistant.MenuCommands" Version="1.0.3" />
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.1" />
     <PackageReference Include="Svg" Version="3.4.7" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="2.0.2" />
