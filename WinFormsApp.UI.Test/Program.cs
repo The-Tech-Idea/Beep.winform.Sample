@@ -1,10 +1,13 @@
 using Autofac;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.Reflection;
+using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
+using TheTechIdea.Beep.Winform.Controls.Helpers;
 
 
 
@@ -74,7 +77,11 @@ namespace WinFormsApp.UI.Test
             // Register Beep Services with Autofac
             BeepServicesRegisterAutFac.RegisterServices(builder);
             RegisterBeepWinformServices.RegisterControlManager(builder);
-          
+          //  RegisterBeepWinformServices.RegisterTreeControl(builder);
+            //// Register all types in the executing assembly that implement IFunctionExtension.
+            //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
+            //       .Where(t => typeof(IFunctionExtension).IsAssignableFrom(t))
+            //       .As<IFunctionExtension>();
             // Register Other Services here (if any)
 
             // Build the Autofac container
@@ -82,23 +89,25 @@ namespace WinFormsApp.UI.Test
 
             // Resolve and configure services
             BeepServicesRegisterAutFac.ConfigureServices(container);
-           
+
+            BeepAppServices.visManager = BeepServicesRegisterAutFac.AppManager;
+            BeepAppServices.beepService = BeepServicesRegisterAutFac.beepService;
+
             // Configure AppManager
-            var appManager = container.Resolve<TheTechIdea.Beep.Vis.Modules.IAppManager>();
-            appManager.Title = "Beep Data Management Platform";
-            appManager.Theme = EnumBeepThemes.DefaultTheme;
-            appManager.WaitFormType = typeof(BeepWait);
-            appManager.IconUrl = "simpleinfoapps.ico";
-            appManager.LogoUrl = "simpleinfoapps.svg";
-            appManager.HomePageName = "MainForm";
-            appManager.HomePageDescription = "homePageDescription";
+        
+            BeepServicesRegisterAutFac.AppManager.Title = "Beep Data Management Platform";
+            BeepServicesRegisterAutFac.AppManager.Theme = EnumBeepThemes.DefaultTheme;
+            BeepServicesRegisterAutFac.AppManager.WaitFormType = typeof(BeepWait);
+            BeepServicesRegisterAutFac.AppManager.IconUrl = "simpleinfoapps.ico";
+            BeepServicesRegisterAutFac.AppManager.LogoUrl = "simpleinfoapps.svg";
+            BeepServicesRegisterAutFac.AppManager.HomePageName = "MainForm";
+            BeepServicesRegisterAutFac.AppManager.HomePageDescription = "homePageDescription";
+       //     BeepServicesRegisterAutFac.AppManager.Tree = (IBeepUIComponent)container.Resolve<ITree>();
             // Start the Application
-            BeepAppServices.visManager = BeepAppServices.visManager ?? container.Resolve<TheTechIdea.Beep.Vis.Modules.IAppManager>();
-            BeepAppServices.beepService = BeepAppServices.beepService ?? container.Resolve<IBeepService>();
-            BeepAppServices.beepService.vis= BeepAppServices.visManager;
+            
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
-
+            BeepAppServices.LinkStaticServices();
             // Show the home page
             BeepServicesRegisterAutFac.ShowHome();
 

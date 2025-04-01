@@ -3,6 +3,8 @@ using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Addin;
 using Autofac;
 using TheTechIdea.Beep.Winform.Controls.Helpers;
+using TheTechIdea.Beep.Desktop.Common;
+using TheTechIdea.Beep.Vis.Modules;
 
 
 namespace WinFormsApp.UI.Test
@@ -12,7 +14,7 @@ namespace WinFormsApp.UI.Test
         /// <summary>
         /// Visualiztion Manager
         /// </summary>
-        public static TheTechIdea.Beep.Vis.Modules.IAppManager visManager { get; set; }
+        public static IAppManager visManager { get; set; }
         /// <summary>
         /// Beep Service
         /// </summary>
@@ -75,7 +77,12 @@ namespace WinFormsApp.UI.Test
             visManager.RoutingManager.RegisterRouteByName("uc_RDBMSConnections", "uc_RDBMSConnections");
 
         }
-       
-       
+        public static void LinkStaticServices()
+        {
+            DynamicFunctionCallingManager.DMEEditor = beepService.DMEEditor;
+            DynamicFunctionCallingManager.Vismanager = beepService.vis;
+            AssemblyClassDefinitionManager.DMEEditor = beepService.DMEEditor;
+        }
+
     }
 }
