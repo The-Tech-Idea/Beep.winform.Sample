@@ -107,7 +107,7 @@ namespace WinFormsApp.UI.Test
             
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
-            BeepAppServices.LinkStaticServices();
+         
             // Show the home page
             BeepServicesRegisterAutFac.ShowHome();
 

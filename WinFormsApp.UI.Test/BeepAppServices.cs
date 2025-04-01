@@ -77,12 +77,7 @@ namespace WinFormsApp.UI.Test
             visManager.RoutingManager.RegisterRouteByName("uc_RDBMSConnections", "uc_RDBMSConnections");
 
         }
-        public static void LinkStaticServices()
-        {
-            DynamicFunctionCallingManager.DMEEditor = beepService.DMEEditor;
-            DynamicFunctionCallingManager.Vismanager = beepService.vis;
-            AssemblyClassDefinitionManager.DMEEditor = beepService.DMEEditor;
-        }
+    
 
     }
 }
