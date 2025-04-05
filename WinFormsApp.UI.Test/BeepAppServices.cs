@@ -71,7 +71,7 @@ namespace WinFormsApp.UI.Test
         }
         public static void RegisterRoutes()
         {
-            visManager.RoutingManager.RegisterRouteByName("MainForm", "MainForm");
+            visManager.RoutingManager.RegisterRouteByName("MainFrm", "MainFrm");
             visManager.RoutingManager.RegisterRouteByName("uc_ConnnectionDrivers", "uc_ConnnectionDrivers");
             visManager.RoutingManager.RegisterRouteByName("uc_FilterForm", "uc_FilterForm");
             visManager.RoutingManager.RegisterRouteByName("uc_RDBMSConnections", "uc_RDBMSConnections");

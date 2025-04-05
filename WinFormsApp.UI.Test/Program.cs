@@ -100,7 +100,7 @@ namespace WinFormsApp.UI.Test
             BeepServicesRegisterAutFac.AppManager.WaitFormType = typeof(BeepWait);
             BeepServicesRegisterAutFac.AppManager.IconUrl = "simpleinfoapps.ico";
             BeepServicesRegisterAutFac.AppManager.LogoUrl = "simpleinfoapps.svg";
-            BeepServicesRegisterAutFac.AppManager.HomePageName = "MainForm";
+            BeepServicesRegisterAutFac.AppManager.HomePageName = "MainFrm";
             BeepServicesRegisterAutFac.AppManager.HomePageDescription = "homePageDescription";
        //     BeepServicesRegisterAutFac.AppManager.Tree = (IBeepUIComponent)container.Resolve<ITree>();
             // Start the Application
