@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly_helpers", "..\Beep
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Controls.Integrated", "..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Integrated\TheTechIdea.Beep.Winform.Controls.Integrated.csproj", "{3BFA339A-1325-46A9-BC8E-0A1DA13D9104}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Desktop.Design.Extensions", "..\Beep.Winform\TheTechIdea.Beep.Desktop.Design.Extensions\TheTechIdea.Beep.Desktop.Design.Extensions.csproj", "{18D0D95D-BA13-43F7-B062-95917094A2A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -357,6 +359,22 @@ Global
 		{3BFA339A-1325-46A9-BC8E-0A1DA13D9104}.Release|x64.Build.0 = Release|Any CPU
 		{3BFA339A-1325-46A9-BC8E-0A1DA13D9104}.Release|x86.ActiveCfg = Release|Any CPU
 		{3BFA339A-1325-46A9-BC8E-0A1DA13D9104}.Release|x86.Build.0 = Release|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Debug|arm64.Build.0 = Debug|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Debug|x64.Build.0 = Debug|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Debug|x86.Build.0 = Debug|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Release|arm64.ActiveCfg = Release|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Release|arm64.Build.0 = Release|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Release|x64.ActiveCfg = Release|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Release|x64.Build.0 = Release|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{18D0D95D-BA13-43F7-B062-95917094A2A8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
