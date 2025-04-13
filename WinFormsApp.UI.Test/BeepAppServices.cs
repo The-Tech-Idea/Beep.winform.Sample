@@ -75,9 +75,13 @@ namespace WinFormsApp.UI.Test
             visManager.RoutingManager.RegisterRouteByName("uc_ConnnectionDrivers", "uc_ConnnectionDrivers");
             visManager.RoutingManager.RegisterRouteByName("uc_FilterForm", "uc_FilterForm");
             visManager.RoutingManager.RegisterRouteByName("uc_RDBMSConnections", "uc_RDBMSConnections");
+            visManager.RoutingManager.RegisterRouteByName("uc_EntityEditor", "uc_EntityEditor");
+            visManager.RoutingManager.RegisterRouteByName("uc_CreateLocalDB", "uc_CreateLocalDB");
+            //uc_CreateLocalDB
+            //uc_LocalDBConnections
 
         }
-    
+
 
     }
 }
