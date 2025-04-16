@@ -66,6 +66,12 @@ namespace WinFormsApp.UI.Test
             Task.Delay(1000).Wait();
             visManager.CloseWaitForm();
             Task.Delay(3000).Wait();
+            // Load Configurations
+            //  beepService.LoadConfigurations("Beep");
+
+            // Load Environments
+            //  beepService.LoadEnvironments();
+
             // Config main Page if you want ot use main page use in Beep Platform
             // AppManager.ShowMainPage();
         }

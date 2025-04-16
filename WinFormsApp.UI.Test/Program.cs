@@ -8,7 +8,7 @@ using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
 using TheTechIdea.Beep.Winform.Controls.Helpers;
-
+using TheTechIdea.Beep.Winform.Controls.Integrated;
 
 
 namespace WinFormsApp.UI.Test
@@ -92,9 +92,9 @@ namespace WinFormsApp.UI.Test
 
             BeepAppServices.visManager = BeepServicesRegisterAutFac.AppManager;
             BeepAppServices.beepService = BeepServicesRegisterAutFac.beepService;
-
+            BeepAppServices.beepService.LoadServices();
             // Configure AppManager
-        
+
             BeepServicesRegisterAutFac.AppManager.Title = "Beep Data Management Platform";
             BeepServicesRegisterAutFac.AppManager.Theme = EnumBeepThemes.DefaultTheme;
             BeepServicesRegisterAutFac.AppManager.WaitFormType = typeof(BeepWait);
