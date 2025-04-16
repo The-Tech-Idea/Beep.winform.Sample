@@ -93,6 +93,7 @@ namespace WinFormsApp.UI.Test
             BeepAppServices.visManager = BeepServicesRegisterAutFac.AppManager;
             BeepAppServices.beepService = BeepServicesRegisterAutFac.beepService;
             BeepAppServices.beepService.LoadServices();
+            BeepAppServices.beepService.LoadHandlers();
             // Configure AppManager
 
             BeepServicesRegisterAutFac.AppManager.Title = "Beep Data Management Platform";
