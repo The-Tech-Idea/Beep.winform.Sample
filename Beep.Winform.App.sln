@@ -57,13 +57,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.InMemory.Winform", "..
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.ChromaDBDatasource", "..\BeepDataSources\VectorDatabase\TheTechIdea.Beep.ChromaDBDatasource\TheTechIdea.Beep.ChromaDBDatasource.csproj", "{DB09D7B6-F382-4E9E-8DCD-D519D4E14510}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.ShapVectorDatasource", "..\BeepDataSources\VectorDatabase\TheTechIdea.Beep.ShapVectorDatasource\TheTechIdea.Beep.ShapVectorDatasource.csproj", "{D43F4868-F576-4A04-846E-E944B58597EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.SharpVectorDatasource", "..\BeepDataSources\VectorDatabase\TheTechIdea.Beep.ShapVectorDatasource\TheTechIdea.Beep.SharpVectorDatasource.csproj", "{D43F4868-F576-4A04-846E-E944B58597EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.PineConeDatasource", "..\BeepDataSources\VectorDatabase\TheTechIdea.Beep.PineConeDatasource\TheTechIdea.Beep.PineConeDatasource.csproj", "{7FEE60CD-530A-43F2-B245-0539CEBE23A4}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.QdrantDatasource", "..\BeepDataSources\VectorDatabase\TheTechIdea.Beep.QdrantDatasource\TheTechIdea.Beep.QdrantDatasource.csproj", "{C0F34D19-175A-4029-B11D-21EA7A841277}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Mediator", "..\Beep.Mediator\TheTechIdea.Beep.Mediator\TheTechIdea.Beep.Mediator.csproj", "{7E5E5A1B-43BE-4647-A1B1-37273DB3C67E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RDBDataSource", "..\BeepDataSources\DataSourcesPlugins\RDBMSDataSource\RDBDataSource.csproj", "{9E10CB2F-2B8F-D002-FC18-11E039323925}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SqliteDatasourceCore", "..\BeepDataSources\DataSourcesPluginsCore\SqliteDatasourceCore\SqliteDatasourceCore.csproj", "{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -573,6 +577,38 @@ Global
 		{7E5E5A1B-43BE-4647-A1B1-37273DB3C67E}.Release|x64.Build.0 = Release|Any CPU
 		{7E5E5A1B-43BE-4647-A1B1-37273DB3C67E}.Release|x86.ActiveCfg = Release|Any CPU
 		{7E5E5A1B-43BE-4647-A1B1-37273DB3C67E}.Release|x86.Build.0 = Release|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Debug|arm64.Build.0 = Debug|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Debug|x64.Build.0 = Debug|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Debug|x86.Build.0 = Debug|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Release|arm64.ActiveCfg = Release|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Release|arm64.Build.0 = Release|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Release|x64.ActiveCfg = Release|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Release|x64.Build.0 = Release|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Release|x86.ActiveCfg = Release|Any CPU
+		{9E10CB2F-2B8F-D002-FC18-11E039323925}.Release|x86.Build.0 = Release|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Debug|arm64.Build.0 = Debug|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Debug|x64.Build.0 = Debug|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Debug|x86.Build.0 = Debug|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Release|arm64.ActiveCfg = Release|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Release|arm64.Build.0 = Release|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Release|x64.ActiveCfg = Release|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Release|x64.Build.0 = Release|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Release|x86.ActiveCfg = Release|Any CPU
+		{0B6B7F53-CD92-79B7-B5D0-C07A2081280C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
