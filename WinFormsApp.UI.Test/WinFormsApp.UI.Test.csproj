@@ -22,7 +22,6 @@
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="2.0.5" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="2.0.2" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="2.0.2" />
-    <PackageReference Include="TheTechIdea.Beep.SqliteDatasourceCore" Version="1.0.54" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,6 +44,7 @@
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Integrated\TheTechIdea.Beep.Winform.Controls.Integrated.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Default.Views\TheTechIdea.Beep.Winform.Default.Views.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Extensions\TheTechIdea.Beep.Winform.Extensions.csproj" />
+    <ProjectReference Include="..\..\BeepDataSources\DataSourcesPluginsCore\SqliteDatasourceCore\SqliteDatasourceCore.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\InMemoryDB\DuckDBDataSourceCore\DuckDBDataSourceCore.csproj" />
     <ProjectReference Include="..\..\BeepDM\DataManagementEngineStandard\DataManagementEngine.csproj" />
     <ProjectReference Include="..\..\BeepDM\DataManagementModelsStandard\DataManagementModels.csproj" />

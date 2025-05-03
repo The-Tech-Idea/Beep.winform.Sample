@@ -87,7 +87,11 @@ namespace WinFormsApp.UI.Test
             visManager.RoutingManager.RegisterRouteByName("uc_diagraming", "uc_diagraming");
             visManager.RoutingManager.RegisterRouteByName("uc_FunctiontoFunctionMapping", "uc_FunctiontoFunctionMapping");
             visManager.RoutingManager.RegisterRouteByName("uc_DataEdit", "uc_DataEdit");
+            visManager.RoutingManager.RegisterRouteByName("uc_CopyEntities", "uc_CopyEntities");
+            visManager.RoutingManager.RegisterRouteByName("uc_DataConnections", "uc_DataConnections");
+            //uc_DataConnections
             //uc_CreateLocalDB uc_FileConnections
+            //uc_CopyEntities
             //uc_LocalDBConnections
             //uc_DataEdit
             //uc_FunctiontoFunctionMapping
