@@ -19,7 +19,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
     <PackageReference Include="Svg" Version="3.4.7" />
-    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="2.0.5" />
+    <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="2.0.6" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="2.0.2" />
     <PackageReference Include="TheTechIdea.Beep.JsonLoader" Version="2.0.2" />
   </ItemGroup>
