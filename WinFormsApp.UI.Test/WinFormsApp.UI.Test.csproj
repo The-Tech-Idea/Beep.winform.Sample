@@ -37,6 +37,11 @@
     <ProjectReference Include="..\..\Beep.DuckDb\Beep.DuckDB\Beep.DuckDB.Logic.csproj" />
     <ProjectReference Include="..\..\Beep.InMemory\Beep.InMemory.Logic\Beep.InMemory.Logic.csproj" />
     <ProjectReference Include="..\..\Beep.InMemory\Beep.InMemory.Nodes\Beep.InMemory.Nodes.csproj" />
+    <ProjectReference Include="..\..\Beep.Python\Beep.Python.Model\Beep.Python.Model.csproj" />
+    <ProjectReference Include="..\..\Beep.Python\Beep.Python.Nodes\Beep.Python.Nodes.csproj" />
+    <ProjectReference Include="..\..\Beep.Python\Beep.Python.Runtime.Winform\Beep.Python.Runtime.Winform.csproj" />
+    <ProjectReference Include="..\..\Beep.Python\Beep.Python.Runtime\Beep.Python.Runtime.PythonNet.csproj" />
+    <ProjectReference Include="..\..\Beep.Python\Beep.Python.Services.AutoFac\Beep.Python.Services.AutoFac.csproj" />
     <ProjectReference Include="..\..\Beep.Shared\Beep.Shared\TheTechIdea.Beep.Shared.csproj" />
     <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM\TheTechIdea.Beep.MVVM.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj" />

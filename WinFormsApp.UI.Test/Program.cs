@@ -1,4 +1,5 @@
 using Autofac;
+using Beep.Python.RuntimeEngine.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
@@ -77,12 +78,7 @@ namespace WinFormsApp.UI.Test
             // Register Beep Services with Autofac
             BeepServicesRegisterAutFac.RegisterServices(builder);
             RegisterBeepWinformServices.RegisterControlManager(builder);
-          //  RegisterBeepWinformServices.RegisterTreeControl(builder);
-            //// Register all types in the executing assembly that implement IFunctionExtension.
-            //builder.RegisterAssemblyTypes(Assembly.GetExecutingAssembly())
-            //       .Where(t => typeof(IFunctionExtension).IsAssignableFrom(t))
-            //       .As<IFunctionExtension>();
-            // Register Other Services here (if any)
+            PythonServicesAutofac.RegisterPythonServices(builder, "C:\\Python311");
 
             // Build the Autofac container
             var container = builder.Build();
