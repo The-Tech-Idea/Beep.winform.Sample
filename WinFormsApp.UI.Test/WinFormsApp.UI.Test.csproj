@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.4" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.5" />
     <PackageReference Include="Svg" Version="3.4.7" />
     <PackageReference Include="TheTechIdea.Beep.AssemblyLoader" Version="2.0.6" />
     <PackageReference Include="TheTechIdea.Beep.DMLogger" Version="2.0.2" />
@@ -29,7 +29,6 @@
     <ProjectReference Include="..\..\Beep.Branchs\TheTechIdea.Beep.Vis.Loader\TheTechIdea.Beep.Vis.Loader.csproj" />
     <ProjectReference Include="..\..\Beep.Containers\Beep.Container.AutoFac\TheTechIdea.Beep.Container.AutoFac.csproj" />
     <ProjectReference Include="..\..\Beep.Containers\Beep.Containers.Models\TheTechIdea.Beep.Container.Model.csproj" />
-    <ProjectReference Include="..\..\Beep.Containers\Beep.Container\TheTechIdea.Beep.Container.csproj" />
     <ProjectReference Include="..\..\Beep.DeveloperAssistant\Beep.DeveloperAssistant.Logic.MenuCommands\Beep.DeveloperAssistant.MenuCommands.csproj" />
     <ProjectReference Include="..\..\Beep.DeveloperAssistant\Beep.DeveloperAssistant.Logic\Beep.DeveloperAssistant.Logic.csproj" />
     <ProjectReference Include="..\..\Beep.DuckDb\Beep.DuckDB.MenuCommands\Beep.DuckDB.MenuCommands.csproj" />
