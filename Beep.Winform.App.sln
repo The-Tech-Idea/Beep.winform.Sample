@@ -97,6 +97,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.Services.MsDepe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Container.Shared", "..\Beep.Containers\Beep.Container.Shared\TheTechIdea.Beep.Container.Shared.csproj", "{1E5CD966-9BF3-E71B-3FB7-64E3FDA8C684}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeUpdater", "ThemeUpdater\ThemeUpdater.csproj", "{CA2AE282-4C48-4489-BD29-B3C208E55BD8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -861,6 +863,22 @@ Global
 		{1E5CD966-9BF3-E71B-3FB7-64E3FDA8C684}.Release|x64.Build.0 = Release|Any CPU
 		{1E5CD966-9BF3-E71B-3FB7-64E3FDA8C684}.Release|x86.ActiveCfg = Release|Any CPU
 		{1E5CD966-9BF3-E71B-3FB7-64E3FDA8C684}.Release|x86.Build.0 = Release|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Debug|arm64.Build.0 = Debug|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Debug|x64.Build.0 = Debug|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Debug|x86.Build.0 = Debug|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Release|arm64.ActiveCfg = Release|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Release|arm64.Build.0 = Release|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Release|x64.ActiveCfg = Release|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Release|x64.Build.0 = Release|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Release|x86.ActiveCfg = Release|Any CPU
+		{CA2AE282-4C48-4489-BD29-B3C208E55BD8}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
