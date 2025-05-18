@@ -5,7 +5,8 @@ using Autofac;
 using TheTechIdea.Beep.Winform.Controls.Helpers;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Vis.Modules;
-
+using System.IO;
+using System.Linq;
 
 namespace WinFormsApp.UI.Test
 {
@@ -34,6 +35,14 @@ namespace WinFormsApp.UI.Test
             ImageListHelper.GetGraphicFilesLocationsFromEmbedded(namespacestoinclude);
             // Load Graphics from Folders
             ImageListHelper.GetGraphicFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
+
+            FontListHelper.GetFontFilesLocations(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath);
+            FontListHelper.GetFontResourcesFromEmbedded(namespacestoinclude);
+            // Add to the file extensions in GetFontFilesLocations
+            string[] fontFiles = Directory.GetFiles(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.ttf")
+                .Concat(Directory.GetFiles(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.otf"))
+                .Concat(Directory.GetFiles(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.woff"))
+                .Concat(Directory.GetFiles(beepService.DMEEditor.ConfigEditor.Config.Folders.Where(x => x.FolderFilesType == FolderFileTypes.GFX).FirstOrDefault().FolderPath, "*.woff2")).ToArray();
 
             //Setting the Main Form 
             //    AppManager.SetMainDisplay("Form1", "Beep - The Data Plaform", "SimpleODM.ico", "", "", "");
