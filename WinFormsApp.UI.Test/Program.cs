@@ -49,11 +49,8 @@ namespace WinFormsApp.UI.Test
 
             // Resolve and configure services
             BeepServices.ConfigureServices(container);
-
-            BeepAppServices.visManager = BeepServices.AppManager;
-            BeepAppServices.beepService = BeepServices.beepService;
-            BeepAppServices.beepService.LoadServices();
-            BeepAppServices.beepService.LoadHandlers();
+            BeepServices.beepService.LoadServices();
+            BeepServices.beepService.LoadHandlers();
             // Configure AppManager
 
             BeepServices.AppManager.Title = "Beep Data Management Platform";
@@ -63,12 +60,15 @@ namespace WinFormsApp.UI.Test
             BeepServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepServices.AppManager.HomePageName = "MainFrm";
             BeepServices.AppManager.HomePageDescription = "homePageDescription";
-       //     BeepServicesRegisterAutFac.AppManager.Tree = (IBeepUIComponent)container.Resolve<ITree>();
+            BeepThemesManager_v2.InitializeThemes();
+            BeepThemesManager_v2.AddPredefinedThemes();
+
             // Start the Application
-            
+            BeepAppServices.visManager = BeepServices.AppManager;
+            BeepAppServices.beepService = BeepServices.beepService;
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
-
+            Console.WriteLine(BeepThemesManager_v2._themes.Count());
             // Show the home page
             BeepServices.ShowHome();
 
