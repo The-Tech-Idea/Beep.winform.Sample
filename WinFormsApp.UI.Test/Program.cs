@@ -49,6 +49,8 @@ namespace WinFormsApp.UI.Test
 
             // Resolve and configure services
             BeepServices.ConfigureServices(container);
+            BeepThemesManager_v2.InitializeThemes();
+   //         BeepThemesManager_v2.AddPredefinedThemes();
             BeepServices.beepService.LoadServices();
             BeepServices.beepService.LoadHandlers();
             // Configure AppManager
@@ -60,8 +62,7 @@ namespace WinFormsApp.UI.Test
             BeepServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepServices.AppManager.HomePageName = "MainFrm";
             BeepServices.AppManager.HomePageDescription = "homePageDescription";
-            BeepThemesManager_v2.InitializeThemes();
-            BeepThemesManager_v2.AddPredefinedThemes();
+          
 
             // Start the Application
             BeepAppServices.visManager = BeepServices.AppManager;
