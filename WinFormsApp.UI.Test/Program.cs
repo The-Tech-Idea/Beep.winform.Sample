@@ -49,8 +49,8 @@ namespace WinFormsApp.UI.Test
 
             // Resolve and configure services
             BeepServices.ConfigureServices(container);
-            BeepThemesManager_v2.InitializeThemes();
-   //         BeepThemesManager_v2.AddPredefinedThemes();
+            BeepThemesManager.InitializeThemes();
+   //         BeepThemesManager.AddPredefinedThemes();
             BeepServices.beepService.LoadServices();
             BeepServices.beepService.LoadHandlers();
             // Configure AppManager
@@ -69,7 +69,7 @@ namespace WinFormsApp.UI.Test
             BeepAppServices.beepService = BeepServices.beepService;
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
-            Console.WriteLine(BeepThemesManager_v2._themes.Count());
+            Console.WriteLine(BeepThemesManager._themes.Count());
             // Show the home page
             BeepServices.ShowHome();
 
