@@ -55,7 +55,7 @@ namespace WinFormsApp.UI.Test
                 // Initialize the runtime manager
                 var manager = PythonServicesAutofac.GetPythonRunTimeManager();
                 // You may need to pass additional config objects as required by Initialize
-                manager.Initialize(, pythonRuntimePath, /* envName */, /* mode */);
+                manager.Initialize(pythonRuntimePath);
             }
             else
             {
