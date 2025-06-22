@@ -33,7 +33,7 @@ namespace WinFormsApp.UI.Test
         
             StartApp();
         }
-     
+        static string pythonRuntimePath= "C:\\Python311"; // Set your Python runtime path here
         private static void StartApp()
         {
             // Create Autofac ContainerBuilder
@@ -46,7 +46,21 @@ namespace WinFormsApp.UI.Test
 
             // Build the Autofac container
             var container = builder.Build();
+            PythonServicesAutofac.ConfigureContainer(container);
 
+            // Verify the path using diagnostics
+            var diagnostics = Beep.Python.RuntimeEngine.Helpers.PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
+            if (diagnostics.PythonFound)
+            {
+                // Initialize the runtime manager
+                var manager = PythonServicesAutofac.GetPythonRunTimeManager();
+                // You may need to pass additional config objects as required by Initialize
+                manager.Initialize(, pythonRuntimePath, /* envName */, /* mode */);
+            }
+            else
+            {
+                // Handle error: Python not found at the path
+            }
             // Resolve and configure services
             BeepServices.ConfigureServices(container);
             BeepThemesManager.InitializeThemes();
