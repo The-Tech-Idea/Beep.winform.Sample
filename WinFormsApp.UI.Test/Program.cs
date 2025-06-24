@@ -1,4 +1,6 @@
 using Autofac;
+using Beep.Python.Model;
+using Beep.Python.RuntimeEngine.Helpers;
 using Beep.Python.RuntimeEngine.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -42,14 +44,17 @@ namespace WinFormsApp.UI.Test
             // Register Beep Services with Autofac
             BeepServices.RegisterServices(builder);
             RegisterBeepWinformServices.RegisterControlManager(builder);
-            PythonServicesAutofac.RegisterPythonServices(builder, "C:\\Python311");
-
-            // Build the Autofac container
+             List<PythonRunTime> runtimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
+            if (runtimes.Count > 0)
+            {
+                PythonServicesAutofac.RegisterPythonServices(builder, runtimes[0].RuntimePath);
+            }
+           // Build the Autofac container
             var container = builder.Build();
             PythonServicesAutofac.ConfigureContainer(container);
 
             // Verify the path using diagnostics
-            var diagnostics = Beep.Python.RuntimeEngine.Helpers.PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
+            var diagnostics =PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
             if (diagnostics.PythonFound)
             {
                 // Initialize the runtime manager
