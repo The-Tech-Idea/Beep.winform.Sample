@@ -50,6 +50,7 @@ namespace WinFormsApp.UI.Test
             List<PythonRunTime> runtimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
             if (runtimes.Count > 0)
             {
+                pythonRuntimePath= runtimes[0].RuntimePath;
                 PythonServicesAutofac.RegisterPythonServices(builder, runtimes[0].RuntimePath);
             }
            // Build the Autofac container
