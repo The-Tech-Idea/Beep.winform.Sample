@@ -43,14 +43,19 @@ namespace WinFormsApp.UI.Test
             
             // Register Beep Services with Autofac
             BeepServices.RegisterServices(builder);
+
+            // Register Beep Winform Controls and Managers
             RegisterBeepWinformServices.RegisterControlManager(builder);
-             List<PythonRunTime> runtimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
+            // Looking for Python runtimes
+            List<PythonRunTime> runtimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
             if (runtimes.Count > 0)
             {
                 PythonServicesAutofac.RegisterPythonServices(builder, runtimes[0].RuntimePath);
             }
            // Build the Autofac container
             var container = builder.Build();
+
+            // if you want to use the Python runtime, you can initialize it here
             if (runtimes.Count > 0)
             {
                 PythonServicesAutofac.ConfigureContainer(container);
@@ -73,9 +78,11 @@ namespace WinFormsApp.UI.Test
             // Resolve and configure services
             BeepServices.ConfigureServices(container);
             BeepThemesManager.InitializeThemes();
-   //         BeepThemesManager.AddPredefinedThemes();
+
             BeepServices.beepService.LoadServices();
             BeepServices.beepService.LoadHandlers();
+
+
             // Configure AppManager
 
             BeepServices.AppManager.Title = "Beep Data Management Platform";
@@ -92,7 +99,7 @@ namespace WinFormsApp.UI.Test
             BeepAppServices.beepService = BeepServices.beepService;
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
-            Console.WriteLine(BeepThemesManager._themes.Count());
+           
             // Show the home page
             BeepServices.ShowHome();
 
