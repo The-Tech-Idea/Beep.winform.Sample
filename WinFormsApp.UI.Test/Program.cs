@@ -51,21 +51,25 @@ namespace WinFormsApp.UI.Test
             }
            // Build the Autofac container
             var container = builder.Build();
-            PythonServicesAutofac.ConfigureContainer(container);
+            if (runtimes.Count > 0)
+            {
+                PythonServicesAutofac.ConfigureContainer(container);
 
-            // Verify the path using diagnostics
-            var diagnostics =PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
-            if (diagnostics.PythonFound)
-            {
-                // Initialize the runtime manager
-                var manager = PythonServicesAutofac.GetPythonRunTimeManager();
-                // You may need to pass additional config objects as required by Initialize
-                manager.Initialize(pythonRuntimePath);
+                // Verify the path using diagnostics
+                var diagnostics = PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
+                if (diagnostics.PythonFound)
+                {
+                    // Initialize the runtime manager
+                    var manager = PythonServicesAutofac.GetPythonRunTimeManager();
+                    // You may need to pass additional config objects as required by Initialize
+                    manager.Initialize(pythonRuntimePath);
+                }
+                else
+                {
+                    // Handle error: Python not found at the path
+                }
             }
-            else
-            {
-                // Handle error: Python not found at the path
-            }
+            
             // Resolve and configure services
             BeepServices.ConfigureServices(container);
             BeepThemesManager.InitializeThemes();
