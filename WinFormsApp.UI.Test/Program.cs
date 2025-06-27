@@ -47,17 +47,17 @@ namespace WinFormsApp.UI.Test
             // Register Beep Winform Controls and Managers
             RegisterBeepWinformServices.RegisterControlManager(builder);
             // Looking for Python runtimes
-            List<PythonRunTime> runtimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
-            if (runtimes.Count > 0)
+            PythonEnvironmentDiagnostics.PythonRunTimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
+            if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
             {
-                pythonRuntimePath= runtimes[0].RuntimePath;
-                PythonServicesAutofac.RegisterPythonServices(builder, runtimes[0].RuntimePath);
+                pythonRuntimePath= PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath;
+                PythonServicesAutofac.RegisterPythonServices(builder, PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath);
             }
            // Build the Autofac container
             var container = builder.Build();
 
             // if you want to use the Python runtime, you can initialize it here
-            if (runtimes.Count > 0)
+            if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
             {
                 PythonServicesAutofac.ConfigureContainer(container);
 
