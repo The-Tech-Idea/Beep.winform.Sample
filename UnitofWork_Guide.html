@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnitofWork&lt;T&gt; Class Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 30px;
+            margin: -30px -30px 30px -30px;
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.2em;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #4CAF50;
+            background: #f8fff8;
+            border-radius: 0 8px 8px 0;
+        }
+        .section h2 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .section h3 {
+            color: #555;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        .method-signature {
+            background: #2d2d30;
+            color: #9cdcfe;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .feature-card h4 {
+            margin: 0 0 10px 0;
+            color: #4CAF50;
+            font-size: 1.1em;
+        }
+        .properties-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .properties-table th,
+        .properties-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .properties-table th {
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+        .properties-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .orm-highlight {
+            background: #e8f5e8;
+            border: 1px solid #4CAF50;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .orm-highlight h4 {
+            margin: 0 0 10px 0;
+            color: #2e7d32;
+        }
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .toc h3 {
+            margin: 0 0 15px 0;
+            color: #495057;
+        }
+        .toc ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin: 8px 0;
+        }
+        .toc a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .tip {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .constructor-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        .constructor-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #4CAF50;
+        }
+        .constructor-item h4 {
+            margin: 0 0 10px 0;
+            color: #4CAF50;
+        }
+        .event-flow {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .event-flow h4 {
+            margin: 0 0 10px 0;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>UnitofWork&lt;T&gt;</h1>
+            <p class="subtitle">Generic Unit of Work Pattern Implementation for Entity Management</p>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#key-features">Key Features</a></li>
+                <li><a href="#constructors">Constructors</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#events">Events & Triggers</a></li>
+                <li><a href="#collections">Collection Management</a></li>
+                <li><a href="#crud-operations">CRUD Operations</a></li>
+                <li><a href="#filtering">Filtering & Querying</a></li>
+                <li><a href="#transaction-management">Transaction Management</a></li>
+                <li><a href="#change-tracking">Change Tracking</a></li>
+                <li><a href="#navigation">Navigation</a></li>
+                <li><a href="#logging">Logging</a></li>
+                <li><a href="#usage-examples">Usage Examples</a></li>
+            </ul>
+        </div>
+
+        <div class="section" id="overview">
+            <h2>Overview</h2>
+            <p>The <strong>UnitofWork&lt;T&gt;</strong> class is a comprehensive implementation of the Unit of Work pattern for managing entities of type T. It provides change tracking, transaction management, CRUD operations, and event-driven data manipulation capabilities.</p>
+            
+            <div class="orm-highlight">
+                <h4>?? Unit of Work Pattern</h4>
+                <p>This class maintains a list of objects affected by a business transaction and coordinates writing out changes and resolving concurrency problems. It tracks entity states (Added, Modified, Deleted) and provides commit/rollback functionality.</p>
+            </div>
+
+            <div class="method-signature">
+                public partial class UnitofWork&lt;T&gt; : IUnitofWork&lt;T&gt;, INotifyPropertyChanged where T : Entity, new()
+            </div>
+
+            <h3>Namespace</h3>
+            <div class="code-block">
+                TheTechIdea.Beep.Editor
+            </div>
+
+            <h3>Dependencies</h3>
+            <ul>
+                <li><code>IDMEEditor</code> - Core data management editor interface</li>
+                <li><code>IDataSource</code> - Data source abstraction</li>
+                <li><code>ObservableBindingList&lt;T&gt;</code> - Observable collection for data binding</li>
+                <li><code>EntityStructure</code> - Entity metadata information</li>
+            </ul>
+        </div>
+
+        <div class="section" id="key-features">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Change Tracking</h4>
+                    <p>Automatic tracking of entity changes with state management (Added, Modified, Deleted)</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Transaction Management</h4>
+                    <p>Commit and rollback operations with progress reporting</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Event-Driven Architecture</h4>
+                    <p>Comprehensive event system for pre/post operations</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Filtering & Querying</h4>
+                    <p>Dynamic filtering with expression trees and LINQ support</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Data Binding Support</h4>
+                    <p>Full support for Windows Forms and WPF data binding</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Undo/Redo Functionality</h4>
+                    <p>Change log with undo capabilities</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Sequence Management</h4>
+                    <p>Automatic primary key generation and sequence handling</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Logging & Auditing</h4>
+                    <p>Comprehensive logging of all entity operations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="constructors">
+            <h2>Constructors</h2>
+            <div class="constructor-grid">
+                <div class="constructor-item">
+                    <h4>Default Constructor</h4>
+                    <div class="method-signature">public UnitofWork()</div>
+                    <p>Parameterless constructor for designer support.</p>
+                </div>
+                
+                <div class="constructor-item">
+                    <h4>Data Source Constructor</h4>
+                    <div class="method-signature">public UnitofWork(IDMEEditor dMEEditor, string datasourceName, string entityName)</div>
+                    <p>Creates a unit of work connected to a specific data source and entity.</p>
+                </div>
+                
+                <div class="constructor-item">
+                    <h4>Entity Structure Constructor</h4>
+                    <div class="method-signature">public UnitofWork(IDMEEditor dMEEditor, string datasourceName, string entityName, EntityStructure entityStructure)</div>
+                    <p>Creates a unit of work with predefined entity structure.</p>
+                </div>
+                
+                <div class="constructor-item">
+                    <h4>List Mode Constructor</h4>
+                    <div class="method-signature">public UnitofWork(IDMEEditor dMEEditor, bool isInListMode, ObservableBindingList&lt;T&gt; ts)</div>
+                    <p>Creates a unit of work in list mode with existing data collection.</p>
+                </div>
+                
+                <div class="constructor-item">
+                    <h4>Primary Key Constructor</h4>
+                    <div class="method-signature">public UnitofWork(IDMEEditor dMEEditor, string datasourceName, string entityName, string primarykey)</div>
+                    <p>Creates a unit of work with explicit primary key specification.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="properties">
+            <h2>Properties</h2>
+            <table class="properties-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Access</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>Units</code></td>
+                        <td><code>ObservableBindingList&lt;T&gt;</code></td>
+                        <td>Main collection of entities with change tracking</td>
+                        <td>Read/Write</td>
+                    </tr>
+                    <tr>
+                        <td><code>FilteredUnits</code></td>
+                        <td><code>ObservableBindingList&lt;T&gt;</code></td>
+                        <td>Filtered subset of the main collection</td>
+                        <td>Read/Write</td>
+                    </tr>
+                    <tr>
+                        <td><code>CurrentItem</code></td>
+                        <td><code>T</code></td>
+                        <td>Currently selected item in the collection</td>
+                        <td>Read-only</td>
+                    </tr>
+                    <tr>
+                        <td><code>IsDirty</code></td>
+                        <td><code>bool</code></td>
+                        <td>Indicates if there are unsaved changes</td>
+                        <td>Read-only</td>
+                    </tr>
+                    <tr>
+                        <td><code>IsInListMode</code></td>
+                        <td><code>bool</code></td>
+                        <td>Indicates if operating in disconnected list mode</td>
+                        <td>Read/Write</td>
+                    </tr>
+                    <tr>
+                        <td><code>EntityStructure</code></td>
+                        <td><code>EntityStructure</code></td>
+                        <td>Metadata about the entity structure</td>
+                        <td>Read/Write</td>
+                    </tr>
+                    <tr>
+                        <td><code>DataSource</code></td>
+                        <td><code>IDataSource</code></td>
+                        <td>Connected data source</td>
+                        <td>Read/Write</td>
+                    </tr>
+                    <tr>
+                        <td><code>PrimaryKey</code></td>
+                        <td><code>string</code></td>
+                        <td>Name of the primary key field</td>
+                        <td>Read/Write</td>
+                    </tr>
+                    <tr>
+                        <td><code>IsIdentity</code></td>
+                        <td><code>bool</code></td>
+                        <td>Indicates if primary key is auto-generated</td>
+                        <td>Read/Write</td>
+                    </tr>
+                    <tr>
+                        <td><code>Sequencer</code></td>
+                        <td><code>string</code></td>
+                        <td>Name of the sequence for key generation</td>
+                        <td>Read/Write</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section" id="events">
+            <h2>Events & Triggers</h2>
+            <p>The UnitofWork provides a comprehensive event system for intercepting and controlling data operations:</p>
+
+            <h3>CRUD Events</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>PreInsert / PostInsert</h4>
+                    <p>Fired before and after record insertion</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PreUpdate / PostUpdate</h4>
+                    <p>Fired before and after record updates</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PreDelete / PostDelete</h4>
+                    <p>Fired before and after record deletion</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PreQuery / PostQuery</h4>
+                    <p>Fired before and after query execution</p>
+                </div>
+            </div>
+
+            <h3>Lifecycle Events</h3>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>PreCreate / PostCreate</h4>
+                    <p>Fired when creating new entities</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PostEdit</h4>
+                    <p>Fired when entity properties are modified</p>
+                </div>
+                <div class="feature-card">
+                    <h4>PreCommit / PostCommit</h4>
+                    <p>Fired during transaction commit operations</p>
+                </div>
+            </div>
+
+            <div class="event-flow">
+                <h4>?? Event Flow Example</h4>
+                <p><strong>Insert Operation:</strong> PreCreate ? PostCreate ? PreInsert ? PostInsert ? PreCommit ? PostCommit</p>
+                <p><strong>Update Operation:</strong> PostEdit ? PreUpdate ? PostUpdate ? PreCommit ? PostCommit</p>
+                <p><strong>Delete Operation:</strong> PreDelete ? PostDelete ? PreCommit ? PostCommit</p>
+            </div>
+        </div>
+
+        <div class="section" id="collections">
+            <h2>Collection Management</h2>
+
+            <h3>ObservableBindingList&lt;T&gt;</h3>
+            <p>The core collection type that provides:</p>
+            <ul>
+                <li><strong>Change Notifications:</strong> Implements INotifyPropertyChanged and INotifyCollectionChanged</li>
+                <li><strong>Data Binding:</strong> Full support for Windows Forms and WPF binding</li>
+                <li><strong>Change Tracking:</strong> Tracks original values and entity states</li>
+                <li><strong>Filtering:</strong> Supports filtered views of the data</li>
+            </ul>
+
+            <div class="code-block">
+// Accessing the main collection
+ObservableBindingList&lt;Customer&gt; customers = unitOfWork.Units;
+
+// Working with filtered data
+unitOfWork.FilteredUnits = filteredCustomers;
+
+// Navigation
+Customer current = unitOfWork.CurrentItem;
+            </div>
+
+            <h3>Change Tracking Collections</h3>
+            <ul>
+                <li><code>InsertedKeys</code> - Tracks newly added entities</li>
+                <li><code>UpdatedKeys</code> - Tracks modified entities</li>
+                <li><code>DeletedKeys</code> - Tracks deleted entities</li>
+                <li><code>DeletedUnits</code> - Stores deleted entities for potential undo</li>
+            </ul>
+        </div>
+
+        <div class="section" id="crud-operations">
+            <h2>CRUD Operations</h2>
+
+            <h3>Create Operations</h3>
+            <div class="method-signature">
+                public void New()
+                public void Add(T entity)
+            </div>
+            <div class="code-block">
+// Create a new entity
+unitOfWork.New();
+
+// Add an existing entity
+Customer customer = new Customer { Name = "John Doe" };
+unitOfWork.Add(customer);
+            </div>
+
+            <h3>Read Operations</h3>
+            <div class="method-signature">
+                public T Read(string id)
+                public T Read(Func&lt;T, bool&gt; predicate)
+                public virtual async Task&lt;ObservableBindingList&lt;T&gt;&gt; Get()
+                public virtual async Task&lt;ObservableBindingList&lt;T&gt;&gt; Get(List&lt;AppFilter&gt; filters)
+            </div>
+            <div class="code-block">
+// Read by ID
+Customer customer = unitOfWork.Read("123");
+
+// Read with predicate
+Customer customer = unitOfWork.Read(c => c.Email == "john@example.com");
+
+// Get all records
+var customers = await unitOfWork.Get();
+
+// Get with filters
+var filters = new List&lt;AppFilter&gt; 
+{
+    new AppFilter { FieldName = "Country", Operator = "=", FilterValue = "USA" }
+};
+var usCustomers = await unitOfWork.Get(filters);
+            </div>
+
+            <h3>Update Operations</h3>
+            <div class="method-signature">
+                public IErrorsInfo Update(T entity)
+                public IErrorsInfo Update(string id, T entity)
+                public async Task&lt;IErrorsInfo&gt; UpdateAsync(T doc)
+            </div>
+            <div class="code-block">
+// Update an entity
+customer.Name = "Jane Doe";
+var result = unitOfWork.Update(customer);
+
+// Async update
+var result = await unitOfWork.UpdateAsync(customer);
+            </div>
+
+            <h3>Delete Operations</h3>
+            <div class="method-signature">
+                public IErrorsInfo Delete()
+                public IErrorsInfo Delete(T entity)
+                public IErrorsInfo Delete(string id)
+                public async Task&lt;IErrorsInfo&gt; DeleteAsync(T doc)
+            </div>
+            <div class="code-block">
+// Delete current entity
+var result = unitOfWork.Delete();
+
+// Delete specific entity
+var result = unitOfWork.Delete(customer);
+
+// Delete by ID
+var result = unitOfWork.Delete("123");
+
+// Async delete
+var result = await unitOfWork.DeleteAsync(customer);
+            </div>
+        </div>
+
+        <div class="section" id="filtering">
+            <h2>Filtering & Querying</h2>
+
+            <h3>Expression-Based Filtering</h3>
+            <p>The UnitofWork supports dynamic filtering using expression trees:</p>
+            <div class="code-block">
+// Create filters
+var filters = new List&lt;AppFilter&gt;
+{
+    new AppFilter 
+    { 
+        FieldName = "Age", 
+        Operator = "&gt;", 
+        FilterValue = 18 
+    },
+    new AppFilter 
+    { 
+        FieldName = "Country", 
+        Operator = "=", 
+        FilterValue = "USA" 
+    }
+};
+
+// Apply filters
+var filteredData = await unitOfWork.Get(filters);
+            </div>
+
+            <h3>Supported Filter Operators</h3>
+            <ul>
+                <li><code>=</code> - Equals</li>
+                <li><code>!=</code>, <code>&lt;&gt;</code> - Not equals</li>
+                <li><code>&gt;</code> - Greater than</li>
+                <li><code>&lt;</code> - Less than</li>
+                <li><code>&gt;=</code> - Greater than or equal</li>
+                <li><code>&lt;=</code> - Less than or equal</li>
+            </ul>
+
+            <h3>Query Mode</h3>
+            <div class="code-block">
+// Custom SQL query
+var customQuery = "SELECT * FROM Customers WHERE Country = 'USA'";
+var results = await unitOfWork.GetQuery(customQuery);
+            </div>
+        </div>
+
+        <div class="section" id="transaction-management">
+            <h2>Transaction Management</h2>
+
+            <h3>Commit Operations</h3>
+            <div class="method-signature">
+                public virtual async Task&lt;IErrorsInfo&gt; Commit()
+                public virtual async Task&lt;IErrorsInfo&gt; Commit(IProgress&lt;PassedArgs&gt; progress, CancellationToken token)
+            </div>
+            <div class="code-block">
+// Simple commit
+var result = await unitOfWork.Commit();
+
+// Commit with progress reporting
+var progress = new Progress&lt;PassedArgs&gt;(args => 
+{
+    Console.WriteLine($"Progress: {args.ParameterInt1}");
+});
+
+var cancellationToken = new CancellationTokenSource().Token;
+var result = await unitOfWork.Commit(progress, cancellationToken);
+
+if (result.Flag == Errors.Ok)
+{
+    Console.WriteLine("All changes committed successfully");
+}
+else
+{
+    Console.WriteLine($"Commit failed: {result.Message}");
+}
+            </div>
+
+            <h3>Rollback Operations</h3>
+            <div class="method-signature">
+                public Task&lt;IErrorsInfo&gt; Rollback()
+            </div>
+            <div class="code-block">
+// Rollback all changes
+var result = await unitOfWork.Rollback();
+            </div>
+
+            <div class="warning">
+                <strong>?? Transaction Scope:</strong> When in list mode (IsInListMode = true), commit and rollback operations affect only the in-memory collection, not the underlying data source.
+            </div>
+        </div>
+
+        <div class="section" id="change-tracking">
+            <h2>Change Tracking</h2>
+
+            <h3>Entity States</h3>
+            <div class="code-block">
+public enum EntityState
+{
+    Added,      // New entity not yet persisted
+    Modified,   // Existing entity with changes
+    Deleted,    // Entity marked for deletion
+    Unchanged   // Entity with no changes
+}
+            </div>
+
+            <h3>Change Detection</h3>
+            <p>The UnitofWork automatically tracks changes through:</p>
+            <ul>
+                <li><strong>Property Change Events:</strong> Monitors INotifyPropertyChanged events</li>
+                <li><strong>Collection Events:</strong> Tracks additions and removals</li>
+                <li><strong>State Management:</strong> Maintains entity states in dictionaries</li>
+                <li><strong>Original Values:</strong> Preserves original values for rollback</li>
+            </ul>
+
+            <h3>Undo Functionality</h3>
+            <div class="method-signature">
+                public void UndoLastChange()
+                public void UndoDelete()
+            </div>
+            <div class="code-block">
+// Undo the last change
+unitOfWork.UndoLastChange();
+
+// Undo a delete operation
+unitOfWork.UndoDelete();
+            </div>
+
+            <h3>Dirty State Checking</h3>
+            <div class="code-block">
+// Check if there are unsaved changes
+if (unitOfWork.IsDirty)
+{
+    Console.WriteLine("There are unsaved changes");
+    
+    // Get counts of changes
+    var addedCount = unitOfWork.GetAddedEntities()?.Count() ?? 0;
+    var modifiedCount = unitOfWork.GetModifiedEntities()?.Count() ?? 0;
+    var deletedCount = unitOfWork.GetDeletedEntities()?.Count() ?? 0;
+    
+    Console.WriteLine($"Added: {addedCount}, Modified: {modifiedCount}, Deleted: {deletedCount}");
+}
+            </div>
+        </div>
+
+        <div class="section" id="navigation">
+            <h2>Navigation</h2>
+
+            <h3>Navigation Methods</h3>
+            <div class="method-signature">
+                public void MoveFirst()
+                public void MoveNext()
+                public void MovePrevious()
+                public void MoveLast()
+                public void MoveTo(int index)
+            </div>
+            <div class="code-block">
+// Navigate through records
+unitOfWork.MoveFirst();
+Customer first = unitOfWork.CurrentItem;
+
+unitOfWork.MoveNext();
+Customer second = unitOfWork.CurrentItem;
+
+unitOfWork.MoveLast();
+Customer last = unitOfWork.CurrentItem;
+
+// Move to specific position
+unitOfWork.MoveTo(5);
+Customer fifth = unitOfWork.CurrentItem;
+            </div>
+
+            <h3>Index-Based Access</h3>
+            <div class="code-block">
+// Get by index
+Customer customer = unitOfWork.Get(0);
+
+// Get by primary key
+Customer customer = unitOfWork.Get("123");
+
+// Find index
+int index = unitOfWork.Getindex("123");
+int index = unitOfWork.Getindex(customer);
+            </div>
+        </div>
+
+        <div class="section" id="logging">
+            <h2>Logging & Auditing</h2>
+
+            <h3>Enable Logging</h3>
+            <div class="code-block">
+// Enable logging
+unitOfWork.IsLogging = true;
+
+// Access update log
+var updateLog = unitOfWork.UpdateLog;
+
+// Save log to file
+bool success = unitOfWork.SaveLog(@"C:\Logs\EntityChanges.json");
+            </div>
+
+            <h3>Log Structure</h3>
+            <p>The logging system captures:</p>
+            <ul>
+                <li><strong>Timestamp:</strong> When the change occurred</li>
+                <li><strong>Operation:</strong> Type of operation (Insert, Update, Delete)</li>
+                <li><strong>Entity Data:</strong> Before and after values</li>
+                <li><strong>User Context:</strong> Who made the change</li>
+                <li><strong>Entity State:</strong> State transitions</li>
+            </ul>
+        </div>
+
+        <div class="section" id="usage-examples">
+            <h2>Usage Examples</h2>
+
+            <h3>Basic CRUD with Data Source</h3>
+            <div class="code-block">
+// Initialize unit of work with data source
+var unitOfWork = new UnitofWork&lt;Customer&gt;(dmeEditor, "NorthwindDB", "Customers");
+
+// Load all customers
+var customers = await unitOfWork.Get();
+
+// Create new customer
+unitOfWork.New();
+var newCustomer = unitOfWork.CurrentItem;
+newCustomer.CustomerName = "New Company";
+newCustomer.Country = "USA";
+
+// Update existing customer
+var existingCustomer = unitOfWork.Read("ALFKI");
+existingCustomer.ContactName = "Updated Contact";
+unitOfWork.Update(existingCustomer);
+
+// Commit all changes
+var result = await unitOfWork.Commit();
+if (result.Flag == Errors.Ok)
+{
+    Console.WriteLine("All changes saved successfully");
+}
+            </div>
+
+            <h3>List Mode Operations</h3>
+            <div class="code-block">
+// Create unit of work in list mode
+var existingData = new ObservableBindingList&lt;Customer&gt;(customerList);
+var unitOfWork = new UnitofWork&lt;Customer&gt;(dmeEditor, true, existingData);
+
+// Work with in-memory data
+unitOfWork.Add(new Customer { CustomerName = "Memory Customer" });
+
+// Filter data
+var filters = new List&lt;AppFilter&gt; 
+{
+    new AppFilter { FieldName = "Country", Operator = "=", FilterValue = "USA" }
+};
+var filtered = await unitOfWork.Get(filters);
+
+// Changes are only in memory - no database operations
+            </div>
+
+            <h3>Event Handling</h3>
+            <div class="code-block">
+// Set up event handlers
+unitOfWork.PreInsert += (sender, e) => 
+{
+    var customer = (Customer)sender;
+    customer.CreatedDate = DateTime.Now;
+    customer.CreatedBy = "CurrentUser";
+};
+
+unitOfWork.PostUpdate += (sender, e) => 
+{
+    var customer = (Customer)sender;
+    customer.ModifiedDate = DateTime.Now;
+    customer.ModifiedBy = "CurrentUser";
+};
+
+unitOfWork.PreDelete += (sender, e) => 
+{
+    // Confirm deletion
+    var customer = (Customer)sender;
+    if (customer.HasOrders)
+    {
+        e.Cancel = true; // Prevent deletion
+    }
+};
+            </div>
+
+            <h3>Progress Reporting</h3>
+            <div class="code-block">
+// Create progress reporter
+var progress = new Progress&lt;PassedArgs&gt;(args => 
+{
+    switch (args.ErrorCode)
+    {
+        case "END":
+            Console.WriteLine("Commit completed");
+            break;
+        default:
+            Console.WriteLine($"Processing: {args.ParameterInt1} items");
+            break;
+    }
+});
+
+// Commit with progress
+var cancellationToken = new CancellationTokenSource().Token;
+var result = await unitOfWork.Commit(progress, cancellationToken);
+            </div>
+
+            <h3>Filtering and Searching</h3>
+            <div class="code-block">
+// Complex filtering
+var filters = new List&lt;AppFilter&gt;
+{
+    new AppFilter { FieldName = "Country", Operator = "=", FilterValue = "USA" },
+    new AppFilter { FieldName = "CustomerType", Operator = "!=", FilterValue = "Inactive" },
+    new AppFilter { FieldName = "CreditLimit", Operator = "&gt;", FilterValue = 1000 }
+};
+
+var filteredCustomers = await unitOfWork.Get(filters);
+
+// Predicate-based search
+var customer = unitOfWork.Read(c => c.Email == "john@example.com");
+
+// Multiple results with predicate
+var results = await unitOfWork.MultiRead(c => c.Country == "USA");
+            </div>
+
+            <div class="tip">
+                <strong>?? Best Practice:</strong> Always handle the PreCommit and PostCommit events to implement business rules and auditing. Use the Cancel property in Pre-events to prevent operations when business rules are violated.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Performance Considerations</h2>
+            <ul>
+                <li><strong>Lazy Loading:</strong> Data is loaded on-demand from the data source</li>
+                <li><strong>Change Tracking Overhead:</strong> Each entity change triggers event handlers</li>
+                <li><strong>Memory Usage:</strong> Original values are preserved for undo functionality</li>
+                <li><strong>Batch Operations:</strong> Commit processes all changes in a single transaction</li>
+            </ul>
+
+            <h2>Thread Safety</h2>
+            <p>The UnitofWork is not inherently thread-safe. When accessing from multiple threads, ensure proper synchronization:</p>
+            <div class="code-block">
+// Thread-safe access example
+lock (unitOfWork)
+{
+    unitOfWork.Add(newEntity);
+    await unitOfWork.Commit();
+}
+            </div>
+
+            <h2>Memory Management</h2>
+            <p>The class implements IDisposable. Always dispose properly:</p>
+            <div class="code-block">
+using (var unitOfWork = new UnitofWork&lt;Customer&gt;(dmeEditor, "DB", "Customers"))
+{
+    // Use unit of work
+}
+// Automatically disposed
+            </div>
+        </div>
+    </div>
+</body>
+</html>

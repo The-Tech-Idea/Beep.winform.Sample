@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UnitofWorksManager - Oracle Forms Style Data Management</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+
+        .toc h2 {
+            color: #495057;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .toc ol {
+            list-style: decimal;
+            padding-left: 20px;
+        }
+
+        .toc li {
+            margin-bottom: 5px;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .toc a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #e9ecef;
+            padding-bottom: 30px;
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        h2 {
+            color: #495057;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-left: 4px solid #667eea;
+            padding-left: 20px;
+        }
+
+        h3 {
+            color: #6c757d;
+            font-size: 1.5em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        h4 {
+            color: #6c757d;
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 20px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block::before {
+            content: 'C#';
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .code-block code {
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.4;
+            color: #495057;
+            white-space: pre;
+            display: block;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #17a2b8;
+            margin: 20px 0;
+        }
+
+        .warning {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #e17055;
+            margin: 20px 0;
+        }
+
+        .info {
+            background: linear-gradient(120deg, #74b9ff 0%, #0984e3 100%);
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-card h4 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50%;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+        }
+
+        .back-to-top:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 0;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>UnitofWorksManager</h1>
+            <p>Oracle Forms Style Data Management for .NET Applications</p>
+        </div>
+
+        <div class="content">
+            <div class="info">
+                <strong>Overview:</strong> The UnitofWorksManager is a comprehensive data management system that simulates Oracle Forms environment with master-detail relationships, triggers, and form-level operations management. It provides dirty state checking, transaction management, and event-driven programming patterns similar to Oracle Forms.
+            </div>
+
+            <div class="toc">
+                <h2>Table of Contents</h2>
+                <ol>
+                    <li><a href="#basic-setup">Basic Setup</a></li>
+                    <li><a href="#block-registration">Block Registration</a></li>
+                    <li><a href="#master-detail-relationships">Master-Detail Relationships</a></li>
+                    <li><a href="#oracle-forms-style-triggers">Oracle Forms Style Triggers</a></li>
+                    <li><a href="#dirty-state-management">Dirty State Management</a></li>
+                    <li><a href="#navigation-operations">Navigation Operations</a></li>
+                    <li><a href="#crud-operations">CRUD Operations</a></li>
+                    <li><a href="#transaction-management">Transaction Management</a></li>
+                    <li><a href="#event-handling-examples">Event Handling Examples</a></li>
+                    <li><a href="#common-patterns">Common Patterns</a></li>
+                    <li><a href="#best-practices">Best Practices</a></li>
+                </ol>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h4>?? Oracle Forms Compatible</h4>
+                    <p>Complete simulation of Oracle Forms environment with triggers and events</p>
+                </div>
+                <div class="feature-card">
+                    <h4>?? Dirty State Management</h4>
+                    <p>Automatic detection and handling of unsaved changes with user prompts</p>
+                </div>
+                <div class="feature-card">
+                    <h4>?? Master-Detail Support</h4>
+                    <p>Full support for complex master-detail relationships and synchronization</p>
+                </div>
+                <div class="feature-card">
+                    <h4>? Event-Driven</h4>
+                    <p>Comprehensive trigger system for Pre/Post operations and validations</p>
+                </div>
+            </div>
+
+            <section id="basic-setup" class="section">
+                <h2>Basic Setup</h2>
+                
+                <h3>Creating a UnitofWorksManager</h3>
+                <div class="code-block">
+                    <code>// Initialize the manager
+var unitofWorksManager = new UnitofWorksManager(dmeEditor);
+
+// Open a form
+await unitofWorksManager.OpenFormAsync("CustomerOrderForm");</code>
+                </div>
+            </section>
+
+            <section id="block-registration" class="section">
+                <h2>Block Registration</h2>
+                
+                <h3>Registering Data Blocks</h3>
+                <div class="code-block">
+                    <code>// Create UnitOfWork instances for your entities
+var customerUnitOfWork = new UnitofWork&lt;Customer&gt;(dmeEditor, "MyDatabase", "Customers", "CustomerID");
+var orderUnitOfWork = new UnitofWork&lt;Order&gt;(dmeEditor, "MyDatabase", "Orders", "OrderID");
+
+// Register blocks with the manager
+unitofWorksManager.RegisterBlock(
+    blockName: "CustomerBlock",
+    unitOfWork: customerUnitOfWork,
+    entityStructure: customerEntityStructure,
+    dataSourceName: "MyDatabase",
+    isMasterBlock: true
+);
+
+unitofWorksManager.RegisterBlock(
+    blockName: "OrderBlock", 
+    unitOfWork: orderUnitOfWork,
+    entityStructure: orderEntityStructure,
+    dataSourceName: "MyDatabase",
+    isMasterBlock: false
+);</code>
+                </div>
+            </section>
+
+            <section id="master-detail-relationships" class="section">
+                <h2>Master-Detail Relationships</h2>
+                
+                <h3>Creating Master-Detail Relations</h3>
+                <div class="code-block">
+                    <code>// Create a one-to-many relationship between Customer and Orders
+unitofWorksManager.CreateMasterDetailRelation(
+    masterBlockName: "CustomerBlock",
+    detailBlockName: "OrderBlock", 
+    masterKeyField: "CustomerID",
+    detailForeignKeyField: "CustomerID",
+    relationshipType: RelationshipType.OneToMany
+);
+
+// Create nested detail relationships (Customer -> Orders -> OrderItems)
+unitofWorksManager.CreateMasterDetailRelation(
+    masterBlockName: "OrderBlock",
+    detailBlockName: "OrderItemBlock",
+    masterKeyField: "OrderID", 
+    detailForeignKeyField: "OrderID",
+    relationshipType: RelationshipType.OneToMany
+);</code>
+                </div>
+            </section>
+
+            <section id="oracle-forms-style-triggers" class="section">
+                <h2>Oracle Forms Style Triggers</h2>
+                
+                <h3>Pre-Insert Trigger Example</h3>
+                <div class="code-block">
+                    <code>// Subscribe to Pre-Insert trigger
+unitofWorksManager.OnPreInsert += (sender, e) => {
+    if (e.BlockName == "CustomerBlock")
+    {
+        // Set audit fields automatically
+        e.SetCurrentDateTime("CreatedDate");
+        e.SetCurrentUser("CreatedBy", "CurrentUserName");
+        
+        // Set default values
+        e.SetFieldValue("Status", "Active");
+        e.SetFieldValue("CustomerType", "Standard");
+        
+        // Generate customer code if empty
+        if (e.IsFieldNullOrEmpty("CustomerCode"))
+        {
+            var nextCode = GenerateNextCustomerCode();
+            e.SetFieldValue("CustomerCode", nextCode);
+        }
+        
+        // Validate required fields
+        if (e.IsFieldNullOrEmpty("CompanyName"))
+        {
+            e.Cancel = true;
+            e.Message = "Company Name is required";
+            return;
+        }
+    }
+};</code>
+                </div>
+
+                <h3>Pre-Update Trigger Example</h3>
+                <div class="code-block">
+                    <code>unitofWorksManager.OnPreUpdate += (sender, e) => {
+    if (e.BlockName == "CustomerBlock")
+    {
+        // Update audit fields
+        e.SetCurrentDateTime("ModifiedDate");
+        e.SetCurrentUser("ModifiedBy", "CurrentUserName");
+        
+        // Business logic validation
+        var creditLimit = e.GetFieldValue("CreditLimit");
+        if (creditLimit != null && (decimal)creditLimit > 100000)
+        {
+            // Require approval for high credit limits
+            var approval = MessageBox.Show(
+                "Credit limit exceeds $100,000. Do you have approval?",
+                "Approval Required",
+                MessageBoxButtons.YesNo);
+                
+            if (approval != DialogResult.Yes)
+            {
+                e.Cancel = true;
+                e.Message = "Update cancelled - approval required for high credit limits";
+                return;
+            }
+        }
+    }
+};</code>
+                </div>
+
+                <h3>Pre-Delete Trigger Example</h3>
+                <div class="code-block">
+                    <code>unitofWorksManager.OnPreDelete += (sender, e) => {
+    if (e.BlockName == "CustomerBlock")
+    {
+        // Check for dependent records
+        var customerId = e.GetFieldValue("CustomerID");
+        if (HasPendingOrders(customerId))
+        {
+            e.Cancel = true;
+            e.Message = "Cannot delete customer with pending orders";
+            return;
+        }
+        
+        // Confirmation dialog
+        var result = MessageBox.Show(
+            "Are you sure you want to delete this customer?",
+            "Confirm Delete",
+            MessageBoxButtons.YesNo,
+            MessageBoxIcon.Question);
+            
+        if (result != DialogResult.Yes)
+        {
+            e.Cancel = true;
+            return;
+        }
+    }
+};</code>
+                </div>
+            </section>
+
+            <section id="dirty-state-management" class="section">
+                <h2>Dirty State Management</h2>
+                
+                <div class="highlight">
+                    <strong>Key Feature:</strong> The UnitofWorksManager automatically detects unsaved changes and prompts users before navigation, block switching, or form closing operations.
+                </div>
+
+                <h3>Handling Unsaved Changes</h3>
+                <div class="code-block">
+                    <code>// Subscribe to unsaved changes event
+unitofWorksManager.OnUnsavedChanges += (sender, e) => {
+    // Show user dialog with options
+    var message = $"You have unsaved changes in {e.DirtyBlocks.Count} block(s):\n" +
+                  string.Join(", ", e.DirtyBlocks) + "\n\n" +
+                  "What would you like to do?";
+                  
+    var result = MessageBox.Show(
+        message,
+        "Unsaved Changes",
+        MessageBoxButtons.YesNoCancel,
+        MessageBoxIcon.Question);
+        
+    e.UserChoice = result switch {
+        DialogResult.Yes => UnsavedChangesAction.Save,      // Save changes
+        DialogResult.No => UnsavedChangesAction.Discard,   // Discard changes  
+        _ => UnsavedChangesAction.Cancel                    // Cancel operation
+    };
+};
+
+// Navigation with automatic dirty checking
+private async void NextButton_Click(object sender, EventArgs e)
+{
+    // This will automatically check for unsaved changes before navigating
+    await unitofWorksManager.NextRecordAsync("CustomerBlock");
+}</code>
+                </div>
+            </section>
+
+            <section id="navigation-operations" class="section">
+                <h2>Navigation Operations</h2>
+                
+                <h3>Record Navigation Examples</h3>
+                <div class="code-block">
+                    <code>// Navigate to first record
+private async void FirstButton_Click(object sender, EventArgs e)
+{
+    var success = await unitofWorksManager.FirstRecordAsync("CustomerBlock");
+    UpdateNavigationButtons();
+}
+
+// Navigate to next record
+private async void NextButton_Click(object sender, EventArgs e)
+{
+    var success = await unitofWorksManager.NextRecordAsync("CustomerBlock");
+    UpdateNavigationButtons();
+}
+
+// Handle current record changes
+unitofWorksManager.OnCurrentChanged += (sender, e) => {
+    if (e.BlockName == "CustomerBlock")
+    {
+        // Update UI when current record changes
+        UpdateFormFields();
+        RefreshCalculatedFields();
+    }
+};</code>
+                </div>
+            </section>
+
+            <section id="crud-operations" class="section">
+                <h2>CRUD Operations</h2>
+                
+                <h3>Insert Operations</h3>
+                <div class="code-block">
+                    <code>// Insert new record
+private async void NewButton_Click(object sender, EventArgs e)
+{
+    var customer = new Customer
+    {
+        CompanyName = companyNameTextBox.Text,
+        ContactName = contactNameTextBox.Text,
+        // ... other fields
+    };
+    
+    var success = await unitofWorksManager.InsertRecordAsync("CustomerBlock", customer);
+    if (success)
+    {
+        MessageBox.Show("Customer created successfully");
+        ClearForm();
+    }
+}</code>
+                </div>
+
+                <h3>Update Operations</h3>
+                <div class="code-block">
+                    <code>// Update current record
+private async void SaveButton_Click(object sender, EventArgs e)
+{
+    // Get current customer
+    var customerUnitOfWork = unitofWorksManager.GetUnitOfWork("CustomerBlock");
+    var currentCustomer = customerUnitOfWork.CurrentItem as Customer;
+    
+    if (currentCustomer != null)
+    {
+        // Update fields from form
+        currentCustomer.CompanyName = companyNameTextBox.Text;
+        currentCustomer.ContactName = contactNameTextBox.Text;
+        // ... other fields
+        
+        // The UnitOfWork will automatically track the changes
+        // and the manager will handle dirty state checking
+    }
+}</code>
+                </div>
+            </section>
+
+            <section id="transaction-management" class="section">
+                <h2>Transaction Management</h2>
+                
+                <h3>Form-Level Transactions</h3>
+                <div class="code-block">
+                    <code>// Commit all changes in the form
+private async void CommitButton_Click(object sender, EventArgs e)
+{
+    var result = await unitofWorksManager.CommitFormAsync();
+    
+    if (result.Flag == Errors.Ok)
+    {
+        MessageBox.Show("All changes saved successfully");
+    }
+    else
+    {
+        MessageBox.Show($"Error saving changes: {result.Message}");
+    }
+}
+
+// Check for dirty state before closing
+private async void FormClosing(object sender, FormClosingEventArgs e)
+{
+    if (unitofWorksManager.HasUnsavedChanges())
+    {
+        var result = MessageBox.Show(
+            "You have unsaved changes. Do you want to save before closing?",
+            "Unsaved Changes",
+            MessageBoxButtons.YesNoCancel);
+            
+        if (result == DialogResult.Yes)
+        {
+            var commitResult = await unitofWorksManager.CommitFormAsync();
+            if (commitResult.Flag != Errors.Ok)
+            {
+                e.Cancel = true; // Cancel form closing
+                return;
+            }
+        }
+        else if (result == DialogResult.Cancel)
+        {
+            e.Cancel = true; // Cancel form closing
+            return;
+        }
+    }
+    
+    await unitofWorksManager.CloseFormAsync();
+}</code>
+                </div>
+            </section>
+
+            <section id="common-patterns" class="section">
+                <h2>Common Patterns</h2>
+                
+                <h3>Query Mode Pattern (Oracle Forms ENTER_QUERY / EXECUTE_QUERY)</h3>
+                <div class="code-block">
+                    <code>// Enter query mode
+private async void QueryButton_Click(object sender, EventArgs e)
+{
+    var success = await unitofWorksManager.EnterQueryAsync("CustomerBlock");
+    if (success)
+    {
+        SetFormToQueryMode();
+        MessageBox.Show("Enter your search criteria and click Execute Query");
+    }
+}
+
+// Execute query
+private async void ExecuteQueryButton_Click(object sender, EventArgs e)
+{
+    // Build filters from form fields
+    var filters = new List&lt;AppFilter&gt;();
+    
+    if (!string.IsNullOrEmpty(companyNameTextBox.Text))
+    {
+        filters.Add(new AppFilter
+        {
+            FieldName = "CompanyName",
+            Operator = "LIKE",
+            FilterValue = $"%{companyNameTextBox.Text}%"
+        });
+    }
+    
+    var success = await unitofWorksManager.ExecuteQueryAsync("CustomerBlock", filters);
+    if (success)
+    {
+        SetFormToBrowseMode();
+        MessageBox.Show($"Query executed successfully");
+    }
+}</code>
+                </div>
+
+                <h3>Calculated Fields Pattern</h3>
+                <div class="code-block">
+                    <code>// Update calculated fields when detail records change
+unitofWorksManager.OnPostInsert += (sender, e) => {
+    if (e.BlockName == "OrderItemBlock")
+    {
+        UpdateOrderTotals();
+    }
+};
+
+private void UpdateOrderTotals()
+{
+    var orderUnitOfWork = unitofWorksManager.GetUnitOfWork("OrderBlock");
+    var orderItemUnitOfWork = unitofWorksManager.GetUnitOfWork("OrderItemBlock");
+    
+    if (orderUnitOfWork.CurrentItem is Order currentOrder)
+    {
+        var total = orderItemUnitOfWork.Units
+            .Cast&lt;OrderItem&gt;()
+            .Where(item => item.OrderID == currentOrder.OrderID)
+            .Sum(item => item.Quantity * item.UnitPrice);
+            
+        currentOrder.TotalAmount = total;
+        
+        // Update display
+        totalAmountLabel.Text = total.ToString("C");
+    }
+}</code>
+                </div>
+            </section>
+
+            <section id="best-practices" class="section">
+                <h2>Best Practices</h2>
+                
+                <h3>1. Proper Resource Management</h3>
+                <div class="code-block">
+                    <code>public class CustomerOrderForm : Form, IDisposable
+{
+    private UnitofWorksManager unitofWorksManager;
+    
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            unitofWorksManager?.Dispose();
+        }
+        base.Dispose(disposing);
+    }
+}</code>
+                </div>
+
+                <h3>2. Centralized Configuration</h3>
+                <div class="code-block">
+                    <code>public class FormManager
+{
+    public static void ConfigureStandardTriggers(UnitofWorksManager manager)
+    {
+        // Standard audit field handling
+        manager.OnPreInsert += SetAuditFieldsOnInsert;
+        manager.OnPreUpdate += SetAuditFieldsOnUpdate;
+        
+        // Standard validation
+        manager.OnValidateField += ValidateCommonFields;
+        
+        // Standard error handling
+        manager.OnError += LogAndDisplayErrors;
+    }
+}</code>
+                </div>
+
+                <h3>3. Type-Safe Field Access</h3>
+                <div class="code-block">
+                    <code>public static class CustomerFields
+{
+    public const string CustomerID = "CustomerID";
+    public const string CompanyName = "CompanyName";
+    public const string ContactName = "ContactName";
+    public const string Email = "Email";
+    public const string CreditLimit = "CreditLimit";
+}
+
+// Usage in triggers
+unitofWorksManager.OnValidateField += (sender, e) => {
+    if (e.FieldName == CustomerFields.Email)
+    {
+        // Validate email
+    }
+};</code>
+                </div>
+
+                <h3>4. Async/Await Best Practices</h3>
+                <div class="code-block">
+                    <code>// Always use async/await for database operations
+private async void SaveButton_Click(object sender, EventArgs e)
+{
+    try
+    {
+        saveButton.Enabled = false;
+        loadingIndicator.Visible = true;
+        
+        var result = await unitofWorksManager.CommitFormAsync();
+        
+        if (result.Flag == Errors.Ok)
+        {
+            ShowSuccessMessage("Changes saved successfully");
+        }
+        else
+        {
+            ShowErrorMessage($"Error saving: {result.Message}");
+        }
+    }
+    catch (Exception ex)
+    {
+        ShowErrorMessage($"Unexpected error: {ex.Message}");
+    }
+    finally
+    {
+        saveButton.Enabled = true;
+        loadingIndicator.Visible = false;
+    }
+}</code>
+                </div>
+
+                <div class="warning">
+                    <strong>Performance Considerations:</strong>
+                    <ul>
+                        <li>Use filtering to limit data retrieval</li>
+                        <li>Implement paging for large datasets</li>
+                        <li>Cache frequently accessed data</li>
+                        <li>Use async operations for all database calls</li>
+                    </ul>
+                </div>
+            </section>
+
+            <div class="highlight">
+                <h3>?? Conclusion</h3>
+                <p>The UnitofWorksManager provides a powerful, Oracle Forms-like environment for managing complex data operations with automatic dirty state checking, comprehensive trigger support, and robust transaction management. By following these patterns and examples, you can build sophisticated data entry applications with minimal code while maintaining data integrity and providing excellent user experience.</p>
+                
+                <p>For more advanced scenarios, refer to the API documentation and consider extending the manager with custom triggers and validation logic specific to your business requirements.</p>
+            </div>
+        </div>
+    </div>
+
+    <a href="#" class="back-to-top">?</a>
+
+    <script>
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Show/hide back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.querySelector('.back-to-top');
+            if (window.pageYOffset > 300) {
+                backToTop.style.display = 'block';
+            } else {
+                backToTop.style.display = 'none';
+            }
+        });
+
+        // Back to top functionality
+        document.querySelector('.back-to-top').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>

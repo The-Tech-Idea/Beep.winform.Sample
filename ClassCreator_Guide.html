@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ClassCreator Class Guide</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #E91E63 0%, #AD1457 100%);
+            color: white;
+            padding: 30px;
+            margin: -30px -30px 30px -30px;
+            border-radius: 10px 10px 0 0;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .subtitle {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 1.2em;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            border-left: 4px solid #E91E63;
+            background: #fdf6f7;
+            border-radius: 0 8px 8px 0;
+        }
+        .section h2 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.8em;
+            border-bottom: 2px solid #E91E63;
+            padding-bottom: 10px;
+        }
+        .section h3 {
+            color: #555;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin: 15px 0;
+        }
+        .method-signature {
+            background: #2d2d30;
+            color: #9cdcfe;
+            padding: 10px;
+            border-radius: 6px;
+            font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+            margin: 10px 0;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .feature-card h4 {
+            margin: 0 0 10px 0;
+            color: #E91E63;
+            font-size: 1.1em;
+        }
+        .properties-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+        .properties-table th,
+        .properties-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        .properties-table th {
+            background: #E91E63;
+            color: white;
+            font-weight: bold;
+        }
+        .properties-table tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+        .generation-highlight {
+            background: #f8f0f1;
+            border: 1px solid #E91E63;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .generation-highlight h4 {
+            margin: 0 0 10px 0;
+            color: #b91648;
+        }
+        .toc {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .toc h3 {
+            margin: 0 0 15px 0;
+            color: #495057;
+        }
+        .toc ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        .toc li {
+            margin: 8px 0;
+        }
+        .toc a {
+            color: #E91E63;
+            text-decoration: none;
+        }
+        .toc a:hover {
+            text-decoration: underline;
+        }
+        .warning {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .tip {
+            background: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .template-flow {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .template-flow h4 {
+            margin: 0 0 10px 0;
+            color: #856404;
+        }
+        .method-group {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        .method-group-header {
+            background: #E91E63;
+            color: white;
+            padding: 10px 15px;
+            font-weight: bold;
+        }
+        .method-group-content {
+            padding: 15px;
+            background: white;
+        }
+        .class-type-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        .class-type-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 4px solid #E91E63;
+            text-align: center;
+        }
+        .class-type-item h4 {
+            margin: 0 0 10px 0;
+            color: #E91E63;
+            font-size: 1em;
+        }
+        .cloud-providers {
+            display: flex;
+            justify-content: space-around;
+            background: #e8f5e8;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        .cloud-item {
+            background: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            border: 2px solid #4CAF50;
+            margin: 5px;
+            text-align: center;
+            flex: 1;
+            min-width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ClassCreator</h1>
+            <p class="subtitle">Dynamic Code Generation Engine for .NET Classes and Components</p>
+        </div>
+
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#key-features">Key Features</a></li>
+                <li><a href="#class-types">Class Generation Types</a></li>
+                <li><a href="#properties">Properties</a></li>
+                <li><a href="#core-methods">Core Methods</a></li>
+                <li><a href="#compilation">Compilation & Assembly</a></li>
+                <li><a href="#web-api">Web API Generation</a></li>
+                <li><a href="#modern-patterns">Modern Patterns</a></li>
+                <li><a href="#validation">Validation & Testing</a></li>
+                <li><a href="#cloud-serverless">Cloud & Serverless</a></li>
+                <li><a href="#frontend">Frontend Components</a></li>
+                <li><a href="#database">Database & EF Core</a></li>
+                <li><a href="#usage-examples">Usage Examples</a></li>
+            </ul>
+        </div>
+
+        <div class="section" id="overview">
+            <h2>Overview</h2>
+            <p>The <strong>ClassCreator</strong> is a powerful code generation engine that dynamically creates .NET classes, components, and complete application architectures from entity structures. It supports modern development patterns including microservices, cloud functions, frontend components, and database integrations.</p>
+            
+            <div class="generation-highlight">
+                <h4>??? Code Generation Engine</h4>
+                <p>ClassCreator transforms entity metadata into production-ready code using templates, Roslyn compilation, and modern architectural patterns. It generates everything from simple POCOs to complete enterprise solutions including APIs, validation, documentation, and cloud deployments.</p>
+            </div>
+
+            <div class="method-signature">
+                public class ClassCreator : IClassCreator
+            </div>
+
+            <h3>Namespace</h3>
+            <div class="code-block">
+                TheTechIdea.Beep.Tools
+            </div>
+
+            <h3>Core Capabilities</h3>
+            <ul>
+                <li><strong>Entity-Driven Generation:</strong> Create classes from EntityStructure metadata</li>
+                <li><strong>Modern Patterns:</strong> Support for DDD, CQRS, Repository, and Factory patterns</li>
+                <li><strong>Web Development:</strong> Generate APIs, controllers, and frontend components</li>
+                <li><strong>Cloud Solutions:</strong> Azure Functions, AWS Lambda, and serverless architectures</li>
+                <li><strong>Database Integration:</strong> EF Core, migrations, and data access layers</li>
+                <li><strong>Validation & Testing:</strong> FluentValidation and unit test templates</li>
+            </ul>
+        </div>
+
+        <div class="section" id="key-features">
+            <h2>Key Features</h2>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Roslyn Compilation</h4>
+                    <p>Dynamic compilation using Microsoft Roslyn for runtime code generation</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Template System</h4>
+                    <p>Flexible template-based generation with customizable patterns</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Modern C# Features</h4>
+                    <p>Support for records, nullable references, and async patterns</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Web API Generation</h4>
+                    <p>REST APIs, Minimal APIs, and gRPC service generation</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Cloud Functions</h4>
+                    <p>Azure Functions and AWS Lambda serverless implementations</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Frontend Components</h4>
+                    <p>Blazor components and UI element generation</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Database Integration</h4>
+                    <p>EF Core entities, migrations, and DbContext generation</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Validation Systems</h4>
+                    <p>FluentValidation and data annotation support</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Testing Framework</h4>
+                    <p>Unit test templates and mock implementations</p>
+                </div>
+                <div class="feature-card">
+                    <h4>GraphQL Support</h4>
+                    <p>GraphQL schema and resolver generation</p>
+                </div>
+                <div class="feature-card">
+                    <h4>DDD Patterns</h4>
+                    <p>Domain-driven design with aggregate roots and value objects</p>
+                </div>
+                <div class="feature-card">
+                    <h4>Progress Reporting</h4>
+                    <p>Real-time progress tracking for batch operations</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="class-types">
+            <h2>Class Generation Types</h2>
+            <p>ClassCreator supports multiple class generation patterns:</p>
+
+            <div class="class-type-grid">
+                <div class="class-type-item">
+                    <h4>POCO Classes</h4>
+                    <p>Simple data transfer objects</p>
+                </div>
+                <div class="class-type-item">
+                    <h4>Entity Classes</h4>
+                    <p>Database entities with validation</p>
+                </div>
+                <div class="class-type-item">
+                    <h4>INotify Classes</h4>
+                    <p>Property change notification</p>
+                </div>
+                <div class="class-type-item">
+                    <h4>Record Types</h4>
+                    <p>Immutable data models</p>
+                </div>
+                <div class="class-type-item">
+                    <h4>DDD Aggregates</h4>
+                    <p>Domain-driven design patterns</p>
+                </div>
+                <div class="class-type-item">
+                    <h4>Repository Pattern</h4>
+                    <p>Data access abstraction</p>
+                </div>
+                <div class="class-type-item">
+                    <h4>API Controllers</h4>
+                    <p>REST API endpoints</p>
+                </div>
+                <div class="class-type-item">
+                    <h4>Validators</h4>
+                    <p>FluentValidation classes</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="properties">
+            <h2>Properties</h2>
+            <table class="properties-table">
+                <thead>
+                    <tr>
+                        <th>Property</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>outputFileName</code></td>
+                        <td><code>string</code></td>
+                        <td>Name of the output file to be generated</td>
+                        <td>File Management</td>
+                    </tr>
+                    <tr>
+                        <td><code>outputpath</code></td>
+                        <td><code>string</code></td>
+                        <td>Directory path for generated files</td>
+                        <td>File Management</td>
+                    </tr>
+                    <tr>
+                        <td><code>DMEEditor</code></td>
+                        <td><code>IDMEEditor</code></td>
+                        <td>Reference to the data management editor</td>
+                        <td>Platform Integration</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section" id="core-methods">
+            <h2>Core Methods</h2>
+
+            <div class="method-group">
+                <div class="method-group-header">Basic Class Generation</div>
+                <div class="method-group-content">
+                    <div class="method-signature">
+                        public string CreatePOCOClass(string classname, EntityStructure entity, string usingheader, string implementations, string extracode, string outputpath, string nameSpacestring = "TheTechIdea.ProjectClasses", bool GenerateCSharpCodeFiles = true)
+                    </div>
+                    <p>Creates simple POCO (Plain Old CLR Object) classes with basic properties.</p>
+
+                    <div class="method-signature">
+                        public string CreateINotifyClass(EntityStructure entity, string usingheader, string implementations, string extracode, string outputpath, string nameSpacestring = "TheTechIdea.ProjectClasses", bool GenerateCSharpCodeFiles = true)
+                    </div>
+                    <p>Creates classes that implement INotifyPropertyChanged for data binding scenarios.</p>
+
+                    <div class="method-signature">
+                        public string CreatEntityClass(EntityStructure entity, string usingHeader, string extraCode, string outputPath, string namespaceString = "TheTechIdea.ProjectClasses", bool generateFiles = true)
+                    </div>
+                    <p>Creates entity classes that inherit from the Entity base class with property change notifications.</p>
+                    
+                    <div class="code-block">
+// Generate a simple POCO class
+var classCreator = new ClassCreator(dmeEditor);
+var pocoCode = classCreator.CreatePOCOClass(
+    "Customer", 
+    customerEntity, 
+    "using System;", 
+    null, 
+    null, 
+    @"C:\Generated\", 
+    "MyApp.Models"
+);
+
+// Generate an entity class with INotifyPropertyChanged
+var entityCode = classCreator.CreatEntityClass(
+    customerEntity,
+    "using System;\nusing System.ComponentModel;",
+    null,
+    @"C:\Generated\",
+    "MyApp.Entities"
+);
+                    </div>
+                </div>
+            </div>
+
+            <div class="method-group">
+                <div class="method-group-header">Modern C# Features</div>
+                <div class="method-group-content">
+                    <div class="method-signature">
+                        public string CreateRecordClass(string recordName, EntityStructure entity, string outputPath, string namespaceName = "TheTechIdea.ProjectClasses", bool generateFile = true)
+                    </div>
+                    <p>Creates immutable record types using C# 9+ record syntax.</p>
+
+                    <div class="method-signature">
+                        public string CreateNullableAwareClass(string className, EntityStructure entity, string outputPath, string namespaceName = "TheTechIdea.ProjectClasses", bool generateNullableAnnotations = true)
+                    </div>
+                    <p>Creates classes with nullable reference type annotations for better null safety.</p>
+                    
+                    <div class="code-block">
+// Generate a C# record
+var recordCode = classCreator.CreateRecordClass(
+    "CustomerRecord", 
+    customerEntity, 
+    @"C:\Generated\",
+    "MyApp.Records"
+);
+
+// Generate nullable-aware class
+var nullableCode = classCreator.CreateNullableAwareClass(
+    "Customer", 
+    customerEntity, 
+    @"C:\Generated\",
+    "MyApp.Models",
+    generateNullableAnnotations: true
+);
+                    </div>
+                </div>
+            </div>
+
+            <div class="method-group">
+                <div class="method-group-header">DLL and Assembly Creation</div>
+                <div class="method-group-content">
+                    <div class="method-signature">
+                        public string CreateDLL(string dllname, List&lt;EntityStructure&gt; entities, string outputpath, IProgress&lt;PassedArgs&gt; progress, CancellationToken token, string NameSpacestring = "TheTechIdea.ProjectClasses", bool GenerateCSharpCodeFiles = true)
+                    </div>
+                    <p>Creates a compiled DLL from multiple entity structures with progress reporting.</p>
+
+                    <div class="method-signature">
+                        public Assembly CreateAssemblyFromCode(string code)
+                        public Type CreateTypeFromCode(string code, string outputtypename)
+                    </div>
+                    <p>Runtime compilation using Roslyn for dynamic type creation.</p>
+                    
+                    <div class="code-block">
+// Create DLL from multiple entities
+var progress = new Progress&lt;PassedArgs&gt;(args => 
+{
+    Console.WriteLine($"Progress: {args.ParameterString1}");
+});
+
+var result = classCreator.CreateDLL(
+    "MyDataModels",
+    entityList,
+    @"C:\Generated\",
+    progress,
+    CancellationToken.None,
+    "MyApp.Models"
+);
+
+// Runtime compilation
+string dynamicCode = @"
+    public class DynamicClass
+    {
+        public string Property1 { get; set; }
+    }";
+
+var assembly = classCreator.CreateAssemblyFromCode(dynamicCode);
+var dynamicType = classCreator.CreateTypeFromCode(dynamicCode, "DynamicClass");
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section" id="compilation">
+            <h2>Compilation & Assembly</h2>
+
+            <h3>Roslyn Integration</h3>
+            <p>ClassCreator uses Microsoft Roslyn for dynamic compilation:</p>
+            <div class="code-block">
+// Compile from text
+classCreator.CompileClassFromText(sourceCode, outputDllPath);
+
+// Compile from file
+classCreator.GenerateCSharpCode("GeneratedClass.cs");
+
+// Runtime assembly creation
+Assembly dynamicAssembly = classCreator.CreateAssemblyFromCode(csharpCode);
+Type dynamicType = dynamicAssembly.GetType("Namespace.ClassName");
+object instance = Activator.CreateInstance(dynamicType);
+            </div>
+
+            <h3>Batch Processing</h3>
+            <p>Generate multiple classes with progress reporting:</p>
+            <div class="code-block">
+// Progress tracking
+var progress = new Progress&lt;PassedArgs&gt;(args => 
+{
+    switch (args.EventType)
+    {
+        case "Update":
+            Console.WriteLine($"Created: {args.ParameterString1}");
+            Console.WriteLine($"Progress: {args.ParameterInt1}/{args.ParameterInt2}");
+            break;
+        case "Error":
+            Console.WriteLine($"Error: {args.Messege}");
+            break;
+    }
+});
+
+// Batch generation
+string result = classCreator.CreateDLL(
+    "EntityModels",
+    allEntities,
+    outputDirectory,
+    progress,
+    cancellationToken
+);
+            </div>
+        </div>
+
+        <div class="section" id="web-api">
+            <h2>Web API Generation</h2>
+
+            <h3>REST API Controllers</h3>
+            <div class="method-signature">
+                public List&lt;string&gt; GenerateWebApiControllers(string dataSourceName, List&lt;EntityStructure&gt; entities, string outputPath, string namespaceName = "TheTechIdea.ProjectControllers")
+            </div>
+            <p>Generates complete REST API controllers with CRUD operations.</p>
+
+            <div class="code-block">
+// Generate API controllers for multiple entities
+var controllerFiles = classCreator.GenerateWebApiControllers(
+    "MainDatabase",
+    entityList,
+    @"C:\Generated\Controllers\",
+    "MyApp.Controllers"
+);
+
+// Each generated controller includes:
+// - GET /api/[controller] (GetAll)
+// - GET /api/[controller]/{id} (GetById)  
+// - POST /api/[controller] (Create)
+// - PUT /api/[controller]/{id} (Update)
+// - DELETE /api/[controller]/{id} (Delete)
+            </div>
+
+            <h3>Generic API Controller</h3>
+            <div class="method-signature">
+                public string GenerateWebApiControllerForEntityWithParams(string className, string outputPath, string namespaceName = "TheTechIdea.ProjectControllers")
+            </div>
+            <p>Creates a generic controller that accepts data source and entity names as parameters.</p>
+
+            <div class="code-block">
+// Generic controller with runtime entity selection
+var genericController = classCreator.GenerateWebApiControllerForEntityWithParams(
+    "GenericDataController",
+    @"C:\Generated\",
+    "MyApp.Controllers"
+);
+
+// Usage: GET /api/GenericData/MyDatabase/Customers
+// Usage: POST /api/GenericData/MyDatabase/Products
+            </div>
+
+            <h3>Minimal API Generation</h3>
+            <div class="method-signature">
+                public string GenerateMinimalWebApi(string outputPath, string namespaceName = "TheTechIdea.ProjectMinimalAPI")
+            </div>
+            <p>Generates .NET 8+ Minimal API implementations for lightweight services.</p>
+
+            <div class="code-block">
+// Generate minimal API
+var minimalApiCode = classCreator.GenerateMinimalWebApi(
+    @"C:\Generated\",
+    "MyApp.MinimalAPI"
+);
+
+// Generated API includes:
+// - app.MapGet("/api/{dataSource}/{entity}", ...)
+// - app.MapPost("/api/{dataSource}/{entity}", ...)
+// - app.MapPut("/api/{dataSource}/{entity}/{id}", ...)
+// - app.MapDelete("/api/{dataSource}/{entity}/{id}", ...)
+            </div>
+        </div>
+
+        <div class="section" id="modern-patterns">
+            <h2>Modern Patterns</h2>
+
+            <h3>Domain-Driven Design</h3>
+            <div class="method-signature">
+                public string CreateDDDAggregateRoot(EntityStructure entity, string outputPath, string namespaceName = "TheTechIdea.ProjectDomain")
+            </div>
+            <p>Creates immutable aggregate root classes following DDD principles.</p>
+
+            <div class="code-block">
+// Generate DDD aggregate root
+var aggregateCode = classCreator.CreateDDDAggregateRoot(
+    customerEntity,
+    @"C:\Generated\Domain\",
+    "MyApp.Domain"
+);
+
+// Generated aggregate includes:
+// - Immutable properties
+// - Factory methods
+// - Domain behavior placeholders
+// - IAggregateRoot interface
+            </div>
+
+            <h3>Repository Pattern</h3>
+            <div class="method-signature">
+                public string GenerateRepositoryImplementation(EntityStructure entity, string outputPath, string namespaceName = "TheTechIdea.ProjectRepositories", bool interfaceOnly = false)
+            </div>
+            <p>Generates repository interfaces and implementations with async operations.</p>
+
+            <div class="code-block">
+// Generate repository interface and implementation
+var repoCode = classCreator.GenerateRepositoryImplementation(
+    customerEntity,
+    @"C:\Generated\Repositories\",
+    "MyApp.Repositories",
+    interfaceOnly: false
+);
+
+// Generated repository includes:
+// - ICustomerRepository interface
+// - CustomerRepository implementation
+// - Async CRUD operations
+// - Error handling
+            </div>
+
+            <h3>GraphQL Schema</h3>
+            <div class="method-signature">
+                public string GenerateGraphQLSchema(List&lt;EntityStructure&gt; entities, string outputPath, string namespaceName = "TheTechIdea.ProjectGraphQL")
+            </div>
+            <p>Creates HotChocolate GraphQL type definitions, queries, and mutations.</p>
+
+            <div class="code-block">
+// Generate GraphQL schema
+var graphqlSchema = classCreator.GenerateGraphQLSchema(
+    entityList,
+    @"C:\Generated\GraphQL\",
+    "MyApp.GraphQL"
+);
+
+// Generated schema includes:
+// - ObjectType definitions
+// - Query type with getters
+// - Mutation type with CRUD operations
+// - Field descriptions and configurations
+            </div>
+        </div>
+
+        <div class="section" id="validation">
+            <h2>Validation & Testing</h2>
+
+            <h3>FluentValidation</h3>
+            <div class="method-signature">
+                public string GenerateFluentValidators(EntityStructure entity, string outputPath, string namespaceName = "TheTechIdea.ProjectValidators")
+            </div>
+            <p>Creates comprehensive FluentValidation classes based on entity metadata.</p>
+
+            <div class="code-block">
+// Generate FluentValidation validators
+var validatorCode = classCreator.GenerateFluentValidators(
+    customerEntity,
+    @"C:\Generated\Validators\",
+    "MyApp.Validators"
+);
+
+// Generated validator includes:
+// - Required field validation
+// - String length validation
+// - Numeric range validation
+// - Email format validation
+// - Custom business rules
+            </div>
+
+            <h3>Unit Test Templates</h3>
+            <div class="method-signature">
+                public string GenerateUnitTestClass(EntityStructure entity, string outputPath)
+            </div>
+            <p>Creates unit test class templates with mock setups.</p>
+
+            <div class="code-block">
+// Generate unit test class
+var testCode = classCreator.GenerateUnitTestClass(
+    customerEntity,
+    @"C:\Generated\Tests\"
+);
+
+// Generated test class includes:
+// - Test class structure
+// - Mock dependencies
+// - Fact test methods
+// - Setup and teardown
+            </div>
+
+            <h3>Entity Validation</h3>
+            <div class="method-signature">
+                public List&lt;string&gt; ValidateEntityStructure(EntityStructure entity)
+            </div>
+            <p>Validates entity structures before code generation.</p>
+
+            <div class="code-block">
+// Validate before generation
+var validationErrors = classCreator.ValidateEntityStructure(customerEntity);
+if (validationErrors.Any())
+{
+    foreach (var error in validationErrors)
+    {
+        Console.WriteLine($"Validation Error: {error}");
+    }
+    return; // Don't generate with errors
+}
+
+// Proceed with generation
+var classCode = classCreator.CreatePOCOClass(...);
+            </div>
+        </div>
+
+        <div class="section" id="cloud-serverless">
+            <h2>Cloud & Serverless</h2>
+
+            <h3>Supported Cloud Providers</h3>
+            <div class="cloud-providers">
+                <div class="cloud-item">Azure Functions</div>
+                <div class="cloud-item">AWS Lambda</div>
+                <div class="cloud-item">Google Cloud</div>
+            </div>
+
+            <div class="method-signature">
+                public string GenerateServerlessFunctions(EntityStructure entity, string outputPath, CloudProviderType cloudProvider = CloudProviderType.Azure)
+            </div>
+            <p>Generates serverless function implementations for different cloud providers.</p>
+
+            <div class="code-block">
+// Generate Azure Functions
+var azureFunctions = classCreator.GenerateServerlessFunctions(
+    customerEntity,
+    @"C:\Generated\Functions\",
+    CloudProviderType.Azure
+);
+
+// Generated Azure Functions include:
+// - HTTP trigger functions
+// - GetAll function with streaming
+// - GetById function
+// - Create, Update, Delete functions
+// - Error handling and logging
+// - Dependency injection setup
+
+// Generate AWS Lambda functions
+var awsLambdas = classCreator.GenerateServerlessFunctions(
+    customerEntity,
+    @"C:\Generated\Lambda\",
+    CloudProviderType.AWS
+);
+
+// Generated Lambda functions include:
+// - API Gateway integration
+// - Request/response handling
+// - Error management
+// - JSON serialization
+            </code>
+
+            <h3>Cloud Provider Types</h3>
+            <div class="code-block">
+public enum CloudProviderType
+{
+    Azure,
+    AWS,
+    GoogleCloud
+}
+            </div>
+        </div>
+
+        <div class="section" id="frontend">
+            <h2>Frontend Components</h2>
+
+            <h3>Blazor Components</h3>
+            <div class="method-signature">
+                public string GenerateBlazorComponent(EntityStructure entity, string outputPath, string namespaceName = "TheTechIdea.ProjectComponents")
+            </div>
+            <p>Creates complete Blazor components for entity CRUD operations.</p>
+
+            <div class="code-block">
+// Generate Blazor component
+var blazorComponent = classCreator.GenerateBlazorComponent(
+    customerEntity,
+    @"C:\Generated\Components\",
+    "MyApp.Components"
+);
+
+// Generated component includes:
+// - CustomerComponent.razor (UI template)
+// - CustomerComponent.razor.cs (code-behind)
+// - Form fields based on entity structure
+// - Validation and error handling
+// - Save and Cancel operations
+// - Bootstrap styling
+            </div>
+
+            <h3>Component Features</h3>
+            <ul>
+                <li><strong>Automatic Form Generation:</strong> Creates appropriate input types based on field types</li>
+                <li><strong>Data Binding:</strong> Two-way binding with entity properties</li>
+                <li><strong>Validation Integration:</strong> Built-in validation support</li>
+                <li><strong>Event Handling:</strong> Save, cancel, and change events</li>
+                <li><strong>Loading States:</strong> Progress indicators and error messages</li>
+                <li><strong>Responsive Design:</strong> Bootstrap-based responsive layout</li>
+            </ul>
+        </div>
+
+        <div class="section" id="database">
+            <h2>Database & EF Core</h2>
+
+            <h3>Entity Framework Integration</h3>
+            <div class="method-signature">
+                public string GenerateDbContext(List&lt;EntityStructure&gt; entities, string namespaceString, string outputPath)
+                public string GenerateEntityConfiguration(EntityStructure entity, string namespaceString, string outputPath)
+                public string GenerateEFCoreMigration(EntityStructure entity, string outputPath, string namespaceName = "TheTechIdea.ProjectMigrations")
+            </div>
+            <p>Complete EF Core integration with DbContext, configurations, and migrations.</p>
+
+            <div class="code-block">
+// Generate DbContext
+var dbContextCode = classCreator.GenerateDbContext(
+    entityList,
+    "MyApp.Data",
+    @"C:\Generated\Data\"
+);
+
+// Generate entity configuration
+var configCode = classCreator.GenerateEntityConfiguration(
+    customerEntity,
+    "MyApp.Data.Configurations",
+    @"C:\Generated\Data\Configurations\"
+);
+
+// Generate EF Core migration
+var migrationCode = classCreator.GenerateEFCoreMigration(
+    customerEntity,
+    @"C:\Generated\Migrations\",
+    "MyApp.Migrations"
+);
+            </div>
+
+            <h3>Data Access Layer</h3>
+            <div class="method-signature">
+                public string GenerateDataAccessLayer(EntityStructure entity, string outputPath)
+            </div>
+            <p>Creates repository-pattern data access classes.</p>
+
+            <div class="code-block">
+// Generate data access layer
+var dalCode = classCreator.GenerateDataAccessLayer(
+    customerEntity,
+    @"C:\Generated\DataAccess\"
+);
+
+// Generated DAL includes:
+// - Repository interface
+// - CRUD operations
+// - IDataSource integration
+// - Error handling
+            </div>
+        </div>
+
+        <div class="section" id="usage-examples">
+            <h2>Usage Examples</h2>
+
+            <h3>Complete Application Generation</h3>
+            <div class="code-block">
+// Initialize ClassCreator
+var classCreator = new ClassCreator(dmeEditor);
+
+// Define entities
+var entities = new List&lt;EntityStructure&gt; { customerEntity, productEntity, orderEntity };
+
+// 1. Generate domain models
+foreach (var entity in entities)
+{
+    // POCO classes
+    var pocoCode = classCreator.CreatePOCOClass(
+        entity.EntityName,
+        entity,
+        "using System;\nusing System.ComponentModel.DataAnnotations;",
+        null,
+        null,
+        @"C:\Generated\Models\",
+        "MyApp.Models"
+    );
+
+    // Validators
+    var validatorCode = classCreator.GenerateFluentValidators(
+        entity,
+        @"C:\Generated\Validators\",
+        "MyApp.Validators"
+    );
+
+    // Repositories
+    var repoCode = classCreator.GenerateRepositoryImplementation(
+        entity,
+        @"C:\Generated\Repositories\",
+        "MyApp.Repositories"
+    );
+}
+
+// 2. Generate database components
+var dbContextCode = classCreator.GenerateDbContext(
+    entities,
+    "MyApp.Data",
+    @"C:\Generated\Data\"
+);
+
+// 3. Generate API layer
+var apiControllers = classCreator.GenerateWebApiControllers(
+    "MainDatabase",
+    entities,
+    @"C:\Generated\Controllers\",
+    "MyApp.Api.Controllers"
+);
+
+// 4. Generate frontend components
+foreach (var entity in entities)
+{
+    var blazorComponent = classCreator.GenerateBlazorComponent(
+        entity,
+        @"C:\Generated\Components\",
+        "MyApp.Web.Components"
+    );
+}
+
+// 5. Generate cloud functions
+foreach (var entity in entities)
+{
+    var azureFunctions = classCreator.GenerateServerlessFunctions(
+        entity,
+        @"C:\Generated\Functions\",
+        CloudProviderType.Azure
+    );
+}
+
+Console.WriteLine("Complete application generated successfully!");
+            </div>
+
+            <h3>Modern C# Features Example</h3>
+            <div class="code-block">
+// Generate modern C# code
+var classCreator = new ClassCreator(dmeEditor);
+
+// 1. Create record types for data transfer
+var recordCode = classCreator.CreateRecordClass(
+    "CustomerDto",
+    customerEntity,
+    @"C:\Generated\DTOs\",
+    "MyApp.DTOs"
+);
+
+// 2. Create nullable-aware entities
+var nullableEntityCode = classCreator.CreateNullableAwareClass(
+    "Customer",
+    customerEntity,
+    @"C:\Generated\Entities\",
+    "MyApp.Domain.Entities",
+    generateNullableAnnotations: true
+);
+
+// 3. Create DDD aggregate roots
+var aggregateCode = classCreator.CreateDDDAggregateRoot(
+    customerEntity,
+    @"C:\Generated\Domain\",
+    "MyApp.Domain.Aggregates"
+);
+
+// 4. Generate GraphQL schema
+var graphqlSchema = classCreator.GenerateGraphQLSchema(
+    new List&lt;EntityStructure&gt; { customerEntity },
+    @"C:\Generated\GraphQL\",
+    "MyApp.GraphQL"
+);
+
+// 5. Runtime compilation
+string dynamicCode = $@"
+using System;
+namespace MyApp.Runtime
+{{
+    public class Dynamic{customerEntity.EntityName}
+    {{
+        {string.Join("\n", customerEntity.Fields.Select(f => 
+            $"        public {f.fieldtype}? {f.fieldname} {{ get; set; }}"))}
+    }}
+}}";
+
+var assembly = classCreator.CreateAssemblyFromCode(dynamicCode);
+var dynamicType = assembly.GetType($"MyApp.Runtime.Dynamic{customerEntity.EntityName}");
+var instance = Activator.CreateInstance(dynamicType);
+
+Console.WriteLine($"Generated dynamic type: {dynamicType.Name}");
+            </div>
+
+            <h3>Microservices Architecture Generation</h3>
+            <div class="code-block">
+// Generate complete microservice
+public void GenerateMicroservice(EntityStructure entity, string serviceName, string outputPath)
+{
+    var classCreator = new ClassCreator(dmeEditor);
+    var serviceDir = Path.Combine(outputPath, serviceName);
+    
+    // 1. Domain layer
+    var domainDir = Path.Combine(serviceDir, "Domain");
+    var aggregateCode = classCreator.CreateDDDAggregateRoot(
+        entity, domainDir, $"{serviceName}.Domain"
+    );
+    
+    // 2. Application layer
+    var appDir = Path.Combine(serviceDir, "Application");
+    var repoInterface = classCreator.GenerateRepositoryImplementation(
+        entity, appDir, $"{serviceName}.Application.Repositories", interfaceOnly: true
+    );
+    
+    // 3. Infrastructure layer
+    var infraDir = Path.Combine(serviceDir, "Infrastructure");
+    var repoImplementation = classCreator.GenerateRepositoryImplementation(
+        entity, infraDir, $"{serviceName}.Infrastructure.Repositories"
+    );
+    var dbContext = classCreator.GenerateDbContext(
+        new List&lt;EntityStructure&gt; { entity },
+        $"{serviceName}.Infrastructure.Data",
+        infraDir
+    );
+    
+    // 4. API layer
+    var apiDir = Path.Combine(serviceDir, "API");
+    var controllers = classCreator.GenerateWebApiControllers(
+        "Database",
+        new List&lt;EntityStructure&gt; { entity },
+        apiDir,
+        $"{serviceName}.API.Controllers"
+    );
+    
+    // 5. Tests
+    var testDir = Path.Combine(serviceDir, "Tests");
+    var unitTests = classCreator.GenerateUnitTestClass(entity, testDir);
+    
+    // 6. Cloud deployment
+    var functionsDir = Path.Combine(serviceDir, "Functions");
+    var azureFunctions = classCreator.GenerateServerlessFunctions(
+        entity, functionsDir, CloudProviderType.Azure
+    );
+    
+    Console.WriteLine($"Microservice {serviceName} generated at {serviceDir}");
+}
+
+// Usage
+GenerateMicroservice(customerEntity, "CustomerService", @"C:\Microservices\");
+GenerateMicroservice(productEntity, "ProductService", @"C:\Microservices\");
+GenerateMicroservice(orderEntity, "OrderService", @"C:\Microservices\");
+            </div>
+
+            <h3>Advanced Template Usage</h3>
+            <div class="code-block">
+// Custom template generation
+var classCreator = new ClassCreator(dmeEditor);
+
+// Define custom template with business logic
+string customTemplate = @"
+private :FIELDTYPE _:FIELDNAMEValue;
+
+public :FIELDTYPE :FIELDNAME
+{
+    get => _:FIELDNAMEValue;
+    set
+    {
+        if (_:FIELDNAMEValue != value)
+        {
+            ValidateProperty(value, nameof(:FIELDNAME));
+            _:FIELDNAMEValue = value;
+            OnPropertyChanged();
+        }
+    }
+}";
+
+// Custom using statements
+string usingStatements = @"
+using System;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;";
+
+// Custom implementations
+string implementations = "INotifyPropertyChanged, IDataErrorInfo";
+
+// Custom extra code
+string extraCode = @"
+public event PropertyChangedEventHandler PropertyChanged;
+
+protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+{
+    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+}
+
+protected virtual void ValidateProperty(object value, string propertyName)
+{
+    // Custom validation logic here
+    var context = new ValidationContext(this) { MemberName = propertyName };
+    Validator.ValidateProperty(value, context);
+}
+
+public string Error => string.Empty;
+
+public string this[string columnName]
+{
+    get
+    {
+        try
+        {
+            var property = GetType().GetProperty(columnName);
+            var value = property?.GetValue(this);
+            var context = new ValidationContext(this) { MemberName = columnName };
+            Validator.ValidateProperty(value, context);
+            return null;
+        }
+        catch (ValidationException ex)
+        {
+            return ex.Message;
+        }
+    }
+}";
+
+// Generate with custom template
+var customClassCode = classCreator.CreateClassFromTemplate(
+    customerEntity.EntityName,
+    customerEntity,
+    customTemplate,
+    usingStatements,
+    implementations,
+    extraCode,
+    @"C:\Generated\Custom\",
+    "MyApp.CustomModels"
+);
+
+Console.WriteLine("Custom template class generated with advanced validation!");
+            </div>
+
+            <div class="tip">
+                <strong>?? Best Practice:</strong> Always validate entity structures before generation and use progress reporting for batch operations. Consider using dependency injection for DMEEditor in production scenarios.
+            </div>
+
+            <div class="warning">
+                <strong>?? Performance Note:</strong> Large batch generations can be memory intensive. Use appropriate batch sizes and consider generating to separate directories for better organization.
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Advanced Features</h2>
+            
+            <h3>Entity Comparison</h3>
+            <div class="method-signature">
+                public string GenerateEntityDiffReport(EntityStructure originalEntity, EntityStructure newEntity)
+            </div>
+            <p>Generate detailed difference reports between entity versions for change tracking and migration planning.</p>
+
+            <h3>gRPC Service Generation</h3>
+            <div class="method-signature">
+                public (string ProtoFile, string ServiceImplementation) GenerateGrpcService(EntityStructure entity, string outputPath, string namespaceName)
+            </div>
+            <p>Creates complete gRPC service definitions with protocol buffer files and service implementations.</p>
+
+            <h3>Documentation Generation</h3>
+            <div class="method-signature">
+                public string GenerateEntityDocumentation(EntityStructure entity, string outputPath)
+            </div>
+            <p>Generates comprehensive XML documentation for entities including field descriptions and metadata.</p>
+
+            <h2>Integration Capabilities</h2>
+            <ul>
+                <li><strong>Roslyn Compilation:</strong> Runtime compilation and assembly generation</li>
+                <li><strong>Progress Reporting:</strong> Real-time feedback for long-running operations</li>
+                <li><strong>Template System:</strong> Flexible, customizable code templates</li>
+                <li><strong>Multi-Target:</strong> Support for multiple .NET versions and frameworks</li>
+                <li><strong>Cloud Integration:</strong> Native support for major cloud providers</li>
+                <li><strong>Modern Patterns:</strong> DDD, CQRS, Repository, and Factory patterns</li>
+            </ul>
+
+            <h2>Production Considerations</h2>
+            <ul>
+                <li><strong>Error Handling:</strong> Comprehensive error handling and logging</li>
+                <li><strong>Validation:</strong> Entity structure validation before generation</li>
+                <li><strong>Performance:</strong> Optimized for large-scale generation operations</li>
+                <li><strong>Extensibility:</strong> Plugin architecture for custom generators</li>
+                <li><strong>Versioning:</strong> Support for multiple code generation versions</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
