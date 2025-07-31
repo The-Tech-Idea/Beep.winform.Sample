@@ -1,7 +1,7 @@
 using Autofac;
-using Beep.Python.Model;
-using Beep.Python.RuntimeEngine.Helpers;
-using Beep.Python.RuntimeEngine.Services;
+//using Beep.Python.Model;
+//using Beep.Python.RuntimeEngine.Helpers;
+//using Beep.Python.RuntimeEngine.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Reflection;
@@ -47,34 +47,34 @@ namespace WinFormsApp.UI.Test
             // Register Beep Winform Controls and Managers
             RegisterBeepWinformServices.RegisterControlManager(builder);
             // Looking for Python runtimes
-            PythonEnvironmentDiagnostics.PythonRunTimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
-            if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
-            {
-                pythonRuntimePath= PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath;
-                PythonServicesAutofac.RegisterPythonServices(builder, PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath);
-            }
-           // Build the Autofac container
-            var container = builder.Build();
+           // PythonEnvironmentDiagnostics.PythonRunTimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
+           // if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
+           // {
+           //     pythonRuntimePath= PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath;
+           //     PythonServicesAutofac.RegisterPythonServices(builder, PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath);
+           // }
+           //// Build the Autofac container
+           var container = builder.Build();
 
-            // if you want to use the Python runtime, you can initialize it here
-            if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
-            {
-                PythonServicesAutofac.ConfigureContainer(container);
+           // // if you want to use the Python runtime, you can initialize it here
+           // if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
+           // {
+           //     PythonServicesAutofac.ConfigureContainer(container);
 
-                // Verify the path using diagnostics
-                var diagnostics = PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
-                if (diagnostics.PythonFound)
-                {
-                    // Initialize the runtime manager
-                    var manager = PythonServicesAutofac.GetPythonRunTimeManager();
-                    // You may need to pass additional config objects as required by Initialize
-                    manager.Initialize(pythonRuntimePath);
-                }
-                else
-                {
-                    // Handle error: Python not found at the path
-                }
-            }
+           //     // Verify the path using diagnostics
+           //     var diagnostics = PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
+           //     if (diagnostics.PythonFound)
+           //     {
+           //         // Initialize the runtime manager
+           //         var manager = PythonServicesAutofac.GetPythonRunTimeManager();
+           //         // You may need to pass additional config objects as required by Initialize
+           //         manager.Initialize(pythonRuntimePath);
+           //     }
+           //     else
+           //     {
+           //         // Handle error: Python not found at the path
+           //     }
+           // }
             
             // Resolve and configure services
             BeepServices.ConfigureServices(container);
