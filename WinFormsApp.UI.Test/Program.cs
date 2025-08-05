@@ -1,4 +1,4 @@
-using Autofac;
+
 //using Beep.Python.Model;
 //using Beep.Python.RuntimeEngine.Helpers;
 //using Beep.Python.RuntimeEngine.Services;
@@ -76,56 +76,106 @@ namespace WinFormsApp.UI.Test
         }
 
         static string pythonRuntimePath= "C:\\Python311"; // Set your Python runtime path here
+        //private static void StartApp()
+        //{
+        //    // Create Autofac ContainerBuilder
+        //    var builder = new ContainerBuilder();
+            
+        //    // Register Beep Services with Autofac
+        //    BeepServices.RegisterServices(builder);
+
+        //    // Register Beep Winform Controls and Managers
+        //    RegisterBeepWinformServices.RegisterControlManager(builder);
+        //    // Looking for Python runtimes
+        //   // PythonEnvironmentDiagnostics.PythonRunTimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
+        //   // if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
+        //   // {
+        //   //     pythonRuntimePath= PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath;
+        //   //     PythonServicesAutofac.RegisterPythonServices(builder, PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath);
+        //   // }
+        //   //// Build the Autofac container
+        //   var container = builder.Build();
+
+        //   // // if you want to use the Python runtime, you can initialize it here
+        //   // if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
+        //   // {
+        //   //     PythonServicesAutofac.ConfigureContainer(container);
+
+        //   //     // Verify the path using diagnostics
+        //   //     var diagnostics = PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
+        //   //     if (diagnostics.PythonFound)
+        //   //     {
+        //   //         // Initialize the runtime manager
+        //   //         var manager = PythonServicesAutofac.GetPythonRunTimeManager();
+        //   //         // You may need to pass additional config objects as required by Initialize
+        //   //         manager.Initialize(pythonRuntimePath);
+        //   //     }
+        //   //     else
+        //   //     {
+        //   //         // Handle error: Python not found at the path
+        //   //     }
+        //   // }
+            
+        //    // Resolve and configure services
+        //    BeepServices.ConfigureServices(container);
+        //    BeepThemesManager.InitializeThemes();
+
+        //    BeepServices.beepService.LoadServices();
+        //    BeepServices.beepService.LoadHandlers();
+
+
+        //    // Configure AppManager
+
+        //    BeepServices.AppManager.Title = "Beep Data Management Platform";
+        //    BeepServices.AppManager.Theme = "DefaultTheme";
+        //    BeepServices.AppManager.WaitFormType = typeof(BeepWait);
+        //    BeepServices.AppManager.IconUrl = "simpleinfoapps.ico";
+        //    BeepServices.AppManager.LogoUrl = "simpleinfoapps.svg";
+        //    BeepServices.AppManager.HomePageName = "MainFrm";
+        //    BeepServices.AppManager.HomePageDescription = "homePageDescription";
+          
+
+        //    // Start the Application
+        //    BeepAppServices.visManager = BeepServices.AppManager;
+        //    BeepAppServices.beepService = BeepServices.beepService;
+        //    BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
+        //    BeepAppServices.RegisterRoutes();
+        //    //Application.Run(new Form1());
+        //    // Show the home page
+        //    BeepServices.ShowHome();
+          
+        //    // Dispose services (if needed)
+        //    BeepServices.DisposeServices();
+        //}
         private static void StartApp()
         {
-            // Create Autofac ContainerBuilder
-            var builder = new ContainerBuilder();
-            
-            // Register Beep Services with Autofac
+            // Create HostApplicationBuilder
+            var builder = Host.CreateApplicationBuilder();
+
+            // Register Beep Services using the existing method
             BeepServices.RegisterServices(builder);
 
             // Register Beep Winform Controls and Managers
-            RegisterBeepWinformServices.RegisterControlManager(builder);
-            // Looking for Python runtimes
-           // PythonEnvironmentDiagnostics.PythonRunTimes=  PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
-           // if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
-           // {
-           //     pythonRuntimePath= PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath;
-           //     PythonServicesAutofac.RegisterPythonServices(builder, PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath);
-           // }
-           //// Build the Autofac container
-           var container = builder.Build();
+            RegisterBeepWinformServices.RegisterControlManager(builder.Services);
 
-           // // if you want to use the Python runtime, you can initialize it here
-           // if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
-           // {
-           //     PythonServicesAutofac.ConfigureContainer(container);
+            // Looking for Python runtimes (same as original)
+            // PythonEnvironmentDiagnostics.PythonRunTimes = PythonEnvironmentDiagnostics.GetPythonRuntimesInstallations();
+            // if (PythonEnvironmentDiagnostics.PythonRunTimes.Count > 0)
+            // {
+            //     pythonRuntimePath = PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath;
+            //     // Need to adapt Python registration for IServiceCollection
+            //     // PythonServicesAutofac.RegisterPythonServices(builder.Services, PythonEnvironmentDiagnostics.PythonRunTimes[0].RuntimePath);
+            // }
 
-           //     // Verify the path using diagnostics
-           //     var diagnostics = PythonEnvironmentDiagnostics.RunFullDiagnostics(pythonRuntimePath);
-           //     if (diagnostics.PythonFound)
-           //     {
-           //         // Initialize the runtime manager
-           //         var manager = PythonServicesAutofac.GetPythonRunTimeManager();
-           //         // You may need to pass additional config objects as required by Initialize
-           //         manager.Initialize(pythonRuntimePath);
-           //     }
-           //     else
-           //     {
-           //         // Handle error: Python not found at the path
-           //     }
-           // }
-            
-            // Resolve and configure services
-            BeepServices.ConfigureServices(container);
+            // Build the host
+            var host = builder.Build();
+
+            // Configure services using the existing method
+            BeepServices.ConfigureServices(host);
             BeepThemesManager.InitializeThemes();
-
             BeepServices.beepService.LoadServices();
             BeepServices.beepService.LoadHandlers();
-
-
-            // Configure AppManager
-
+            // Configure AppManager (exact same configuration)
             BeepServices.AppManager.Title = "Beep Data Management Platform";
             BeepServices.AppManager.Theme = "DefaultTheme";
             BeepServices.AppManager.WaitFormType = typeof(BeepWait);
@@ -133,20 +183,27 @@ namespace WinFormsApp.UI.Test
             BeepServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepServices.AppManager.HomePageName = "MainFrm";
             BeepServices.AppManager.HomePageDescription = "homePageDescription";
-          
 
-            // Start the Application
+            // Start the Application (exact same)
             BeepAppServices.visManager = BeepServices.AppManager;
             BeepAppServices.beepService = BeepServices.beepService;
+            BeepAppServices.beepService.vis = BeepAppServices.visManager;
             BeepAppServices.StartLoading(new string[3] { "BeepEnterprize", "TheTechIdea", "Beep" });
             BeepAppServices.RegisterRoutes();
-            //Application.Run(new Form1());
+
+
+           
             // Show the home page
             BeepServices.ShowHome();
-          
-            // Dispose services (if needed)
-            BeepServices.DisposeServices();
-        }
 
+            // Keep the application running
+          //  Application.Run();
+
+            // Dispose services when application exits
+            BeepServices.DisposeServices();
+
+            // Dispose the host
+            host.Dispose();
+        }
     }
 }

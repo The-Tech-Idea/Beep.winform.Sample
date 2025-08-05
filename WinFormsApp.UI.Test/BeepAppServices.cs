@@ -1,7 +1,7 @@
 ﻿using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Addin;
-using Autofac;
+
 using TheTechIdea.Beep.Winform.Controls.Helpers;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Vis.Modules;
