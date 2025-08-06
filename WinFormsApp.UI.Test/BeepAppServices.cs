@@ -75,14 +75,7 @@ namespace WinFormsApp.UI.Test
             Task.Delay(1000).Wait();
             visManager.CloseWaitForm();
             Task.Delay(3000).Wait();
-            // Load Configurations
-            //  beepService.LoadConfigurations("Beep");
-
-            // Load Environments
-            //  beepService.LoadEnvironments();
-
-            // Config main Page if you want ot use main page use in Beep Platform
-            // AppManager.ShowMainPage();
+          
         }
         public static void RegisterRoutes()
         {
@@ -98,13 +91,7 @@ namespace WinFormsApp.UI.Test
             visManager.RoutingManager.RegisterRouteByName("uc_DataEdit", "uc_DataEdit");
             visManager.RoutingManager.RegisterRouteByName("uc_CopyEntities", "uc_CopyEntities");
             visManager.RoutingManager.RegisterRouteByName("uc_DataConnections", "uc_DataConnections");
-            //uc_DataConnections
-            //uc_CreateLocalDB uc_FileConnections
-            //uc_CopyEntities
-            //uc_LocalDBConnections
-            //uc_DataEdit
-            //uc_FunctiontoFunctionMapping
-
+          
         }
 
 
