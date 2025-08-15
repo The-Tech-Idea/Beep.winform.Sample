@@ -13,6 +13,7 @@ using TheTechIdea.Beep.Winform.Controls.Integrated;
 using TheTechIdea.Beep.Winform.Default.Views;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.ConfigUtil;
+using TheTechIdea.Beep.Desktop.Common.Helpers;
 
 namespace WinFormsApp.UI.Test
 {
@@ -39,7 +40,7 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.RegisterServices(builder);
 
             // Register Beep Winform Controls and Managers
-            RegisterBeepWinformServices.RegisterDialogManager(builder.Services);
+         
 
             // Build the host
             var host = builder.Build();
@@ -56,15 +57,15 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepDesktopServices.AppManager.HomePageName = "MainFrm";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
-            
+
             // Subscribe to events for custom routes and resources
-   
             SubscribeToBeepEvents();
-        
-            
-       
+
+
+
+
             var result = BeepDesktopServices.StartLoading(new string[] { "BeepEnterprize", "TheTechIdea", "Beep" }, showWaitForm: true);
-            
+          
             if (result.Flag == Errors.Ok)
             {
                 Debug.WriteLine("3 - Loading completed successfully");
@@ -93,13 +94,82 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.OnRegisterRoutes += (routingManager) =>
             {
                 Debug.WriteLine("Registering custom routes...");
-                routingManager.RegisterRouteByName("MainFrm", "MainFrm");
-                routingManager.RegisterRouteByName("uc_ConnnectionDrivers", "uc_ConnnectionDrivers");
-                routingManager.RegisterRouteByName("uc_FilterForm", "uc_FilterForm");
-                routingManager.RegisterRouteByName("uc_RDBMSConnections", "uc_RDBMSConnections");
-                routingManager.RegisterRouteByName("uc_FileConnections", "uc_FileConnections");
-                routingManager.RegisterRouteByName("uc_EntityEditor", "uc_EntityEditor");
-                routingManager.RegisterRouteByName("uc_CreateLocalDB", "uc_CreateLocalDB");
+                try
+                {
+                    routingManager.RegisterRouteByName("MainFrm", "MainFrm");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error registering route: MainFrm {ex.Message}");
+                    MessageBox.Show($"Error registering route: MainFrm {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                try
+                {
+                    routingManager.RegisterRouteByName("uc_ConnnectionDrivers", "uc_ConnnectionDrivers");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error registering route: uc_ConnnectionDrivers {ex.Message}");
+                    MessageBox.Show($"Error registering route: uc_ConnnectionDrivers  {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                try
+                {
+                    routingManager.RegisterRouteByName("uc_FilterForm", "uc_FilterForm");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error registering route: uc_FilterForm {ex.Message}");
+                    MessageBox.Show($"Error registering route:  uc_FilterForm {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                try
+                {
+                    routingManager.RegisterRouteByName("uc_RDBMSConnections", "uc_RDBMSConnections");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error registering route: uc_RDBMSConnections {ex.Message}");
+                    MessageBox.Show($"Error registering route: uc_RDBMSConnections {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                try
+                {
+                    routingManager.RegisterRouteByName("uc_FileConnections", "uc_FileConnections");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error registering route:uc_FileConnections  {ex.Message}");
+                    MessageBox.Show($"Error registering route: uc_FileConnections {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                try
+                {
+                    routingManager.RegisterRouteByName("uc_EntityEditor", "uc_EntityEditor");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error registering route: uc_EntityEditor  {ex.Message}");
+                    MessageBox.Show($"Error registering route: uc_EntityEditor {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+                try
+                {
+                    routingManager.RegisterRouteByName("uc_CreateLocalDB", "uc_CreateLocalDB");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"Error registering route: uc_CreateLocalDB  {ex.Message}");
+                    MessageBox.Show($"Error registering route: uc_CreateLocalDB {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+
+
+
+             
+
                 routingManager.RegisterRouteByName("uc_diagraming", "uc_diagraming");
                 routingManager.RegisterRouteByName("uc_FunctiontoFunctionMapping", "uc_FunctiontoFunctionMapping");
                 routingManager.RegisterRouteByName("uc_DataEdit", "uc_DataEdit");
