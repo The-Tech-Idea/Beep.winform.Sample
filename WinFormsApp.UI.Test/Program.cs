@@ -1,4 +1,4 @@
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 using System.Reflection;
@@ -14,6 +14,11 @@ using TheTechIdea.Beep.Winform.Default.Views;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Desktop.Common.Helpers;
+using WinFormsApp.UI.Test.SampleBusinessApp.Data;
+using WinFormsApp.UI.Test.SampleBusinessApp.Views;
+using WinFormsApp.UI.Test.SampleBusinessApp.Forms; // Add this for MainBusinessForm
+using WinFormsApp.UI.Test.SampleBusinessApp.Services; // Add this for services
+using TheTechIdea.Beep.Desktop.Common.Util.Configuration; // ✅ UPDATED: Changed to new location
 
 namespace WinFormsApp.UI.Test
 {
@@ -23,24 +28,80 @@ namespace WinFormsApp.UI.Test
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        static void Main(string[] args) // ✅ NEW: Accept command line arguments
         {
             // CRITICAL: Set DPI awareness FIRST, before any Windows API calls
             RegisterBeepWinformServices.SetHighDpiMode();
 
-            StartApp();
+            // ✅ NEW: Initialize configuration system early
+            InitializeConfiguration(args);
+
+            StartSampleBusinessApp();
+        }
+        #region Environment and Configuration
+        /// <summary>
+        /// ✅ NEW: Initialize the configuration system with environment detection
+        /// </summary>
+        private static void InitializeConfiguration(string[] args)
+        {
+            try
+            {
+                // Parse environment from command line args
+                string environment = ParseEnvironmentFromArgs(args);
+
+                // Set environment variable if provided via command line
+                if (!string.IsNullOrEmpty(environment))
+                {
+                    Environment.SetEnvironmentVariable("BEEP_ENVIRONMENT", environment);
+                }
+
+                // Initialize the configuration system
+                var config = UserSettingsManager.Configuration;
+
+                Debug.WriteLine($"Sample Business App - Environment: {config.Environment}");
+                Debug.WriteLine($"Sample Business App - Configuration loaded from: {config.Environment}");
+
+                // Log configuration details
+                var dbSettings = config.Settings.Database;
+                Debug.WriteLine($"Database: {dbSettings.DataSourceType} - {dbSettings.ConnectionString}");
+
+                var authSettings = config.Settings.Authentication;
+                Debug.WriteLine($"Authentication: RememberCredentials={authSettings.RememberUserCredentials}, " +
+                              $"AutoLogin={authSettings.AutoLoginInDevelopment}");
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Configuration initialization error: {ex.Message}");
+                // Continue with defaults if configuration fails
+            }
         }
 
-        private static void StartApp()
+        /// <summary>
+        /// ✅ NEW: Parse environment from command line arguments
+        /// </summary>
+        private static string ParseEnvironmentFromArgs(string[] args)
+        {
+            for (int i = 0; i < args.Length - 1; i++)
+            {
+                if (args[i].Equals("--environment", StringComparison.OrdinalIgnoreCase) ||
+                    args[i].Equals("-e", StringComparison.OrdinalIgnoreCase) ||
+                    args[i].Equals("--env", StringComparison.OrdinalIgnoreCase))
+                {
+                    return args[i + 1];
+                }
+            }
+            return null;
+        }
+        #endregion
+
+
+        private static void StartSampleBusinessApp()
         {
             // Create HostApplicationBuilder
             var builder = Host.CreateApplicationBuilder();
 
             // Register Beep Services using the existing method
             BeepDesktopServices.RegisterServices(builder);
-
-            // Register Beep Winform Controls and Managers
-         
 
             // Build the host
             var host = builder.Build();
@@ -49,6 +110,8 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.ConfigureServices(host);
             BeepDesktopServices.ConfigureControlsandMenus();
 
+            // ✅ NEW: Configure AppManager using configuration settings
+            var config = UserSettingsManager.Configuration;
             // Configure AppManager (exact same configuration)
             BeepDesktopServices.AppManager.Title = "Beep Data Management Platform";
             BeepDesktopServices.AppManager.Theme = "DefaultTheme";
@@ -58,26 +121,35 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.AppManager.HomePageName = "MainFrm";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
 
+
             // Subscribe to events for custom routes and resources
             SubscribeToBeepEvents();
 
-
-
-
             var result = BeepDesktopServices.StartLoading(new string[] { "BeepEnterprize", "TheTechIdea", "Beep" }, showWaitForm: true);
-          
+
             if (result.Flag == Errors.Ok)
             {
-                Debug.WriteLine("3 - Loading completed successfully");
+                Debug.WriteLine("Sample Business App - Loading completed successfully");
             }
             else
             {
-                Debug.WriteLine($"3 - Loading failed: {result.Message}");
+                Debug.WriteLine($"Sample Business App - Loading failed: {result.Message}");
                 MessageBox.Show($"Loading failed: {result.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
+                // ✅ NEW: Cleanup configuration on error
+                UserSettingsManager.Dispose();
                 return;
             }
+
+            // Ensure SQLite DB and seed demo data for SampleBusinessApp
+            //   Seed.EnsureCreatedAndSeeded(BeepDesktopServices.AppManager.DMEEditor);
+
+            // Start the Sample Business App
+            //  RunSampleBusinessApp();
             BeepDesktopServices.AppManager.ShowHome();
-            
+            // ✅ NEW: Cleanup configuration system
+            UserSettingsManager.Dispose();
+
             // Dispose services when application exits
             BeepDesktopServices.DisposeServices();
 
@@ -85,129 +157,238 @@ namespace WinFormsApp.UI.Test
             host.Dispose();
         }
 
+        private static void RunSampleBusinessApp()
+        {
+            
+
+            try
+            {
+                // ✅ NEW: Get configuration for application behavior
+                var config = UserSettingsManager.Configuration;
+                
+                Debug.WriteLine($"Sample Business App - Starting in {config.Environment} environment");
+                
+                // Register our services with dependency injection
+                var serviceCollection = new ServiceCollection();
+                serviceCollection.AddSingleton(BeepDesktopServices.AppManager.DMEEditor);
+                
+                // Create a wrapper for IBeepService from IAppManager
+                serviceCollection.AddSingleton<IBeepService>(provider => 
+                {
+                    var beepService = new BeepService();
+                    beepService.DMEEditor = BeepDesktopServices.AppManager.DMEEditor;
+                    beepService.vis = BeepDesktopServices.AppManager;
+                    beepService.lg = BeepDesktopServices.AppManager.DMEEditor.Logger;
+                    return beepService;
+                });
+                
+                serviceCollection.AddScoped<AuthService>();
+                serviceCollection.AddScoped<CustomerService>();
+                
+                var serviceProvider = serviceCollection.BuildServiceProvider();
+                
+                // Start the main business application
+                using (var mainForm = new MainBusinessForm(serviceProvider))
+                {
+                    Application.Run(mainForm);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Sample Business App - Error: {ex.Message}");
+                
+                // ✅ NEW: Enhanced error reporting with environment context
+                var config = UserSettingsManager.Configuration;
+                var errorMessage = config.Environment.Equals("Development", StringComparison.OrdinalIgnoreCase)
+                    ? $"Application Error in {config.Environment}:\n\n{ex.Message}\n\nStack Trace:\n{ex.StackTrace}"
+                    : $"Application Error: {ex.Message}";
+                
+                MessageBox.Show(errorMessage, $"Sample Business App Error ({config.Environment})", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        #region Subscribing to Events for Beep FrameWork to load images and font and register routes
         /// <summary>
         /// Subscribe to events before calling StartApp()
         /// </summary>
         private static void SubscribeToBeepEvents()
         {
-            // Add custom routes
+            // Add custom routes for Sample Business App
             BeepDesktopServices.OnRegisterRoutes += (routingManager) =>
             {
-                Debug.WriteLine("Registering custom routes...");
-                try
-                {
-                    routingManager.RegisterRouteByName("MainFrm", "MainFrm");
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error registering route: MainFrm {ex.Message}");
-                    MessageBox.Show($"Error registering route: MainFrm {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Debug.WriteLine("Registering Sample Business App routes...");
 
-                }
-                try
-                {
-                    routingManager.RegisterRouteByName("uc_ConnnectionDrivers", "uc_ConnnectionDrivers");
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error registering route: uc_ConnnectionDrivers {ex.Message}");
-                    MessageBox.Show($"Error registering route: uc_ConnnectionDrivers  {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                // Core application views
+                RegisterSampleBusinessAppRoutes(routingManager);
 
-                }
-                try
-                {
-                    routingManager.RegisterRouteByName("uc_FilterForm", "uc_FilterForm");
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error registering route: uc_FilterForm {ex.Message}");
-                    MessageBox.Show($"Error registering route:  uc_FilterForm {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                try
-                {
-                    routingManager.RegisterRouteByName("uc_RDBMSConnections", "uc_RDBMSConnections");
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error registering route: uc_RDBMSConnections {ex.Message}");
-                    MessageBox.Show($"Error registering route: uc_RDBMSConnections {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                try
-                {
-                    routingManager.RegisterRouteByName("uc_FileConnections", "uc_FileConnections");
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error registering route:uc_FileConnections  {ex.Message}");
-                    MessageBox.Show($"Error registering route: uc_FileConnections {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                try
-                {
-                    routingManager.RegisterRouteByName("uc_EntityEditor", "uc_EntityEditor");
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error registering route: uc_EntityEditor  {ex.Message}");
-                    MessageBox.Show($"Error registering route: uc_EntityEditor {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-                try
-                {
-                    routingManager.RegisterRouteByName("uc_CreateLocalDB", "uc_CreateLocalDB");
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"Error registering route: uc_CreateLocalDB  {ex.Message}");
-                    MessageBox.Show($"Error registering route: uc_CreateLocalDB {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                }
-
-
-
-
-             
-
-                routingManager.RegisterRouteByName("uc_diagraming", "uc_diagraming");
-                routingManager.RegisterRouteByName("uc_FunctiontoFunctionMapping", "uc_FunctiontoFunctionMapping");
-                routingManager.RegisterRouteByName("uc_DataEdit", "uc_DataEdit");
-                routingManager.RegisterRouteByName("uc_CopyEntities", "uc_CopyEntities");
-                routingManager.RegisterRouteByName("uc_DataConnections", "uc_DataConnections");
+                // Register standard Beep routes
+                RegisterStandardBeepRoutes(routingManager);
             };
 
-            // Add custom graphics paths
+            // Add custom graphics paths for Sample Business App
             BeepDesktopServices.OnLoadGraphics += (graphicsLocations) =>
             {
-                Debug.WriteLine("Adding custom graphics paths...");
-                // Only add paths that actually exist to avoid errors
-                var customPaths = new[] { @"C:\MyApp\Graphics", @".\Resources\Images" };
+                Debug.WriteLine("Adding Sample Business App graphics paths...");
+                // Add Sample Business App specific paths
+                var customPaths = new[]
+                {
+                    @".\SampleBusinessApp\Resources\Images",
+                    @".\Resources\Images",
+                    @"C:\SampleBusinessApp\Graphics"
+                };
+
                 foreach (var path in customPaths)
                 {
                     if (Directory.Exists(path))
                     {
                         graphicsLocations.Add(path);
-                        Debug.WriteLine($"Added graphics path: {path}");
+                        Debug.WriteLine($"Added Sample Business App graphics path: {path}");
                     }
                 }
             };
 
-            // Add custom font paths
+            // Add custom font paths for Sample Business App
             BeepDesktopServices.OnLoadFonts += (fontLocations) =>
             {
-                Debug.WriteLine("Adding custom font paths...");
-                // Only add paths that actually exist to avoid errors
-                var customPaths = new[] { @"C:\MyApp\Fonts", @".\Resources\Fonts" };
+                Debug.WriteLine("Adding Sample Business App font paths...");
+                var customPaths = new[]
+                {
+                    @".\SampleBusinessApp\Resources\Fonts",
+                    @".\Resources\Fonts",
+                    @"C:\SampleBusinessApp\Fonts"
+                };
+
                 foreach (var path in customPaths)
                 {
                     if (Directory.Exists(path))
                     {
                         fontLocations.Add(path);
-                        Debug.WriteLine($"Added font path: {path}");
+                        Debug.WriteLine($"Added Sample Business App font path: {path}");
                     }
                 }
             };
         }
+        #endregion
+        #region Routes Registertion
+        /// <summary>
+        /// Register all Sample Business App routes with proper error handling
+        /// </summary>
+        private static void RegisterSampleBusinessAppRoutes(IRoutingManager routingManager)
+        {
+            var routes = new Dictionary<string, string>
+            {
+                // Core Application Views
+                { "MainForm", "MainForm" },
+                { "LoginForm", "LoginForm" },
+                
+                // Dashboard and Analytics
+                { "DashboardView", "DashboardView" },
+                { "AnalyticsView", "AnalyticsView" },
+                { "ChartsShowcaseView", "ChartsShowcaseView" },
+                { "MetricsView", "MetricsView" },
+                
+                // Data Management
+                { "ProductsView", "ProductsView" },
+                { "CustomersView", "CustomersView" },
+                { "OrdersView", "OrdersView" },
+                { "InventoryView", "InventoryView" },
+                
+                // Task & Project Management
+                { "TasksView", "TasksView" },
+                { "ProjectKanbanView", "ProjectKanbanView" },
+                { "CalendarView", "CalendarView" },
+                { "TimeTrackingView", "TimeTrackingView" },
+                
+                // Reports and Business Intelligence
+                { "ReportsView", "ReportsView" },
+                { "KPIDashboardView", "KPIDashboardView" },
+                { "BusinessIntelligenceView", "BusinessIntelligenceView" },
+                
+                // Configuration and Settings
+                { "SettingsView", "SettingsView" },
+                { "UserProfileView", "UserProfileView" },
+                { "SystemConfigView", "SystemConfigView" },
+                { "ThemeManagerView", "ThemeManagerView" },
+                
+                // Enhanced Control Demos
+                { "EnhancedProgressBarDemo", "EnhancedProgressBarDemo" },
+                { "EnhancedNumericUpDownDemo", "EnhancedNumericUpDownDemo" },
+                { "EnhancedStepperBarDemo", "EnhancedStepperBarDemo" },
+                { "EnhancedStarRatingDemo", "EnhancedStarRatingDemo" },
+                { "EnhancedDatePickerDemo", "EnhancedDatePickerDemo" },
+                
+                // Specialized Views
+                { "WizardShowcaseView", "WizardShowcaseView" },
+                { "FormControlsShowcaseView", "FormControlsShowcaseView" },
+                { "LayoutControlsShowcaseView", "LayoutControlsShowcaseView" },
+                { "BusinessComponentsShowcaseView", "BusinessComponentsShowcaseView" },
+                { "DataVisualizationShowcaseView", "DataVisualizationShowcaseView" }
+            };
+
+            foreach (var route in routes)
+            {
+                try
+                {
+                    var result = routingManager.RegisterRouteByName(route.Key, route.Value);
+                    if (result.Flag == Errors.Ok)
+                    {
+                        Debug.WriteLine($"✅ Successfully registered route: {route.Key} -> {route.Value}");
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"❌ Failed to register route {route.Key}: {result.Message}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"❌ Exception registering route {route.Key}: {ex.Message}");
+                }
+            }
+        }
+
+        /// <summary>
+        /// Register standard Beep framework routes
+        /// </summary>
+        private static void RegisterStandardBeepRoutes(IRoutingManager routingManager)
+        {
+            var standardRoutes = new Dictionary<string, string>
+            {
+                { "MainFrm", "MainFrm" },
+                { "uc_ConnnectionDrivers", "uc_ConnnectionDrivers" },
+                { "uc_FilterForm", "uc_FilterForm" },
+                { "uc_RDBMSConnections", "uc_RDBMSConnections" },
+                { "uc_FileConnections", "uc_FileConnections" },
+                { "uc_EntityEditor", "uc_EntityEditor" },
+                { "uc_CreateLocalDB", "uc_CreateLocalDB" },
+                { "uc_diagraming", "uc_diagraming" },
+                { "uc_FunctiontoFunctionMapping", "uc_FunctiontoFunctionMapping" },
+                { "uc_DataEdit", "uc_DataEdit" },
+                { "uc_CopyEntities", "uc_CopyEntities" },
+                { "uc_DataConnections", "uc_DataConnections" }
+            };
+
+            foreach (var route in standardRoutes)
+            {
+                try
+                {
+                    var result = routingManager.RegisterRouteByName(route.Key, route.Value);
+                    if (result.Flag == Errors.Ok)
+                    {
+                        Debug.WriteLine($"✅ Successfully registered standard route: {route.Key}");
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"❌ Failed to register standard route {route.Key}: {result.Message}");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"❌ Exception registering standard route {route.Key}: {ex.Message}");
+                }
+            }
+        }
+        #endregion
+
     }
 }
