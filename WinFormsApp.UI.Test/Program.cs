@@ -155,6 +155,7 @@ namespace WinFormsApp.UI.Test
 
             // Dispose the host
             host.Dispose();
+            Application.Exit();
         }
 
         private static void RunSampleBusinessApp()
