@@ -7,9 +7,6 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationManifest>app.manifest</ApplicationManifest>
-    <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
-    <ApplicationUseCompatibleTextRendering>false</ApplicationUseCompatibleTextRendering>
-    <ApplicationVisualStyles>true</ApplicationVisualStyles>
   </PropertyGroup>
 
   <ItemGroup>
