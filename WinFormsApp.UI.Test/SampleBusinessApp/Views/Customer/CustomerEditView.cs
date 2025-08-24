@@ -15,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using WinFormsApp.UI.Test.SampleBusinessApp.Models;
 using WinFormsApp.UI.Test.SampleBusinessApp.Services;
 using TheTechIdea.Beep.Utilities;
+using TheTechIdea.Beep.Winform.Controls.TextFields;
 
 namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
 {

@@ -16,6 +16,7 @@ using WinFormsApp.UI.Test.SampleBusinessApp.Models;
 using WinFormsApp.UI.Test.SampleBusinessApp.ViewModels;
 using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Utilities;
+using TheTechIdea.Beep.Winform.Controls.TextFields;
 
 namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Product
 {
