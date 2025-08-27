@@ -65,7 +65,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.Nodes", "..\Bee
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Container.Shared", "..\Beep.Containers\Beep.Container.Shared\TheTechIdea.Beep.Container.Shared.csproj", "{1E5CD966-9BF3-E71B-3FB7-64E3FDA8C684}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.Services.MsDependency", "..\Beep.Python\Beep.Python.Services.MsDependency\Beep.Python.Services.MsDependency.csproj", "{A17085A7-5AB4-BD90-4891-C86518101270}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Python.Services", "..\Beep.Python\Beep.Python.Services.MsDependency\Beep.Python.Services.csproj", "{A17085A7-5AB4-BD90-4891-C86518101270}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_solution_items", "_solution_items", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 	ProjectSection(SolutionItems) = preProject

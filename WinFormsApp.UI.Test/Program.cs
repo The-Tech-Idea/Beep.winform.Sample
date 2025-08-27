@@ -4,21 +4,22 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using TheTechIdea.Beep.Addin;
+using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Desktop.Common;
+using TheTechIdea.Beep.Desktop.Common.Helpers;
+using TheTechIdea.Beep.Desktop.Common.Util.Configuration; // ✅ UPDATED: Changed to new location
+using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
+using TheTechIdea.Beep.Winform.Controls.Forms;
 using TheTechIdea.Beep.Winform.Controls.Helpers;
 using TheTechIdea.Beep.Winform.Controls.Integrated;
 using TheTechIdea.Beep.Winform.Default.Views;
-using TheTechIdea.Beep.Utilities;
-using TheTechIdea.Beep.ConfigUtil;
-using TheTechIdea.Beep.Desktop.Common.Helpers;
 using WinFormsApp.UI.Test.SampleBusinessApp.Data;
-using WinFormsApp.UI.Test.SampleBusinessApp.Views;
 using WinFormsApp.UI.Test.SampleBusinessApp.Forms; // Add this for MainBusinessForm
 using WinFormsApp.UI.Test.SampleBusinessApp.Services; // Add this for services
-using TheTechIdea.Beep.Desktop.Common.Util.Configuration; // ✅ UPDATED: Changed to new location
+using WinFormsApp.UI.Test.SampleBusinessApp.Views;
 
 namespace WinFormsApp.UI.Test
 {
@@ -31,7 +32,7 @@ namespace WinFormsApp.UI.Test
         static void Main(string[] args) // ✅ NEW: Accept command line arguments
         {
             // CRITICAL: Set DPI awareness FIRST, before any Windows API calls
-            RegisterBeepWinformServices.SetHighDpiMode();
+           RegisterBeepWinformServices.SetHighDpiMode();
 
             // ✅ NEW: Initialize configuration system early
             InitializeConfiguration(args);
@@ -147,6 +148,7 @@ namespace WinFormsApp.UI.Test
             // Start the Sample Business App
             //  RunSampleBusinessApp();
             BeepDesktopServices.AppManager.ShowHome();
+           // Application.Run(new BeepFormAdvanced());
             // ✅ NEW: Cleanup configuration system
             UserSettingsManager.Dispose();
 
@@ -221,7 +223,7 @@ namespace WinFormsApp.UI.Test
                 Debug.WriteLine("Registering Sample Business App routes...");
 
                 // Core application views
-                RegisterSampleBusinessAppRoutes(routingManager);
+             //   RegisterSampleBusinessAppRoutes(routingManager);
 
                 // Register standard Beep routes
                 RegisterStandardBeepRoutes(routingManager);
