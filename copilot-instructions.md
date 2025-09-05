@@ -10,3 +10,7 @@
 []: # 8. Ensure the code is optimized for performance and maintainability.
 []: # 9. Document any assumptions or decisions made during the implementation.
 []: # 10. Review the code for any potential improvements or refactoring opportunities.
+# 11 Always use plan.md as a reference for the project requirements and specifications.
+# 12 Winform is ui in this solution
+# 13 Use async/await for asynchronous operations where applicable.
+# 14 Always use TheTechidea.Beep.Winform.Controls namespace for UI controls.
