@@ -1,12 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Threading;
-using TheTechIdea.Beep.Editor.ETLEditor;
+using TheTechIdea.Beep.Editor.ETL;
 using TheTechIdea.Beep.Utilities;
 using System.Linq;
+using TheTechIdea.Beep.DataBase;
+using TheTechIdea.Beep.Workflow.Mapping;
 
-namespace TheTechIdea.Beep.Editor.ETLEditor
+namespace TheTechIdea.Beep.Editor.ETL
 {
+    /// <summary>
+    /// Helper class for ETL script generation operations
+    /// Encapsulates script creation logic for better organization and testability
+    /// </summary>
     internal class ETLScriptHelper
     {
         private readonly IDMEEditor _dme;
@@ -18,6 +24,9 @@ namespace TheTechIdea.Beep.Editor.ETLEditor
             _etl = etl; // may be null in some tests
         }
 
+        /// <summary>
+        /// Gets create entity script for a list of entity names
+        /// </summary>
         public List<ETLScriptDet> GetCreateEntityScript(IDataSource ds, List<string> entities, IProgress<PassedArgs> progress, CancellationToken token, bool copydata = false)
         {
             if (ds == null) throw new ArgumentNullException(nameof(ds));
@@ -39,6 +48,9 @@ namespace TheTechIdea.Beep.Editor.ETLEditor
             return rt;
         }
 
+        /// <summary>
+        /// Gets create entity script for a list of EntityStructure objects
+        /// </summary>
         public List<ETLScriptDet> GetCreateEntityScript(IDataSource Dest, List<EntityStructure> entities, IProgress<PassedArgs> progress, CancellationToken token, bool copydata = false)
         {
             _dme.ErrorObject.Flag = Errors.Ok;
@@ -73,6 +85,9 @@ namespace TheTechIdea.Beep.Editor.ETLEditor
             return retval;
         }
 
+        /// <summary>
+        /// Generates an ETL script detail object from an EntityStructure
+        /// </summary>
         public ETLScriptDet GenerateScript(EntityStructure item, string destSource, DDLScriptType scriptType)
         {
             var upscript = new ETLScriptDet();
@@ -87,6 +102,9 @@ namespace TheTechIdea.Beep.Editor.ETLEditor
             return upscript;
         }
 
+        /// <summary>
+        /// Gets copy data entity script for entities
+        /// </summary>
         public List<ETLScriptDet> GetCopyDataEntityScript(IDataSource Dest, List<EntityStructure> entities, IProgress<PassedArgs> progress, CancellationToken token)
         {
             _dme.ErrorObject.Flag = Errors.Ok;
