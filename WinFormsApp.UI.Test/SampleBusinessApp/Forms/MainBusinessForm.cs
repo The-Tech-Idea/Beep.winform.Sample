@@ -148,7 +148,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             });
 
             // Assign to UI Manager
-            _uiManager.BeepAppBar = _menuBar;
+            _uiManager.BeepAppBar= _menuBar;
             _uiManager.BeepSideMenu = _sideMenu;
 
             this.ResumeLayout(false);
