@@ -102,7 +102,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SDKExtensions", "SDKExtensi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.Winform.Extensions", "..\Beep.VS.Extensions\Beep.Winform.Extensions\Beep.Winform.Extensions.csproj", "{5A582A32-9118-67BA-E428-88E4ED7AF00E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Controls.Design.Server", "..\Beep.VS.Extensions\TheTechIdea.Beep.Winform.Controls.Design.Server\TheTechIdea.Beep.Winform.Controls.Design.Server.csproj", "{99E29AF0-B33B-A796-B60C-DC1FDABE610D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Controls.Design.Server", "..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Design.Server\TheTechIdea.Beep.Winform.Controls.Design.Server.csproj", "{00615566-0A2E-A64E-CCFE-E16D1252FCD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -764,22 +764,22 @@ Global
 		{5A582A32-9118-67BA-E428-88E4ED7AF00E}.Release|x86.ActiveCfg = Release|Any CPU
 		{5A582A32-9118-67BA-E428-88E4ED7AF00E}.Release|x86.Build.0 = Release|Any CPU
 		{5A582A32-9118-67BA-E428-88E4ED7AF00E}.Release|x86.Deploy.0 = Release|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Debug|arm64.ActiveCfg = Debug|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Debug|arm64.Build.0 = Debug|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Debug|x64.Build.0 = Debug|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Debug|x86.Build.0 = Debug|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Release|arm64.ActiveCfg = Release|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Release|arm64.Build.0 = Release|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Release|x64.ActiveCfg = Release|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Release|x64.Build.0 = Release|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Release|x86.ActiveCfg = Release|Any CPU
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D}.Release|x86.Build.0 = Release|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Debug|arm64.Build.0 = Debug|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Debug|x64.Build.0 = Debug|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Debug|x86.Build.0 = Debug|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Release|arm64.ActiveCfg = Release|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Release|arm64.Build.0 = Release|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Release|x64.ActiveCfg = Release|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Release|x64.Build.0 = Release|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Release|x86.ActiveCfg = Release|Any CPU
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -809,7 +809,7 @@ Global
 		{F6F37C39-8BED-874E-DAF0-41BCFB09F6B5} = {6CBB6C99-32CA-4ABF-A6BA-AA4DAEC13DF0}
 		{BF858D69-0AFB-F32E-0962-A92CC5ECA73D} = {AAF6A74C-9589-4C18-9AD4-0DF15910E2FF}
 		{5A582A32-9118-67BA-E428-88E4ED7AF00E} = {CDC00188-AC15-4FAB-888C-0C16BCF546F1}
-		{99E29AF0-B33B-A796-B60C-DC1FDABE610D} = {CDC00188-AC15-4FAB-888C-0C16BCF546F1}
+		{00615566-0A2E-A64E-CCFE-E16D1252FCD6} = {CDC00188-AC15-4FAB-888C-0C16BCF546F1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
