@@ -11,7 +11,7 @@ using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
 using TheTechIdea.Beep.Winform.Controls.Models;
 using TheTechIdea.Beep.Winform.Default.Views.Template;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using WinFormsApp.UI.Test.SampleBusinessApp.Models;
 using WinFormsApp.UI.Test.SampleBusinessApp.Services;
 using TheTechIdea.Beep.Utilities;

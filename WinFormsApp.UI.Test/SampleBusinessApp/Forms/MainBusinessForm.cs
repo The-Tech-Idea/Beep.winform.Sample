@@ -7,7 +7,7 @@ using TheTechIdea.Beep.Winform.Controls.Managers;
 using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Vis.Modules;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.ConfigUtil;

@@ -9,7 +9,7 @@ using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Default.Views.Template;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.ConfigUtil;
