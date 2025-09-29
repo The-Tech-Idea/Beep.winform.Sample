@@ -10,6 +10,7 @@ using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
+ 
 using TheTechIdea.Beep.Winform.Default.Views.Template;
 using WinFormsApp.UI.Test.SampleBusinessApp.Models;
 using WinFormsApp.UI.Test.SampleBusinessApp.Services;
