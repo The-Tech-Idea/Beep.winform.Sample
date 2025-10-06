@@ -61,7 +61,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Settings
             var themeLbl = new BeepLabel { Text = "Theme:", Location = new Point(16, 20), AutoSize = true, Theme = this.Theme };
             _themeCombo = new BeepComboBox { Location = new Point(16, 44), Size = new Size(240, 30), Theme = this.Theme };
             _themeCombo.Items.Add(new TheTechIdea.Beep.Winform.Controls.Models.SimpleItem { Text = "BusinessProfessional", Value = "BusinessProfessional", Name = "BusinessProfessional" });
-            _themeCombo.Items.Add(new TheTechIdea.Beep.Winform.Controls.Models.SimpleItem { Text = "DefaultTheme", Value = "DefaultTheme", Name = "DefaultTheme" });
+            _themeCombo.Items.Add(new TheTechIdea.Beep.Winform.Controls.Models.SimpleItem { Text = "DefaultType", Value = "DefaultType", Name = "DefaultType" });
             _themeCombo.Items.Add(new TheTechIdea.Beep.Winform.Controls.Models.SimpleItem { Text = "DarkTheme", Value = "DarkTheme", Name = "DarkTheme" });
             _themeCombo.SelectedIndex = 0;
 

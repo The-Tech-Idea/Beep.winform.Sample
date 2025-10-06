@@ -115,7 +115,7 @@ namespace WinFormsApp.UI.Test
             var config = UserSettingsManager.Configuration;
             // Configure AppManager (exact same configuration)
             BeepDesktopServices.AppManager.Title = "Beep Data Management Platform";
-            BeepDesktopServices.AppManager.Theme = "DefaultTheme";
+            BeepDesktopServices.AppManager.Theme = "DefaultType";
             BeepDesktopServices.AppManager.WaitFormType = typeof(BeepWait);
             BeepDesktopServices.AppManager.IconUrl = "simpleinfoapps.ico";
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
