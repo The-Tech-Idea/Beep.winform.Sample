@@ -7,9 +7,9 @@ using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Vis.Modules;
-using TheTechIdea.Beep.Vis.Modules.Managers;
+
 using TheTechIdea.Beep.Winform.Controls;
- 
+using TheTechIdea.Beep.Winform.Controls.ComboBoxes;
 using TheTechIdea.Beep.Winform.Default.Views.Template;
 
 namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Settings

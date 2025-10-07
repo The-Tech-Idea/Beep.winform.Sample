@@ -7,7 +7,7 @@ using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Vis.Modules;
 using System.IO;
 using System.Linq;
-using TheTechIdea.Beep.Vis.Modules.Managers;
+
 using TheTechIdea.Beep.Desktop.Common.Util;
 
 namespace WinFormsApp.UI.Test

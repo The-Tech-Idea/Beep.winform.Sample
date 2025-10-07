@@ -18,7 +18,8 @@ using WinFormsApp.UI.Test.SampleBusinessApp.Services;
 using TheTechIdea.Beep.Winform.Controls.Models;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Winform.Controls.TextFields;
- 
+using TheTechIdea.Beep.Winform.Controls.ComboBoxes;
+
 
 namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
 {

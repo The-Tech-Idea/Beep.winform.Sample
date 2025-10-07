@@ -8,6 +8,7 @@ using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Desktop.Common.Helpers;
+using TheTechIdea.Beep.Desktop.Common.Util;
 using TheTechIdea.Beep.Desktop.Common.Util.Configuration; // ✅ UPDATED: Changed to new location
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis.Modules;
@@ -121,7 +122,13 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepDesktopServices.AppManager.HomePageName = "MainFrm";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
-
+            SimpleItemFactory.SetDelegates(HandlersFactory.GlobalMenuItemsProvider,
+                HandlersFactory.RunFunctionHandler,
+                HandlersFactory.RunFunctionWithTreeHandler,
+                HandlersFactory.RunMethodFromObjectHandler,
+                HandlersFactory.RunMethodFromExtensionWithTreeHandler,
+                HandlersFactory.RunMethodFromExtensionHandler
+            );
 
             // Subscribe to events for custom routes and resources
             SubscribeToBeepEvents();

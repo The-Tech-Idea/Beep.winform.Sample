@@ -18,6 +18,7 @@ using TheTechIdea.Beep.Editor;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Winform.Controls.TextFields;
 using TheTechIdea.Beep.Winform.Controls.Numerics;
+using TheTechIdea.Beep.Winform.Controls.ComboBoxes;
 
 
 namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Product
