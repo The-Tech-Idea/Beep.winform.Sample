@@ -31,7 +31,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                 ds?.Openconnection();
                 
                 var sql = @"
-                    SELECT Id, Name, Email, Phone, Address, City, PostalCode, Country,
+                    SELECT ID, Name, Email, Phone, Address, City, PostalCode, Country,
                            CompanyName, ContactPerson, TaxId, CreditLimit, PaymentTerms,
                            Status, CustomerType, CreatedAt, UpdatedAt, LastContactDate
                     FROM Customers 
@@ -55,11 +55,11 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                 ds?.Openconnection();
                 
                 var sql = @"
-                    SELECT Id, Name, Email, Phone, Address, City, PostalCode, Country,
+                    SELECT ID, Name, Email, Phone, Address, City, PostalCode, Country,
                            CompanyName, ContactPerson, TaxId, CreditLimit, PaymentTerms,
                            Status, CustomerType, CreatedAt, UpdatedAt, LastContactDate
                     FROM Customers 
-                    WHERE Id = " + id;
+                    WHERE ID = " + id;
                 
                 return ds?.GetData<Customer>(sql)?.FirstOrDefault();
             }
@@ -83,7 +83,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                 
                 var searchPattern = $"%{searchTerm.Replace("'", "''")}%";
                 var sql = @"
-                    SELECT Id, Name, Email, Phone, Address, City, PostalCode, Country,
+                    SELECT ID, Name, Email, Phone, Address, City, PostalCode, Country,
                            CompanyName, ContactPerson, TaxId, CreditLimit, PaymentTerms,
                            Status, CustomerType, CreatedAt, UpdatedAt, LastContactDate
                     FROM Customers 
@@ -172,7 +172,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                         CompanyName = @CompanyName, ContactPerson = @ContactPerson, TaxId = @TaxId, 
                         CreditLimit = @CreditLimit, PaymentTerms = @PaymentTerms,
                         Status = @Status, CustomerType = @CustomerType, UpdatedAt = @UpdatedAt
-                    WHERE Id = @Id";
+                    WHERE ID = @ID";
 
                 customer.UpdatedAt = DateTime.UtcNow;
                 ds?.SaveData(sql, customer)?.Wait();
@@ -204,7 +204,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                 var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as IRDBSource;
                 ds?.Openconnection();
                 
-                var sql = "DELETE FROM Customers WHERE Id = @Id";
+                var sql = "DELETE FROM Customers WHERE ID = @ID";
                 ds?.SaveData(sql, new { Id = id })?.Wait();
 
                 return new ErrorsInfo { Flag = Errors.Ok, Message = "Customer deleted successfully" };
@@ -228,7 +228,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                 var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as IRDBSource;
                 ds?.Openconnection();
                 
-                var sql = "UPDATE Customers SET LastContactDate = @LastContactDate WHERE Id = @Id";
+                var sql = "UPDATE Customers SET LastContactDate = @LastContactDate WHERE ID = @ID";
                 ds?.SaveData(sql, new { Id = customerId, LastContactDate = DateTime.UtcNow })?.Wait();
 
                 return new ErrorsInfo { Flag = Errors.Ok };
@@ -249,7 +249,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                 ds?.Openconnection();
                 
                 var sql = @"
-                    SELECT Id, Name, Email, Phone, Address, City, PostalCode, Country,
+                    SELECT ID, Name, Email, Phone, Address, City, PostalCode, Country,
                            CompanyName, ContactPerson, TaxId, CreditLimit, PaymentTerms,
                            Status, CustomerType, CreatedAt, UpdatedAt, LastContactDate
                     FROM Customers 
@@ -274,7 +274,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                 ds?.Openconnection();
                 
                 var sql = @"
-                    SELECT Id, Name, Email, Phone, Address, City, PostalCode, Country,
+                    SELECT ID, Name, Email, Phone, Address, City, PostalCode, Country,
                            CompanyName, ContactPerson, TaxId, CreditLimit, PaymentTerms,
                            Status, CustomerType, CreatedAt, UpdatedAt, LastContactDate
                     FROM Customers 
@@ -375,7 +375,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Services
                 var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as IRDBSource;
                 ds?.Openconnection();
                 
-                var sql = "SELECT COUNT(*) FROM Customers WHERE Email = @Email AND Id != @ExcludeId";
+                var sql = "SELECT COUNT(*) FROM Customers WHERE Email = @Email AND ID != @ExcludeId";
                 var result = ds?.GetScalar(sql.Replace("@Email", $"'{email.Replace("'", "''")}'")
                                               .Replace("@ExcludeId", excludeId.ToString()));
                 

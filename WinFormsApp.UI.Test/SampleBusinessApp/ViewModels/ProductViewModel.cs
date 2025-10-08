@@ -21,7 +21,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.ViewModels
         {
             var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as IRDBSource;
             ds?.Openconnection();
-            return ds?.GetData<Product>("SELECT Id, Name, Description, Price, Stock, CreatedAt, UpdatedAt FROM Products ORDER BY Id DESC") ?? new List<Product>();
+            return ds?.GetData<Product>("SELECT ID, Name, Description, Price, Stock, CreatedAt, UpdatedAt FROM Products ORDER BY ID DESC") ?? new List<Product>();
         }
 
         // Added missing GetProducts method (alias for GetAll for consistency)
@@ -35,7 +35,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.ViewModels
             var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as IRDBSource;
             ds?.Openconnection();
             // Dapper in IRDBSource supports parameters via object only in SaveData; for GetData we inline integer safely
-            return ds?.GetData<Product>($"SELECT Id, Name, Description, Price, Stock, CreatedAt, UpdatedAt FROM Products WHERE Id = {id}")?.FirstOrDefault();
+            return ds?.GetData<Product>($"SELECT ID, Name, Description, Price, Stock, CreatedAt, UpdatedAt FROM Products WHERE ID = {id}")?.FirstOrDefault();
         }
 
         public ErrorsInfo Create(string name, string? description, decimal price, int stock)
@@ -72,7 +72,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.ViewModels
             var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as IRDBSource;
             ds?.Openconnection();
 
-            var sql = @"UPDATE Products SET Name=@Name, Description=@Description, Price=@Price, Stock=@Stock, UpdatedAt=@UpdatedAt WHERE Id=@Id";
+            var sql = @"UPDATE Products SET Name=@Name, Description=@Description, Price=@Price, Stock=@Stock, UpdatedAt=@UpdatedAt WHERE ID=@ID";
             ds?.SaveData(sql, new { Id = id, Name = name, Description = description, Price = price, Stock = stock, UpdatedAt = DateTime.UtcNow })?.Wait();
 
             return new ErrorsInfo { Flag = Errors.Ok };
@@ -89,7 +89,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.ViewModels
         {
             var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as IRDBSource;
             ds?.Openconnection();
-            var sql = "DELETE FROM Products WHERE Id=@Id";
+            var sql = "DELETE FROM Products WHERE ID=@ID";
             ds?.SaveData(sql, new { Id = id })?.Wait();
             return new ErrorsInfo { Flag = Errors.Ok };
         }
@@ -111,10 +111,10 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.ViewModels
             var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as IRDBSource;
             ds?.Openconnection();
             
-            var sql = @"SELECT Id, Name, Description, Price, Stock, CreatedAt, UpdatedAt 
+            var sql = @"SELECT ID, Name, Description, Price, Stock, CreatedAt, UpdatedAt 
                        FROM Products 
                        WHERE Name LIKE @SearchTerm OR Description LIKE @SearchTerm 
-                       ORDER BY Id DESC";
+                       ORDER BY ID DESC";
             
             var searchPattern = $"%{searchTerm}%";
             return ds?.GetData<Product>(sql.Replace("@SearchTerm", $"'{searchPattern}'")) ?? new List<Product>();

@@ -99,7 +99,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Product
         {
             var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as TheTechIdea.Beep.DataBase.IRDBSource;
             ds?.Openconnection();
-            _categories = ds?.GetData<Category>("SELECT Id, Name, Description, CreatedAt FROM Categories ORDER BY Name") ?? new List<Category>();
+            _categories = ds?.GetData<Category>("SELECT ID, Name, Description, CreatedAt FROM Categories ORDER BY Name") ?? new List<Category>();
             ApplyFilter();
         }
 
@@ -155,7 +155,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Product
             }
             var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as TheTechIdea.Beep.DataBase.IRDBSource;
             ds?.Openconnection();
-            ds?.SaveData("UPDATE Categories SET Name=@Name WHERE Id=@Id", new { Name = name, Id = _selected.Id })?.Wait();
+            ds?.SaveData("UPDATE Categories SET Name=@Name WHERE ID=@ID", new { Name = name, Id = _selected.Id })?.Wait();
             LoadData();
         }
 
@@ -165,7 +165,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Product
             if (MessageBox.Show($"Delete category '{_selected.Name}'?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
             var ds = Data.AppDbContext.EnsureSqliteDataSource(_editor) as TheTechIdea.Beep.DataBase.IRDBSource;
             ds?.Openconnection();
-            ds?.SaveData("DELETE FROM Categories WHERE Id=@Id", new { Id = _selected.Id })?.Wait();
+            ds?.SaveData("DELETE FROM Categories WHERE ID=@ID", new { Id = _selected.Id })?.Wait();
             LoadData();
         }
 

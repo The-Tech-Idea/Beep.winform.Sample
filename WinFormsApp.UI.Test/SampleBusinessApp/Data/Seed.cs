@@ -51,7 +51,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Data
             // Users table
             ds.ExecuteSql(@"
                 CREATE TABLE IF NOT EXISTS Users (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     Username TEXT UNIQUE NOT NULL,
                     PasswordHash TEXT NOT NULL,
                     Email TEXT,
@@ -64,7 +64,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Data
             // Customers table
             ds.ExecuteSql(@"
                 CREATE TABLE IF NOT EXISTS Customers (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     Name TEXT NOT NULL,
                     Email TEXT NOT NULL,
                     Phone TEXT,
@@ -87,7 +87,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Data
             // Categories table
             ds.ExecuteSql(@"
                 CREATE TABLE IF NOT EXISTS Categories (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     Name TEXT NOT NULL,
                     Description TEXT,
                     Color TEXT,
@@ -98,7 +98,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Data
             // Products table (enhanced)
             ds.ExecuteSql(@"
                 CREATE TABLE IF NOT EXISTS Products (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     Name TEXT NOT NULL,
                     Description TEXT,
                     Price REAL NOT NULL,
@@ -110,13 +110,13 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Data
                     IsActive INTEGER DEFAULT 1,
                     CreatedAt TEXT NOT NULL,
                     UpdatedAt TEXT,
-                    FOREIGN KEY (CategoryId) REFERENCES Categories(Id)
+                    FOREIGN KEY (CategoryId) REFERENCES Categories(ID)
                 )");
 
             // Tasks table
             ds.ExecuteSql(@"
                 CREATE TABLE IF NOT EXISTS Tasks (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     Title TEXT NOT NULL,
                     Description TEXT,
                     Status TEXT DEFAULT 'Pending',
@@ -129,7 +129,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Data
             // Invoices table (basic)
             ds.ExecuteSql(@"
                 CREATE TABLE IF NOT EXISTS Invoices (
-                    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
                     InvoiceNumber TEXT NOT NULL,
                     OrderId INTEGER,
                     CustomerId INTEGER NOT NULL,
