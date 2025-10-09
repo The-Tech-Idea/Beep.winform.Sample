@@ -13,6 +13,7 @@ using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.ConfigUtil;
 using WinFormsApp.UI.Test.SampleBusinessApp.Services;
 using TheTechIdea.Beep.Winform.Controls.AppBars;
+using TheTechIdea.Beep.Winform.Controls.Forms;
 
 namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
 {
