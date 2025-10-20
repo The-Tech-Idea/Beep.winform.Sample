@@ -1,19 +1,20 @@
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
-using TheTechIdea.Beep.Winform.Controls;
-using TheTechIdea.Beep.Winform.Controls.Managers;
-using TheTechIdea.Beep.Editor;
-using TheTechIdea.Beep.Container.Services;
-using TheTechIdea.Beep.Vis.Modules;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using TheTechIdea.Beep.Vis;
-using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.ConfigUtil;
-using WinFormsApp.UI.Test.SampleBusinessApp.Services;
+using TheTechIdea.Beep.Container.Services;
+using TheTechIdea.Beep.Editor;
+using TheTechIdea.Beep.Utilities;
+using TheTechIdea.Beep.Vis;
+using TheTechIdea.Beep.Vis.Modules;
+using TheTechIdea.Beep.Winform.Controls;
 using TheTechIdea.Beep.Winform.Controls.AppBars;
 using TheTechIdea.Beep.Winform.Controls.Forms;
+using TheTechIdea.Beep.Winform.Controls.Forms.ModernForm;
+using TheTechIdea.Beep.Winform.Controls.Managers;
+using WinFormsApp.UI.Test.SampleBusinessApp.Services;
 
 namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
 {
@@ -21,7 +22,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
     /// Main business application form inheriting from BeepiForm
     /// Provides enterprise navigation and layout management
     /// </summary>
-    public partial class MainBusinessForm : BeepiForm
+    public partial class MainBusinessForm : BeepiFormPro
     {
         #region Fields
         private readonly IServiceProvider _services;
@@ -67,7 +68,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             this.WindowState = FormWindowState.Maximized;
 
             // Initialize UI Manager
-            _uiManager = beepuiManager1;
+          
             _uiManager.Initialize(this);
             _uiManager.Title = "SampleBusinessApp";
             _uiManager.LogoImage = "TheTechIdea.Beep.Winform.Controls.GFX.SVG.cool.svg";
