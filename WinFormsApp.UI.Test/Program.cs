@@ -32,8 +32,9 @@ namespace WinFormsApp.UI.Test
         [STAThread]
         static void Main(string[] args) // ✅ NEW: Accept command line arguments
         {
+            Application.EnableVisualStyles();
             // CRITICAL: Set DPI awareness FIRST, before any Windows API calls
-           RegisterBeepWinformServices.SetHighDpiMode();
+            RegisterBeepWinformServices.SetHighDpiMode();
 
             // ✅ NEW: Initialize configuration system early
             InitializeConfiguration(args);
