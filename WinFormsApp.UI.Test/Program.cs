@@ -32,9 +32,9 @@ namespace WinFormsApp.UI.Test
         [STAThread]
         static void Main(string[] args) // ✅ NEW: Accept command line arguments
         {
-            Application.EnableVisualStyles();
+         //   Application.EnableVisualStyles();
             // CRITICAL: Set DPI awareness FIRST, before any Windows API calls
-            RegisterBeepWinformServices.SetHighDpiMode();
+        //    RegisterBeepWinformServices.SetHighDpiMode();
 
             // ✅ NEW: Initialize configuration system early
             InitializeConfiguration(args);
@@ -366,6 +366,7 @@ namespace WinFormsApp.UI.Test
             var standardRoutes = new Dictionary<string, string>
             {
                 { "MainFrm", "MainFrm" },
+                { "Form1", "Form1" },
                 { "uc_ConnnectionDrivers", "uc_ConnnectionDrivers" },
                 { "uc_FilterForm", "uc_FilterForm" },
                 { "uc_RDBMSConnections", "uc_RDBMSConnections" },
