@@ -2,10 +2,14 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>net8.0-windows7.0</TargetFramework>
+	  <TargetFrameworks>net8.0;net8.0-windows7.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <UseWindowsForms>true</UseWindowsForms>
+	  <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(TargetFramework)' == 'net8.0-windows7.0'">
+	  <UseWindowsForms>true</UseWindowsForms>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,7 +18,16 @@
     <PackageReference Include="Svg" Version="3.4.7" />
   </ItemGroup>
 
+  <!-- Always include program entry -->
   <ItemGroup>
-    <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
+    <Compile Include="Program.cs" />
   </ItemGroup>
+
+  <!-- Only include Windows-specific benchmarks and references when building windows TFM -->
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows7.0'">
+    <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
+    <Compile Include="TreesRenderBenchmark.cs" />
+    <!-- If you want to include other benchmarks for windows target, add them here -->
+  </ItemGroup>
+
 </Project>
