@@ -16,6 +16,7 @@ using TheTechIdea.Beep.Winform.Controls;
 using TheTechIdea.Beep.Winform.Controls.Forms;
 using TheTechIdea.Beep.Winform.Controls.Helpers;
 using TheTechIdea.Beep.Winform.Controls.Integrated;
+using TheTechIdea.Beep.Winform.Controls.Styling;
 using TheTechIdea.Beep.Winform.Default.Views;
 using WinFormsApp.UI.Test.SampleBusinessApp.Data;
 using WinFormsApp.UI.Test.SampleBusinessApp.Forms; // Add this for MainBusinessForm
@@ -162,7 +163,7 @@ namespace WinFormsApp.UI.Test
 
             // Dispose services when application exits
             BeepDesktopServices.DisposeServices();
-
+            PaintersFactory.ClearCache();
             // Dispose the host
             host.Dispose();
             Application.Exit();
