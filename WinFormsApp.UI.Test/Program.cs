@@ -13,11 +13,15 @@ using TheTechIdea.Beep.Desktop.Common.Util.Configuration; // ✅ UPDATED: Change
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
+using TheTechIdea.Beep.Winform.Controls.FontManagement;
 using TheTechIdea.Beep.Winform.Controls.Forms;
 using TheTechIdea.Beep.Winform.Controls.Helpers;
 using TheTechIdea.Beep.Winform.Controls.Integrated;
 using TheTechIdea.Beep.Winform.Controls.Styling;
+using TheTechIdea.Beep.Winform.Controls.ThemeManagement;
 using TheTechIdea.Beep.Winform.Default.Views;
+using TheTechIdea.Beep.Winform.Default.Views.Configuration;
+using TheTechIdea.Beep.Winform.Default.Views.Template;
 using WinFormsApp.UI.Test.SampleBusinessApp.Data;
 using WinFormsApp.UI.Test.SampleBusinessApp.Forms; // Add this for MainBusinessForm
 using WinFormsApp.UI.Test.SampleBusinessApp.Services; // Add this for services
@@ -122,7 +126,7 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.AppManager.WaitFormType = typeof(BeepWait);
             BeepDesktopServices.AppManager.IconUrl = "simpleinfoapps.ico";
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
-            BeepDesktopServices.AppManager.HomePageName = "MainFrm";
+            BeepDesktopServices.AppManager.HomePageName = "Form1";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
             SimpleItemFactory.SetDelegates(HandlersFactory.GlobalMenuItemsProvider,
                 HandlersFactory.RunFunctionHandler,
@@ -156,8 +160,16 @@ namespace WinFormsApp.UI.Test
 
             // Start the Sample Business App
             //  RunSampleBusinessApp();
-            BeepDesktopServices.AppManager.ShowHome();
-           // Application.Run(new BeepFormAdvanced());
+            BeepThemesManager.CurrentStyle= TheTechIdea.Beep.Winform.Controls.Forms.ModernForm.FormStyle.Minimal;
+            TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
+             BeepDesktopServices.AppManager.ShowHome();
+            //uc_CreateLocalDB uc_CreateLocalDB = new uc_CreateLocalDB(host.Services);
+            //TemplateForm mainForm = new TemplateForm(host.Services);
+            //mainForm.Text = "Beep Data Management Platform - Sample Business App";
+            //mainForm.Controls.Add(uc_CreateLocalDB);
+            //uc_CreateLocalDB.Dock = DockStyle.Fill;
+            //Application.Run(mainForm);
+            // Application.Run(new BeepFormAdvanced());
             // ✅ NEW: Cleanup configuration system
             UserSettingsManager.Dispose();
 
@@ -368,6 +380,7 @@ namespace WinFormsApp.UI.Test
             {
                 { "MainFrm", "MainFrm" },
                 { "Form1", "Form1" },
+                { "Form2", "Form2" },
                 { "uc_ConnnectionDrivers", "uc_ConnnectionDrivers" },
                 { "uc_FilterForm", "uc_FilterForm" },
                 { "uc_RDBMSConnections", "uc_RDBMSConnections" },
