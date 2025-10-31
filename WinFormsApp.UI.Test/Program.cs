@@ -126,7 +126,7 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.AppManager.WaitFormType = typeof(BeepWait);
             BeepDesktopServices.AppManager.IconUrl = "simpleinfoapps.ico";
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
-            BeepDesktopServices.AppManager.HomePageName = "Form1";
+            BeepDesktopServices.AppManager.HomePageName = "MainFrm";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
             SimpleItemFactory.SetDelegates(HandlersFactory.GlobalMenuItemsProvider,
                 HandlersFactory.RunFunctionHandler,

@@ -11,9 +11,11 @@ using TheTechIdea.Beep.Vis;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
 using TheTechIdea.Beep.Winform.Controls.AppBars;
+using TheTechIdea.Beep.Winform.Controls.Base;
 using TheTechIdea.Beep.Winform.Controls.Forms;
 using TheTechIdea.Beep.Winform.Controls.Forms.ModernForm;
 using TheTechIdea.Beep.Winform.Controls.Managers;
+using TheTechIdea.Beep.Winform.Default.Views.Template;
 using WinFormsApp.UI.Test.SampleBusinessApp.Services;
 
 namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
@@ -39,8 +41,8 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
         private BeepLabel _userLabel;
 
         // Current view tracking
-        private UserControl _currentView;
-        private Dictionary<string, UserControl> _viewCache;
+        private TemplateUserControl _currentView;
+        private Dictionary<string, TemplateUserControl> _viewCache;
         #endregion
 
         #region Constructor
@@ -49,7 +51,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             _services = services;
             _beepService = services.GetRequiredService<IBeepService>();
             _authService = services.GetRequiredService<AuthService>();
-            _viewCache = new Dictionary<string, UserControl>();
+            _viewCache = new Dictionary<string, TemplateUserControl>();
 
             InitializeComponent();
             InitializeUI();
@@ -320,7 +322,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
         {
             try
             {
-                UserControl view = GetOrCreateView(viewName);
+                TemplateUserControl view = GetOrCreateView(viewName);
                 
                 if (view != null)
                 {
@@ -348,7 +350,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             }
         }
 
-        private UserControl GetOrCreateView(string viewName)
+        private TemplateUserControl GetOrCreateView(string viewName)
         {
             // Check cache first
             if (_viewCache.ContainsKey(viewName))
@@ -357,7 +359,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             }
 
             // Create new view instance
-            UserControl view = CreateViewInstance(viewName);
+            TemplateUserControl view = CreateViewInstance(viewName);
             
             if (view != null)
             {
@@ -367,7 +369,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             return view;
         }
 
-        private UserControl CreateViewInstance(string viewName)
+        private TemplateUserControl CreateViewInstance(string viewName)
         {
             // Create view instances based on name
             // This will be expanded as we create more views
@@ -385,7 +387,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             };
         }
 
-        private T CreateView<T>() where T : UserControl
+        private T CreateView<T>() where T : TemplateUserControl
         {
             try
             {
@@ -409,7 +411,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             }
         }
 
-        private void ShowView(UserControl view)
+        private void ShowView(TemplateUserControl view)
         {
             // Hide current view
             if (_currentView != null)
