@@ -66,6 +66,9 @@ namespace WinFormsApp.UI.Test
                 visManager.PasstoWaitForm(p);
             });
             Task.Delay(1000).Wait();
+            
+            // Note: Pre-loaded assemblies are now automatically registered by SharedContextManager constructor
+            
             beepService.LoadAssemblies(progress);
             beepService.Config_editor.LoadedAssemblies = beepService.LLoader.Assemblies.Select(c => c.DllLib).ToList();
 
@@ -79,6 +82,7 @@ namespace WinFormsApp.UI.Test
             Task.Delay(3000).Wait();
           
         }
+        
         public static void RegisterRoutes()
         {
             visManager.RoutingManager.RegisterRouteByName("MainFrm", "MainFrm");

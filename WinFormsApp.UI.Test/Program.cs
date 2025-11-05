@@ -162,14 +162,8 @@ namespace WinFormsApp.UI.Test
             //  RunSampleBusinessApp();
             BeepThemesManager.CurrentStyle= TheTechIdea.Beep.Winform.Controls.Forms.ModernForm.FormStyle.Minimal;
             TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
-             BeepDesktopServices.AppManager.ShowHome();
-            //uc_CreateLocalDB uc_CreateLocalDB = new uc_CreateLocalDB(host.Services);
-            //TemplateForm mainForm = new TemplateForm(host.Services);
-            //mainForm.Text = "Beep Data Management Platform - Sample Business App";
-            //mainForm.Controls.Add(uc_CreateLocalDB);
-            //uc_CreateLocalDB.Dock = DockStyle.Fill;
-            //Application.Run(mainForm);
-            // Application.Run(new BeepFormAdvanced());
+            BeepDesktopServices.AppManager.ShowHome();
+           
             // ✅ NEW: Cleanup configuration system
             UserSettingsManager.Dispose();
 
