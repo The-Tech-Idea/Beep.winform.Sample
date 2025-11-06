@@ -113,7 +113,8 @@ namespace WinFormsApp.UI.Test
 
             // Build the host
             var host = builder.Build();
-
+            BeepThemesManager.CurrentStyle = TheTechIdea.Beep.Winform.Controls.Forms.ModernForm.FormStyle.Terminal;
+            TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
             // Configure services using the existing method
             BeepDesktopServices.ConfigureServices(host);
             BeepDesktopServices.ConfigureControlsandMenus();
@@ -160,8 +161,7 @@ namespace WinFormsApp.UI.Test
 
             // Start the Sample Business App
             //  RunSampleBusinessApp();
-            BeepThemesManager.CurrentStyle= TheTechIdea.Beep.Winform.Controls.Forms.ModernForm.FormStyle.Minimal;
-            TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
+         
             BeepDesktopServices.AppManager.ShowHome();
            
             // ✅ NEW: Cleanup configuration system
