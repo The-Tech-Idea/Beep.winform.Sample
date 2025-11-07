@@ -113,7 +113,7 @@ namespace WinFormsApp.UI.Test
 
             // Build the host
             var host = builder.Build();
-            BeepThemesManager.CurrentStyle = TheTechIdea.Beep.Winform.Controls.Forms.ModernForm.FormStyle.Terminal;
+            BeepThemesManager.CurrentStyle =FormStyle.Terminal;
             TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
             // Configure services using the existing method
             BeepDesktopServices.ConfigureServices(host);
@@ -123,7 +123,7 @@ namespace WinFormsApp.UI.Test
             var config = UserSettingsManager.Configuration;
             // Configure AppManager (exact same configuration)
             BeepDesktopServices.AppManager.Title = "Beep Data Management Platform";
-            BeepDesktopServices.AppManager.Theme = "DefaultType";
+            BeepDesktopServices.AppManager.Theme = "TerminalTheme";
             BeepDesktopServices.AppManager.WaitFormType = typeof(BeepWait);
             BeepDesktopServices.AppManager.IconUrl = "simpleinfoapps.ico";
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
