@@ -13,6 +13,7 @@ using TheTechIdea.Beep.Desktop.Common.Util.Configuration; // ✅ UPDATED: Change
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
+using TheTechIdea.Beep.Winform.Controls.DialogsManagers;
 using TheTechIdea.Beep.Winform.Controls.FontManagement;
 using TheTechIdea.Beep.Winform.Controls.Forms;
 using TheTechIdea.Beep.Winform.Controls.Helpers;
@@ -122,6 +123,7 @@ namespace WinFormsApp.UI.Test
             // ✅ NEW: Configure AppManager using configuration settings
             var config = UserSettingsManager.Configuration;
             // Configure AppManager (exact same configuration)
+            BeepDesktopServices.AppManager.DialogManager= new BeepDialogManager();
             BeepDesktopServices.AppManager.Title = "Beep Data Management Platform";
             BeepDesktopServices.AppManager.Theme = "TerminalTheme";
             BeepDesktopServices.AppManager.Style= FormStyle.Terminal;
