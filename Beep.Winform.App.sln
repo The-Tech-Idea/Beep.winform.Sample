@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.0.11205.157 d18.0
+VisualStudioVersion = 18.0.11205.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheTechIdea.Beep.MVVM", "..\Beep.ViewModels\TheTechIdea.Beep.MVVM\TheTechIdea.Beep.MVVM.csproj", "{0D408BF0-80BF-4205-9A1A-B0DDEF425AA2}"
 EndProject
@@ -114,6 +114,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepShell", "..\BeepDM\BeepShell\BeepShell.csproj", "{744DD9E8-4109-3940-8DA6-A7963AABA420}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepCLI", "..\BeepDM\CLI\BeepCLI.csproj", "{E6756EA5-E9B7-4BCF-7DC5-398219974226}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeepShell.Shared", "..\BeepDM\BeepShell.Shared\BeepShell.Shared.csproj", "{3028BBA3-7971-C152-C3A2-B66E053ED55B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -839,6 +841,22 @@ Global
 		{E6756EA5-E9B7-4BCF-7DC5-398219974226}.Release|x64.Build.0 = Release|Any CPU
 		{E6756EA5-E9B7-4BCF-7DC5-398219974226}.Release|x86.ActiveCfg = Release|Any CPU
 		{E6756EA5-E9B7-4BCF-7DC5-398219974226}.Release|x86.Build.0 = Release|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Debug|arm64.ActiveCfg = Debug|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Debug|arm64.Build.0 = Debug|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Debug|x64.Build.0 = Debug|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Debug|x86.Build.0 = Debug|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Release|arm64.ActiveCfg = Release|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Release|arm64.Build.0 = Release|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Release|x64.ActiveCfg = Release|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Release|x64.Build.0 = Release|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Release|x86.ActiveCfg = Release|Any CPU
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -872,6 +890,7 @@ Global
 		{00615566-0A2E-A64E-CCFE-E16D1252FCD6} = {CDC00188-AC15-4FAB-888C-0C16BCF546F1}
 		{744DD9E8-4109-3940-8DA6-A7963AABA420} = {6CBB6C99-32CA-4ABF-A6BA-AA4DAEC13DF0}
 		{E6756EA5-E9B7-4BCF-7DC5-398219974226} = {6CBB6C99-32CA-4ABF-A6BA-AA4DAEC13DF0}
+		{3028BBA3-7971-C152-C3A2-B66E053ED55B} = {6CBB6C99-32CA-4ABF-A6BA-AA4DAEC13DF0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {845000E2-7F9A-49E4-AF06-7EF032BAB868}
