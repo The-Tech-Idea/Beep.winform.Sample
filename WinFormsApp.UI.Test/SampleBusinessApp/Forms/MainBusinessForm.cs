@@ -33,7 +33,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
         
         // UI Manager and Navigation
         private BeepFormUIManager _uiManager;
-        private BeepAppBar _menuBar;
+        private BeepWebHeaderAppBar _menuBar;
         private BeepSideMenu _sideMenu;
         private BeepPanel _contentPanel;
         private BeepPanel _statusPanel;
@@ -84,12 +84,12 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Forms
             this.SuspendLayout();
 
             // Create menu bar
-            _menuBar = new BeepAppBar
+            _menuBar = new BeepWebHeaderAppBar
             {
                 Dock = DockStyle.Top,
                 Height = 60,
-                Title = "SampleBusinessApp",
-                LogoImage = "TheTechIdea.Beep.Winform.Controls.GFX.SVG.cool.svg",
+                Text = "SampleBusinessApp",
+                LogoImagePath = "TheTechIdea.Beep.Winform.Controls.GFX.SVG.cool.svg",
                 Theme = this.Theme
             };
 
