@@ -86,10 +86,10 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
         private void BuildUI()
         {
             _layout = new BeepMultiSplitter { Dock = DockStyle.Fill, Theme = this.Theme };
-            _layout.tableLayoutPanel.RowCount = 2;
-            _layout.tableLayoutPanel.ColumnCount = 1;
-            _layout.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 64));
-            _layout.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            _layout.TableLayoutPanel.RowCount = 2;
+            _layout.TableLayoutPanel.ColumnCount = 1;
+            _layout.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 64));
+            _layout.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
 
             // Header
             _header = new BeepPanel { Dock = DockStyle.Fill, ShowTitle = false, Padding = new Padding(12), Theme = this.Theme };
@@ -100,11 +100,11 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
 
             // Content split
             var content = new BeepMultiSplitter { Dock = DockStyle.Fill, Theme = this.Theme };
-            content.tableLayoutPanel.RowCount = 1;
-            content.tableLayoutPanel.ColumnCount = 2;
-            content.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
-            content.tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60));
-            content.tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40));
+            content.TableLayoutPanel.RowCount = 1;
+            content.TableLayoutPanel.ColumnCount = 2;
+            content.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            content.TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60));
+            content.TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40));
 
             // Info Card (left)
             _infoCard = new BeepPanel { Dock = DockStyle.Fill, ShowTitle = true, TitleText = "📇 Information", IsRounded = true, BorderRadius = 8, ShowShadow = true, Padding = new Padding(12), Theme = this.Theme };
@@ -128,19 +128,19 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
             _notesCard = new BeepPanel { Dock = DockStyle.Fill, ShowTitle = true, TitleText = "📝 Notes", IsRounded = true, BorderRadius = 8, ShowShadow = true, Padding = new Padding(12), Theme = this.Theme };
 
             var rightStack = new BeepMultiSplitter { Dock = DockStyle.Fill, Theme = this.Theme };
-            rightStack.tableLayoutPanel.RowCount = 2;
-            rightStack.tableLayoutPanel.ColumnCount = 1;
-            rightStack.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
-            rightStack.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
-            rightStack.tableLayoutPanel.Controls.Add(_statsCard, 0, 0);
-            rightStack.tableLayoutPanel.Controls.Add(_notesCard, 0, 1);
+            rightStack.TableLayoutPanel.RowCount = 2;
+            rightStack.TableLayoutPanel.ColumnCount = 1;
+            rightStack.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            rightStack.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 50));
+            rightStack.TableLayoutPanel.Controls.Add(_statsCard, 0, 0);
+            rightStack.TableLayoutPanel.Controls.Add(_notesCard, 0, 1);
 
             Controls.Add(_layout);
-            _layout.tableLayoutPanel.Controls.Add(_header, 0, 0);
-            _layout.tableLayoutPanel.Controls.Add(content, 0, 1);
+            _layout.TableLayoutPanel.Controls.Add(_header, 0, 0);
+            _layout.TableLayoutPanel.Controls.Add(content, 0, 1);
 
-            content.tableLayoutPanel.Controls.Add(_infoCard, 0, 0);
-            content.tableLayoutPanel.Controls.Add(rightStack, 1, 0);
+            content.TableLayoutPanel.Controls.Add(_infoCard, 0, 0);
+            content.TableLayoutPanel.Controls.Add(rightStack, 1, 0);
         }
 
         private BeepLabel NewInfo(BeepPanel parent, string label, int x, int y)

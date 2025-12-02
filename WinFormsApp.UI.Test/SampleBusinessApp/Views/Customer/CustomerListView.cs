@@ -118,17 +118,17 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
                 Dock = DockStyle.Fill,
                 Theme = this.Theme
             };
-            _mainLayout.tableLayoutPanel.RowCount = 3;
-            _mainLayout.tableLayoutPanel.ColumnCount = 2;
+            _mainLayout.TableLayoutPanel.RowCount = 3;
+            _mainLayout.TableLayoutPanel.ColumnCount = 2;
 
             // Row styles: header, toolbar, content
-            _mainLayout.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 60));
-            _mainLayout.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 80));
-            _mainLayout.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            _mainLayout.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 60));
+            _mainLayout.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 80));
+            _mainLayout.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
 
             // Column styles: main content, detail panel
-            _mainLayout.tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70));
-            _mainLayout.tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
+            _mainLayout.TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70));
+            _mainLayout.TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
 
             // Header panel
             _headerPanel = new BeepPanel
@@ -166,8 +166,8 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
             _headerPanel.Controls.AddRange(new Control[] { titleLabel, subtitleLabel });
 
             this.Controls.Add(_mainLayout);
-            _mainLayout.tableLayoutPanel.Controls.Add(_headerPanel, 0, 0);
-            _mainLayout.tableLayoutPanel.SetColumnSpan(_headerPanel, 2);
+            _mainLayout.TableLayoutPanel.Controls.Add(_headerPanel, 0, 0);
+            _mainLayout.TableLayoutPanel.SetColumnSpan(_headerPanel, 2);
         }
 
         private void CreateToolbar()
@@ -303,8 +303,8 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
                 typeLabel, _typeFilterCombo
             });
 
-            _mainLayout.tableLayoutPanel.Controls.Add(_toolbarPanel, 0, 1);
-            _mainLayout.tableLayoutPanel.SetColumnSpan(_toolbarPanel, 2);
+            _mainLayout.TableLayoutPanel.Controls.Add(_toolbarPanel, 0, 1);
+            _mainLayout.TableLayoutPanel.SetColumnSpan(_toolbarPanel, 2);
         }
 
         private void CreateDataGrid()
@@ -330,7 +330,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
             };
 
             _gridPanel.Controls.Add(_customersGrid);
-            _mainLayout.tableLayoutPanel.Controls.Add(_gridPanel, 0, 2);
+            _mainLayout.TableLayoutPanel.Controls.Add(_gridPanel, 0, 2);
         }
 
         private void CreateDetailPanel()
@@ -404,7 +404,7 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Customer
                 _customerAddressLabel, _customerStatusLabel, _lastContactLabel
             });
 
-            _mainLayout.tableLayoutPanel.Controls.Add(_detailPanel, 1, 2);
+            _mainLayout.TableLayoutPanel.Controls.Add(_detailPanel, 1, 2);
         }
         #endregion
 

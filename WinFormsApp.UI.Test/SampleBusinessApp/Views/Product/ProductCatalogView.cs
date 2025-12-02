@@ -90,12 +90,12 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Product
         private void BuildUI()
         {
             _layout = new BeepMultiSplitter { Dock = DockStyle.Fill, Theme = this.Theme };
-            _layout.tableLayoutPanel.RowCount = 2;
-            _layout.tableLayoutPanel.ColumnCount = 2;
-            _layout.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 80));
-            _layout.tableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
-            _layout.tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70));
-            _layout.tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
+            _layout.TableLayoutPanel.RowCount = 2;
+            _layout.TableLayoutPanel.ColumnCount = 2;
+            _layout.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 80));
+            _layout.TableLayoutPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100));
+            _layout.TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 70));
+            _layout.TableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 30));
 
             // Toolbar
             _toolbar = new BeepPanel
@@ -162,10 +162,10 @@ namespace WinFormsApp.UI.Test.SampleBusinessApp.Views.Product
             _detailsPanel.Controls.AddRange(new Control[] { _nameLbl, _priceLbl, _stockLbl, _categoryLbl, _createdLbl });
 
             Controls.Add(_layout);
-            _layout.tableLayoutPanel.Controls.Add(_toolbar, 0, 0);
-            _layout.tableLayoutPanel.SetColumnSpan(_toolbar, 2);
-            _layout.tableLayoutPanel.Controls.Add(_gridPanel, 0, 1);
-            _layout.tableLayoutPanel.Controls.Add(_detailsPanel, 1, 1);
+            _layout.TableLayoutPanel.Controls.Add(_toolbar, 0, 0);
+            _layout.TableLayoutPanel.SetColumnSpan(_toolbar, 2);
+            _layout.TableLayoutPanel.Controls.Add(_gridPanel, 0, 1);
+            _layout.TableLayoutPanel.Controls.Add(_detailsPanel, 1, 1);
         }
 
         private void WireEvents()
