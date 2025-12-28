@@ -52,8 +52,6 @@
     <ProjectReference Include="..\..\BeepDataSources\DataSourcesPlugins\RDBMSDataSource\RDBDataSource.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\InMemoryDB\DuckDBDataSourceCore\DuckDBDataSourceCore.csproj" />
     <ProjectReference Include="..\..\BeepDM\Assembly_helpersStandard\Assembly_helpers.csproj" />
-    <ProjectReference Include="..\..\BeepDM\DataManagementEngineStandard\DataManagementEngine.csproj" />
-    <ProjectReference Include="..\..\BeepDM\DataManagementModelsStandard\DataManagementModels.csproj" />
   </ItemGroup>
 
   <ItemGroup>
