@@ -114,14 +114,27 @@ namespace WinFormsApp.UI.Test
 
             // Build the host
             var host = builder.Build();
-            BeepThemesManager.CurrentStyle = FormStyle.Terminal;
-            TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
+           
             // Configure services using the existing method
             BeepDesktopServices.ConfigureServices(host);
-            BeepDesktopServices.ConfigureControlsandMenus();
+
+            //-------------------- Dynamic Modules and Menu Configuration --------------------//
+            // Configure controls and menus based on Dynamic loaded Modules
+            BeepDesktopServices.ConfigureControlsandMenus(BeepDesktopServices.AppManager);
+            // this is setup for the SimpleItemFactory to handle menu item actions based on dynamic delegates
+            // this is based dynamically loaded simple items from extensions and plugins
+            SimpleItemFactory.SetDelegates(HandlersFactory.GlobalMenuItemsProvider,
+              HandlersFactory.RunFunctionHandler,
+              HandlersFactory.RunFunctionWithTreeHandler,
+              HandlersFactory.RunMethodFromObjectHandler,
+              HandlersFactory.RunMethodFromExtensionWithTreeHandler,
+              HandlersFactory.RunMethodFromExtensionHandler
+          );
+            //-------------------- End of Dynamic Modules and Menu Configuration --------------------//
 
             // ✅ NEW: Configure AppManager using configuration settings
             var config = UserSettingsManager.Configuration;
+
             // Configure AppManager (exact same configuration)
             BeepDesktopServices.AppManager.DialogManager= new BeepDialogManager();
             BeepDesktopServices.AppManager.Title = "Beep Data Management Platform";
@@ -132,13 +145,11 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepDesktopServices.AppManager.HomePageName = "MainFrm";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
-            SimpleItemFactory.SetDelegates(HandlersFactory.GlobalMenuItemsProvider,
-                HandlersFactory.RunFunctionHandler,
-                HandlersFactory.RunFunctionWithTreeHandler,
-                HandlersFactory.RunMethodFromObjectHandler,
-                HandlersFactory.RunMethodFromExtensionWithTreeHandler,
-                HandlersFactory.RunMethodFromExtensionHandler
-            );
+
+
+            // Set the theme and style before loading fonts
+            BeepThemesManager.CurrentStyle = FormStyle.Terminal;
+            TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
 
             // Subscribe to events for custom routes and resources
             SubscribeToBeepEvents();
@@ -178,56 +189,7 @@ namespace WinFormsApp.UI.Test
             Application.Exit();
         }
 
-        private static void RunSampleBusinessApp()
-        {
-            
-
-            try
-            {
-                // ✅ NEW: Get configuration for application behavior
-                var config = UserSettingsManager.Configuration;
-                
-                Debug.WriteLine($"Sample Business App - Starting in {config.Environment} environment");
-                
-                // Register our services with dependency injection
-                var serviceCollection = new ServiceCollection();
-                serviceCollection.AddSingleton(BeepDesktopServices.AppManager.DMEEditor);
-                
-                // Create a wrapper for IBeepService from IAppManager
-                serviceCollection.AddSingleton<IBeepService>(provider => 
-                {
-                    var beepService = new BeepService();
-                    beepService.DMEEditor = BeepDesktopServices.AppManager.DMEEditor;
-                    beepService.vis = BeepDesktopServices.AppManager;
-                    beepService.lg = BeepDesktopServices.AppManager.DMEEditor.Logger;
-                    return beepService;
-                });
-                
-                serviceCollection.AddScoped<AuthService>();
-                serviceCollection.AddScoped<CustomerService>();
-                
-                var serviceProvider = serviceCollection.BuildServiceProvider();
-                
-                // Start the main business application
-                using (var mainForm = new MainBusinessForm(serviceProvider))
-                {
-                    Application.Run(mainForm);
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine($"Sample Business App - Error: {ex.Message}");
-                
-                // ✅ NEW: Enhanced error reporting with environment context
-                var config = UserSettingsManager.Configuration;
-                var errorMessage = config.Environment.Equals("Development", StringComparison.OrdinalIgnoreCase)
-                    ? $"Application Error in {config.Environment}:\n\n{ex.Message}\n\nStack Trace:\n{ex.StackTrace}"
-                    : $"Application Error: {ex.Message}";
-                
-                MessageBox.Show(errorMessage, $"Sample Business App Error ({config.Environment})", 
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+     
 
         #region Subscribing to Events for Beep FrameWork to load images and font and register routes
         /// <summary>
