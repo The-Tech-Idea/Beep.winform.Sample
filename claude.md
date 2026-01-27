@@ -1,3 +1,13 @@
+---
+description: 
+alwaysApply: true
+---
+
+---
+description: 
+alwaysApply: true
+---
+
 # BeepGrid Analysis and Feature Consolidation Plan
 
 ## Current State Analysis
@@ -254,4 +264,4 @@ This approach creates a single, powerful grid control that supersedes both BeepG
 ? **Multi-Selection** - Checkbox-based row selection  
 ? **Real-time Filtering** - Instant filter application  
 ? **External Navigator** - Full CRUD operation integration  
-? **Resize Optimization** - Debounced layout recalculation  
+? **Resize Optimization** - Debounced layout recalculation
