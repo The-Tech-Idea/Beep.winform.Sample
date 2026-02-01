@@ -23,10 +23,7 @@ using TheTechIdea.Beep.Winform.Controls.ThemeManagement;
 using TheTechIdea.Beep.Winform.Default.Views;
 using TheTechIdea.Beep.Winform.Default.Views.Configuration;
 using TheTechIdea.Beep.Winform.Default.Views.Template;
-using WinFormsApp.UI.Test.SampleBusinessApp.Data;
-using WinFormsApp.UI.Test.SampleBusinessApp.Forms; // Add this for MainBusinessForm
-using WinFormsApp.UI.Test.SampleBusinessApp.Services; // Add this for services
-using WinFormsApp.UI.Test.SampleBusinessApp.Views;
+
 
 namespace WinFormsApp.UI.Test
 {
