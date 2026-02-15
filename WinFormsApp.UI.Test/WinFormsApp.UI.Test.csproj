@@ -16,7 +16,7 @@
   <ItemGroup>
     <None Remove="gfx\slack.svg" />
   </ItemGroup>
-
+  
   <ItemGroup>
     <EmbeddedResource Include="gfx\slack.svg" />
   </ItemGroup>
