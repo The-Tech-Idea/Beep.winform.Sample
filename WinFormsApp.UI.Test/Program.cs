@@ -106,7 +106,13 @@ namespace WinFormsApp.UI.Test
             // Create HostApplicationBuilder
             var builder = Host.CreateApplicationBuilder();
 
-            // Register Beep Services using the existing method
+            // ✅ ENHANCED: Register Beep Services using BeepDesktopServices
+            // This now uses the modern AddBeepForDesktop() API internally with:
+            // - Singleton lifetime for desktop apps
+            // - Progress reporting support
+            // - Design-time support for Visual Studio
+            // - Automatic assembly loading
+            // See: BeepDM/DataManagementEngineStandard/Services/README.md
             BeepDesktopServices.RegisterServices(builder);
 
             // Build the host

@@ -48,7 +48,6 @@
     <ProjectReference Include="..\..\BeepDataSources\DataSourcesPluginsCore\SqliteDatasourceCore\SqliteDatasourceCore.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\DataSourcesPlugins\RDBMSDataSource\RDBDataSource.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\InMemoryDB\DuckDBDataSourceCore\DuckDBDataSourceCore.csproj" />
-    <ProjectReference Include="..\..\BeepDM\Assembly_helpersStandard\Assembly_helpers.csproj" />
   </ItemGroup>
 
   <ItemGroup>
