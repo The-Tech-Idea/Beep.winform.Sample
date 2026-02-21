@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 
 using TheTechIdea.Beep.Desktop.Common.Util;
+using TheTechIdea.Beep.Services;
 
 namespace WinFormsApp.UI.Test
 {
