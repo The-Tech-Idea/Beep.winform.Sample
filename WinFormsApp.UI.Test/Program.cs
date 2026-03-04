@@ -141,22 +141,22 @@ namespace WinFormsApp.UI.Test
             // Configure AppManager (exact same configuration)
             BeepDesktopServices.AppManager.DialogManager= new BeepDialogManager();
             BeepDesktopServices.AppManager.Title = "Beep Data Management Platform";
-            BeepDesktopServices.AppManager.Theme = "TerminalTheme";
-            BeepDesktopServices.AppManager.Style= FormStyle.Terminal;
+         
             BeepDesktopServices.AppManager.WaitFormType = typeof(BeepWait);
             BeepDesktopServices.AppManager.IconUrl = "simpleinfoapps.ico";
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepDesktopServices.AppManager.HomePageName = "MainFrm";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
 
-
+            BeepDesktopServices.AppManager.Theme = "TerminalTheme";
+            BeepDesktopServices.AppManager.Style = FormStyle.Terminal;
             // Set the theme and style before loading fonts
             BeepThemesManager.CurrentStyle = FormStyle.Terminal;
             TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
 
             // Subscribe to events for custom routes and resources
             SubscribeToBeepEvents();
-
+            BeepDesktopServices.AppManager.DialogManager = new BeepDialogManager((Form)BeepDesktopServices.AppManager.MainDisplay);
             var result = BeepDesktopServices.StartLoading(new string[] { "BeepEnterprize", "TheTechIdea", "Beep" }, showWaitForm: true);
 
             if (result.Flag == Errors.Ok)
