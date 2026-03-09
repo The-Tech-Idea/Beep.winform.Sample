@@ -257,82 +257,7 @@ namespace WinFormsApp.UI.Test
         }
         #endregion
         #region Routes Registertion
-        /// <summary>
-        /// Register all Sample Business App routes with proper error handling
-        /// </summary>
-        private static void RegisterSampleBusinessAppRoutes(IRoutingManager routingManager)
-        {
-            var routes = new Dictionary<string, string>
-            {
-                // Core Application Views
-                { "MainForm", "MainForm" },
-                { "LoginForm", "LoginForm" },
-                
-                // Dashboard and Analytics
-                { "DashboardView", "DashboardView" },
-                { "AnalyticsView", "AnalyticsView" },
-                { "ChartsShowcaseView", "ChartsShowcaseView" },
-                { "MetricsView", "MetricsView" },
-                
-                // Data Management
-                { "ProductsView", "ProductsView" },
-                { "CustomersView", "CustomersView" },
-                { "OrdersView", "OrdersView" },
-                { "InventoryView", "InventoryView" },
-                
-                // Task & Project Management
-                { "TasksView", "TasksView" },
-                { "ProjectKanbanView", "ProjectKanbanView" },
-                { "CalendarView", "CalendarView" },
-                { "TimeTrackingView", "TimeTrackingView" },
-                
-                // Reports and Business Intelligence
-                { "ReportsView", "ReportsView" },
-                { "KPIDashboardView", "KPIDashboardView" },
-                { "BusinessIntelligenceView", "BusinessIntelligenceView" },
-                
-                // Configuration and Settings
-                { "SettingsView", "SettingsView" },
-                { "UserProfileView", "UserProfileView" },
-                { "SystemConfigView", "SystemConfigView" },
-                { "ThemeManagerView", "ThemeManagerView" },
-                
-                // Enhanced Control Demos
-                { "EnhancedProgressBarDemo", "EnhancedProgressBarDemo" },
-                { "EnhancedNumericUpDownDemo", "EnhancedNumericUpDownDemo" },
-                { "EnhancedStepperBarDemo", "EnhancedStepperBarDemo" },
-                { "EnhancedStarRatingDemo", "EnhancedStarRatingDemo" },
-                { "EnhancedDatePickerDemo", "EnhancedDatePickerDemo" },
-                
-                // Specialized Views
-                { "WizardShowcaseView", "WizardShowcaseView" },
-                { "FormControlsShowcaseView", "FormControlsShowcaseView" },
-                { "LayoutControlsShowcaseView", "LayoutControlsShowcaseView" },
-                { "BusinessComponentsShowcaseView", "BusinessComponentsShowcaseView" },
-                { "DataVisualizationShowcaseView", "DataVisualizationShowcaseView" }
-            };
-
-            foreach (var route in routes)
-            {
-                try
-                {
-                    var result = routingManager.RegisterRouteByName(route.Key, route.Value);
-                    if (result.Flag == Errors.Ok)
-                    {
-                        Debug.WriteLine($"✅ Successfully registered route: {route.Key} -> {route.Value}");
-                    }
-                    else
-                    {
-                        Debug.WriteLine($"❌ Failed to register route {route.Key}: {result.Message}");
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine($"❌ Exception registering route {route.Key}: {ex.Message}");
-                }
-            }
-        }
-
+      
         /// <summary>
         /// Register standard Beep framework routes
         /// </summary>
@@ -353,7 +278,9 @@ namespace WinFormsApp.UI.Test
                 { "uc_FunctiontoFunctionMapping", "uc_FunctiontoFunctionMapping" },
                 { "uc_DataEdit", "uc_DataEdit" },
                 { "uc_CopyEntities", "uc_CopyEntities" },
-                { "uc_DataConnections", "uc_DataConnections" }
+                { "uc_DataConnections", "uc_DataConnections" },
+                 { "uc_NuggetsManageWizardLauncher_new", "uc_NuggetsManageWizardLauncher_new" },
+                 { "uc_ImportExportWizardLauncher", "uc_ImportExportWizardLauncher" }
             };
 
             foreach (var route in standardRoutes)
