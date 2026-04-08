@@ -3,9 +3,7 @@ using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
-using TheTechIdea.Beep.Addin;
 using TheTechIdea.Beep.ConfigUtil;
-using TheTechIdea.Beep.Container.Services;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Desktop.Common.Helpers;
 using TheTechIdea.Beep.Desktop.Common.Util;
@@ -17,8 +15,8 @@ using TheTechIdea.Beep.Winform.Controls.DialogsManagers;
 using TheTechIdea.Beep.Winform.Controls.FontManagement;
 using TheTechIdea.Beep.Winform.Controls.Forms;
 using TheTechIdea.Beep.Winform.Controls.Helpers;
-using TheTechIdea.Beep.Winform.Controls.Integrated;
 using TheTechIdea.Beep.Winform.Controls.Styling;
+using TheTechIdea.Beep.Winform.Extensions;
 using TheTechIdea.Beep.Winform.Controls.ThemeManagement;
 using TheTechIdea.Beep.Winform.Default.Views;
 using TheTechIdea.Beep.Winform.Default.Views.Configuration;
@@ -121,19 +119,8 @@ namespace WinFormsApp.UI.Test
             // Configure services using the existing method
             BeepDesktopServices.ConfigureServices(host);
 
-            //-------------------- Dynamic Modules and Menu Configuration --------------------//
-            // Configure controls and menus based on Dynamic loaded Modules
-            BeepDesktopServices.ConfigureControlsandMenus(BeepDesktopServices.AppManager);
-            // this is setup for the SimpleItemFactory to handle menu item actions based on dynamic delegates
-            // this is based dynamically loaded simple items from extensions and plugins
-            SimpleItemFactory.SetDelegates(HandlersFactory.GlobalMenuItemsProvider,
-              HandlersFactory.RunFunctionHandler,
-              HandlersFactory.RunFunctionWithTreeHandler,
-              HandlersFactory.RunMethodFromObjectHandler,
-              HandlersFactory.RunMethodFromExtensionWithTreeHandler,
-              HandlersFactory.RunMethodFromExtensionHandler
-          );
-            //-------------------- End of Dynamic Modules and Menu Configuration --------------------//
+            // Add-in / menu / tree command wiring + SimpleItemFactory (composition lives in Beep.Winform.Extensions; Controls stay UI-only)
+            host.ConfigureBeepWinformAddInUi();
 
             // ✅ NEW: Configure AppManager using configuration settings
             var config = UserSettingsManager.Configuration;

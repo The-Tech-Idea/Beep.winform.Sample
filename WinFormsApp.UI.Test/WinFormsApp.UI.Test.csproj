@@ -46,6 +46,7 @@
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Design.Server\TheTechIdea.Beep.Winform.Controls.Design.Server.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
+    <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Extensions\TheTechIdea.Beep.Winform.Extensions.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Default.Views\TheTechIdea.Beep.Winform.Default.Views.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\DataSourcesPluginsCore\SqliteDatasourceCore\SqliteDatasourceCore.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\DataSourcesPlugins\RDBMSDataSource\RDBDataSource.csproj" />
