@@ -39,6 +39,7 @@
     <ProjectReference Include="..\..\Beep.DuckDb\Beep.DuckDB\Beep.DuckDB.Logic.csproj" />
     <ProjectReference Include="..\..\Beep.InMemory\Beep.InMemory.Logic\Beep.InMemory.Logic.csproj" />
     <ProjectReference Include="..\..\Beep.InMemory\Beep.InMemory.Nodes\Beep.InMemory.Nodes.csproj" />
+    <ProjectReference Include="..\..\Beep.OilandGas\Beep.OilandGas.Branchs\Beep.OilandGas.Branchs.csproj" />
     <ProjectReference Include="..\..\Beep.Shared\Beep.Shared\TheTechIdea.Beep.Shared.csproj" />
     <ProjectReference Include="..\..\Beep.Shared\TheTechIdea.Beep.Fonts\TheTechIdea.Beep.Fonts.csproj" />
     <ProjectReference Include="..\..\Beep.Shared\TheTechIdea.Beep.Icons\TheTechIdea.Beep.Icons.csproj" />
