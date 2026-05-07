@@ -1,13 +1,15 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using TheTechIdea.Beep.ConfigUtil;
+using TheTechIdea.Beep.Container;
 using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Desktop.Common.Helpers;
 using TheTechIdea.Beep.Desktop.Common.Util;
-using TheTechIdea.Beep.Desktop.Common.Util.Configuration; // ✅ UPDATED: Changed to new location
+using TheTechIdea.Beep.Desktop.Common.Util.Configuration;
+using TheTechIdea.Beep.Tools;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis.Modules;
 using TheTechIdea.Beep.Winform.Controls;
@@ -22,7 +24,6 @@ using TheTechIdea.Beep.Winform.Default.Views;
 using TheTechIdea.Beep.Winform.Default.Views.Configuration;
 using TheTechIdea.Beep.Winform.Default.Views.Template;
 
-
 namespace WinFormsApp.UI.Test
 {
     internal static class Program
@@ -31,20 +32,17 @@ namespace WinFormsApp.UI.Test
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args) // ✅ NEW: Accept command line arguments
+        static void Main(string[] args)
         {
-         //   Application.EnableVisualStyles();
-            // CRITICAL: Set DPI awareness FIRST, before any Windows API calls
-        //    RegisterBeepWinformServices.SetHighDpiMode();
-
-            // ✅ NEW: Initialize configuration system early
+            // Initialize configuration system early
             InitializeConfiguration(args);
 
             StartSampleBusinessApp();
         }
+
         #region Environment and Configuration
         /// <summary>
-        /// ✅ NEW: Initialize the configuration system with environment detection
+        /// Initialize the configuration system with environment detection
         /// </summary>
         private static void InitializeConfiguration(string[] args)
         {
@@ -81,7 +79,7 @@ namespace WinFormsApp.UI.Test
         }
 
         /// <summary>
-        /// ✅ NEW: Parse environment from command line arguments
+        /// Parse environment from command line arguments
         /// </summary>
         private static string ParseEnvironmentFromArgs(string[] args)
         {
@@ -98,45 +96,61 @@ namespace WinFormsApp.UI.Test
         }
         #endregion
 
-
         private static void StartSampleBusinessApp()
         {
             // Create HostApplicationBuilder
             var builder = Host.CreateApplicationBuilder();
 
-            // ✅ ENHANCED: Register Beep Services using BeepDesktopServices
-            // This now uses the modern AddBeepForDesktop() API internally with:
-            // - Singleton lifetime for desktop apps
-            // - Progress reporting support
-            // - Design-time support for Visual Studio
-            // - Automatic assembly loading
-            // See: BeepDM/DataManagementEngineStandard/Services/README.md
-            BeepDesktopServices.RegisterServices(builder);
+            // ============================================================
+            // MODERN FLUENT REGISTRATION (Option 3)
+            // ============================================================
+            // Register Beep core services with full control over configuration
+            // Using the fluent builder API - returns IBeepServiceBuilder
+            builder.Services.AddBeepServices()
+                .WithDirectory(AppContext.BaseDirectory)
+                .WithAppRepo("Beep")
+                .WithConfigType(BeepConfigType.Application)
+                .WithMapping(true)
+                .WithAssemblyLoading(true)
+                .WithAssemblyHandler(AssemblyHandlerType.SharedContext) // Switch between Default and SharedContext
+                .WithTimeout(TimeSpan.FromMinutes(5))
+                .AsSingleton()
+                .Build();
+
+            // Register desktop-specific services
+            builder.Services.AddRoutingServices()
+                            .AddKeyHandling()
+                            .AddAppManager()
+                            .AddControlServices();
+
+            // Register views and view models with automatic discovery
+            builder.Services.AddViewModels()
+                            .AddViews();
+            // ============================================================
 
             // Build the host
             var host = builder.Build();
-           
+
             // Configure services using the existing method
             BeepDesktopServices.ConfigureServices(host);
 
-            // Add-in / menu / tree command wiring + SimpleItemFactory (composition lives in Beep.Winform.Extensions; Controls stay UI-only)
+            // Add-in / menu / tree command wiring + SimpleItemFactory
             host.ConfigureBeepWinformAddInUi();
 
-            // ✅ NEW: Configure AppManager using configuration settings
+            // Configure AppManager using configuration settings
             var config = UserSettingsManager.Configuration;
 
-            // Configure AppManager (exact same configuration)
-            BeepDesktopServices.AppManager.DialogManager= new BeepDialogManager();
+            // Configure AppManager
+            BeepDesktopServices.AppManager.DialogManager = new BeepDialogManager();
             BeepDesktopServices.AppManager.Title = "Beep Data Management Platform";
-         
             BeepDesktopServices.AppManager.WaitFormType = typeof(BeepWait);
             BeepDesktopServices.AppManager.IconUrl = "simpleinfoapps.ico";
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepDesktopServices.AppManager.HomePageName = "MainFrm";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
-
             BeepDesktopServices.AppManager.Theme = "TerminalTheme";
             BeepDesktopServices.AppManager.Style = FormStyle.Terminal;
+
             // Set the theme and style before loading fonts
             BeepThemesManager.CurrentStyle = FormStyle.Terminal;
             TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
@@ -144,7 +158,11 @@ namespace WinFormsApp.UI.Test
             // Subscribe to events for custom routes and resources
             SubscribeToBeepEvents();
             BeepDesktopServices.AppManager.DialogManager = new BeepDialogManager((Form)BeepDesktopServices.AppManager.MainDisplay);
-            var result = BeepDesktopServices.StartLoading(new string[] { "BeepEnterprize", "TheTechIdea", "Beep" }, showWaitForm: true);
+
+            // Start loading with progress
+            var result = BeepDesktopServices.StartLoading(
+                new string[] { "BeepEnterprize", "TheTechIdea", "Beep" },
+                showWaitForm: true);
 
             if (result.Flag == Errors.Ok)
             {
@@ -154,32 +172,26 @@ namespace WinFormsApp.UI.Test
             {
                 Debug.WriteLine($"Sample Business App - Loading failed: {result.Message}");
                 MessageBox.Show($"Loading failed: {result.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                
-                // ✅ NEW: Cleanup configuration on error
+
+                // Cleanup configuration on error
                 UserSettingsManager.Dispose();
                 return;
             }
 
-            // Ensure SQLite DB and seed demo data for SampleBusinessApp
-            //   Seed.EnsureCreatedAndSeeded(BeepDesktopServices.AppManager.DMEEditor);
-
-            // Start the Sample Business App
-            //  RunSampleBusinessApp();
-         
+            // Show home page
             BeepDesktopServices.AppManager.ShowHome();
-           
-            // ✅ NEW: Cleanup configuration system
+
+            // Cleanup configuration system
             UserSettingsManager.Dispose();
 
             // Dispose services when application exits
             BeepDesktopServices.DisposeServices();
             PaintersFactory.ClearCache();
+
             // Dispose the host
             host.Dispose();
             Application.Exit();
         }
-
-     
 
         #region Subscribing to Events for Beep FrameWork to load images and font and register routes
         /// <summary>
@@ -191,11 +203,6 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.OnRegisterRoutes += (routingManager) =>
             {
                 Debug.WriteLine("Registering Sample Business App routes...");
-
-                // Core application views
-             //   RegisterSampleBusinessAppRoutes(routingManager);
-
-                // Register standard Beep routes
                 RegisterStandardBeepRoutes(routingManager);
             };
 
@@ -203,7 +210,6 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.OnLoadGraphics += (graphicsLocations) =>
             {
                 Debug.WriteLine("Adding Sample Business App graphics paths...");
-                // Add Sample Business App specific paths
                 var customPaths = new[]
                 {
                     @".\SampleBusinessApp\Resources\Images",
@@ -243,8 +249,8 @@ namespace WinFormsApp.UI.Test
             };
         }
         #endregion
-        #region Routes Registertion
-      
+
+        #region Routes Registration
         /// <summary>
         /// Register standard Beep framework routes
         /// </summary>
@@ -266,8 +272,8 @@ namespace WinFormsApp.UI.Test
                 { "uc_DataEdit", "uc_DataEdit" },
                 { "uc_CopyEntities", "uc_CopyEntities" },
                 { "uc_DataConnections", "uc_DataConnections" },
-                 { "uc_NuggetsManageWizardLauncher_new", "uc_NuggetsManageWizardLauncher_new" },
-                 { "uc_ImportExportWizardLauncher", "uc_ImportExportWizardLauncher" }
+                { "uc_NuggetsManageWizardLauncher_new", "uc_NuggetsManageWizardLauncher_new" },
+                { "uc_ImportExportWizardLauncher", "uc_ImportExportWizardLauncher" }
             };
 
             foreach (var route in standardRoutes)
@@ -277,20 +283,19 @@ namespace WinFormsApp.UI.Test
                     var result = routingManager.RegisterRouteByName(route.Key, route.Value);
                     if (result.Flag == Errors.Ok)
                     {
-                        Debug.WriteLine($"✅ Successfully registered standard route: {route.Key}");
+                        Debug.WriteLine($"Successfully registered standard route: {route.Key}");
                     }
                     else
                     {
-                        Debug.WriteLine($"❌ Failed to register standard route {route.Key}: {result.Message}");
+                        Debug.WriteLine($"Failed to register standard route {route.Key}: {result.Message}");
                     }
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine($"❌ Exception registering standard route {route.Key}: {ex.Message}");
+                    Debug.WriteLine($"Exception registering standard route {route.Key}: {ex.Message}");
                 }
             }
         }
         #endregion
-
     }
 }
