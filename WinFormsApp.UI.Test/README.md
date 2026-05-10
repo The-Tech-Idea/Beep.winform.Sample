@@ -2,6 +2,38 @@
 
 ## 📦 What You've Received
 
+## Demo Modes
+
+This sample app now includes standalone ModernForm demos for the custom caption-region contract and the broader diagnostics host.
+
+Use launch arguments:
+
+```text
+--demo custom-caption-region
+--demo diagnostics
+```
+
+Those paths open dedicated `BeepiFormPro` samples instead of the normal business-shell startup.
+
+- `--demo custom-caption-region` validates caption-relative bounds, `F6` traversal, and accessibility toggles in isolation.
+- `--demo diagnostics` validates current painter/theme/style state, current metrics, paint and Win32 backdrop switches, actual registered hit areas, live layout rectangles, DPI and window-state reporting, and multi-form global theme/style synchronization.
+
+Quick validation pass:
+
+1. Click the `?` caption region and confirm the status text updates.
+2. Use `F6` or `Shift+F6` until the custom caption region is focused, then press `Enter`.
+3. Switch among `Modern`, `MacOS`, `Neon`, and `Glass`.
+4. Toggle `Screen reader support`, `High contrast mode`, `Show search box`, and `Show profile button`.
+5. Resize, maximize, and restore the form, then re-test the custom caption region.
+
+Diagnostics quick pass:
+
+1. Launch `--demo diagnostics` and inspect the live diagnostics panel for current painter, theme, metrics, DPI, window state, registered hit areas, and layout rectangles.
+2. Switch styles locally, then enable global sync and push a style change again.
+3. Open the companion diagnostics form and confirm both forms react to global theme/style changes.
+4. Cycle `Paint BackdropEffect` and `Win32 Backdrop` separately.
+5. Resize, maximize, and restore while confirming the diagnostics text stays coherent and the registered hit areas plus metrics continue to match the visible caption targets.
+
 Your WinForms desktop application has been analyzed and improved with **enterprise-grade error handling, diagnostics, and resource management**.
 
 ### Generated Files
