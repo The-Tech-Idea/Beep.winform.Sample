@@ -186,11 +186,13 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.AppManager.LogoUrl = "simpleinfoapps.svg";
             BeepDesktopServices.AppManager.HomePageName = "MainFrm";
             BeepDesktopServices.AppManager.HomePageDescription = "homePageDescription";
-            BeepDesktopServices.AppManager.Theme = "TerminalTheme";
-            BeepDesktopServices.AppManager.Style = FormStyle.Terminal;
+            BeepDesktopServices.AppManager.Theme = "BrutalistTheme";
+            BeepDesktopServices.AppManager.Style = FormStyle.Brutalist;
+
 
             // Set the theme and style before loading fonts
-            BeepThemesManager.CurrentStyle = FormStyle.Terminal;
+
+            BeepThemesManager.CurrentStyle = FormStyle.Brutalist;
             TheTechIdea.Beep.Winform.Controls.FontManagement.FontListHelper.EnsureFontsLoaded();
 
             // Subscribe to events for custom routes and resources
