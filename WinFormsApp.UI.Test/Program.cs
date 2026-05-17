@@ -117,6 +117,13 @@ namespace WinFormsApp.UI.Test
                 return true;
             }
 
+            if (string.Equals(demoName, "document-host-mdi", StringComparison.OrdinalIgnoreCase))
+            {
+                ApplicationConfiguration.Initialize();
+                Application.Run(new DocumentHostMdiDemoForm());
+                return true;
+            }
+
             return false;
         }
 
