@@ -34,10 +34,7 @@ namespace WinFormsApp.UI.Test
         [STAThread]
         static void Main(string[] args)
         {
-            if (TryRunRequestedDemo(args))
-            {
-                return;
-            }
+            
 
             // Initialize configuration system early
             InitializeConfiguration(args);
@@ -100,33 +97,7 @@ namespace WinFormsApp.UI.Test
             return null;
         }
 
-        private static bool TryRunRequestedDemo(string[] args)
-        {
-            string demoName = ParseDemoFromArgs(args);
-            if (string.Equals(demoName, "custom-caption-region", StringComparison.OrdinalIgnoreCase))
-            {
-                ApplicationConfiguration.Initialize();
-                Application.Run(new CustomCaptionRegionDemoForm());
-                return true;
-            }
-
-            if (string.Equals(demoName, "diagnostics", StringComparison.OrdinalIgnoreCase))
-            {
-                ApplicationConfiguration.Initialize();
-                Application.Run(new ModernFormDiagnosticsDemoForm());
-                return true;
-            }
-
-            if (string.Equals(demoName, "document-host-mdi", StringComparison.OrdinalIgnoreCase))
-            {
-                ApplicationConfiguration.Initialize();
-                Application.Run(new DocumentHostMdiDemoForm());
-                return true;
-            }
-
-            return false;
-        }
-
+       
         private static string ParseDemoFromArgs(string[] args)
         {
             for (int i = 0; i < args.Length - 1; i++)
