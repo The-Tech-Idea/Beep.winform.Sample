@@ -10,6 +10,7 @@ using System.Linq;
 
 using TheTechIdea.Beep.Desktop.Common.Util;
 using TheTechIdea.Beep.Services;
+using TheTechIdea.Beep.Shared;
 
 namespace WinFormsApp.UI.Test
 {
