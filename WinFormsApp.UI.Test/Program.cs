@@ -23,6 +23,7 @@ using TheTechIdea.Beep.Winform.Controls.ThemeManagement;
 using TheTechIdea.Beep.Winform.Default.Views;
 using TheTechIdea.Beep.Winform.Default.Views.Configuration;
 using TheTechIdea.Beep.Winform.Default.Views.Template;
+using TheTechIdea.Beep.Shared;
 
 namespace WinFormsApp.UI.Test
 {
@@ -151,7 +152,7 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.ConfigureServices(host);
 
             // Add-in / menu / tree command wiring + SimpleItemFactory
-            host.ConfigureBeepWinformAddInUi();
+            host.ConfigureBeepAddInUi();
 
             // Configure AppManager using configuration settings
             var config = UserSettingsManager.Configuration;
