@@ -103,8 +103,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.OilandGas.Branchs", ".
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.IDE.Extensions", "..\Beep.Winform\TheTechIdea.Beep.Winform.IDE.Extensions\TheTechIdea.Beep.Winform.IDE.Extensions.csproj", "{58A29F18-2384-42B6-AEB9-ADA8F832A127}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winfrom.Controls.472", "..\Beep.Winform\TheTechIdea.Beep.Winfrom.Controls.472\TheTechIdea.Beep.Winfrom.Controls.472.csproj", "{2989CBDA-93B8-4261-921C-D439C4B3C7EB}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OilandGas", "OilandGas", "{86019B42-267A-4EC4-BF04-C760FC613273}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Beep.OilandGas.Winform.DataManagement", "..\Beep.OilandGas\WinForm\Beep.OilandGas.Winform.DataManagement\Beep.OilandGas.Winform.DataManagement.csproj", "{D5D0012E-31B7-4A6A-8F36-C04F81E6CE6C}"
@@ -745,22 +743,6 @@ Global
 		{58A29F18-2384-42B6-AEB9-ADA8F832A127}.Release|x64.Build.0 = Release|Any CPU
 		{58A29F18-2384-42B6-AEB9-ADA8F832A127}.Release|x86.ActiveCfg = Release|Any CPU
 		{58A29F18-2384-42B6-AEB9-ADA8F832A127}.Release|x86.Build.0 = Release|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Debug|arm64.ActiveCfg = Debug|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Debug|arm64.Build.0 = Debug|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Debug|x64.Build.0 = Debug|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Debug|x86.Build.0 = Debug|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Release|arm64.ActiveCfg = Release|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Release|arm64.Build.0 = Release|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Release|x64.ActiveCfg = Release|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Release|x64.Build.0 = Release|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Release|x86.ActiveCfg = Release|Any CPU
-		{2989CBDA-93B8-4261-921C-D439C4B3C7EB}.Release|x86.Build.0 = Release|Any CPU
 		{D5D0012E-31B7-4A6A-8F36-C04F81E6CE6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D5D0012E-31B7-4A6A-8F36-C04F81E6CE6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5D0012E-31B7-4A6A-8F36-C04F81E6CE6C}.Debug|arm64.ActiveCfg = Debug|Any CPU
