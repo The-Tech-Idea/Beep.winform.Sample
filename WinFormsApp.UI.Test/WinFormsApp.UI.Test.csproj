@@ -44,10 +44,11 @@
     <ProjectReference Include="..\..\Beep.Shared\TheTechIdea.Beep.Fonts\TheTechIdea.Beep.Fonts.csproj" />
     <ProjectReference Include="..\..\Beep.Shared\TheTechIdea.Beep.Icons\TheTechIdea.Beep.Icons.csproj" />
     <ProjectReference Include="..\..\Beep.ViewModels\TheTechIdea.Beep.MVVM\TheTechIdea.Beep.MVVM.csproj" />
+    <ProjectReference Include="..\..\Beep.Winform.Data.Integrated\Beep.Winform.Data.Integrated.Controls\TheTechIdea.Beep.Winform.Controls.Integrated.csproj" />
+    <ProjectReference Include="..\..\Beep.Winform.Data.Integrated\Beep.Winform.Data.Integrated.Views\TheTechIdea.Beep.Winform.Default.Views.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Vis.Modules2.0\TheTechIdea.Beep.Vis.Modules.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls.Design.Server\TheTechIdea.Beep.Winform.Controls.Design.Server.csproj" />
     <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Controls\TheTechIdea.Beep.Winform.Controls.csproj" />
-    <ProjectReference Include="..\..\Beep.Winform\TheTechIdea.Beep.Winform.Default.Views\TheTechIdea.Beep.Winform.Default.Views.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\DataSourcesPluginsCore\SqliteDatasourceCore\SqliteDatasourceCore.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\DataSourcesPlugins\RDBMSDataSource\RDBDataSource.csproj" />
     <ProjectReference Include="..\..\BeepDataSources\InMemoryDB\DuckDBDataSourceCore\DuckDBDataSourceCore.csproj" />
