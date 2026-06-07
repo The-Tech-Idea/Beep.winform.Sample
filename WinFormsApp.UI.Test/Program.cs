@@ -3,6 +3,7 @@ using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using TheTechIdea.Beep.ConfigUtil;
 using TheTechIdea.Beep.Container;
 using TheTechIdea.Beep.Desktop.Common;
@@ -33,14 +34,10 @@ namespace WinFormsApp.UI.Test
         ///  The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            
-
-            // Initialize configuration system early
             InitializeConfiguration(args);
-
-            StartSampleBusinessApp();
+            await StartSampleBusinessApp();
         }
 
         #region Environment and Configuration
@@ -113,51 +110,38 @@ namespace WinFormsApp.UI.Test
         }
         #endregion
 
-        private static void StartSampleBusinessApp()
+        private static async Task StartSampleBusinessApp()
         {
-            // Create HostApplicationBuilder
             var builder = Host.CreateApplicationBuilder();
 
-            // ============================================================
-            // MODERN FLUENT REGISTRATION (Option 3)
-            // ============================================================
-            // Register Beep core services with full control over configuration
-            // Using the fluent builder API - returns IBeepServiceBuilder
             builder.Services.AddBeepServices()
                 .WithDirectory(AppContext.BaseDirectory)
                 .WithAppRepo("Beep")
                 .WithConfigType(BeepConfigType.Application)
                 .WithMapping(true)
                 .WithAssemblyLoading(true)
-                .WithAssemblyHandler(AssemblyHandlerType.SharedContext) // Switch between Default and SharedContext
+                .WithAssemblyHandler(AssemblyHandlerType.SharedContext)
                 .WithTimeout(TimeSpan.FromMinutes(5))
                 .AsSingleton()
                 .Build();
 
-            // Register desktop-specific services
             builder.Services.AddRoutingServices()
                             .AddKeyHandling()
                             .AddAppManager()
-                            .AddControlServices();
-
-            // Register views and view models with automatic discovery
-            builder.Services.AddViewModels()
+                            .AddControlServices()
+                            .AddViewModels()
                             .AddViews();
-            // ============================================================
 
-            // Build the host
             var host = builder.Build();
 
-            // Configure services using the existing method
-            BeepDesktopServices.ConfigureServices(host);
+            // ── ConfigureServicesAsync now automatically runs enterprise bootstrap ──
+            // (first-run detection + setup wizard) as part of startup.
+            await BeepDesktopServices.ConfigureServicesAsync(host);
 
-            // Add-in / menu / tree command wiring + SimpleItemFactory
             host.ConfigureBeepAddInUi();
 
-            // Configure AppManager using configuration settings
             var config = UserSettingsManager.Configuration;
 
-            // Configure AppManager
             BeepDesktopServices.AppManager.DialogManager = new BeepDialogManager();
             BeepDesktopServices.AppManager.Title = "Beep Data Management Platform";
             BeepDesktopServices.AppManager.WaitFormType = typeof(BeepWait);
