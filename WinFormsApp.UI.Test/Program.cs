@@ -184,6 +184,18 @@ namespace WinFormsApp.UI.Test
             // Show home page
             BeepDesktopServices.AppManager.ShowHome();
 
+            // M4-IDE-009: the M4 multi-form flow is exposed
+            // through the new BeepApplication class. The
+            // sample's HomePage flow continues to be the
+            // canonical entry point; multi-form composition is
+            // demonstrated by the BeepApplication surface
+            // (Beep.Winform.Data.Integrated/Forms/BeepApplication.cs).
+            // A future sample will swap the HomePage call for
+            // a BeepApplication.OpenForm("Login") / .GoForm("Main")
+            // flow that exercises OPEN_FORM / GO_FORM /
+            // SET_GLOBAL / GET_GLOBAL through the built-ins
+            // playground.
+
             // Cleanup configuration system
             UserSettingsManager.Dispose();
 
