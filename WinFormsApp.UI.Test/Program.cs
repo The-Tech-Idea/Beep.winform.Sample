@@ -1,5 +1,4 @@
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -112,9 +111,9 @@ namespace WinFormsApp.UI.Test
 
         private static async Task StartSampleBusinessApp()
         {
-            var builder = Host.CreateApplicationBuilder();
+            var services = new ServiceCollection();
 
-            builder.Services.AddBeepServices()
+            services.AddBeepServices()
                 .WithDirectory(AppContext.BaseDirectory)
                 .WithAppRepo("Beep")
                 .WithConfigType(BeepConfigType.Application)
@@ -125,20 +124,18 @@ namespace WinFormsApp.UI.Test
                 .AsSingleton()
                 .Build();
 
-            builder.Services.AddRoutingServices()
-                            .AddKeyHandling()
-                            .AddAppManager()
-                            .AddControlServices()
-                            .AddViewModels()
-                            .AddViews();
+            services.AddRoutingServices()
+                             .AddKeyHandling()
+                             .AddAppManager()
+                             .AddControlServices()
+                             .AddViewModels()
+                             .AddViews();
 
-            var host = builder.Build();
+            var serviceProvider = services.BuildServiceProvider();
 
-            // ── ConfigureServicesAsync now automatically runs enterprise bootstrap ──
-            // (first-run detection + setup wizard) as part of startup.
-            await BeepDesktopServices.ConfigureServicesAsync(host);
+            await BeepDesktopServices.ConfigureServicesAsync(serviceProvider);
 
-            host.ConfigureBeepAddInUi();
+            serviceProvider.ConfigureBeepAddInUi();
 
             var config = UserSettingsManager.Configuration;
 
@@ -203,8 +200,8 @@ namespace WinFormsApp.UI.Test
             BeepDesktopServices.DisposeServices();
             PaintersFactory.ClearCache();
 
-            // Dispose the host
-            host.Dispose();
+            // Dispose the service provider
+            serviceProvider.Dispose();
             Application.Exit();
         }
 
