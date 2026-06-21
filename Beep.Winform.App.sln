@@ -113,7 +113,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Winform", "Winform", "{6C1A
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integrated", "Integrated", "{16ED00D3-5B0E-4FF5-9C2A-77986C74471B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Controls.Integrated", "..\Beep.Winform.Data.Integrated\Beep.Winform.Data.Integrated.Controls\TheTechIdea.Beep.Winform.Controls.Integrated.csproj", "{2D49479B-1CD6-A4A6-2DEB-FFE13EF70B72}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Data.Integrated", "..\Beep.Winform.Data.Integrated\Beep.Winform.Data.Integrated.Controls\TheTechIdea.Beep.Winform.Data.Integrated.csproj", "{2D49479B-1CD6-A4A6-2DEB-FFE13EF70B72}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheTechIdea.Beep.Winform.Default.Views", "..\Beep.Winform.Data.Integrated\Beep.Winform.Data.Integrated.Views\TheTechIdea.Beep.Winform.Default.Views.csproj", "{A0E427CF-655E-5B32-3825-D1CC1693966C}"
 EndProject
