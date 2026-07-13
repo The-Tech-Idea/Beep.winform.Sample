@@ -9,6 +9,7 @@ using TheTechIdea.Beep.Desktop.Common;
 using TheTechIdea.Beep.Desktop.Common.Helpers;
 using TheTechIdea.Beep.Desktop.Common.Util;
 using TheTechIdea.Beep.Desktop.Common.Util.Configuration;
+using TheTechIdea.Beep.Services;
 using TheTechIdea.Beep.Tools;
 using TheTechIdea.Beep.Utilities;
 using TheTechIdea.Beep.Vis.Modules;
@@ -128,8 +129,8 @@ namespace WinFormsApp.UI.Test
                              .AddKeyHandling()
                              .AddAppManager()
                              .AddControlServices()
-                             .AddViewModels()
-                             .AddViews();
+                             .AddBeepViewModels()
+                             .AddBeepViews();
 
             var serviceProvider = services.BuildServiceProvider();
 
